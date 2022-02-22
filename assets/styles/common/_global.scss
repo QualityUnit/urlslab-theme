@@ -1,0 +1,49 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $font-primary;
+	font-size: $font-size-default;
+	font-weight: $font-weight-normal;
+	line-height: $line-height-default;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	max-width: $wrapper-width;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $wrapper-padding;
+	padding-right: $wrapper-padding;
+
+	@media (max-width: $breakpoint-desktop) {
+		padding-left: ($wrapper-padding * 2);
+		padding-right: ($wrapper-padding * 2);
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		padding-left: $wrapper-padding;
+		padding-right: $wrapper-padding;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.mobile--only {
+
+	@media (min-width: $breakpoint-tablet) {
+		display: none;
+	}
+}
+
+.desktop--only {
+
+	@media (max-width:( $breakpoint-tablet - 1px)) {
+		display: none;
+	}
+}
