@@ -17,7 +17,7 @@ jobs:
       - name: Setup PHP 7.4
         uses: shivammathur/setup-php@v2
         with:
-          php_version: '7.4'
+          php-version: '7.4'
 
       - name: Install Composer dependencies
         run: composer install
@@ -38,6 +38,28 @@ jobs:
 
       - name: Build CSS and JS
         run: yarn build
+
+#      - name: Commit changes
+#        uses: EndBug/add-and-commit@v8
+#        with:
+#          default_author: github_actions
+#          message: 'Add Build Files'
+#          add: 'assets/dist --force'
+
+      - name: Which branch
+        run: git status
+
+      - name: Add changes
+        run: git add assets/dist --force
+
+      - name: Commit changes
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git commit -m "Add Build Files"
+
+      - name: Push changes
+        run: git push --tags
 
       - name: Remove unnecessary files
         run: rm -rf node_modules vendor .git .idea .github *.md *.lock .editorconfig .eslintignore .eslintrc .gitignore .stylelintrc composer.json gulpfile.js package.json phpcs.xml
