@@ -1,6 +1,6 @@
 {
   "name": "urlslab/wp-theme",
-  "type": "project",
+  "type": "wordpress-theme",
   "license": "GPL-2.0-only",
   "description": "URLsLab's WordPress Theme",
 	"config": {
