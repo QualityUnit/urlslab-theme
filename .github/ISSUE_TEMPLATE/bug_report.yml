@@ -5,12 +5,12 @@ body:
 - type: markdown
   attributes:
     value: |
-    ### Thanks for contributing!
+      ### Thanks for contributing!
 
-        Please write a clear title, then fill in as much details as possible.
+      Please write a clear title, then fill in as much details as possible.
 
-        __Avoid using image hosting services such as Cloudup, Droplr, Imgur, etc., to link to media.__
-        Instead, attach screenshot(s) or recording(s) directly in any of the text areas below: click, then drag and drop.
+      __Avoid using image hosting services such as Cloudup, Droplr, Imgur, etc., to link to media.__
+      Instead, attach screenshot(s) or recording(s) directly in any of the text areas below: click, then drag and drop.
 
 - type: textarea
   id: summary
@@ -22,12 +22,12 @@ body:
   attributes:
     label: Steps to reproduce
     placeholder: |
-    1. Start at `site-domain.com/blog`.
-    2. Click on any blog post.
-    3. Click on the 'Like' button.
-    4. ...
+      1. Start at `site-domain.com/blog`.
+      2. Click on any blog post.
+      3. Click on the 'Like' button.
+      4. ...
 
-        Attach any media by drag and dropping or selecting upload.
+      Attach any media by drag and dropping or selecting upload.
   validations:
     required: true
 
@@ -56,10 +56,10 @@ body:
 - type: markdown
   attributes:
     value: |
-    ---
-    ## Additional context
+      ---
+      ## Additional context
 
-        Please provide whatever additional information you have available to you. If not, please scroll to the bottom and submit the issue.
+      Please provide whatever additional information you have available to you. If not, please scroll to the bottom and submit the issue.
 
 - type: dropdown
   id: browser
@@ -84,10 +84,10 @@ body:
 - type: markdown
   attributes:
     value: |
-    ---
-    ## Issue severity
+      ---
+      ## Issue severity
 
-        Please provide details around how often the issue is reproducible & how many users are affected.
+      Please provide details around how often the issue is reproducible & how many users are affected.
 
 - type: dropdown
   id: reproducibility
