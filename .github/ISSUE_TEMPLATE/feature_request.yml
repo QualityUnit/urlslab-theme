@@ -5,7 +5,7 @@ body:
 - type: markdown
   attributes:
   value: |
-  Please, be as descriptive as possible. Issues lacking detail, or for any other reason than to request a feature, may be closed without action.
+    Please, be as descriptive as possible. Issues lacking detail, or for any other reason than to request a feature, may be closed without action.
 
 - type: textarea
   id: what
