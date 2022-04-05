@@ -20,7 +20,7 @@
 		'lib/cleaner/yoast.php',      // Clean Yoast things
 
 		// Custom Post Types
-		//'lib/post-types/xxx.php',   // Name of post type
+		'functions/post-types.php',   // Import custom post types
 
 		// Custom Taxonomies
 		//'lib/taxonomies/xxx.php',   // Name of post type
