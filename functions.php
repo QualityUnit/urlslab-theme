@@ -18,14 +18,16 @@
 		'lib/cleaner/wordpress.php',  // Clean WordPress things
 		'lib/cleaner/wpml.php',       // Clean WPML things
 		'lib/cleaner/yoast.php',      // Clean Yoast things
-
+		
 		// Custom Post Types
+		'lib/post-types.php',         // Theme Post Types
 		//'lib/post-types/xxx.php',   // Name of post type
-
+		
 		// Custom Taxonomies
 		//'lib/taxonomies/xxx.php',   // Name of post type
-
+		
 		// Custom Metaboxes
+		'lib/metaboxes.php',          // Theme Metaboxes
 		//'lib/metaboxes/xxx.php',   // Name of post type
 
 		// Custom Shortcodes
