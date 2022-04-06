@@ -19,10 +19,7 @@ add_action(
 			'label'               => __( 'Feature', 'ms' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
-			'show_in_graphql'     => true,
 			'hierarchical'        => true,
-			'graphql_single_name' => 'feature',
-			'graphql_plural_name' => 'features',
 			'public'              => true,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
@@ -37,6 +34,9 @@ add_action(
 			'rewrite'             => $rewrite,
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
+			'show_in_graphql'     => true,
+			'graphql_single_name' => 'feature',
+			'graphql_plural_name' => 'features',
 		);
 		register_post_type( 'features', $args );
 	},

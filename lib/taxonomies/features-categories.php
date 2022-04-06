@@ -11,16 +11,16 @@ add_action(
 		$args   = array(
 			'labels'            => $labels,
 			'hierarchical'      => true,
-			'show_in_graphql'     => true,
 			'hierarchical'        => true,
-			'graphql_single_name' => 'category',
-			'graphql_plural_name' => 'categories',
 			'public'            => true,
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'show_in_nav_menus' => true,
 			'show_tagcloud'     => false,
 			'show_in_rest'      => true,
+			'show_in_graphql'     => true,
+			'graphql_single_name' => 'category',
+			'graphql_plural_name' => 'categories',
 		);
 		register_taxonomy( 'features_categories', array( 'features' ), $args );
 	},
