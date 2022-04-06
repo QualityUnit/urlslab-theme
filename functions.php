@@ -21,14 +21,12 @@
 		
 		// Custom Post Types
 		'lib/post-types.php',         // Theme Post Types
-		//'lib/post-types/xxx.php',   // Name of post type
 		
 		// Custom Taxonomies
-		//'lib/taxonomies/xxx.php',   // Name of post type
+		'lib/taxonomies/features-categories.php',   // Features Categories
 		
 		// Custom Metaboxes
 		'lib/metaboxes.php',          // Theme Metaboxes
-		//'lib/metaboxes/xxx.php',   // Name of post type
 
 		// Custom Shortcodes
 		//'lib/shortcodes/xxx.php',   // Name of post type
