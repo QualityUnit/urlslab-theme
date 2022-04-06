@@ -18,14 +18,8 @@
 		'lib/cleaner/wordpress.php',  // Clean WordPress things
 		'lib/cleaner/wpml.php',       // Clean WPML things
 		'lib/cleaner/yoast.php',      // Clean Yoast things
-		
-		// Custom Post Types
 		'lib/post-types.php',         // Theme Post Types
-		
-		// Custom Taxonomies
-		'lib/taxonomies/features-categories.php',   // Features Categories
-		
-		// Custom Metaboxes
+		'lib/taxonomies.php',         // Theme Taxonomies
 		'lib/metaboxes.php',          // Theme Metaboxes
 
 		// Custom Shortcodes
