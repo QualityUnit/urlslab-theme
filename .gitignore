@@ -12,6 +12,8 @@ assets/dist/
 # Composer
 /vendor
 
+# Husky
+.husky
 
 ### Linux ###
 *~
