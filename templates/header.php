@@ -13,5 +13,14 @@
 			endif;
 			?>
 		</nav>
+		
+
+			<div class="Header__flags">
+				<?php
+				if ( is_active_sidebar( 'header_flags' ) ) :
+					dynamic_sidebar( 'header_flags' );
+				endif;
+				?>
+			</div>
 	</div>
 </header>
