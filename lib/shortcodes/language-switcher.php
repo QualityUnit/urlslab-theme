@@ -80,7 +80,7 @@ function ms_languages( $atts ) {
 		}
 		?>
 
-		<div class="LanguageSwitcher__mainmenu">
+		<div class="LanguageSwitcher__mainMenu">
 		<?php
 		foreach ( $regions as $region => $name ) {
 			if ( ! empty( $atts[ $region . '_from' ] || $atts[ $region . '_to' ] ) ) {
