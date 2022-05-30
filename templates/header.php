@@ -15,10 +15,10 @@
 		</nav>
 		
 
-			<div class="Header__flags">
+			<div class="LanguageSwitcher">
 				<?php
-				if ( is_active_sidebar( 'header_flags' ) ) :
-					dynamic_sidebar( 'header_flags' );
+				if ( is_active_sidebar( 'languageswitcher' ) ) :
+					dynamic_sidebar( 'languageswitcher' );
 				endif;
 				?>
 			</div>

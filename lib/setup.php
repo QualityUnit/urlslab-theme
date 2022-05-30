@@ -91,11 +91,11 @@ add_action(
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Header Language Switcher', 'ms' ),
-				'id'            => 'header_flags',
+				'name'          => __( 'Language Switcher', 'ms' ),
+				'id'            => 'languageswitcher',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="Header__flags__title">',
+				'before_title'  => '<h4 class="LanguageSwitcher__title">',
 				'after_title'   => '</h4>',
 			)
 		);
