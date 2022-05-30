@@ -13,5 +13,14 @@
 			endif;
 			?>
 		</nav>
+		
+
+			<div class="LanguageSwitcher">
+				<?php
+				if ( is_active_sidebar( 'languageswitcher' ) ) :
+					dynamic_sidebar( 'languageswitcher' );
+				endif;
+				?>
+			</div>
 	</div>
 </header>

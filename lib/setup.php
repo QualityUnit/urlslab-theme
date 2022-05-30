@@ -1,5 +1,13 @@
 <?php
 
+//Retrieves back old Widgets editor in WP 5.8 and newer
+
+function enable_old_widget_editor() {
+	remove_theme_support( 'widgets-block-editor' );
+}
+
+add_action( 'after_setup_theme', 'enable_old_widget_editor' );
+
 /**
 	* Theme setup
 	*/
@@ -30,7 +38,9 @@ add_action(
 		// http://codex.wordpress.org/Function_Reference/register_nav_menus
 		register_nav_menus(
 			array(
-				'header_navigation'        => __( 'Header Navigation', 'urlslab' ),
+				'header_navigation' => __( 'Header Navigation', 'urlslab' ),
+				'header_buttons'    => __( 'Header Buttons', 'urlslab' ),
+				'footer_navigation' => __( 'Footer Navigation', 'urlslab' ),
 			)
 		);
 
@@ -41,6 +51,14 @@ add_action(
 		add_theme_support( 'post-thumbnails' );
 
 		add_image_size( 'blog', 250, 250 );
+		add_image_size( 'archive_thumbnail', 185, 50 );
+		add_image_size( 'archive_small_thumbnail', 175, 25 );
+		add_image_size( 'blog_thumbnail', 380, 380, array( 'center', 'center' ) );
+		add_image_size( 'blog_post_thumbnail', 960, 335 );
+		add_image_size( 'box_archive_thumbnail', 700, 400 );
+		add_image_size( 'logo_thumbnail', 185, 185 );
+		add_image_size( 'logo_small_thumbnail', 110, 110 );
+		add_image_size( 'person_thumbnail', 485, 485 );
 
 		// Enable post formats
 		// http://codex.wordpress.org/Post_Formats
@@ -68,6 +86,17 @@ add_action(
 				'after_widget'  => '</div>',
 				'before_title'  => '<div>',
 				'after_title'   => '</div>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'name'          => __( 'Language Switcher', 'ms' ),
+				'id'            => 'languageswitcher',
+				'before_widget' => '<div class="%1$s %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h4 class="LanguageSwitcher__title">',
+				'after_title'   => '</h4>',
 			)
 		);
 	}

@@ -21,9 +21,7 @@
 		'lib/post-types.php',         // Theme Post Types
 		'lib/taxonomies.php',         // Theme Taxonomies
 		'lib/metaboxes.php',          // Theme Metaboxes
-
-		// Custom Shortcodes
-		//'lib/shortcodes/xxx.php',   // Name of post type
+		'lib/shortcodes.php',          // Theme Shortcodes
 	);
 
 	foreach ( $theme_includes as $file ) {
