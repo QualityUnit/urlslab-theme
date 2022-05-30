@@ -40,6 +40,7 @@ add_action(
 			array(
 				'header_navigation' => __( 'Header Navigation', 'urlslab' ),
 				'header_buttons'    => __( 'Header Buttons', 'urlslab' ),
+				'footer_navigation' => __( 'Footer Navigation', 'urlslab' ),
 			)
 		);
 
