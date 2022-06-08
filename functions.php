@@ -22,6 +22,7 @@
 		'lib/taxonomies.php',         // Theme Taxonomies
 		'lib/metaboxes.php',          // Theme Metaboxes
 		'lib/shortcodes.php',          // Theme Shortcodes
+		'lib/rest-api-endpoints.php',  // Rest API custom endpoints
 	);
 
 	foreach ( $theme_includes as $file ) {
