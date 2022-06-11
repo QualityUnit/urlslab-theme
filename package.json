@@ -41,6 +41,6 @@
 		"husky": "^8.0.1",
 		"minimist": "^1.2",
 		"node-sass": "^7",
-		"stylelint": "^14.8"
+		"stylelint": "^14.9"
 	}
 }
