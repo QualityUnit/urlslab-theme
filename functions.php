@@ -23,6 +23,7 @@
 		'lib/metaboxes.php',          // Theme Metaboxes
 		'lib/shortcodes.php',          // Theme Shortcodes
 		'lib/rest-api-endpoints.php',  // Rest API custom endpoints
+		'lib/content-filters.php',     // Content filters
 	);
 
 	foreach ( $theme_includes as $file ) {
