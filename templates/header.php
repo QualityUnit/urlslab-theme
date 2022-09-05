@@ -1,7 +1,11 @@
-<header>
-	<div>
-		<a href="<?= esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-		<nav>
+<header class="Header">
+	<div class="wrapper">
+		<div class="Header__logo">
+			<a href="<?= esc_url( home_url( '/' ) ); ?>">
+				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/urlslab-logo.svg" alt="<?php bloginfo( 'name' ); ?>">
+			</a>
+		</div>
+		<nav class="Header__navigation">
 			<?php
 			if ( has_nav_menu( 'header_navigation' ) ) :
 				wp_nav_menu(
@@ -13,14 +17,5 @@
 			endif;
 			?>
 		</nav>
-		
-
-			<div class="LanguageSwitcher">
-				<?php
-				if ( is_active_sidebar( 'languageswitcher' ) ) :
-					dynamic_sidebar( 'languageswitcher' );
-				endif;
-				?>
-			</div>
 	</div>
 </header>

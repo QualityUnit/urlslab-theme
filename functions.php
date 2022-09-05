@@ -1,14 +1,20 @@
 <?php
 
+// * Setup variables
+// */
+define( 'THEME_VERSION', '1.0.22' );
+
 /**
 	* Includes
 	*/
 
 	$theme_includes = array(
+		'lib/functions.php',          // Various helping functions
 		'lib/helpers.php',            // Helper classes
 		'lib/assets.php',             // Scripts and stylesheets
 		'lib/extras.php',             // Custom functions
 		'lib/setup.php',              // Theme setup
+		'lib/wrapper.php',            // Theme wrapper class
 		'lib/wrapper.php',            // Theme wrapper class
 		'lib/cleaner/assets.php',     // Clean assets
 		'lib/cleaner/comments.php',   // Disable comments
