@@ -1,4 +1,4 @@
-<?php require_once( 'footer-logos.php' ); ?>
+<?php require_once 'footer-logos.php'; ?>
 
 <footer class="Footer">
 	<div class="wrapper__wide">
@@ -10,13 +10,13 @@
 			</div>
 			<div class="Footer__main--links">
 				<?php
-					if ( has_nav_menu( 'header_navigation' ) ) :
-						wp_nav_menu(
-							array(
-								'theme_location' => 'header_navigation',
-								'menu_class' => 'Footer__navigation',
-							)
-						);
+				if ( has_nav_menu( 'header_navigation' ) ) :
+					wp_nav_menu(
+						array(
+							'theme_location' => 'header_navigation',
+							'menu_class'     => 'Footer__navigation',
+						)
+					);
 					endif;
 				?>
 				<div class="Footer__social">

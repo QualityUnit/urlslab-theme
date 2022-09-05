@@ -1,8 +1,8 @@
 <?php
 
 /**
-  * Styles
-  */
+* Styles
+**/
 
 add_action(
 	'wp_enqueue_scripts',
