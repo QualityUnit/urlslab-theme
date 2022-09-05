@@ -8,6 +8,7 @@ const gcmq = require( 'gulp-group-css-media-queries' );
 const gulp = require( 'gulp' );
 const plumber = require( 'gulp-plumber' );
 const rename = require( 'gulp-rename' );
+const replace = require( 'gulp-replace' );
 const sass = require( 'gulp-sass' )( require( 'node-sass' ) );
 const stylelint = require( 'gulp-stylelint' );
 const terser = require( 'gulp-terser' );
@@ -66,6 +67,20 @@ gulp.task( 'styles', () =>
 		.pipe( browserSync.reload( { stream: true } ) )
 );
 
+gulp.task( 'react-style', () =>
+	gulp
+		.src( './assets/styles/wordpress.css' )
+		.pipe( plumber() )
+		.pipe( autoprefixer( 'last 3 version', 'android 4', 'ie 11' ) )
+		.pipe( plumber.stop() )
+		.pipe( replace( '../../', '../' ) )
+		.pipe( gulp.dest( './assets/dist/' ) )
+		.pipe( filter( '**/*.css' ) )
+		.pipe( rename( { suffix: '.min' } ) )
+		.pipe( uglifycss() )
+		.pipe( gulp.dest( './assets/dist' ) )
+);
+
 gulp.task( 'app-js', () =>
 	gulp
 		.src( './assets/scripts/app/**/*.js' )
@@ -74,6 +89,36 @@ gulp.task( 'app-js', () =>
 		.pipe(
 			rename( {
 				basename: 'app',
+				suffix: '.min',
+			} )
+		)
+		.pipe( terser() )
+		.pipe( gulp.dest( './assets/dist/' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
+gulp.task( 'custom-js', () =>
+	gulp
+		.src( './assets/scripts/custom/**/*.js' )
+		.pipe( gulp.dest( './assets/dist' ) )
+		.pipe(
+			rename( ( path ) => {
+				// eslint-disable-next-line no-param-reassign
+				path.basename += '.min';
+			} )
+		)
+		.pipe( terser() )
+		.pipe( gulp.dest( './assets/dist/' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
+gulp.task( 'splide-js', () =>
+	gulp
+		.src( [ './assets/scripts/vendor/splide.js' ] )
+		.pipe( gulp.dest( './assets/dist' ) )
+		.pipe(
+			rename( {
+				basename: 'splide',
 				suffix: '.min',
 			} )
 		)
@@ -108,7 +153,10 @@ gulp.task(
 	gulp.series(
 		'clean-dist',
 		'styles',
-		'app-js'
+		'react-style',
+		'app-js',
+		'custom-js',
+		'splide-js'
 	)
 );
 
@@ -117,7 +165,10 @@ gulp.task(
 	gulp.series(
 		'clean-dist',
 		'styles',
+		'react-style',
 		'app-js',
+		'custom-js',
+		'splide-js',
 		'browser-sync'
 	)
 );
