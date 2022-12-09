@@ -9,8 +9,8 @@ add_action(
 	function () {
 		wp_enqueue_style( 'font-poppins', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap', false, '1' );
 		wp_enqueue_style( 'font-opensans', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', false, '1' );
-		wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/app' . wpenv() . '.css', false, '1.0.2' );
-		wp_enqueue_style( 'urlslab', get_template_directory_uri() . '/assets/dist/wordpress' . wpenv() . '.css', false, '1.0.5' );
+		wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/app' . wpenv() . '.css', false, THEME_VERSION );
+		wp_enqueue_style( 'urlslab', get_template_directory_uri() . '/assets/dist/wordpress' . wpenv() . '.css', false, THEME_VERSION );
 
 		wp_deregister_script( 'wp-embed' );
 	},

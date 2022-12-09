@@ -63,25 +63,29 @@ function extrafaq( $atts ) {
 		if ( $atts['subheadline'] ) {
 			?>
 			<div class="subhead--wrapper">
-				<p class="subhead"><?= esc_html( $atts['subheadline'] ); ?></p>
+				<p class="subhead"><?= $atts['subheadline'] // @codingStandardsIgnoreLine; ?></p>
 			</div>
 			<?php
 		} 
-		for ( $i = 1; $i <= 15; ++$i ) {
-			if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
-				?>
-				<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-					<h3 itemprop="name"><?= esc_html( $atts[ 'question-' . $i ] ); ?></h3>
-					<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-						<div class="Faq__inner-wrapper" itemprop="text">
-							<p><?= esc_html( $atts[ 'answer-' . $i ] ); ?></p>
-						</div>
-					</div>
-				</div>
-				<?php
-			}
-		}
 		?>
+		<ul class="Faq__items">
+			<?php
+			for ( $i = 1; $i <= 15; ++$i ) {
+				if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
+					?>
+						<li class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+							<h3 itemprop="name"><?= esc_html( $atts[ 'question-' . $i ] ); ?></h3>
+							<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+								<div class="Faq__inner-wrapper" itemprop="text">
+									<p><?= esc_html( $atts[ 'answer-' . $i ] ); ?></p>
+								</div>
+							</div>
+						</li>
+					<?php
+				}
+			}
+			?>
+		</ul>
 	</div>
 
 	<?php
