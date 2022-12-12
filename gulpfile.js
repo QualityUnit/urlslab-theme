@@ -13,6 +13,7 @@ const sass = require( 'gulp-sass' )( require( 'node-sass' ) );
 const stylelint = require( 'gulp-stylelint' );
 const terser = require( 'gulp-terser' );
 const uglifycss = require( 'gulp-uglifycss' );
+const svgSprites = require( 'gulp-svg-sprite' );
 
 gulp.task( 'browser-reload', ( done ) => {
 	browserSync.reload();
@@ -42,7 +43,44 @@ gulp.task( 'browser-sync', () => {
 
 	gulp.watch( './assets/styles/**/*.scss', gulp.series( 'styles' ) );
 	gulp.watch( './assets/scripts/app/**/*.js', gulp.series( 'app-js' ) );
+	gulp.watch(
+		'./assets/images/icons-common/*.svg',
+		gulp.series( 'iconsSprite' )
+	);
 } );
+
+const iconsConfig = {
+	shape: {
+		id: {
+			separator: '/',
+			generator: ( name ) => {
+				const renamed = name.replace( '/', '-' ).replace( '.svg', '' );
+				return renamed;
+			},
+		},
+	},
+	svg: {
+		xmlDeclaration: false,
+	},
+	mode: {
+		symbol: {
+			dest: '.',
+			sprite: 'icons.svg',
+			prefix: '%s',
+			dimensions: '',
+			inline: false,
+			rootviewbox: false,
+		},
+	},
+};
+
+gulp.task( 'iconsSprite', () => gulp
+	.src( [
+		'./vendor/qualityunit/wordpress-icons/icons/common/**/*.svg',
+		'./vendor/qualityunit/wordpress-icons/icons/urlslab/**/*.svg',
+	] )
+	.pipe( svgSprites( iconsConfig ) )
+	.pipe( gulp.dest( './assets/images' ) ) );
 
 gulp.task( 'styles', () =>
 	gulp
@@ -152,6 +190,7 @@ gulp.task(
 	'build',
 	gulp.series(
 		'clean-dist',
+		'iconsSprite',
 		'styles',
 		'react-style',
 		'app-js',
@@ -164,6 +203,7 @@ gulp.task(
 	'default',
 	gulp.series(
 		'clean-dist',
+		'iconsSprite',
 		'styles',
 		'react-style',
 		'app-js',
