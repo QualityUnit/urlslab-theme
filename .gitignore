@@ -3,6 +3,7 @@
 # Others
 *.sql
 assets/dist/
+/assets/images/icons.svg
 
 # Dotenv
 .env
