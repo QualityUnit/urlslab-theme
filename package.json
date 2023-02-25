@@ -13,7 +13,7 @@
 	  "build:all": "yarn && yarn build"
 	},
 	"engines": {
-		"node": ">= 16"
+		"node": ">= 14"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.20",
