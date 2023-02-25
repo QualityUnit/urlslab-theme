@@ -5,11 +5,12 @@
 	"author": "LiveAgent",
 	"license": "GPL-2.0-only",
 	"scripts": {
-		"test": "gulp stylelint && gulp eslint",
-		"stylelint": "gulp stylelint",
-		"eslint": "gulp eslint",
-		"build": "gulp build",
-		"dev": "gulp"
+	  "test": "NODE_ENV='production' gulp stylelint && gulp eslint",
+	  "stylelint": "NODE_ENV='production' gulp stylelint",
+	  "eslint": "gulp eslint",
+	  "build": "NODE_ENV='production' gulp build",
+	  "dev": "NODE_ENV='development' gulp",
+	  "build:all": "yarn && yarn build"
 	},
 	"engines": {
 		"node": ">= 14"
