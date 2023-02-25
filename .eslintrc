@@ -1,4 +1,9 @@
 {
+	"globals": {
+		"fetch": false,
+		"IntersectionObserver": false,
+		"ResizeObserver": false
+	},
 	"parser": "@babel/eslint-parser",
 	"parserOptions": {
 		"requireConfigFile": false
