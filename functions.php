@@ -22,7 +22,6 @@ define( 'THEME_VERSION', '1.2.0' );
 		'lib/cleaner/oembed.php',     // Disable oembed
 		'lib/cleaner/rest-api.php',   // Disable REST API for visitors
 		'lib/cleaner/wordpress.php',  // Clean WordPress things
-		'lib/cleaner/wpml.php',       // Clean WPML things
 		'lib/cleaner/yoast.php',      // Clean Yoast things
 		'lib/post-types.php',         // Theme Post Types
 		'lib/taxonomies.php',         // Theme Taxonomies
