@@ -41,6 +41,7 @@ add_action(
 				'header_navigation' => __( 'Header Navigation', 'urlslab' ),
 				'header_buttons'    => __( 'Header Buttons', 'urlslab' ),
 				'footer_navigation' => __( 'Footer Navigation', 'urlslab' ),
+				'footer_bottom_navigation' => __( 'Footer Bottom Navigation', 'urlslab' ),
 			)
 		);
 
