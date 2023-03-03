@@ -8,14 +8,12 @@
 		<div id="app">
 			<?php
 				do_action( 'get_header' );
-				get_template_part( 'templates/header' );
 			?>
 
 			<?php require Wrapper\template_path(); ?>
 
 			<?php
 				do_action( 'get_footer' );
-				get_template_part( 'templates/footer' );
 			?>
 		</div>
 

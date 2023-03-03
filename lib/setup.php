@@ -15,18 +15,6 @@ add_action( 'after_setup_theme', 'enable_old_widget_editor' );
 add_action(
 	'after_setup_theme',
 	function () {
-		// Enable features from Soil when plugin is activated
-		// https://roots.io/plugins/soil/
-		add_theme_support(
-			'soil',
-			array(
-				'clean-up',
-				'disable-trackbacks',
-				'js-to-footer',
-				'nice-search',
-			)
-		);
-
 		// Make theme available for translation
 		load_theme_textdomain( 'urlslab', get_template_directory() . '/lang' );
 
@@ -87,17 +75,6 @@ add_action(
 				'after_widget'  => '</div>',
 				'before_title'  => '<div>',
 				'after_title'   => '</div>',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Language Switcher', 'ms' ),
-				'id'            => 'languageswitcher',
-				'before_widget' => '<div class="%1$s %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="LanguageSwitcher__title">',
-				'after_title'   => '</h4>',
 			)
 		);
 	}
