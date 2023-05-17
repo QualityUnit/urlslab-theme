@@ -4,10 +4,6 @@ on:
   push:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+-nightly'
-  workflow_call:
-    secrets:
-      CICD_PAT:
-        required: true
 
 jobs:
   build:
@@ -52,7 +48,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v0.1.15
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WEB_CICD_PAT }}
         with:
           draft: false
           prerelease: false
