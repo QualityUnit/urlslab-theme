@@ -41,7 +41,7 @@
 		"gulp-uglifycss": "^1.1",
 		"husky": "^8.0.3",
 		"minimist": "^1.2",
-		"node-sass": "^8",
+		"node-sass": "^9",
 		"stylelint": "^14.16"
 	},
 	"dependencies": {
