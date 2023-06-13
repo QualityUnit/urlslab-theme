@@ -1,5 +1,5 @@
 <?php 
-function banner(  $attr ) {
+function banner( $attr ) {
 		return '
 			<div class="ImproveBanner">
 				<h4>Improve your website</h4>
