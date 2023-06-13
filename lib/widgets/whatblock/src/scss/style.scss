@@ -1,0 +1,35 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+* {
+	box-sizing: border-box;
+
+	&:active,
+	&:focus,
+	&:hover {
+		outline: 0;
+	}
+}
+
+.WhatBlock {
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: #f5f5f7;
+	border-radius: 16px;
+	padding: 2em 3em;
+
+	&__icon {
+		width: 2em;
+		height: 2em;
+		margin-bottom: 1em;
+	}
+
+	h3 {
+		font-size: 2rem;
+		line-height: 1.33;
+		margin: 0;
+	}
+
+	p {
+		font-size: 1rem;
+		margin: 0;
+		margin-top: 1.5em;
+	}
+}

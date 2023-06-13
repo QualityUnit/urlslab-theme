@@ -1,0 +1,11 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "qu/improve-banner",
+	"version": "0.1.0",
+	"title": "Improve Banner",
+	"icon": "chart-bar",
+	"category": "widgets",
+	"textdomain": "improvebanner",
+	"editorScript": "file:./build/index.js"
+}

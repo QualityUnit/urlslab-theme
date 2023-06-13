@@ -1,0 +1,11 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "qu/whatblock",
+	"version": "0.1.0",
+	"title": "What Block",
+	"icon": "tickets",
+	"category": "widgets",
+	"textdomain": "whatblock",
+	"editorScript": "file:./build/index.js"
+}
