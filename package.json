@@ -10,7 +10,9 @@
 	  "eslint": "gulp eslint",
 	  "build": "NODE_ENV='production' gulp build",
 	  "dev": "NODE_ENV='development' gulp",
-	  "build:all": "yarn && yarn build"
+		"build:qu-improvebanner": "cd ./lib/widgets/qu-improvebanner/ && yarn && yarn build",
+		"build:qu-whatblock": "cd ./lib/widgets/qu-whatblock/ && yarn && yarn build",
+	  "build:all": "yarn && yarn build && yarn build:qu-improvebanner && yarn build:qu-whatblock"
 	},
 	"engines": {
 		"node": ">= 14"

@@ -4,6 +4,7 @@
 *.sql
 assets/dist/
 /assets/images/icons.svg
+build
 
 # Dotenv
 .env

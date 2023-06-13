@@ -1,0 +1,54 @@
+$primary: #2570ed;
+$primary-dark: #0f55c9;
+
+.Button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	padding: 0.75em 1.5em;
+	border: 0;
+	border-radius: 6px;
+	text-decoration: none !important;
+	white-space: nowrap;
+	cursor: pointer;
+
+	svg {
+
+		width: 1.5em;
+		height: 1.5em;
+		fill: currentcolor;
+
+		&:first-child {
+			margin-right: 0.75em;
+		}
+
+		&:last-child {
+			margin-left: 0.75em;
+		}
+	}
+}
+
+.Button--full {
+
+	color: white;
+	overflow: hidden;
+	border: 1px solid $primary;
+	background-color: $primary;
+	transition: all 0.2s;
+
+	span,
+	strong {
+		position: relative;
+		z-index: 2;
+		font-weight: 600;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		background-color: $primary-dark;
+	}
+}

@@ -1,0 +1,61 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@forward "Button";
+
+* {
+	box-sizing: border-box;
+
+	&:active,
+	&:focus,
+	&:hover {
+		outline: 0;
+	}
+}
+
+.ImproveBanner {
+	font-family: Helvetica, Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(139.49deg, rgba(93, 137, 226, 0.41) 7.97%, rgba(219, 107, 215, 0.41) 89.5%);
+	box-shadow: 0 2.75494px 9.18314px rgba(0, 0, 0, 0.14), inset -0.70224px 0.70224px 0.84435px rgba(255, 255, 255, 0.55);
+	backdrop-filter: blur(6.32016px);
+	border-radius: 16px;
+	overflow: hidden;
+
+	&__text {
+		padding: 1.5em;
+
+		h4 {
+			font-size: 2rem;
+			line-height: 1.33;
+			margin-bottom: 0;
+		}
+
+		p {
+			margin: 0;
+			margin-bottom: 1.5em;
+		}
+	}
+
+	&__image {
+		max-width: 15em;
+		margin-left: auto;
+		margin-top: -6em;
+	}
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		align-items: center;
+
+		&__text {
+			padding: 0;
+			padding-left: 2em;
+			flex: 1 0 55.55%;
+		}
+
+		&__image {
+			width: 40%;
+			max-width: none;
+			margin-top: 0;
+		}
+	}
+}
