@@ -4,8 +4,8 @@ add_action(
 	'init',
 	function () {
 		$labels = array(
-			'name'          => _x( 'Documentation Categories', 'Taxonomy General Name', 'ms' ),
-			'singular_name' => _x( 'Doc Category', 'Taxonomy Singular Name', 'ms' ),
+			'name'          => _x( 'Glossary Categories', 'Taxonomy General Name', 'ms' ),
+			'singular_name' => _x( 'Glossary Category', 'Taxonomy Singular Name', 'ms' ),
 			'menu_name'     => __( 'Categories', 'ms' ),
 		);
 		$args   = array(
@@ -18,10 +18,11 @@ add_action(
 			'show_tagcloud'     => false,
 			'show_in_rest'      => true,
 			'show_in_graphql'     => true,
-			'graphql_single_name' => 'documentationCategory',
-			'graphql_plural_name' => 'documentationCategories',
+			'graphql_single_name' => 'glossaryCategory',
+			'graphql_plural_name' => 'glossaryCategories',
 		);
-		register_taxonomy( 'documentation_categories', array( 'documentation' ), $args );
+		register_taxonomy( 'glossary_categories', array( 'glossary' ), $args );
 	},
 	0
 );
+

@@ -18,8 +18,8 @@ add_action(
 			'show_tagcloud'     => false,
 			'show_in_rest'      => true,
 			'show_in_graphql'     => true,
-			'graphql_single_name' => 'category',
-			'graphql_plural_name' => 'categories',
+			'graphql_single_name' => 'featureCategory',
+			'graphql_plural_name' => 'featureCategories',
 		);
 		register_taxonomy( 'features_categories', array( 'features' ), $args );
 	},
