@@ -35,8 +35,8 @@ add_action(
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
 			'show_in_graphql'     => true,
-			'graphql_single_name' => 'pricing-table',
-			'graphql_plural_name' => 'pricing-tables',
+			'graphql_single_name' => 'pricing_table',
+			'graphql_plural_name' => 'pricing_tables',
 		);
 		register_post_type( 'pricing_tables', $args );
 	},
