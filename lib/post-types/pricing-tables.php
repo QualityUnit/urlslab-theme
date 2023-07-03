@@ -34,8 +34,11 @@ add_action(
 			'rewrite'             => $rewrite,
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
+			'show_in_graphql'     => true,
+			'graphql_single_name' => 'pricing-table',
+			'graphql_plural_name' => 'pricing-tables',
 		);
-		register_post_type( 'pricing', $args );
+		register_post_type( 'pricing_tables', $args );
 	},
 	0
 );
