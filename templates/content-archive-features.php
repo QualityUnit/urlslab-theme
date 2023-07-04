@@ -6,13 +6,13 @@
 					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
 					<div class="Category__header__subtitle"><p><?php the_archive_description(); ?></p></div>
 				<?php } else { ?>
-					<h1 class="Category__header__title"><?php _e( 'Post Affiliate Pro Features', 'ms' ); ?></h1>
-					<p class="Category__header__subtitle"><?php _e( 'Explore and get to know all features of Post Affiliate Pro. Find out out how our advanced affiliate software works, and how you can use each functionality to streamline your success.', 'ms' ); ?></p>
+					<h1 class="Category__header__title"><?php _e( 'Post Affiliate Pro Features', 'urlslab' ); ?></h1>
+					<p class="Category__header__subtitle"><?php _e( 'Explore and get to know all features of Post Affiliate Pro. Find out out how our advanced affiliate software works, and how you can use each functionality to streamline your success.', 'urlslab' ); ?></p>
 				<?php } ?>
 
 				<div class="Category__header__search searchField" data-searchfield>
-					<!-- <img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" /> -->
-					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
+					<!-- <img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'urlslab' ); ?>" /> -->
+					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'urlslab' ); ?>" maxlength="50">
 				</div>
 			</div>
 		</div>
@@ -21,14 +21,14 @@
 	<div class="wrapper Category__container">
 		<div class="Category__sidebar urlslab-skip-keywords">
 			<input class="Category__sidebar__showfilter" type="checkbox" id="showfilter">
-			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'ms' ); ?>">
-				<!-- <img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'ms' ); ?>"> -->
-				<span><?php _e( 'Filters', 'ms' ); ?></span>
+			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'urlslab' ); ?>">
+				<!-- <img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'urlslab' ); ?>"> -->
+				<span><?php _e( 'Filters', 'urlslab' ); ?></span>
 			</label>
 
 			<div class="Category__sidebar__items" id="filter">
 				<div class="Category__sidebar__item">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Collections', 'ms' ); ?></div>
+					<div class="Category__sidebar__item__title h4"><?php _e( 'Collections', 'urlslab' ); ?></div>
 
 					<?php
 					$collections = array(
@@ -54,15 +54,15 @@
 				</div>
 
 				<!-- <div class="Category__sidebar__item">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Available in', 'ms' ); ?></div>
+					<div class="Category__sidebar__item__title h4"><?php _e( 'Available in', 'urlslab' ); ?></div>
 
 				</div> -->
 
 				<div class="Category__sidebar__item">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
+					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'urlslab' ); ?></div>
 					<label>
 						<input class="filter-item" data-filteritem type="radio" value="" name="category" checked />
-						<span onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
+						<span onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Category - Any'])"><?php _e( 'Any', 'urlslab' ); ?></span>
 					</label>
 					<?php
 					$categories = array_unique( get_categories( array( 'taxonomy' => 'features_categories' ) ), SORT_REGULAR );
@@ -85,7 +85,7 @@
 		</div>
 
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'Affiliate software features', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'features' )->publish ); ?></span>)</span></div>
+			<div class="Category__content__description"><?php _e( 'Affiliate software features', 'urlslab' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'features' )->publish ); ?></span>)</span></div>
 			<ul class="Category__content__items list" data-list>
 				<?php
 				while ( have_posts() ) :
@@ -153,7 +153,7 @@
 							<?php } elseif ( has_post_thumbnail() ) { ?>
 								<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
 							<?php } else { ?>
-								<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'ms' ); ?>">
+								<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'urlslab' ); ?>">
 							<?php } ?>
 						</a>
 						<?php
@@ -168,7 +168,7 @@
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 									<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_main', true ) === 'on' ) { ?>
-										<span><?php _e( 'Read more about', 'ms' ); ?> <?= esc_html( strtolower( get_the_title() ) ); ?></span>
+										<span><?php _e( 'Read more about', 'urlslab' ); ?> <?= esc_html( strtolower( get_the_title() ) ); ?></span>
 									<?php } ?>
 								</a>
 							</div>

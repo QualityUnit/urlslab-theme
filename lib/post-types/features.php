@@ -4,10 +4,10 @@ add_action(
 	'init',
 	function () {
 		$labels  = array(
-			'name'           => _x( 'Features', 'Post Type General Name', 'ms' ),
-			'singular_name'  => _x( 'Feature', 'Post Type Singular Name', 'ms' ),
-			'menu_name'      => __( 'Features', 'ms' ),
-			'name_admin_bar' => __( 'Feature', 'ms' ),
+			'name'           => _x( 'Features', 'Post Type General Name', 'urlslab' ),
+			'singular_name'  => _x( 'Feature', 'Post Type Singular Name', 'urlslab' ),
+			'menu_name'      => __( 'Features', 'urlslab' ),
+			'name_admin_bar' => __( 'Feature', 'urlslab' ),
 		);
 		$rewrite = array(
 			'slug'       => 'features',
@@ -16,7 +16,7 @@ add_action(
 			'feeds'      => false,
 		);
 		$args    = array(
-			'label'               => __( 'Feature', 'ms' ),
+			'label'               => __( 'Feature', 'urlslab' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => false,

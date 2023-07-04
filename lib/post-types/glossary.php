@@ -4,10 +4,10 @@ add_action(
 	'init',
 	function () {
 		$labels  = array(
-			'name'           => _x( 'Glossary', 'Post Type General Name', 'ms' ),
-			'singular_name'  => _x( 'Glossary', 'Post Type Singular Name', 'ms' ),
-			'menu_name'      => __( 'Glossary', 'ms' ),
-			'name_admin_bar' => __( 'Glossary', 'ms' ),
+			'name'           => _x( 'Glossary', 'Post Type General Name', 'urlslab' ),
+			'singular_name'  => _x( 'Glossary', 'Post Type Singular Name', 'urlslab' ),
+			'menu_name'      => __( 'Glossary', 'urlslab' ),
+			'name_admin_bar' => __( 'Glossary', 'urlslab' ),
 		);
 		$rewrite = array(
 			'slug'       => 'glossary',
@@ -16,7 +16,7 @@ add_action(
 			'feeds'      => false,
 		);
 		$args    = array(
-			'label'               => __( 'Glossary', 'ms' ),
+			'label'               => __( 'Glossary', 'urlslab' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => false,

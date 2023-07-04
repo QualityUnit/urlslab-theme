@@ -4,10 +4,10 @@ add_action(
 	'init',
 	function () {
 		$labels  = array(
-			'name'           => _x( 'Documentation', 'Post Type General Name', 'ms' ),
-			'singular_name'  => _x( 'Doc', 'Post Type Singular Name', 'ms' ),
-			'menu_name'      => __( 'Documentation', 'ms' ),
-			'name_admin_bar' => __( 'Doc', 'ms' ),
+			'name'           => _x( 'Documentation', 'Post Type General Name', 'urlslab' ),
+			'singular_name'  => _x( 'Doc', 'Post Type Singular Name', 'urlslab' ),
+			'menu_name'      => __( 'Documentation', 'urlslab' ),
+			'name_admin_bar' => __( 'Doc', 'urlslab' ),
 		);
 		$rewrite = array(
 			'slug'       => 'documentation',
@@ -16,7 +16,7 @@ add_action(
 			'feeds'      => false,
 		);
 		$args    = array(
-			'label'               => __( 'Doc', 'ms' ),
+			'label'               => __( 'Doc', 'urlslab' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => true,
