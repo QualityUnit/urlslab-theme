@@ -4,9 +4,9 @@ add_action(
 	'init',
 	function () {
 		$labels = array(
-			'name'          => _x( 'Features Categories', 'Taxonomy General Name', 'ms' ),
-			'singular_name' => _x( 'Features Category', 'Taxonomy Singular Name', 'ms' ),
-			'menu_name'     => __( 'Categories', 'ms' ),
+			'name'          => _x( 'Features Categories', 'Taxonomy General Name', 'urlslab' ),
+			'singular_name' => _x( 'Features Category', 'Taxonomy Singular Name', 'urlslab' ),
+			'menu_name'     => __( 'Categories', 'urlslab' ),
 		);
 		$args   = array(
 			'labels'            => $labels,
