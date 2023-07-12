@@ -1,0 +1,101 @@
+/* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Checklist";
+
+.Faq {
+	max-width: $wrapper-width;
+	margin-left: auto;
+	margin-right: auto;
+
+	h2 {
+		font-size: 2.5rem;
+		width: 100%;
+		margin-bottom: 0.5em;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	.subhead--wrapper {
+		margin: 0 auto 4em;
+		max-width: 60ch;
+
+		p {
+			text-align: center;
+		}
+	}
+
+	&__items {
+
+		@media (min-width: $breakpoint-tablet) {
+			columns: 2 auto;
+		}
+	}
+
+	ul:not(.Faq__items) {
+
+		@extend %checklist;
+	}
+
+	.Faq__item {
+		padding: 0 0.5em;
+		overflow: hidden;
+
+		h3 {
+			margin: 0;
+			margin-bottom: 1em;
+			font-size: 1rem;
+			font-weight: 600;
+			line-height: $line-height-smaller;
+			padding-left: 1.5em;
+			position: relative;
+
+			&::before {
+				content: url(../../images/icon_checkmark_circle.svg?ver=#{$version});
+				position: absolute;
+				left: -8px;
+				top: 2px;
+			}
+		}
+
+		.Faq__outer-wrapper {
+			position: relative;
+			margin-bottom: 2em;
+
+			&::before,
+			&::after {
+				position: absolute;
+				content: "";
+				height: 100%;
+				width: 1px;
+				top: 0;
+				left: 0;
+			}
+
+			&::before {
+				border-left: 1px dashed $primary;
+			}
+
+			&::after {
+				background: linear-gradient(to bottom, rgba($white, 0), rgba($white, 1));
+				z-index: 1;
+				left: -1px;
+				width: 0.5em;
+			}
+
+			p {
+
+				@include square(100%);
+				margin: 0;
+				font-size: $font-size-default;
+				padding: 0 1.5em;
+				color: $level-2;
+				text-align: left;
+
+				&:empty {
+					display: none;
+				}
+			}
+		}
+	}
+}

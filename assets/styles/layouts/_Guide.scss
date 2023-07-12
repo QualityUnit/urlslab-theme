@@ -1,0 +1,54 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Guide {
+
+	&__header {
+		display: flex;
+		align-items: center;
+		padding: 1.5em;
+		background: url(../../images/guide_lp_bg.png) no-repeat;
+		background-size: cover;
+		border-radius: $border-radius-16;
+
+		&--inn {
+			max-width: 45em;
+			margin: 0 auto;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__header {
+			min-height: 17.125em;
+			padding: 3em 0;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__header {
+
+			&--inn {
+				padding: 0 2.2em;
+			}
+		}
+
+		.Post__sidebar {
+			max-width: 13.5em;
+		}
+
+		.Post__content {
+			padding: 0 2.2em;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+
+		.Post__sidebar {
+			margin-left: 5em;
+		}
+	}
+}

@@ -1,0 +1,178 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/BoxMain";
+@forward "../elements/BoxShadow";
+
+.Posts {
+
+	&__Header {
+		background-color: $lightest-gray;
+		margin-bottom: 3em;
+
+		.wrapper {
+			padding: 1.5em 1.5em 0;
+		}
+
+		&--counter {
+			font-family: $font-secondary;
+		}
+
+		&--filtering {
+			margin-top: 1.5em;
+			padding-bottom: 1.5em;
+
+			.urlslab-MultiSelectMenu__title {
+				background-color: transparent;
+			}
+		}
+
+		img {
+			display: none;
+			height: 100%;
+		}
+
+		h1 {
+			font-size: $font-size-h2-s;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.wrapper {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 0;
+			}
+
+			&--filtering {
+				margin-top: 2em;
+			}
+
+			h1 {
+				font-size: $font-size-h2;
+			}
+
+			&--text {
+				width: 57%;
+				padding: 2em 0;
+				margin-right: auto;
+			}
+
+			img {
+				display: block;
+			}
+		}
+	}
+
+	&__item {
+
+		@extend .Box--main;
+		@extend .Box--shadow;
+		margin-bottom: 0;
+
+		&:not(.main) {
+			padding: 1.5em;
+
+			.Posts__item {
+
+				&--inn {
+					display: block;
+				}
+
+				&--header {
+					position: relative;
+					background: url(../../images/circles-bg.svg) left bottom no-repeat;
+					background-size: cover;
+					margin: -1.5em -1.5em 1.5em;
+					overflow: hidden;
+				}
+
+				&--categories {
+					position: absolute;
+					bottom: 0.75em;
+					right: 0.75em;
+					font-size: 0.75rem;
+					z-index: 1;
+				}
+
+				&--category {
+					display: inline-block;
+					background-color: $white;
+					border-radius: $border-radius-6;
+					padding: 0.25em 1em;
+					filter: $box-shadow-small;
+
+					+ li {
+						margin-left: 0.45em;
+					}
+				}
+
+				&--image {
+
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 4.875em;
+					height: 4.5em;
+					margin-top: 1.5em;
+					margin-left: 1.5em;
+					border-radius: $border-radius-10 $border-radius-10 0 0;
+					background-color: $white;
+					box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+
+					img {
+						height: 3.75em;
+					}
+				}
+
+				&--content {
+
+					h4 {
+						font-size: $font-size-bigger;
+					}
+
+					p {
+						font-size: $font-size-smaller;
+					}
+				}
+			}
+		}
+
+		&.main {
+			padding: 0;
+
+			.Posts__item {
+
+				&--header {
+					position: relative;
+					margin-top: auto;
+
+					img {
+
+						@include square(100%);
+						object-fit: cover;
+						object-position: right bottom;
+					}
+
+					@media (min-width: $breakpoint-tablet) {
+						flex: 1 0 31em;
+					}
+				}
+
+				&--content {
+					padding: 4.25em 3em 4.25em 2em;
+
+					h4 {
+						font-size: 1.75rem;
+					}
+
+					@media (min-width: $breakpoint-tablet) {
+						// margin: -2.5em 0;
+						flex: 1 1 calc(100% - 31em);
+					}
+				}
+			}
+		}
+	}
+}

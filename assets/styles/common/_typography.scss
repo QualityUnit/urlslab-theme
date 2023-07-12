@@ -1,0 +1,258 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+@each $class,
+	$size in $fontSizes {
+	.fs-#{$class} {
+		font-size: $size !important;
+	}
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+
+	font-family: $font-primary;
+	font-weight: $font-weight-bold;
+	position: relative;
+	z-index: 1;
+
+	strong,
+	b {
+		font-weight: $font-weight-bold;
+	}
+}
+
+h1,
+.h1 {
+	font-size: $font-size-h1;
+	line-height: $line-height-h1;
+	margin-bottom: 0.33em;
+
+	@media (max-width: $breakpoint-tablet) {
+		font-size: $font-size-h2;
+	}
+}
+
+h2,
+.h2 {
+	font-size: $font-size-h2;
+	line-height: $line-height-h2;
+
+	@media (max-width: $breakpoint-tablet) {
+		font-size: $font-size-h2-s;
+	}
+}
+
+h3,
+.h3 {
+	font-size: $font-size-h3;
+	line-height: $line-height-h3;
+	font-weight: 400;
+	margin-bottom: 0.25em;
+}
+
+h4,
+.h4 {
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+}
+
+h5,
+.h5 {
+	font-size: $font-size-h5;
+	line-height: $line-height-h5;
+}
+
+h6,
+.h6 {
+	font-size: $font-size-h6;
+	line-height: $line-height-h6;
+}
+
+strong,
+b {
+	font-weight: 600;
+}
+
+.breadcrumb {
+	display: flex;
+	align-items: center;
+	font-size: $font-size-small;
+	font-family: $font-secondary;
+
+	li {
+		display: inline-block;
+		margin-right: 0.75em;
+	}
+}
+
+a {
+
+	&:not(.Button) {
+		color: currentcolor;
+		transition: color 0.2s;
+
+		@media (hover: hover) {
+
+			&:hover {
+				color: $primary;
+				text-decoration: underline;
+			}
+
+			&[class*="button"]:hover {
+				border-color: currentcolor;
+				text-decoration: none;
+			}
+		}
+
+		&[href*="mailto"] {
+			color: $primary;
+
+			@media (hover: hover) {
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+p {
+	font-family: $font-secondary;
+
+	.elementor-widget-text-editor & {
+		font-family: $font-secondary;
+	}
+
+	small {
+		color: $level-2;
+
+		a {
+			font-weight: 600;
+			color: currentcolor;
+		}
+	}
+}
+
+.highlight {
+
+	&.highlight {
+		color: $primary;
+	}
+
+	&__bubble {
+		position: relative;
+
+		&::after {
+
+			@include posCustom(-0.65em);
+			display: block;
+			position: absolute;
+			left: -0.35em;
+			right: -1em;
+			content: "";
+			z-index: -1;
+			background: url(../../images/highlight_bubble.svg) center center no-repeat;
+			background-size: 100%;
+		}
+
+		&--primary {
+
+			&::after {
+
+				background-image: url(../../images/highligh_bubble-green.svg);
+			}
+		}
+	}
+}
+
+.light[class] {
+	color: $level-2;
+}
+
+.no-cc {
+
+	font-size: 14px;
+	line-height: 40px;
+	display: flex;
+	flex-flow: row wrap;
+	color: $level-3;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	font-size: 0.75rem;
+	color: $level-2;
+	margin: 1em 0;
+
+	svg {
+
+		@include square(1.25em);
+		margin-right: 0.75em;
+	}
+
+	p {
+		font-size: inherit !important;
+		color: currentcolor;
+		margin: 0 !important;
+	}
+}
+
+.learn-more {
+	position: relative;
+	display: flex;
+	align-items: center;
+	font-size: 0.875rem;
+	font-weight: 600;
+	margin-top: 1.5em;
+	color: $black;
+
+	a[class] {
+		color: currentcolor;
+
+		&::after {
+			content: "";
+
+			@include posZero;
+			position: absolute;
+			z-index: 2;
+		}
+	}
+
+	&:hover {
+
+		.icon-arrow-right {
+			fill: $primary;
+			transform: translateX(0.5em);
+		}
+	}
+
+	.icon-arrow-right {
+
+		@include square(1.5em);
+		margin-left: 0.5em;
+		transition: all 0.2s;
+	}
+}

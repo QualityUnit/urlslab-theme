@@ -1,0 +1,64 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.ImproveBanner {
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(139.49deg, rgba(93, 137, 226, 0.41) 7.97%, rgba(219, 107, 215, 0.41) 89.5%);
+	box-shadow: 0 2.75494px 9.18314px rgba(0, 0, 0, 0.14), inset -0.70224px 0.70224px 0.84435px rgba(255, 255, 255, 0.55);
+	backdrop-filter: blur(6.32016px);
+	border-radius: $border-radius-16;
+	margin: 1.5em auto;
+	overflow: hidden;
+
+	&__text {
+		padding: 1.5em;
+
+		h4 {
+			font-size: 2rem;
+		}
+
+		p {
+			margin-bottom: 1.5em;
+		}
+	}
+
+	&__image {
+		max-width: 15em;
+		margin-left: auto;
+		margin-top: -6em;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		flex-direction: row;
+		align-items: center;
+
+		&__text {
+			padding: 0;
+			padding-left: 2em;
+			flex: 1 0 55.55%;
+		}
+
+		&__image {
+			max-width: none;
+			margin-top: 0;
+		}
+
+		.Button {
+			font-size: 1rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		.Post & {
+			margin: 1.5em -2.5em;
+		}
+
+		&__text {
+			padding-left: 2.5em;
+		}
+	}
+}

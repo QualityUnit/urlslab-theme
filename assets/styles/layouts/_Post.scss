@@ -1,0 +1,62 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Checklist";
+@use "../elements/PostTypography";
+@use "../components/WhatBlock";
+
+.Post {
+
+	&__container {
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 1em;
+		}
+	}
+
+	&__content {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			max-width: 45em;
+
+			.Content {
+
+				> {
+
+					.Post__m__negative,
+					.BlockDiscover,
+					.Faq,
+					.wide,
+					.wp-block-embed,
+					.youtube__loader {
+						margin-left: -2em;
+						margin-right: -2em;
+					}
+				}
+
+				figure {
+					text-align: center;
+
+					&.size-full,
+					&.wide,
+					&.size-large {
+						display: flex;
+						justify-content: center;
+						flex-wrap: wrap;
+
+						figcaption {
+							width: 100%;
+						}
+					}
+				}
+
+				.wp-block-embed,
+				.youtube__loader {
+					border-radius: $border-radius-16;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+}

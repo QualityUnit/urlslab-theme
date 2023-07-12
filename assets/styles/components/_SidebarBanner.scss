@@ -1,0 +1,36 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.SidebarBanner {
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	border-radius: $border-radius-16;
+
+	background: linear-gradient(135deg, rgba(93, 137, 226, 0.41) 0%, rgba(219, 107, 215, 0.41) 100%), $white;
+	backdrop-filter: blur(6.3px);
+	max-width: 16.875em;
+
+	p {
+		font-size: 0.8125rem;
+		margin-top: 1em;
+		margin-bottom: 1.5em;
+	}
+
+	&__inn {
+		padding: 3em 1.5em 1.5em;
+		text-align: center;
+	}
+
+	&__image {
+		width: calc(100% - 1.5em);
+		margin-left: auto;
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+		display: none;
+	}
+}

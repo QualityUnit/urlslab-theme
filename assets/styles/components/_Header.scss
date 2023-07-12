@@ -1,0 +1,54 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/Logo";
+@forward "../elements/Header/HeaderNavigationMain";
+@forward "../elements/Header/HeaderNavigationSubMenu";
+@forward "../elements/Header/HeaderNavigationSubItemsColors";
+
+.app {
+	padding-top: $header-height;
+}
+
+.Header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: $header-height;
+	background-color: $white;
+
+	&.noMenu {
+		background-color: transparent;
+	}
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		padding: 0 $wrapper-padding;
+	}
+
+	.LoginOrSignup {
+		font-size: 0.875rem;
+
+		.Button {
+			margin-left: 1em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		.wrapper {
+			padding: 15px 0;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.signup &.noMenu {
+			background-color: transparent;
+		}
+	}
+}

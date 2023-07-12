@@ -1,0 +1,114 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.fullscreen {
+
+	.no-menu.no-footer.elementor-top-section {
+		margin-bottom: 0;
+	}
+
+	.LoginForm {
+		margin-top: 60px;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 100vw;
+			background: url(../../images/signup_background.png) left center repeat;
+			background-size: auto 100%;
+			z-index: -1;
+		}
+
+		&.login {
+
+			&::before {
+				width: 100vw;
+				background-image: url(../../images/login_background.png);
+				background-position: right center;
+			}
+		}
+
+		main {
+			margin: auto;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+
+	}
+}
+
+.Signup {
+
+	> .elementor-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__aside {
+		background-color: rgba($white, 0.8);
+		border-radius: $border-radius-16 0 0 $border-radius-16;
+		order: 1;
+
+		&--block {
+			margin-bottom: 1.5em;
+
+			.elementor-column {
+
+				&:first-of-type {
+					width: 2.5em;
+					margin-right: 1.5em;
+				}
+
+				&:last-of-type {
+					width: calc(100% - 4em);
+
+					p {
+						font-size: 0.875rem;
+						color: $level-2;
+					}
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		> .elementor-container {
+			flex-direction: row;
+		}
+		align-items: center;
+		align-content: center;
+
+		&__main {
+			width: 59.3%;
+		}
+
+		&__aside {
+			position: relative;
+			width: 40.7%;
+			right: -2em;
+			padding: 6em 5em 6em 3em;
+			align-self: center;
+			order: 0;
+
+			&--block {
+				margin-bottom: 2.25em;
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

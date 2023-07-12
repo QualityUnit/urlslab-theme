@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Contact {
+
+	&__header {
+		margin-bottom: 4em;
+	}
+
+	&__offices {
+
+		.elementor-container {
+
+			@media (min-width: $breakpoint-tablet) {
+				display: flex;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__header {
+			position: relative;
+			display: flex;
+			align-items: center;
+			margin-left: -2.5em;
+			margin-bottom: 6em;
+			width: 100vw;
+			padding-right: calc((100vw - 1212px) / 2 + 2.5em);
+			min-height: 50.875em;
+
+			&::after {
+
+				@include posZero;
+				right: calc((100vw - 1212px) / 2 + 17.5em);
+				position: absolute;
+				content: "";
+				background: url(../../images/contact_map.jpg) right center no-repeat;
+				background-size: cover;
+				border-radius: 0 4.375em 4.375em 0;
+			}
+		}
+
+		&__form {
+			position: relative;
+			margin-left: auto;
+			z-index: 1;
+		}
+	}
+}

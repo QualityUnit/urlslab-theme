@@ -1,0 +1,196 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/MenuArrow" as *;
+@use "../elements/Inputs" as *;
+
+.urlslab-MultiSelectMenu {
+	position: relative;
+	z-index: 2;
+	// max-width: 12em;
+	min-width: 20em;
+	font-size: 0.8125em;
+	font-family: OpenSans, sans-serif;
+	font-weight: $font-weight-normal;
+
+	.urlslab-table & {
+		max-width: none;
+		font-size: inherit;
+	}
+
+	&.disabled &__title {
+		color: $level-2;
+		cursor: default;
+
+		&::after { //menu arrow
+			border: none;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				color: $level-2;
+				border-color: $gray-fields;
+			}
+		}
+	}
+
+	&.active {
+		z-index: 3;
+	}
+
+	&.wide {
+		max-width: none;
+	}
+
+	&__title {
+
+		@extend %MenuArrow;
+		display: flex;
+		align-items: center;
+		line-height: 1.2;
+		border: 1px solid $gray-fields;
+		border-radius: 6px;
+		background-color: $white;
+		padding: 0.7em 1em;
+		transition: all 0.2s;
+		min-width: 10em;
+		height: 2.8461em;
+		cursor: pointer;
+
+		span {
+			display: block;
+			text-align: left;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			width: calc(100% - 1.5em);
+		}
+
+		.urlslab-table tr:not(.urlslab-rowInserter) & {
+			background-color: transparent;
+			min-width: auto;
+		}
+
+		.urlslab-table tr:not(.urlslab-rowInserter) th & {
+			padding-left: 0;
+			border: none;
+
+			&::after {
+				margin-left: 1em;
+			}
+		}
+
+		svg {
+			margin-right: 0.5em;
+		}
+
+		&.active {
+			color: $primary;
+			border-color: currentcolor;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				color: $primary;
+				border-color: currentcolor;
+			}
+
+			&.active:hover {
+				color: $black;
+				border-color: $light-gray;
+			}
+		}
+	}
+
+	&__items {
+		position: absolute;
+		top: calc(100% + 1px);
+		left: 0;
+		display: none;
+		opacity: 0;
+		border-radius: 6px;
+		background-color: $white;
+		width: calc(100% + 5em);
+		padding: 1em 1.45em;
+		transition: opacity 0.1s;
+		filter: $box-shadow-small;
+
+		.menu-left & {
+			left: auto;
+			right: 0;
+		}
+
+		&.menuInput {
+			min-width: 15em;
+			max-width: 25em;
+		}
+
+		.wide & {
+			left: 0;
+			width: 100%;
+		}
+
+		&--inn {
+
+			@include scrollbar;
+			max-height: 19em;
+			overflow-y: scroll;
+			position: relative;
+			margin-left: -1.45em;
+			margin-right: -1.45em;
+
+			> *[class] {
+				display: flex;
+				align-content: center;
+				justify-content: flex-start;
+				width: 100%;
+				padding: 0.5em 1em;
+				margin-bottom: 0.25em;
+			}
+
+			.menu-left & {
+				margin-right: -1.25em;
+			}
+		}
+
+		&.active {
+			display: block;
+		}
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	label,
+	.label {
+
+		&.urlslab-MultiSelectMenu__item {
+
+			* {
+				font-weight: inherit;
+			}
+
+			strong {
+				font-weight: $font-weight-semi;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			&:not(.menuInput) {
+
+				@media (hover: hover) {
+
+					&:hover {
+						background-color: $lightest-gray;
+					}
+				}
+			}
+		}
+	}
+}

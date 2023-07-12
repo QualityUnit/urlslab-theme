@@ -1,0 +1,112 @@
+/* stylelint-disable no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+%checklist {
+	list-style: none;
+	padding-left: 0.5em;
+	text-align: left;
+	font-family: $font-secondary;
+
+	li {
+
+		position: relative;
+		font-size: 1rem;
+		padding-left: 1.5em;
+		margin-bottom: 0.75em;
+
+		&::before {
+
+			@include circle(1em);
+			display: inline-block;
+			content: "";
+			position: absolute;
+			top: 2px;
+			left: -0.5em;
+			background: $secondary-light url(../images/icon-post-check.svg?#{$version}) center center no-repeat;
+			background-size: 50%;
+			padding: 0.25em;
+			font-size: 1.25em;
+			margin: 0;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin-top: 1em;
+
+		li {
+			padding-left: 0.5em;
+
+			&::before {
+
+				@include square(auto);
+				content: "\2022";
+				background: none;
+				padding: 0;
+				top: 0;
+				color: $primary;
+			}
+		}
+	}
+}
+
+.checklist {
+
+	&.elementor-widget-text-editor {
+		width: auto;
+		margin-top: 1.5em;
+
+		strong {
+			display: block;
+			font-family: $font-primary;
+			font-weight: 600;
+			font-size: 1.125em;
+			margin-bottom: 1em;
+		}
+
+		ul:not([class]) {
+
+			@extend %checklist;
+		}
+	}
+
+	&-slim {
+
+		.elementor-widget-text-editor {
+
+			ul {
+
+				font-weight: 400 !important;
+			}
+		}
+	}
+}
+
+.elementor-widget-text-editor ul,
+ul.checklist {
+
+	li {
+		position: relative;
+
+		&::before {
+
+			@include circle(1em);
+			display: inline-block;
+			content: "";
+			position: absolute;
+			top: 2px;
+			left: 0;
+			background: $primary-light url(../../images/icon-post-check.svg) center center no-repeat;
+			background-size: 50%;
+			padding: 0.25em;
+			font-size: 1.25em;
+			margin: 0;
+		}
+	}
+}
+
+.elementor-widget-text-editor ul li {
+	padding-left: 2em;
+}

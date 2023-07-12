@@ -1,0 +1,92 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Button--login {
+
+	@include appearance;
+	background-color: transparent;
+	padding: 0;
+	transition: opacity 0.3s;
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		.tooltip {
+			display: flex;
+		}
+	}
+
+	&::before {
+
+		width: 17px;
+		height: 100%;
+		content: "";
+		display: block;
+		background-image: url(../../images/icon-login.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+	}
+
+	span {
+		display: none;
+	}
+
+	.tooltip {
+		position: absolute;
+		top: 49px;
+		display: none;
+		padding: 8px 25px;
+		font-size: 14px;
+		line-height: 21px !important;
+		text-align: center;
+		word-break: keep-all;
+		color: #212121;
+		box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
+		background-color: #fff;
+		border-radius: 4px;
+		left: 50%;
+		transform: translateX(-50%);
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: -10px;
+			left: calc(50% - 10px);
+			background: none;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 10px 10px;
+			border-color: transparent transparent #fff;
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin-left: 0 !important;
+
+		&::before {
+			display: none !important;
+		}
+
+		span {
+			display: inline;
+			font-size: 1rem;
+			color: #000;
+
+			&::before {
+				display: none !important;
+			}
+		}
+
+		.tooltip {
+			display: none !important;
+		}
+	}
+}

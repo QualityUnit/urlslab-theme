@@ -1,0 +1,48 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Form {
+	display: block;
+	background-color: $white;
+	border-radius: $border-radius-16;
+	filter: $box-shadow-big;
+
+	&__title {
+		font-size: 2rem;
+	}
+
+	p {
+		font-size: 0.875rem;
+		margin: 1.5em 0;
+	}
+
+	&.ResetPasswordForm {
+
+		.inputField {
+			margin: 2em 0;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 2.5em 3.125em;
+
+		&__narrow {
+			padding: 2em 3em 4.5em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		min-width: 42em;
+
+		&__narrow {
+			min-width: 0;
+			max-width: 30em;
+		}
+
+		hr {
+			margin: 2.5em -5em;
+		}
+	}
+}

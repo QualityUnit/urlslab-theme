@@ -1,0 +1,76 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.Block__image {
+	max-width: $wrapper-width;
+	margin-left: auto;
+	margin-right: auto;
+
+	.elementor {
+
+		&-widget-heading {
+			margin: 1.25em 0;
+		}
+
+		&-heading-title {
+			display: flex;
+			align-items: center;
+			line-height: 1.5;
+
+			.icon {
+
+				@include square(2.5rem);
+				margin-right: 0.45em;
+				fill: $primary;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&.wrapper {
+			padding: 0;
+		}
+
+		&.elementor-section .elementor-container {
+			display: flex;
+			align-items: center;
+		}
+
+		.elementor {
+
+			&-column {
+				width: 50%;
+
+				&:first-of-type {
+					padding-right: 2em;
+				}
+
+				&:last-of-type {
+					padding-left: 2em;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.elementor {
+
+			&-column {
+
+				&:first-of-type {
+					padding-right: 4.5em;
+				}
+
+				&:last-of-type {
+					padding-left: 4.5em;
+				}
+			}
+
+		}
+	}
+}

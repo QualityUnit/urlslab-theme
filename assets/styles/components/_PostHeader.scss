@@ -1,0 +1,66 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../layouts/Posts";
+
+.Post__Header {
+
+	@extend .Posts__Header;
+
+	&--mainImage {
+		align-self: center;
+	}
+
+	&--categories {
+		display: flex;
+		align-items: center;
+		font-family: $font-secondary;
+		font-size: $font-size-small;
+		color: $level-2;
+
+		ul {
+			display: flex;
+			align-items: center;
+		}
+
+		li {
+			display: inline-flex;
+			align-items: center;
+			color: $primary;
+			font-weight: 600;
+			margin-right: 0.75em;
+
+			svg {
+
+				@include square(1em);
+
+				margin-right: 0.5em;
+			}
+		}
+	}
+
+	&--postImage {
+		position: relative;
+		margin: 2em 0;
+		width: 22.5em;
+		height: 0;
+		padding-bottom: 17.55%;
+		border-radius: $border-radius-16;
+
+		background: url(../../images/features-post-header-bg.png) no-repeat;
+		background-size: cover;
+	}
+
+	&--icon {
+		position: absolute;
+		background-color: $white;
+		top: 0;
+		left: 0;
+		border-bottom-right-radius: $border-radius-16;
+
+		img {
+			margin: 1em;
+		}
+	}
+}

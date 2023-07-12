@@ -1,0 +1,62 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.elementor-top-section {
+	margin-bottom: 4em;
+
+	&.narrow {
+		margin-bottom: 3em;
+
+		.elementor-heading-title {
+			font-size: 2rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+		margin-bottom: 8em;
+
+		&.narrow {
+			margin-bottom: 3em;
+		}
+	}
+}
+
+.elementor-section .elementor-container {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+	}
+}
+
+.elementor {
+
+	&-col-25 {
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 50%;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 25%;
+		}
+	}
+
+	&-col-33 {
+
+		@media (min-width: $breakpoint-tablet) {
+			width: calc(33.333% - 1.725em);
+
+			&:not(:nth-of-type(3n+1)) {
+				margin-left: 2.5875em;
+			}
+		}
+	}
+
+	&-col-50 {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 50%;
+		}
+	}
+}

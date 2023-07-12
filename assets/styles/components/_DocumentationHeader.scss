@@ -1,0 +1,36 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Documentation__Header {
+	position: relative;
+	background-color: $lightest-gray;
+	margin-bottom: 3em;
+	padding: 1.5em 0;
+	z-index: 1;
+
+	&--categories {
+		display: flex;
+		flex-wrap: wrap;
+
+		li {
+
+			a {
+				padding: 0.5em 1em;
+				font-weight: 600;
+			}
+		}
+	}
+
+	h1 {
+		font-size: $font-size-h2-s;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		h1 {
+			font-size: $font-size-h2;
+		}
+	}
+}

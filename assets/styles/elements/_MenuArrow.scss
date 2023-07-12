@@ -1,0 +1,35 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+%MenuArrow {
+
+	&::after {
+
+		@include square(0.75em);
+		display: block;
+		position: relative;
+		flex: 0 0 auto;
+		content: "";
+		border: 2px solid currentcolor;
+		border-top: 0;
+		border-right: 0;
+		transition: all 0.2s;
+		transform: rotate(-45deg) scaleX(1);
+		margin-left: auto;
+		top: -0.15em;
+		cursor: pointer;
+	}
+
+	&.menu-active,
+	&.active,
+	.active & {
+
+		&::after {
+			transform: rotate(-45deg) scale(-1);
+			top: 0.15em;
+		}
+	}
+}

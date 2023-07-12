@@ -1,0 +1,58 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Documentation__Sidebar {
+
+	.Navigation {
+
+		.active {
+			color: $primary;
+			pointer-events: none;
+
+			svg {
+				fill: currentcolor;
+			}
+		}
+
+		&__sub {
+
+			a {
+				margin-left: 0 !important;
+			}
+		}
+
+		&__item {
+
+			span,
+			a {
+				display: flex;
+				align-items: center;
+				border-radius: $border-radius-10;
+			}
+
+			a {
+				margin-left: -0.75em;
+				padding: 0.25em 0.75em;
+			}
+
+			&--document .active {
+				background-color: $primary-lighter;
+			}
+
+			&--icon {
+
+				@include square(1em);
+				position: relative;
+				top: -0.1em;
+				margin-right: 0.35em;
+
+				&.fileIcon {
+
+					@include square(1.15em);
+				}
+			}
+		}
+	}
+}

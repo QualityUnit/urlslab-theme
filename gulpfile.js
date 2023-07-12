@@ -4,12 +4,12 @@ const clean = require( 'del' );
 const concat = require( 'gulp-concat' );
 const eslint = require( 'gulp-eslint' );
 const filter = require( 'gulp-filter' );
-const gcmq = require( 'gulp-group-css-media-queries' );
+// const gcmq = require( 'gulp-group-css-media-queries' );
 const gulp = require( 'gulp' );
 const plumber = require( 'gulp-plumber' );
 const rename = require( 'gulp-rename' );
 const replace = require( 'gulp-replace' );
-const sass = require( 'gulp-sass' )( require( 'node-sass' ) );
+const sass = require( 'gulp-sass' )( require( 'sass' ) );
 const stylelint = require( 'gulp-stylelint' );
 const terser = require( 'gulp-terser' );
 const uglifycss = require( 'gulp-uglifycss' );
@@ -89,7 +89,7 @@ gulp.task( 'styles', () =>
 		.pipe(
 			sass( {
 				errLogToConsole: true,
-				outputStyle: 'nested',
+				outputStyle: 'expanded',
 				precision: 10,
 			} )
 		)
@@ -97,26 +97,12 @@ gulp.task( 'styles', () =>
 		.pipe( plumber.stop() )
 		.pipe( gulp.dest( './assets/dist/' ) )
 		.pipe( filter( '**/*.css' ) )
-		.pipe( gcmq() )
+		// .pipe( gcmq() )
 		.pipe( browserSync.reload( { stream: true } ) )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( uglifycss() )
 		.pipe( gulp.dest( './assets/dist' ) )
 		.pipe( browserSync.reload( { stream: true } ) )
-);
-
-gulp.task( 'react-style', () =>
-	gulp
-		.src( './assets/styles/wordpress.css' )
-		.pipe( plumber() )
-		.pipe( autoprefixer( 'last 3 version', 'android 4', 'ie 11' ) )
-		.pipe( plumber.stop() )
-		.pipe( replace( '../../', '../' ) )
-		.pipe( gulp.dest( './assets/dist/' ) )
-		.pipe( filter( '**/*.css' ) )
-		.pipe( rename( { suffix: '.min' } ) )
-		.pipe( uglifycss() )
-		.pipe( gulp.dest( './assets/dist' ) )
 );
 
 gulp.task( 'app-js', () =>
@@ -192,7 +178,6 @@ gulp.task(
 		'clean-dist',
 		'iconsSprite',
 		'styles',
-		'react-style',
 		'app-js',
 		'custom-js',
 		'splide-js'
@@ -205,7 +190,6 @@ gulp.task(
 		'clean-dist',
 		'iconsSprite',
 		'styles',
-		'react-style',
 		'app-js',
 		'custom-js',
 		'splide-js',

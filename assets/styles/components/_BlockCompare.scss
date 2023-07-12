@@ -1,0 +1,155 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+/* Just basic elemento Title and subtitle */
+
+.Block__compare {
+	text-align: center;
+	overflow: hidden;
+	border-radius: $border-radius-16;
+	box-shadow: 0 15px 90px rgba($black-real, 0.1);
+
+	&--inner {
+		box-shadow: 0 15px 90px rgba($black-real, 0.1);
+		border-radius: $border-radius-16;
+		overflow: hidden;
+		margin-top: 3em;
+
+		.Block__compare {
+			box-shadow: none;
+		}
+	}
+
+	.elementor-widget-wrap {
+		position: relative;
+		height: 100%;
+	}
+
+	.previous,
+	.current {
+		margin: 0;
+
+		figcaption {
+			position: absolute;
+			top: 0;
+			z-index: 2;
+			text-transform: uppercase;
+			font-size: 0.875rem;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			color: $red;
+			padding: 1em 2em;
+		}
+	}
+
+	.previous {
+
+		@include square(100%);
+		position: absolute;
+		z-index: 1;
+
+		figure {
+			width: 50%;
+			overflow: hidden;
+			box-shadow: 1px 0 0 1px $black-real;
+		}
+
+		img {
+			height: 100%;
+			max-width: none;
+		}
+	}
+
+	.current {
+
+		figcaption {
+			right: 0;
+			color: $green;
+		}
+	}
+
+	&--divider {
+		top: 0;
+		left: 0;
+		position: absolute;
+		// top: 50%;
+		width: 100%;
+		height: 100%;
+		z-index: 3;
+
+		.elementor-widget-container {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.divider__handler__thumb {
+
+			@include square(3.5rem);
+			position: absolute;
+			background: $white url(../../images/prev_current_divider.svg) center center no-repeat;
+			border-radius: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 0 35px rgba(19, 23, 54, 0.09);
+			z-index: 1;
+		}
+
+		input[type="range"] {
+
+			@include appearance;
+			position: absolute;
+			top: 50%;
+			left: 0%;
+			transform: translateY(-50%);
+			background-color: transparent;
+			box-shadow: none;
+			width: 100%;
+			height: 1px;
+			z-index: 2;
+
+			&:focus,
+			&:active {
+				outline: none;
+			}
+
+			&::-moz-range-track {
+				-moz-appearance: none;
+				height: 1px;
+				width: 100%;
+				background-color: transparent;
+				position: relative;
+				outline: none;
+			}
+
+			&:active {
+				border: none;
+				outline: none;
+			}
+
+			&::-webkit-slider-thumb {
+
+				@include square(3.5rem);
+				-webkit-appearance: none;
+				background: transparent;
+				position: relative;
+				top: 0;
+				z-index: 2;
+				cursor: grab;
+			}
+
+			&::-moz-range-thumb {
+
+				@include square(3.5rem);
+				-moz-appearance: none;
+				position: relative;
+				background: transparent;
+				top: 0;
+				z-index: 2;
+				cursor: grab;
+			}
+		}
+
+	}
+}

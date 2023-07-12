@@ -1,0 +1,81 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.Block__red {
+	max-width: $wrapper-wide;
+	padding: 0;
+	overflow: hidden;
+
+	background: linear-gradient(213.73deg, rgba(254, 73, 56, 0.6) 10.89%, rgba(255, 145, 51, 0.6) 92.57%), linear-gradient(0deg, $white, $white), linear-gradient(139.49deg, rgba(93, 137, 226, 0.41) 7.97%, rgba(219, 107, 215, 0.41) 89.5%);
+	box-shadow: 0 2.75494px 9.18314px rgba(0, 0, 0, 0.14), inset -0.70224px 0.70224px 0.84435px rgba(255, 255, 255, 0.55);
+	backdrop-filter: blur(6.32016px);
+
+	.elementor-widget-text-editor {
+		margin: 0.5em 0 1.5em;
+	}
+
+	.Button {
+		background-color: $secondary;
+		border-color: $secondary;
+
+		&.active,
+		&:hover {
+			background-color: $secondary-dark;
+			border-color: $secondary-dark;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 10em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		h2 {
+			font-size: $font-size-h1;
+		}
+
+		.elementor-container {
+			padding: 4.5em 7.5em;
+			// display: flex;
+			align-items: center;
+			position: relative;
+		}
+
+		.elementor-column {
+
+			&:first-of-type {
+				width: 60%;
+				padding-right: 4.5em;
+			}
+
+			&:last-of-type {
+				position: absolute;
+				top: 0;
+				left: 25%;
+				right: 0;
+				bottom: 0;
+				width: auto;
+
+				* {
+					height: 100%;
+				}
+
+				.elementor-widget-image {
+
+					.elementor-widget-container {
+						display: flex;
+						justify-content: flex-end;
+					}
+				}
+
+				img {
+					display: block;
+				}
+			}
+		}
+	}
+}
