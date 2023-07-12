@@ -26,18 +26,16 @@
         </div> -->
       </div>
       <div class="Footer__main--links">
-        <ul class="Footer__navigation">
-          <?php
-            if ( has_nav_menu( 'footer_navigation' ) ) :
-              wp_nav_menu(
-                array(
-                  'theme_location' => 'footer_navigation',
-                  'menu_class' => 'nav',
-                )
-              );
-            endif;
-            ?>
-        </ul>
+        <?php
+          if ( has_nav_menu( 'footer_navigation' ) ) :
+            wp_nav_menu(
+              array(
+                'theme_location' => 'footer_navigation',
+                'menu_class' => 'Footer__navigation',
+              )
+            );
+          endif;
+          ?>
       </div>
     </div>
     <div class="Footer__bottom">

@@ -118,13 +118,18 @@
 
 				a {
 					display: block;
+					font-weight: inherit;
 				}
+			}
+
+			.menu-item + .menu-item {
+				margin-left: 0;
 			}
 		}
 
 		.menu-item {
 
-			> a {
+			> a[href*="#"] {
 				font-weight: 600;
 				pointer-events: none;
 
