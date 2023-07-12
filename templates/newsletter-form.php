@@ -1,14 +1,21 @@
 <div class="Footer__newsletter--form" id="newsletter">
-  <form onsubmit="subscribeNewsletter()" method="post" name="mc-embedded-subscribe-form" target="_blank">
-    <input type="email" placeholder="Enter your e-mail for latest news" id="newsletter_input"
+  <form action="https://qualityunit.us3.list-manage.com/subscribe/post?u=18d6ab6093f8e6cdbbd783635&amp;id=22b687a6cc&amp;f_id=00f6c2e1f0" method="post" name="mc-embedded-subscribe-form" target="_blank">
+    <input type="email" name="EMAIL" placeholder="Enter your e-mail for latest news" id="newsletter_input"
     class="Input" required />
+  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_18d6ab6093f8e6cdbbd783635_22b687a6cc" tabindex="-1" value=""></div>
 
     <button type="submit" name="subscribe" id="newsletter_submit" class="Button Button--full Button--dark" disabled>
       <span>Subscribe</span>
     </button>
+
+    <div id="mce-responses" class="clear">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>
   </form>
 </div>
-<!-- 
+
 <script type="text/javascript">
   const newsletter = document.querySelector('#newsletter');
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -24,45 +31,4 @@
     }
     subscribeBtn.disabled = false;
   } );
-
-  const setMessage = ( message ) => {
-    if ( message && Object.keys( message ).length ) {
-      newsletter.insertAdjacentHTML( 'beforeend', `
-      <div class="${message.status}">
-        ${message.message}
-      </div>
-      `);
-    }
-  };
-
-  const subscribeNewsletter = async (e) => {
-    const subscribeVal = subscribeInput.value;
-    let message;
-    e.preventDefault();
-
-    // 3. Send a request to our API with the user's email address.
-    const res = await fetch('/api/subscribeAPI', {
-      body: JSON.stringify({
-        email: subscribeVal,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
-
-    const { error } = await res.json();
-
-    if (error) {
-      // 4. If there was an error, update the message in state.
-      message = { status: 'error', message: error };
-      setMessage( message );
-      return false;
-    }
-
-    // 5. Clear the input value and show a success message.
-    subscribeVal = '';
-    message = { status: 'success', message: 'Success! You are now subscribed to the newsletter.' };
-    setMessage( message );
-  };
-</script> -->
+</script>

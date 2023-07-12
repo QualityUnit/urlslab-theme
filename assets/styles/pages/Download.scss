@@ -1,0 +1,43 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.download {
+
+	.Form {
+		position: relative;
+		max-width: 43.75em;
+	}
+
+	section.Download {
+		padding-top: 1.5em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding-top: 3em;
+
+			.Form {
+				z-index: 2;
+				flex: 1 1 61.4%;
+			}
+
+			>.elementor-container {
+				display: flex;
+
+				&::after {
+					position: relative;
+					// position: absolute;
+					margin-top: 5%;
+					right: 8%;
+					flex: 1 0 47%;
+					height: auto;
+					max-width: 33.125em;
+					background: url(../../images/download.png) top left no-repeat;
+					background-size: contain;
+					content: "";
+				}
+			}
+		}
+	}
+
+}

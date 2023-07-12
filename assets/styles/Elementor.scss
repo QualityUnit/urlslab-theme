@@ -33,8 +33,12 @@
 @forward "components/BlockIllustration";
 @forward "components/BlockModules";
 @forward "components/FAQ";
+@forward "components/Form";
 
 /* Components */
 @forward "components/Login";
 @forward "components/LanguageSwitcher";
 @forward "components/Footer";
+
+/* Layouts */
+@forward "layouts/Fullscreen";
