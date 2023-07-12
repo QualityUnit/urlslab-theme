@@ -28,10 +28,10 @@
       <div class="Footer__main--links">
         <ul class="Footer__navigation">
           <?php
-            if ( has_nav_menu( 'header_navigation' ) ) :
+            if ( has_nav_menu( 'footer_navigation' ) ) :
               wp_nav_menu(
                 array(
-                  'theme_location' => 'header_navigation',
+                  'theme_location' => 'footer_navigation',
                   'menu_class' => 'nav',
                 )
               );

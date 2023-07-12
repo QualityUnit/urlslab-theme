@@ -45,8 +45,6 @@ function remove_search( $query, $error = true ) {
 
 add_action( 'parse_query', 'remove_search' );
 
-
-
 /**
 	* add arrow icon class into link inside of learn-more
 	*/
@@ -130,18 +128,18 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 	}
 
-	if ( in_array( 'icn-menu-tour', $item->classes ) ) {
+	if ( in_array( 'label-overview', $item->classes ) ) {
 		$item_output .= '
-		<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
-			<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
+		<div data-ytid="aZG9H8suCcg" data-lightbox="youtube" style="margin-top:1em;padding-right:3em;cursor:pointer" class="Header__navigation__promo">
+			<img src="' . get_template_directory_uri() . '/assets/images/tour_video_icon.png" alt="LiveAgent Tour Video" />' . '
 		</div>
 		<script>
 			(
 				() => {
 					const tourVideo = document.querySelector("li > .Header__navigation__promo");
 					if(tourVideo) {
-						const parent = tourVideo.closest("li");
-						parent.insertAdjacentElement("afterend", tourVideo);
+						const parent = tourVideo.closest("li").querySelector("a");
+						parent.insertAdjacentElement("beforeend", tourVideo);
 					}
 				}
 			)();
