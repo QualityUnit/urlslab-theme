@@ -87,7 +87,7 @@ no-descending-specificity, scss/no-global-function-names */
 		outline: 1px solid $lightest-gray;
 
 		@media (min-width: $breakpoint-tablet) {
-			width: 100%;
+			width: 100% !important;
 		}
 
 		&:nth-child(3) {
@@ -119,6 +119,7 @@ no-descending-specificity, scss/no-global-function-names */
 			text-align: center;
 			background-color: $saturated-orange;
 			border-radius: 1.25em;
+			width: auto;
 		}
 
 		.elementor-heading-title {

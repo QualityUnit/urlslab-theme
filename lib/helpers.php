@@ -73,7 +73,6 @@ function elementor_learnmore( $content ) {
 }
 add_filter( 'the_content', 'elementor_learnmore' );
 
-
 /**
 	* Inserts SVG icons before first child or at the end (icn-after-fragment selector) of the selector (icn-)
 	*/

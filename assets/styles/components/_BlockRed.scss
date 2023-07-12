@@ -17,6 +17,14 @@
 		margin: 0.5em 0 1.5em;
 	}
 
+	.elementor-container[class] {
+		max-width: none;
+	}
+
+	img {
+		width: auto;
+	}
+
 	.Button {
 		background-color: $secondary;
 		border-color: $secondary;
