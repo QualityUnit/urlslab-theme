@@ -1,0 +1,50 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.SignupButtons {
+
+	&__wrap {
+
+		&[class] {
+			padding: 2em;
+			min-width: auto;
+		}
+	}
+
+	&.inline {
+		display: flex;
+		margin: 1em 0;
+		padding: 0;
+
+		.Button + .Button {
+			margin-left: 1em;
+		}
+	}
+
+	.Button {
+		margin-left: 0;
+		height: auto;
+		font-family: $font-secondary;
+		font-weight: 400;
+		width: 100%;
+	}
+
+	&--icon {
+		display: flex;
+		transition: all 0.2s;
+		background-color: $white;
+		cursor: pointer;
+
+		svg {
+
+			@include square(2.875em);
+			margin: 0 !important;
+			fill: transparent;
+		}
+
+		&:hover {
+			border-color: $primary-dark;
+		}
+	}
+}
