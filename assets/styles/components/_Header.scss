@@ -6,6 +6,8 @@
 @forward "../elements/Header/HeaderNavigationMain";
 @forward "../elements/Header/HeaderNavigationSubMenu";
 @forward "../elements/Header/HeaderNavigationSubItemsColors";
+@forward "../components/Login";
+@forward "../components/LanguageSwitcher";
 
 .app {
 	padding-top: $header-height;

@@ -2,7 +2,9 @@
 
 function signupbuttons( $atts ) {
 	$atts = shortcode_atts(
-    array(),
+    array(
+      'class' => 'inline',
+    ),
 		$atts,
 		'signup-buttons'
   );
@@ -10,7 +12,7 @@ function signupbuttons( $atts ) {
   ob_start();
 	?>
 
-  <div class="SignupButtons inline">
+  <div class="SignupButtons <?= esc_attr( $atts['class'] ); ?>" >
     <a
       class="Button Button--outline Button--medium"
       href=''
