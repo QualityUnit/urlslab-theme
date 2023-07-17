@@ -6,11 +6,12 @@ const queryAll = document.querySelectorAll.bind( document );
 const headerFaq = query( '.Content h2#faq' );
 const tocFaq = query( '.SidebarTOC__item a[href*=faq]' );
 const sidebarTOC = query( '.SidebarTOC' );
+const signupSidebar = query( '.Signup__sidebar' );
 
 if (
 	headerFaq !== null &&
 	tocFaq === null &&
-	window.innerWidth > 1280 &&
+	window.innerWidth > 1380 &&
 	sidebarTOC !== null
 ) {
 	const faqItem =
@@ -28,16 +29,15 @@ const headerItems = ( () => {
 } )();
 
 const tocItems = queryAll( '.SidebarTOC__item a' );
-const content = query( '.Content' );
 const treshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
 const headerHeight = query( '.Header' ).clientHeight + treshold;
 const shareIcons = query( '.BlogPost__share-sidebar' );
-const footer = query( '.Footer' );
+const scrollSidebarsElement = queryAll( '[data-scrollsidebars]' );
 
 const tocSlider = query( '.SidebarTOC__slider' );
 let slider = null;
 
-const mql = window.matchMedia( '(min-width: 1280px)' );
+const mql = window.matchMedia( '(min-width: 1380px)' );
 
 function tocRemoveActive() {
 	tocItems.forEach( ( element ) => {
@@ -45,18 +45,36 @@ function tocRemoveActive() {
 	} );
 }
 
+function loadImg( element ) {
+	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
+		element.setAttribute( 'laprocessing', 'y' );
+		element.parentElement.childNodes.forEach( ( childNode ) => {
+			loadImg( childNode );
+		} );
+		element.removeAttribute( 'laprocessing' );
+	}
+
+	if ( element.hasAttribute( 'data-srcset' ) ) {
+		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
+		element.removeAttribute( 'data-srcset' );
+	}
+
+	if ( element.hasAttribute( 'data-src' ) ) {
+		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
+		element.removeAttribute( 'data-src' );
+	}
+	element.style.opacity = '1';
+}
+
 function activateSidebars() {
 	let isScrolling;
-
 	if ( sidebarTOC !== null ) {
 		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-src]' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-src]' );
+			if ( queryAll( '[data-src]:not(script)' ) !== null ) {
+				const unloaded = document.querySelectorAll( '[data-src]:not(script)' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-					const datasrc = el.getAttribute( 'data-src' );
-					el.setAttribute( 'src', datasrc );
-					el.style.opacity = '1';
+					loadImg( el );
 				} );
 			}
 		} );
@@ -65,27 +83,13 @@ function activateSidebars() {
 			const el = element;
 			el.dataset.number = index;
 
-			el.addEventListener( 'click', ( e ) => {
-				e.preventDefault();
-				const elemHref = el.getAttribute( 'href' );
-				const toPosition = document.querySelector( elemHref ).offsetTop;
-				const titleHeight = document.querySelector( elemHref )
-					.clientHeight;
-
+			el.addEventListener( 'click', ( ) => {
 				tocRemoveActive();
 				el.classList.add( 'active' );
 
-				window.scroll( {
-					top: toPosition - titleHeight + headerHeight + treshold,
-					behavior: 'smooth',
-				} );
-
-				if ( content.classList.contains( 'BlogPost__content' ) ) {
-					window.scroll( {
-						top: toPosition - headerHeight + treshold,
-						behavior: 'smooth',
-					} );
-				}
+				setTimeout( () => {
+					window.scrollBy( 0, -treshold );
+				}, 1000 );
 			} );
 		} );
 
@@ -108,6 +112,7 @@ function activateSidebars() {
 					height: tocItemsEightHeight + 16,
 					autoWidth: true,
 					arrowPath: 'M40,30H0l20-20L40,30z',
+					// perPage: 8,
 					perMove: 8,
 					speed: 400,
 					pagination: false,
@@ -120,6 +125,16 @@ function activateSidebars() {
 					setTimeout( () => {
 						track.style.height = `${ track.clientHeight + 8 }px`;
 					}, 100 );
+				} );
+
+				mql.addEventListener( 'change', ( event ) => {
+					if ( event.matches ) {
+						setTimeout( () => {
+							track.style.height = `${
+								track.clientHeight + 8
+							}px`;
+						}, 100 );
+					}
 				} );
 
 				slider.on( 'active', () => {
@@ -184,12 +199,14 @@ function activateSidebars() {
 				shareIcons.classList.add( 'inactive' );
 
 				shareIcons.classList.remove( 'scrolled' );
-				if (
-					footer.getBoundingClientRect().top - 217 <
+				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
+					if (
+						scrollOutElem.getBoundingClientRect().top - 217 <
 					window.innerHeight
-				) {
-					shareIcons.classList.add( 'scrolled' );
-				}
+					) {
+						shareIcons.classList.add( 'scrolled' );
+					}
+				} );
 			}
 
 			if ( sidebarTOC !== null ) {
@@ -206,12 +223,22 @@ function activateSidebars() {
 				} );
 
 				sidebarTOC.classList.remove( 'scrolled' );
-				if (
-					footer.getBoundingClientRect().top - 217 <
-					window.innerHeight
-				) {
-					sidebarTOC.classList.add( 'scrolled' );
+
+				if ( signupSidebar ) {
+					signupSidebar.classList.remove( 'scrolled' );
 				}
+
+				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
+					if (
+						scrollOutElem.getBoundingClientRect().top - 217 <
+						window.innerHeight
+					) {
+						sidebarTOC.classList.add( 'scrolled' );
+						if ( signupSidebar ) {
+							signupSidebar.classList.add( 'scrolled' );
+						}
+					}
+				} );
 			}
 
 			// Set a timeout to run after scrolling ends
