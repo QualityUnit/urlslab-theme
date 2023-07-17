@@ -13,10 +13,10 @@ function signupbuttons( $atts ) {
 	?>
 
   <div class="SignupButtons <?= esc_attr( $atts['class'] ); ?>" >
-    <a
+    <button
       class="Button Button--outline Button--medium"
-      href=''
       role="button"
+			data-provider="google"
     >
       <span
         class="SignupButtons--icon"
@@ -24,13 +24,13 @@ function signupbuttons( $atts ) {
         <?php include( get_template_directory() . '/assets/images/FormSocialIcons/google.svg' ); ?>
       </span>
       <?php _e( 'Sign in with Google', 'urlslab' ); ?>
-    </a>
-    <a class="Button Button--outline Button--medium" href='' role="button">
+    </button>
+    <button class="Button Button--outline Button--medium" data-provider="facebook" role="button" id="facebook-signup-button">
       <span class="SignupButtons--icon">
         <?php include( get_template_directory() . '/assets/images/FormSocialIcons/facebook.svg' ); ?>
       </span>
       <?php _e( 'Sign in with Facebook', 'urlslab' ); ?>
-    </a>
+    </button>
   </div>
 
 	<?php
