@@ -35,29 +35,36 @@
 			}
 		}
 
-		.elementor-widget-heading[data-ytid] .play {
-			position: absolute;
-			right: 0;
-			top: -0.5em;
-			display: flex;
-			align-items: center;
-			font-size: 0.875rem;
-			font-weight: 600;
-			z-index: 2;
+		.elementor-widget-heading[data-ytid] {
+			position: relative;
+			pointer-events: none;
 
-			&::before {
+			.play {
+				position: absolute;
+				right: 0;
+				top: -0.5em;
+				display: flex;
+				align-items: center;
+				font-size: 0.875rem;
+				font-weight: 600;
+				z-index: 2;
+				cursor: pointer;
+				pointer-events: all;
 
-				@include square(2.5em);
-				content: "";
-				background: url(../../images/play-icon.svg) no-repeat;
-				background-size: contain;
-				margin-right: 0.5em;
-			}
+				&::before {
 
-			@media (hover: hover) {
+					@include square(2.5em);
+					content: "";
+					background: url(../images/play-icon.svg) no-repeat;
+					background-size: contain;
+					margin-right: 0.5em;
+				}
 
-				&:hover {
-					text-decoration: underline;
+				@media (hover: hover) {
+
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			}
 		}

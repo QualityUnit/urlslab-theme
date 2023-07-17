@@ -98,12 +98,11 @@ if ( modalVideo.length > 0 ) {
 	} );
 
 	document.addEventListener( 'click', ( event ) => {
-		const modalConst = document.querySelector( '.lightbox-youtube' );
+		console.log( event.target );
 		if (
-			event.target.classList.contains( 'lightbox__close' ) &&
-			event.target.parentElement.classList.contains( 'lightbox-youtube' )
+			event.target.classList.contains( 'lightbox__close' )
 		) {
-			removeYouTubeModal( event, modalConst );
+			console.log( 'pica' );
 		}
 	} );
 

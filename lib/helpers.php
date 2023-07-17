@@ -74,6 +74,41 @@ function elementor_learnmore( $content ) {
 add_filter( 'the_content', 'elementor_learnmore' );
 
 /**
+	* add Play button to Module with data-ytid and data-lightbox=youtube attributes
+	*/
+
+function elementor_playBtn( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath    = new DOMXPath( $dom );
+	$elements = get_nodes( $xpath, 'Module' );
+	foreach ( $elements as $element ) {
+		$titlesParents = $element->getElementsByTagName('div');
+		foreach( $titlesParents as $parent ) {
+			$hasvideo = $parent->getAttribute('data-ytid');
+			if ( ! empty( $hasvideo ) ) {
+				$title = $element->getElementsByTagName('h2')[0];
+				$playBtn = $dom->createElement( 'span', htmlspecialchars( __( 'Play video', 'urslab' ) ) );
+				$playBtn->setAttribute( 'class', 'play' );
+				$title->appendChild( $playBtn );
+			}
+		}
+	}
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'elementor_playBtn' );
+
+/**
 	* Inserts SVG icons before first child or at the end (icn-after-fragment selector) of the selector (icn-)
 	*/
 function insert_svg_icons( $content ) {

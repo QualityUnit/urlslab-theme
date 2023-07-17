@@ -1,4 +1,39 @@
-<div id="category" class="Category">
+<div  class="Posts Features" itemScope itemType="http://schema.org/Collection">
+	<div class="Posts__Header Features">
+          <div class="wrapper">
+            <div class="Posts__Header--text">
+              <ul class="breadcrumb mt-m">
+                <li><?php _e( 'Features', 'urlslab' ); ?></li>
+              </ul>
+              <h1>
+                <?php _e( 'Features', 'urlslab' ); ?>
+              </h1>
+              <p class="mb-m"><?php _e( 'Discover all the features the UrlsLab plugin has to offer and start optimizing your website.', 'urlslab' ); ?></p>
+              <strong class="Posts__Header--counter fs-m">
+                {allPosts.length}
+                {' '}
+                features
+              </strong>
+            </div>
+
+            <img src="<?php echo esc_url( get_template_directory( ) . '/assets/images/features_img.png' ) ?>"
+              alt="Features" />
+
+            <!-- <div class="Posts__Header--filtering flex flex-align-center">
+              <SearchField liveUpdate autoFocus onChange={(input) => handleFiltering({ input, type: 'search' })} placeholder="Search feature" />
+              <MultiSelectMenu
+                id="categories"
+                class="ml-m"
+                onChange={(input) => handleFiltering({ input, type: 'categories' })}
+                isFilter
+                items={categoriesList}
+                defaultValue={Object.keys(categoriesList)}
+              >
+                Categories
+              </MultiSelectMenu>
+            </div> -->
+          </div>
+        </div>
 	<div class="Box Category__header Category__header--features">
 		<div class="wrapper">
 			<div class="Category__header--center">
