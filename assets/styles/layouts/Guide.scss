@@ -25,6 +25,10 @@
 			min-height: 17.125em;
 			padding: 3em 0;
 		}
+
+		&__container {
+			justify-content: center;
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {

@@ -26,7 +26,6 @@ h6,
 	font-family: $font-primary;
 	font-weight: $font-weight-bold;
 	position: relative;
-	word-break: keep-all;
 	z-index: 1;
 
 	strong,
@@ -228,10 +227,8 @@ p {
 	font-size: 0.875rem;
 	font-weight: 600;
 	margin-top: 1.5em;
-	color: $black;
 
-	a[class] {
-		color: currentcolor;
+	a {
 
 		&::after {
 			content: "";

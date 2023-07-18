@@ -74,25 +74,6 @@ button,
 
 		background-color: $primary-dark;
 	}
-
-	&[href*="download"]:not(.noIcon) {
-
-		span {
-			display: flex;
-			align-items: center;
-
-			&::before {
-
-				@include square(1.5em);
-				display: inline-block;
-				content: "";
-				background: url(../images/icon-download.svg) no-repeat;
-				background-size: contain;
-				margin-right: 0.75em;
-				filter: #{"invert()"};
-			}
-		}
-	}
 }
 
 .Button--secondary {

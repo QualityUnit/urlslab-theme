@@ -14,7 +14,7 @@ function getpost( $atts ) {
   ob_start();
   $title = preg_replace( '/\^(.+?)\^/i', '<span class="highlight">$1</span>', get_the_title( $atts[ 'id'] ) );
   $url = get_permalink( $atts[ 'id' ] );
-  $content = get_post_field( 'post_content', $atts[ 'id' ] );
+  $content = apply_filters( 'the_content', get_post( $atts[ 'id' ], OBJECT, 'display' )->post_content );
 	?>
   <div class="Post Guide" itemScope itemType="http://schema.org/TechArticle">
     <meta itemProp="url" content="<?= esc_url( $url ); ?>" />
@@ -27,16 +27,18 @@ function getpost( $atts ) {
     </div>
     <div class="wrapper__wide Post__container Guide__container">
       <?php if ( sidebar_toc() !== false ) { ?>
-					<div class="SidebarTOC Post__SidebarTOC">
+        <div class="SidebarTOC Post__SidebarTOC">
+            <div class="SidebarTOC-wrapper">
 						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
 						<div class="SidebarTOC__slider slider splide">
 							<div class="splide__track">
 								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc( $content ) ); ?>
+									<?= sidebar_toc( get_post( $atts[ 'id' ], OBJECT, 'display' )->post_content ); ?>
 								</ul>
 							</div>
 						</div>
 					</div>
+        </div>
 			<?php } ?>
       <div class="Content Post__content" itemProp="articleBody">
         <?= $content; ?>
