@@ -1,0 +1,98 @@
+/* stylelint-disable selector-class-pattern */
+@use "sass:map";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.breadcrumbs {
+
+	ol {
+
+		list-style: none;
+		display: inline-flex;
+		padding: 0;
+		margin: 0;
+		font-size: 0.75rem;
+		line-height: 1.26;
+		color: $level-2;
+
+		li {
+			display: inline-block;
+
+			+ li {
+				margin-left: 1em;
+
+				&::before {
+
+					content: ">";
+					margin-left: -8px;
+					margin-right: 1em;
+					background-image: none !important;
+					color: $level-2;
+				}
+			}
+
+			&:not(:last-child) {
+				margin-right: 1em;
+			}
+
+			&:last-of-type {
+
+				color: $black;
+			}
+		}
+	}
+
+	a:not(.Button) {
+
+		text-decoration: none;
+		color: $level-2;
+
+		@include hover() {
+			text-decoration: underline;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		ol {
+			flex-flow: wrap row;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet - 1) {
+
+		position: relative;
+		width: auto;
+		margin-left: -$wrapper-padding;
+		margin-right: -$wrapper-padding;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			content: "";
+			display: block;
+			width: $wrapper-padding;
+		}
+
+		&::before {
+			left: 0;
+			background: linear-gradient(to left, rgba($white, 0) 0%, rgba($white, 1) 100%);
+		}
+
+		&::after {
+			right: 0;
+			background: linear-gradient(to right, rgba($white, 0) 0%, rgba($white, 1) 100%);
+		}
+
+		&-inner {
+			padding-left: $wrapper-padding;
+			padding-right: $wrapper-padding;
+			white-space: nowrap;
+			overflow-x: auto;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+}

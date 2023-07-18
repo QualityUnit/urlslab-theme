@@ -1,0 +1,63 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Index {
+	background-color: $lightest-gray;
+
+	.wrapper {
+		justify-content: flex-start;
+		padding: 0 1.5em;
+	}
+
+	&__top {
+		font-family: $font-secondary;
+		font-weight: 700;
+
+		&--item {
+			display: inline-block;
+
+			a {
+				color: $level-2;
+			}
+		}
+	}
+
+	&__list {
+
+		&--groupTitle {
+			font-size: 2.625rem;
+			font-weight: 600;
+			color: $secondary;
+			width: 1.5em;
+		}
+
+		&--group {
+			margin-top: 1.5em;
+
+			ul {
+				font-family: $font-secondary;
+
+				li {
+					display: inline-block;
+					padding: 0.35em 0;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				display: flex;
+
+				ul {
+					flex-basis: calc(100% - 4em);
+					border-left: 1px solid $light-gray;
+					padding-left: 1.5em;
+
+					li {
+						width: 33%;
+					}
+				}
+			}
+		}
+	}
+}
