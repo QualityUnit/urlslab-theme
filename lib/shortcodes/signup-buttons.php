@@ -15,8 +15,8 @@ function signupbuttons( $atts ) {
   <div class="SignupButtons <?= esc_attr( $atts['class'] ); ?>" >
     <a
       class="Button Button--outline Button--medium"
-      href=''
       role="button"
+			href="https://api.urlslab.com/v1/auth/google"
     >
       <span
         class="SignupButtons--icon"
@@ -25,7 +25,7 @@ function signupbuttons( $atts ) {
       </span>
       <?php _e( 'Sign in with Google', 'urlslab' ); ?>
     </a>
-    <a class="Button Button--outline Button--medium" href='' role="button">
+    <a class="Button Button--outline Button--medium" href="https://api.urlslab.com/v1/auth/facebook" role="button">
       <span class="SignupButtons--icon">
         <?php include( get_template_directory() . '/assets/images/FormSocialIcons/facebook.svg' ); ?>
       </span>
