@@ -97,12 +97,12 @@ if ( modalVideo.length > 0 ) {
 		} );
 	} );
 
-	document.addEventListener( 'click', ( event ) => {
-		console.log( event.target );
+	document.querySelector( 'body' ).addEventListener( 'click', ( event ) => {
+		const modalConst = document.querySelector( '.lightbox-youtube' );
 		if (
 			event.target.classList.contains( 'lightbox__close' )
 		) {
-			console.log( 'pica' );
+			removeYouTubeModal( event, modalConst );
 		}
 	} );
 

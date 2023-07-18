@@ -2,6 +2,10 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+.elementor-element[data-ytid] {
+	cursor: pointer;
+}
+
 .elementor-top-section {
 	margin-bottom: 4em;
 
