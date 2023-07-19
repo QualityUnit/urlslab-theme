@@ -185,19 +185,19 @@ hr {
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 
 	&-mobile {
 
 		@media (max-width: ($breakpoint-tablet - 1px)) {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	&-desktop {
 
 		@media (min-width: $breakpoint-tablet) {
-			display: none;
+			display: none !important;
 		}
 	}
 }

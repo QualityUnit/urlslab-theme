@@ -3,15 +3,23 @@
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
 
-.urlslab-searchfield {
+.searchfield {
 
-	&.urlslab-inputField {
+	&.inputField {
 		position: relative;
-		border-color: transparent;
-		border-radius: $border-radius-6;
+		border-radius: $border-radius-10;
+		margin-bottom: 0;
+		max-width: 15.625em;
 
-		&.limited {
-			max-width: 18.75em;
+		svg {
+
+			@include square(1.25em);
+			position: absolute;
+			fill: $black-real;
+			height: 1.5em;
+			left: 0.85em;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 
@@ -25,22 +33,12 @@
 		color: $black;
 	}
 
-	svg {
-
-		@include square(1.25em);
-		position: absolute;
-		fill: $black;
-		height: 1.5em;
-		left: 0.85em;
-		top: 50%;
-		transform: translateY(-50%);
-	}
 
 	&-input[type="search"][class] {
 		font-weight: $font-weight-normal;
 		line-height: 1;
 		padding: 0.35em 0.5em 0.35em 3.5em;
-		border-radius: $border-radius-6;
+		border-radius: $border-radius-10;
 		background-color: $light-gray;
 
 		@include input-placeholder {
