@@ -1,0 +1,174 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Footer {
+	background-color: $lightest-gray;
+
+	.small {
+		font-family: $font-secondary;
+		font-size: $font-size-smaller;
+	}
+
+	&__motto {
+		margin-bottom: 1em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			max-width: 55%;
+		}
+	}
+
+	&__newsletter {
+		font-size: $font-size-smaller;
+		margin-bottom: 3em;
+
+		input[type="email"],
+		button {
+			font-size: inherit;
+			border-radius: 1.5em;
+			padding: 0.75em 2em;
+
+			span {
+				line-height: 1.2;
+			}
+		}
+
+		input[type="email"] {
+			position: relative;
+			right: -2em;
+			background-color: $light-gray;
+
+			@include input-placeholder {
+				color: $level-3;
+			}
+		}
+
+		&--form form {
+			display: flex;
+			align-items: center;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			align-items: center;
+
+			&--text {
+				width: 40%;
+			}
+
+			&--form {
+				width: 40%;
+				margin-left: auto;
+			}
+		}
+	}
+
+	&__social {
+		display: flex;
+		margin: 1em 0;
+
+		&--item {
+
+			display: flex;
+			align-items: center;
+
+			svg {
+
+				@include square(1.35em);
+				fill: $level-4;
+				margin-right: 0.5em;
+			}
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+
+	a {
+		color: $level-2;
+	}
+
+	.wrapper {
+		display: block;
+		padding: 2em;
+	}
+
+	&__navigation {
+		display: flex;
+		flex-wrap: wrap;
+		color: $black;
+
+		a {
+			color: currentcolor;
+		}
+
+		.sub-menu {
+			margin-top: 1em;
+			font-family: $font-secondary;
+
+			li {
+				font-weight: 400;
+				font-size: $font-size-smaller;
+
+				a {
+					display: block;
+					font-weight: inherit;
+				}
+			}
+
+			.menu-item + .menu-item {
+				margin-left: 0;
+			}
+		}
+
+		.menu-item {
+
+			> a[href*="#"] {
+				font-weight: 600;
+				pointer-events: none;
+
+				svg {
+					display: none;
+				}
+			}
+
+			+ .menu-item {
+				margin-left: 4em;
+			}
+		}
+	}
+
+	&__bottom {
+		margin-top: 3em;
+		font-size: 0.75rem;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__main {
+			display: flex;
+
+			&--links {
+				margin-left: auto;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		margin-top: 3em;
+
+		&__navigation {
+			flex-wrap: nowrap;
+		}
+
+		&__bottom {
+			display: flex;
+		}
+	}
+}

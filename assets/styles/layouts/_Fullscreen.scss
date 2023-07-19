@@ -1,0 +1,12 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.app.fullscreen {
+	min-height: 100vh;
+	background-color: $lightest-gray;
+
+	main {
+		min-height: 100vh;
+		padding: 0;
+	}
+}

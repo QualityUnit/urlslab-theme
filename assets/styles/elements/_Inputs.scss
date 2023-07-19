@@ -1,0 +1,152 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+input,
+textarea {
+
+	&.input__text,
+	&[type="text"],
+	&[type="email"],
+	&[type="password"],
+	&[type="url"],
+	&[type="number"],
+	&[type="search"] {
+		outline: none;
+		border: none;
+		border-radius: $border-radius-6;
+		padding: 1.25em 1em;
+		font-size: 1em;
+		font-family: $font-primary;
+		width: 100%;
+		color: currentcolor;
+		transition: all 0.2s;
+
+		@include input-placeholder {
+			color: currentcolor;
+			font-size: 1em;
+			transition: all 0.2s;
+			opacity: 1;
+		}
+	}
+
+	&[type="checkbox"] {
+		display: none;
+	}
+}
+
+input[type="search"] {
+	padding: 0.5em 0.5em 0.5em 3.5em;
+	border-radius: 12px;
+	background-color: $light-grayBg;
+
+	@include input-placeholder {
+		color: currentcolor;
+		font-size: 0.875rem;
+		transition: all 0.2s;
+		opacity: 1;
+	}
+}
+
+.checkbox {
+	color: $level-2;
+	font-size: 0.875rem;
+	margin-bottom: 0.75em;
+
+	label {
+		display: flex;
+		align-content: center;
+		width: 100%;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+
+			@include square(1.429em);
+			background: url(../../images/checkbox-inactive.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.75em;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+
+				&::before {
+					background-image: url(../../images/checkbox-hover.svg);
+				}
+			}
+		}
+	}
+
+	[type="checkbox"]:checked {
+
+		+ label {
+
+			&::before {
+				background-image: url(../../images/checkbox-active.svg);
+			}
+		}
+	}
+}
+
+.inputField {
+	position: relative;
+	border: 1px solid $gray-fields;
+	border-radius: $border-radius-6;
+	font-size: 1rem;
+	color: $level-3;
+	transition: all 0.2s;
+	margin-bottom: 1.25em;
+
+	&.has-svg {
+
+		input:not([type="search"]) {
+			padding: 1.25em 1em 1.25em 3.5em;
+		}
+	}
+
+	&.valid {
+		color: $saturated-green !important;
+		border-color: currentcolor;
+	}
+
+	&::before {
+
+		color: currentcolor;
+	}
+
+	&:focus-within {
+		color: $level-1 !important;
+		border-color: currentcolor;
+
+		&::before {
+
+			color: currentcolor;
+		}
+
+		svg {
+			fill: currentcolor;
+		}
+
+		input {
+
+			@include input-placeholder {
+				opacity: 0.25;
+			}
+		}
+	}
+
+	svg {
+
+		position: absolute;
+		height: 1.5em;
+		left: 0.85em;
+		top: 50%;
+		transform: translateY(-50%);
+		fill: $gray-icons;
+	}
+}
+

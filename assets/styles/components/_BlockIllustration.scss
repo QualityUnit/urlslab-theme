@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Block__illustration {
+	display: block;
+	background: $lightest-gray url(../../images/block_illustration_bg.png?ver=#{$version}) center center no-repeat;
+	background-size: cover;
+	text-align: center;
+	border-radius: $border-radius-16;
+	background-color: $lightest-gray;
+	max-width: $breakpoint-desktop-box;
+	margin-left: auto;
+	margin-right: auto;
+
+	.elementor-container {
+		display: block;
+	}
+
+	.elementor-heading-title {
+		margin-bottom: 0.625em;
+	}
+
+	&.basic {
+
+		p {
+			margin: 1.5em auto;
+			padding: 0 1em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 7.75em 3em 6em;
+
+		&.basic {
+
+			p {
+				margin: 3em auto;
+				padding: 0 15%;
+			}
+		}
+
+		&.big {
+			padding: 9em 3em 9em;
+		}
+
+		.elementor-heading-title {
+			font-size: 3rem;
+		}
+	}
+}

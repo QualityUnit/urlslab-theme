@@ -1,0 +1,46 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+/* Just basic elementor Title and subtitle */
+
+.Block__basic {
+	text-align: center;
+	max-width: 1140px;
+	margin: 0 auto 2em;
+
+	> .elementor-container {
+		justify-content: center;
+	}
+
+	.elementor-heading-title {
+		margin-bottom: 0.5em;
+	}
+
+	&--wide {
+
+		.elementor-widget-image {
+			border-radius: $border-radius-16;
+			overflow: hidden;
+			box-shadow: 0 15px 90px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-bottom: 6em;
+
+		p {
+			padding: 0 12%;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-big) {
+
+		&--wide {
+
+			.elementor-widget-image {
+				margin: 0 -7.5em;
+			}
+		}
+	}
+}

@@ -1,0 +1,230 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Box--main {
+
+	padding: 1.5em;
+	background-color: $white;
+	border: 1px solid $light-gray;
+	border-radius: $border-radius-16;
+	transition: all 0.25s;
+	overflow: hidden;
+	margin-bottom: 1.25em;
+
+	.elementor-widget-wrap {
+		display: block;
+		align-items: center;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 2.5em;
+
+		.elementor-widget-wrap {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+	}
+
+	* {
+		transition: none;
+	}
+
+	&__more-arrow {
+		display: none;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&-wide {
+
+			max-width: 52em;
+			margin: 1.5em auto;
+
+			.Box--main {
+
+				&__inn {
+					display: flex;
+					align-items: center;
+				}
+
+				&__image {
+					margin-right: 2.5em;
+					margin-bottom: 0;
+					flex-shrink: 0;
+				}
+
+				&__text {
+					width: 60.4%;
+					margin-right: auto;
+				}
+
+				&__excerpt {
+					margin-bottom: 0;
+				}
+
+				&__more-arrow {
+
+					@include square(3em);
+					display: block;
+					fill: $primary !important;
+				}
+			}
+		}
+	}
+
+
+	&:not(.pillar):active,
+	&:not(.pillar):focus,
+	&:not(.pillar):hover {
+
+		color: $white;
+		background-color: $primary;
+		box-shadow: 0 0 5em -0.625em rgba(0, 0, 0, 0);
+
+		* {
+			color: currentColor;
+		}
+
+		svg {
+			fill: currentColor !important;
+		}
+	}
+
+	&__logo {
+		display: block;
+		margin-bottom: 1.5rem;
+
+		img,
+		picture {
+			max-height: 3em !important;
+		}
+	}
+
+	&__image,
+	&__thumbnail,
+	.elementor-widget-image:first-child {
+		float: left;
+		margin-bottom: 0;
+
+		.elementor-image {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			overflow: hidden;
+
+			img,
+			picture {
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
+
+		.Box--main:not(.pillar) & {
+
+			@include square(4em);
+			background-color: $primary-light;
+			border-radius: $border-radius-14;
+			padding: 1em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-bottom: 1.5rem;
+
+			.Box--main:not(.pillar) & {
+
+				@include square(5.25em);
+				padding: 1.5em;
+			}
+		}
+	}
+
+	&__title,
+	.elementor-widget-heading {
+		width: calc(100% - 5rem);
+		float: right;
+		position: static;
+		margin-bottom: 0;
+
+		* {
+			position: static;
+			font-size: 1rem;
+		}
+
+		.elementor-widget-container {
+			margin-bottom: 0 !important;
+		}
+
+		h3 {
+			margin-bottom: 0.25em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 100%;
+
+			* {
+				font-size: 1.125rem;
+			}
+		}
+	}
+
+	&__excerpt,
+	.elementor-widget-text-editor {
+		width: calc(100% - 5rem);
+		float: right;
+
+		p,
+		> a {
+			display: block;
+			font-size: 0.8125rem;
+			line-height: 1.3;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 100%;
+
+			p,
+			> a {
+				font-size: $font-size-smaller;
+				line-height: $line-height-smaller;
+			}
+		}
+	}
+
+	&__title {
+		max-height: 2.75em;
+		overflow: hidden;
+
+		a {
+
+			color: $black;
+		}
+	}
+
+	&__excerpt {
+
+		color: $level-2;
+		overflow: hidden;
+
+		p,
+		> a {
+
+			color: $level-3;
+			margin-bottom: 5px;
+
+			a {
+
+				color: $level-3;
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Block__background {
+	background: linear-gradient(264.86deg, rgba(255, 171, 35, 0.5), rgba(253, 203, 110, 0.5));
+	max-width: $wrapper-wide;
+
+	&.wrapper[class] {
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 1.5em 7.5em;
+		}
+	}
+
+	&.Block__image {
+		max-width: $wrapper-wide;
+	}
+
+	.tag {
+
+		p {
+
+			background-color: transparent;
+			color: $black;
+			padding: 0;
+		}
+	}
+}

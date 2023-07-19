@@ -1,0 +1,47 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.ShareArticle {
+	margin: 3em auto;
+
+	&__title {
+
+		font-size: 0.875rem;
+		font-weight: 700;
+		margin-bottom: 0.57em;
+		text-align: center;
+	}
+
+	&__items {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+
+		&--item {
+			margin: 0 0.625em;
+
+			a {
+
+				@include square(1.875em);
+				display: block;
+				background-color: $black-real;
+				border-radius: 50%;
+				font-size: 1rem;
+				line-height: 1.875;
+				text-align: center;
+				transition: all 0.3s ease;
+				color: $white;
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					background-color: $primary;
+					color: $white;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,247 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Pricing {
+	padding: 3.2em 0;
+	margin: 1.5em auto;
+	max-width: $breakpoint-desktop-box;
+	background-color: $lightest-gray;
+	border-radius: $border-radius-16;
+
+	.wrapper {
+
+		@media (min-width: $breakpoint-desktop) {
+			padding: 0;
+		}
+	}
+
+	&__title .elementor-heading-title {
+		font-size: $font-size-h2;
+		text-align: center;
+
+		@media (max-width: $breakpoint-tablet) {
+			font-size: $font-size-h2-s;
+		}
+	}
+
+	&__subtitle {
+		max-width: 70ch;
+		margin: 0 auto;
+		text-align: center;
+
+		.elementor-heading-title {
+			font-size: 1rem;
+		}
+	}
+
+	&__tags {
+		margin-top: 1.5em;
+
+		ul {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: center;
+
+			li {
+				background-color: $primary-lighter;
+				margin: 0 1em 1em 0;
+				padding: 0.5em 1em !important;
+				border-radius: 1em;
+				font-size: 0.75rem;
+				line-height: 1.42;
+				text-align: center;
+
+				&::before {
+					display: none !important;
+				}
+			}
+		}
+
+	}
+
+	&__programs {
+		margin: 2em 0 1.5em;
+
+		.elementor-container {
+
+			@media (min-width: $breakpoint-tablet) {
+				display: grid;
+				grid-template-columns: repeat(2, auto);
+				grid-gap: 1.375em;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				grid-template-columns: repeat(4, auto);
+			}
+		}
+	}
+
+	&__program {
+		position: relative;
+		background-color: $white;
+		border-radius: $border-radius-16;
+		overflow: hidden;
+		padding: 3em 1.5em;
+		outline: 1px solid $lightest-gray;
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 100% !important;
+		}
+
+		&:nth-child(3) {
+			border: 2px solid $primary;
+			z-index: 2;
+
+			.elementor-button-link {
+				color: $white;
+				background-color: $primary;
+				border-color: $primary;
+			}
+		}
+
+		.elementor-widget-image {
+
+			img {
+				width: auto;
+				height: 3.5em;
+			}
+		}
+
+		.popular {
+			top: 4em;
+			right: 2em;
+			position: absolute;
+			font-size: 0.875rem;
+			font-weight: 700;
+			padding: 0.35em 0.75em;
+			text-align: center;
+			background-color: $saturated-orange;
+			border-radius: 1.25em;
+			width: auto;
+		}
+
+		.elementor-heading-title {
+			font-size: 1.875rem;
+			margin: 0.75em 0 0.35em;
+		}
+
+		.elementor-button-link {
+			display: block;
+			text-align: center;
+			padding: 1em 1.5em;
+			margin: 1.25em 0 1.5em;
+			border-radius: $border-radius-6;
+			border: 1px solid $black;
+			font-size: 0.875rem;
+			font-weight: 600;
+			line-height: 1;
+		}
+
+		.price,
+		.credits {
+
+			sup {
+				position: relative;
+				font-size: 1rem;
+				vertical-align: top;
+				top: 0.5em;
+			}
+
+			strong {
+				font-size: $font-size-h2;
+			}
+		}
+
+		.price {
+			font-family: $font-secondary;
+			line-height: 1.25;
+
+			strong {
+				font-family: $font-primary;
+			}
+
+			+ .elementor-widget-text-editor {
+				padding-bottom: 0.75em;
+				margin-bottom: 0.75em;
+				border-bottom: 2px solid $lightest-gray;
+			}
+		}
+
+		.credits {
+			font-size: 1.25rem;
+			border-top: 2px solid $lightest-gray;
+		}
+	}
+}
+
+.Recharge {
+	position: relative;
+	padding: 2em;
+	margin-bottom: 1.5em;
+	background: linear-gradient(129.76deg, rgba(93, 137, 226, 0.41) -8.52%, rgba(219, 107, 215, 0.41));
+	box-shadow: inset -0.70224px 0.70224px 0.84435px rgba(255, 255, 255, 0.55);
+	border-radius: $border-radius-16;
+
+	.elementor-container {
+		align-items: center;
+	}
+
+	.elementor-column {
+
+		&:first-child {
+
+			.elementor-heading-title {
+				font-size: 1.875rem;
+			}
+		}
+
+		&:last-child {
+
+			.elementor-widget-image {
+				display: inline-block;
+				position: relative;
+				top: -0.15em;
+
+				img {
+					width: auto;
+					height: 1.375em;
+				}
+			}
+
+			.elementor-widget-heading {
+				display: inline-block;
+
+				.elementor-heading-title {
+					font-weight: 600;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&:last-child {
+				text-align: right;
+				margin-left: auto;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		overflow: hidden;
+
+		&::after {
+			position: absolute;
+			right: -5%;
+			top: 0;
+			content: "";
+			width: 40%;
+			height: 100%;
+			// padding-bottom: 194%;
+			background: linear-gradient(to bottom, rgba($white, 0.7) 16.9%, rgba($white, 0) 86.96%);
+			opacity: 0.15;
+			transform: skewX(-65deg);
+		}
+	}
+}

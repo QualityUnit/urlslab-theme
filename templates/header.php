@@ -17,18 +17,37 @@
 					);
 				endif;
 				?>
-				<a class="Button Button--secondary" href="/download/"><span>Get plugin</span></a>
-				<div className="pos-relative flex flex-align-center">
-					<button type="button" class="Button Button--login "><span>Login</span></button>
-					<!-- {loginActive
-						&& (
-						<div className="Form Form__socialIcons__wrap pos-absolute" style={{ top: '100%', right: 0 }}>
-							<div className="mb-s fs-m"><strong>Login to URLsLab </strong></div>
-							<FormSocialIcons className="fullsize" />
+				<a class="Button Button--secondary" href="<?php esc_url( '/download/', 'urlslab' ); ?>"><span><?php _e( 'Get plugin', 'urlslab' ); ?></span></a>
+				<div class="pos-relative flex flex-align-center">
+					<button type="button" id="loginBtn" class="Button Button--login"><span><?php _e( 'Login', 'urlslab' ); ?></span></button>
+						<div class="Form Form__socialIcons__wrap pos-absolute fadeInto" id="loginForm" style="display: none; top: 100%; right: 0; min-width: auto">
+							<div class="mb-s fs-m"><strong><?php _e( 'Login to URLsLab', 'urlslab' ); ?></strong></div>
+							<?php echo do_shortcode( '[signup-buttons class="fullsize"]' ); ?>
 						</div>
-						)} -->
 				</div>
 			</nav>
 		</div>
 	</div>
 </header>
+
+<script>
+	const loginBtn = document.querySelector( '#loginBtn' );
+	const loginForm = document.querySelector( '#loginForm' ); 
+
+	loginBtn.addEventListener( 'click', ( event ) => {
+		const loginShown = loginForm.style.display;
+
+		if ( loginShown === 'none' ) {
+			loginForm.style.display = 'block';
+			return false;
+		}
+		loginForm.style.display = 'none';
+	} );
+
+	document.querySelector( 'body' ).addEventListener( 'click', ( event ) => {
+		event.stopPropagation();
+		if ( event.target.id !== ( 'loginForm' ) && event.target.id !== ( 'loginBtn' ) ) {
+			loginForm.style.display = 'none';
+		}
+	} );
+</script>

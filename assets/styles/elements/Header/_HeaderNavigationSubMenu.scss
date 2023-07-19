@@ -1,0 +1,189 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+
+.Header__navigation {
+
+	.label-sub[class] > a[href="#"] {
+		display: none;
+		visibility: hidden;
+		pointer-events: none;
+		opacity: 0;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: block;
+		}
+	}
+
+	@media (hover: hover) and (min-width: $breakpoint-tablet-landscape) {
+
+		li {
+
+			&:hover {
+
+				.sub-menu:not(.sub-menu .sub-menu) {
+					display: flex;
+				}
+			}
+		}
+	}
+
+	.sub-menu {
+
+		&:not(.sub-menu .sub-menu) {
+			display: none;
+			text-align: left;
+
+			&.active {
+				display: flex;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				position: fixed;
+				top: 3.95em;
+				left: 0;
+				right: 0;
+				margin: auto;
+				padding: 3em 0 1.5em;
+				width: 100vw;
+				text-align: inherit;
+				z-index: 2;
+
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100vw;
+					height: 100%;
+					left: 50%;
+					top: 0;
+					background-color: $white;
+					box-shadow: 0 8px 6px -6px rgb($black-real, 0.08);
+					z-index: -1;
+					transform: translateX(-50%);
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				width: $wrapper-width;
+			}
+		}
+
+		li {
+
+			&[class^="label"] {
+
+				> a {
+					display: block;
+					margin-top: 1.5em;
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					font-size: 0.875rem;
+					width: 20%;
+
+					> .sub-menu {
+						display: flex;
+						flex-wrap: wrap;
+					}
+
+					> a {
+						margin-top: 0;
+						margin-bottom: 3px;
+					}
+
+					&.w-50 {
+						width: 50%;
+					}
+
+					&.w-75 {
+						width: 75%;
+
+						.sub-menu li {
+							width: 25%;
+						}
+					}
+
+					&.w-80 {
+						width: 80%;
+
+						.sub-menu li {
+							width: 25%;
+						}
+
+					}
+
+					&.w-100 {
+						width: 100%;
+
+						.sub-menu li {
+							width: 25%;
+						}
+					}
+				}
+			}
+
+			&:not([class^="label"]) {
+				display: flex;
+				padding: 0.5em 1em 0.5em 0;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+
+					&::after,
+					a::after {
+						content: "";
+
+						@include posCustom(0, 1.5em, 0, -1.5em);
+						position: absolute;
+					}
+
+					&::after {
+
+						z-index: 0;
+						transform: scaleX(0);
+						transform-origin: left center;
+						transition: all 0.5s ease;
+					}
+
+					@media (hover: hover) {
+
+						&:hover {
+
+							&::after {
+								transform: scaleX(1);
+							}
+						}
+					}
+
+					a {
+						z-index: 2;
+					}
+				}
+
+			}
+		}
+	}
+
+	.icon {
+
+		@include square(1.25em);
+		flex-shrink: 0;
+		margin-top: 0.25em;
+		margin-right: 0.75em;
+		z-index: 1;
+		transform: translateZ(1px);
+	}
+
+	.menu-item-description {
+		display: none;
+		padding-right: 3em;
+		font-size: 0.75rem;
+		font-weight: 400;
+		line-height: 1.5;
+		color: $level-3;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: block;
+		}
+	}
+}

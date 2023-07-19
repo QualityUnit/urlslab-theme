@@ -1,0 +1,315 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+input[type="submit"],
+input[type="button"],
+button,
+.button,
+.Button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	// TODO changed for compatibility with MUI - FIXME
+	//height: $button-height-normal;
+	padding: 0 $button-padding-normal;
+	border: 0;
+	border-radius: $border-radius-6;
+	font-family: $font-primary;
+	font-size: $button-font-size-normal;
+	font-weight: $font-weight-semi;
+	white-space: nowrap;
+	cursor: pointer;
+
+	svg {
+
+		@include square(1.5em);
+		fill: currentcolor;
+
+		&:first-child {
+			margin-right: 0.75em;
+		}
+
+		&:last-child {
+			margin-left: 0.75em;
+		}
+	}
+
+	&[disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
+
+.Button + .Button {
+	margin-left: 15px;
+
+	&--outline {
+		top: 1px;
+	}
+}
+
+.Button--full {
+
+	color: $white !important;
+	overflow: hidden;
+	border: 1px solid $primary;
+	background-color: $primary;
+	transition: all 0.2s;
+
+	span,
+	strong {
+		position: relative;
+		z-index: 2;
+		font-weight: $font-weight-semi;
+		line-height: $button-height-normal;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		background-color: $primary-dark;
+	}
+}
+
+.Button--secondary {
+	color: $white;
+	background-color: $secondary;
+	border-color: $secondary;
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		background-color: $secondary-dark;
+		border-color: $secondary-dark;
+	}
+}
+
+.Button--normal {
+	color: #fff;
+	background-color: $primary;
+	transition: all 0.3s;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: $button-height-normal;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: $primary-dark;
+	}
+}
+
+.Button--dark {
+
+	background-color: $black;
+	border-color: $black;
+
+	&:active,
+	&:focus,
+	&:hover {
+		border-color: $primary-dark;
+	}
+}
+
+.Button--white {
+
+	color: $black;
+	background: $white;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: $button-height-normal;
+	}
+
+	&::before {
+
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $white;
+		border-radius: math.div($border-radius, 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&::after {
+
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $black;
+		border-radius: math.div($border-radius, 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		color: $white;
+
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.Button--outline {
+
+	color: $black;
+	border: 1px solid $black;
+	overflow: hidden;
+	transition: all 0.3s;
+
+	&-light {
+
+		color: $level-3;
+		border-color: $gray-fields;
+	}
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: $button-height-normal;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		color: $primary;
+		border-color: $primary;
+	}
+}
+
+.Button--outline--color {
+	color: $primary;
+	border: 1px solid currentcolor;
+	background-color: transparent;
+	transition: all 0.3s;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: currentcolor;
+
+		span,
+		strong {
+			color: $white;
+		}
+	}
+}
+
+.Button--icon {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
+
+	img,
+	svg {
+
+		@include square(1.75em);
+
+		&:first-child {
+			margin-right: 0.75em;
+		}
+
+		&:last-child {
+			margin-left: 0.75em;
+		}
+	}
+}
+
+.Button--back {
+	margin-top: 20px;
+}
+
+.Button--app {
+	display: inline-block;
+	width: auto;
+	height: 3.4375em;
+	min-width: 10em;
+
+	&::after {
+		display: none !important;
+	}
+
+	+ .Button--app {
+		margin-left: 1.5em;
+	}
+}
+
+.Button--narrow {
+	height: 2.625rem;
+
+	span,
+	strong {
+		line-height: 3;
+	}
+}
+
+.Button--small {
+	height: 3.125rem;
+	padding: 0 1.25em;
+
+	span,
+	strong {
+		font-size: 0.875rem;
+		line-height: 3;
+	}
+}
+
+.Button--medium {
+	font-size: 1rem;
+}
+
+.Button--big {
+	height: 72px;
+	padding: 0 30px;
+	font-size: 18px;
+
+	span,
+	strong {
+		line-height: 72px;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		height: 60px;
+		padding: 0 25px;
+		font-size: 16px;
+
+		span,
+		strong {
+			line-height: 60px;
+		}
+	}
+}

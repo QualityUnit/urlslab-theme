@@ -1,0 +1,92 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+// Elementor block with title, subtitle and 2, 3 or 4 columns
+.Block__columns {
+
+	.Button--full:first-of-type:last-child {
+		margin-top: 1em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			margin-top: 4em;
+		}
+	}
+
+	&-4 {
+		text-align: center;
+
+		.elementor-heading-title {
+			margin-bottom: 0.5em;
+
+			@media (min-width: $breakpoint-tablet) {
+				font-size: 3rem;
+			}
+		}
+
+		.elementor {
+
+			&-col-100 > .elementor-widget-wrap > .elementor-widget-text-editor {
+
+				@media (min-width: $breakpoint-tablet) {
+
+					p {
+						padding: 0 12%;
+					}
+				}
+			}
+
+			&-inner-section {
+				margin-top: 3em;
+
+				.elementor-container {
+					flex-wrap: wrap;
+					justify-content: space-between;
+					align-content: stretch;
+
+					@media (min-width: $breakpoint-tablet) {
+						display: flex;
+					}
+				}
+
+				.elementor-column {
+					text-align: left;
+					margin-bottom: 3em;
+
+					.elementor-widget-wrap {
+						display: flex;
+						flex-direction: column;
+						height: 100%;
+					}
+
+					.elementor-widget-image img {
+						margin-bottom: 1.5em;
+					}
+
+					.elementor-heading-title {
+						font-size: 1.625rem;
+						margin-bottom: 1em;
+					}
+
+					@media (min-width: $breakpoint-tablet) {
+
+						.elementor-widget-image img {
+							height: 12em;
+							margin-bottom: 3em;
+						}
+					}
+
+					@media (min-width: $breakpoint-tablet-landscape) {
+						width: calc(25% - 4em);
+						margin-bottom: 0;
+
+						.elementor-widget-image img {
+							height: 8em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

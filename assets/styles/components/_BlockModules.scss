@@ -1,0 +1,121 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Modules {
+
+	.elementor-column {
+		position: relative;
+		padding: 1.25em;
+		border-radius: $border-radius-16;
+		background-color: $white;
+		filter: $box-shadow-big;
+
+
+		.elementor-widget-image {
+			position: relative;
+			margin-bottom: 2em;
+			border: 1px solid $light-gray;
+			border-radius: $border-radius-10;
+			height: 0;
+			padding-bottom: 88.23%;
+			overflow: hidden;
+
+			.elementor-widget-container {
+
+				@include square(100%);
+				position: absolute;
+			}
+
+			img {
+
+				@include square(101%);
+				object-fit: cover;
+			}
+		}
+
+		.elementor-widget-heading[data-ytid] {
+			position: relative;
+			cursor: default;
+			pointer-events: none;
+
+			.play {
+				position: absolute;
+				right: 0;
+				top: -0.5em;
+				display: flex;
+				align-items: center;
+				font-size: 0.875rem;
+				font-weight: 600;
+				z-index: 2;
+				cursor: pointer;
+				pointer-events: all;
+
+				&::before {
+
+					@include square(2.5em);
+					content: "";
+					background: url(../images/play-icon.svg) no-repeat;
+					background-size: contain;
+					margin-right: 0.5em;
+				}
+
+				@media (hover: hover) {
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		.elementor-heading-title {
+			font-size: 1.25rem;
+			margin-bottom: 1em;
+		}
+
+		.elementor-widget-text-editor p {
+			font-size: 0.875rem;
+			color: $level-2;
+		}
+
+		.elementor-widget-text-editor.learn-more {
+			position: static;
+
+			a {
+
+				&::after {
+					content: "";
+
+					@include posZero;
+					position: absolute;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 0;
+
+		margin: 5.5em auto;
+
+		.elementor-column {
+
+			&:first-of-type {
+				margin-right: 1.25em;
+			}
+
+			&:last-of-type:not(:first-of-type) {
+				margin-left: 1.25em;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.elementor-column {
+			width: calc(50% - 1.25em);
+		}
+	}
+}

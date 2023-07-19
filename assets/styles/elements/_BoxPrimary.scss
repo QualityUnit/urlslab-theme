@@ -1,0 +1,70 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "BoxMain";
+
+.Box--primary {
+
+	@extend .Box--main;
+	box-shadow: 0 4px 4em 0 rgba($black-real, 0.04);
+	border: none;
+
+	&:hover {
+
+		background-color: $primary;
+	}
+
+	&.elementor-column {
+
+		.elementor-column-wrap {
+
+			.elementor-widget-wrap {
+				justify-content: flex-start;
+			}
+		}
+	}
+
+	.elementor-widget {
+		position: static;
+
+		a {
+
+			&::before {
+
+				@include posCustom(-2.5em);
+				position: absolute;
+				content: "";
+			}
+		}
+	}
+
+	&__thumbnail,
+	.elementor-widget {
+
+		&-image:first-of-type,
+		&-html:first-of-type {
+
+			@include square(4em, !important);
+			display: flex;
+			background-color: $primary-light;
+			border-radius: $border-radius;
+			padding: 1em;
+
+			img,
+			picture,
+			svg {
+
+				@include square(100%);
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				@include square(5.25em, !important);
+				padding: 1.5em;
+				border-radius: $border-radius-14;
+			}
+		}
+	}
+}

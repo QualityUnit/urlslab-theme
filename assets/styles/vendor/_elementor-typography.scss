@@ -1,0 +1,22 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.elementor-widget-text-editor a {
+	color: $primary;
+}
+
+.tag[class] {
+	margin-bottom: 0;
+
+	p {
+		display: inline-block;
+		color: $secondary;
+		background-color: $secondary-light;
+		border-radius: 1em;
+		padding: 0.35em 1.5em;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+}

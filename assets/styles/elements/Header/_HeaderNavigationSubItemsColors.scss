@@ -1,0 +1,43 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+
+.Header {
+
+	&__navigation {
+
+		ul.sub-menu {
+
+			li {
+
+				&[class^="label"] {
+
+					> a {
+						color: currentcolor;
+					}
+
+					.icon {
+						fill: currentcolor;
+					}
+				}
+
+				&.label-overview {
+					color: $primary;
+
+					li[class]::after {
+						background-color: $primary-light;
+					}
+				}
+
+				&.label-product {
+					color: $secondary;
+
+					li[class]::after {
+						background-color: $secondary-light;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.heroHeadline {
+
+	&__title {
+
+		h1.elementor-heading-title {
+			line-height: 1.15;
+		}
+	}
+
+	&__image.elementor-column[class]:last-of-type {
+		padding-left: 0;
+		position: relative;
+	}
+
+	&__home--subtitle + .elementor-widget-html .Button {
+		margin-top: 1.5em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__animation[class] {
+			position: absolute;
+			width: 45%;
+			z-index: 1;
+		}
+	}
+}

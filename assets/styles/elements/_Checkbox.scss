@@ -1,0 +1,50 @@
+@use "../common/mixins" as *;
+@use "../common/variables" as *;
+
+.urlslab-checkbox {
+	display: inline-flex;
+	align-items: center;
+	align-content: center;
+	cursor: pointer;
+
+	&.readOnly {
+		cursor: default;
+	}
+
+	&-box {
+
+		@include square(1rem);
+		flex: 0 0 auto;
+		background: url(../../images/checkbox-inactive.svg) center center no-repeat;
+		background-size: contain;
+
+		.radial & {
+			border-radius: 50%;
+			background: none;
+			box-shadow: inset 0 0 0 1px $gray-fields;
+		}
+	}
+
+	&-input {
+		display: none !important;
+
+		&:checked,
+		&.checked {
+
+			+ .urlslab-checkbox-box {
+				background-image: url(../../images/checkbox-active.svg);
+				box-shadow: none;
+			}
+		}
+	}
+
+	&-text {
+		margin-left: 0.5em;
+
+		.textBefore & {
+			order: -1;
+			margin-left: 0;
+			margin-right: 0.5em;
+		}
+	}
+}

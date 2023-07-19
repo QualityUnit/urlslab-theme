@@ -1,0 +1,78 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$colorClasses: (
+	"black-real": $black-real,
+	"white": $white,
+	"level-1": $level-1,
+	"black": $black,
+	"level-2": $level-2,
+	"level-3": $level-3,
+	"level-4": $level-4,
+
+	"gray-icons": $gray-icons,
+	"gray-fields": $gray-fields,
+	"gray-hover": $gray-hover,
+
+	"light-gray": $light-gray,
+	"light-grayBg": $light-grayBg,
+	"lightest-gray": $lightest-gray,
+
+	"gray": $gray,
+	"primary": $primary,
+	"primary-dark":	primary-dark,
+	"primary-lighter": $primary-lighter,
+	"primary-light": $primary-light,
+	"secondary": $secondary,
+	"secondary-dark": $secondary-dark,
+	"secondary-light": $secondary-light,
+	"light-green": $light-green,
+	"light-blue": $light-blue,
+	"green": $green,
+	"red": $red,
+	"light-red": $light-red,
+	"yellow": $yellow,
+	"tag": $tag,
+
+	"saturated-violet": $saturated-violet,
+	"desaturated-violet": $desaturated-violet,
+	"saturated-blue": $saturated-blue,
+	"desaturated-blue": $desaturated-blue,
+	"saturated-green": $saturated-green,
+	"desaturated-green": $desaturated-green,
+	"saturated-red": $saturated-red,
+	"desaturated-red": $desaturated-red,
+	"saturated-cyan": $saturated-cyan,
+	"desaturated-cyan": $desaturated-cyan,
+	"saturated-orange": $saturated-orange,
+	"desaturated-orange": $desaturated-orange,
+
+
+	"saturated-blueish-menu": $saturated-blueish-menu,
+	"desaturated-blueish-menu": $desaturated-blueish-menu,
+	"saturated-green-menu": $saturated-green-menu,
+	"desaturated-green-menu": $desaturated-green-menu,
+	"saturated-magenta-menu": $saturated-magenta-menu,
+	"desaturated-magenta-menu": $desaturated-magenta-menu,
+);
+
+@each $class, $color in $colorClasses {
+	.c-#{$class} {
+		color: $color !important;
+
+		svg {
+			fill: currentcolor !important;
+		}
+	}
+
+	svg.c-#{$class} {
+		fill: currentcolor !important;
+	}
+
+	.bg-#{$class} {
+		background-color: $color !important;
+	}
+	.border-#{$class} {
+		border-color: $color !important;
+	}
+}

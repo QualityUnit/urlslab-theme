@@ -1,0 +1,141 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+
+.Header {
+
+	&__items {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	&__navigation {
+		display: none;
+
+		&.active {
+
+			display: block;
+			position: absolute;
+			border-top-width: 1px;
+			border-top-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			width: 100%;
+			top: 75px;
+			left: 0;
+			z-index: 9999999;
+			max-height: calc(85vh - 90px);
+			overflow: auto;
+			text-align: center;
+			padding-bottom: 1.5em;
+			background-color: $white;
+		}
+
+		ul.nav {
+			width: 100%;
+			font-weight: 600;
+			padding: 1.5em 2em;
+
+			li {
+				position: relative;
+
+				a {
+					color: $black-real;
+					text-decoration: none;
+				}
+
+				&.menu-item:not([class^="label"]):not([class^="icn"]) {
+
+					> a {
+						position: relative;
+						display: block;
+
+						.icon-chevron-down {
+
+							@include square(1em);
+							margin-top: -0.05em;
+							margin-left: 0.35em;
+							margin-right: 0;
+						}
+
+						&::after {
+							content: "";
+							position: absolute;
+							left: 0;
+							bottom: -0.25em;
+							width: 100%;
+							height: 3px;
+							background-color: $secondary;
+							transform: scaleX(0);
+							transform-origin: center;
+							transition: all 0.2s;
+						}
+					}
+
+
+					&:hover {
+
+						a:not([class^="label"] > a) {
+							color: $black-real;
+						}
+
+						> a::after {
+							transform: scaleX(1);
+						}
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+			align-items: center;
+			width: auto;
+			margin-left: auto;
+
+			ul.nav {
+				display: flex;
+				align-items: center;
+				height: auto;
+				margin-left: auto;
+				padding: 0;
+
+				li {
+
+					&.menu-item:not([class^="label"]):not([class^="icn"]) {
+						display: flex;
+						align-items: center;
+						padding: 1em;
+					}
+				}
+			}
+		}
+
+		.Button {
+			margin-left: 1.5em;
+			height: 3.15em;
+			z-index: 2;
+		}
+	}
+}
+
+.Header__mobileNavigation {
+	display: block;
+	cursor: pointer;
+
+	.icon {
+
+		@include square(1.5em);
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: none;
+	}
+}

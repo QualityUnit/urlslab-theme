@@ -1,0 +1,38 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.AuthorBox {
+	display: flex;
+	justify-content: space-between;
+	max-width: 41.875rem;
+	margin: 0 auto 2.5em;
+	border-radius: 1.875em;
+	overflow: hidden;
+	background-color: $lightest-gray;
+
+	&__avatar {
+		width: 13.75em;
+	}
+
+	&__content {
+		padding: 1em 2.5em;
+
+		@media (min-width: $breakpoint-tablet) {
+			width: calc(100% - 13.75em);
+		}
+	}
+
+	&__name {
+		font-size: 0.875rem;
+	}
+
+	&__description {
+		font-size: 0.75rem;
+		line-height: 1.66;
+		margin-bottom: 0.8;
+		max-height: 7.9em;
+		overflow: hidden;
+	}
+}

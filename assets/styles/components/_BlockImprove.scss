@@ -1,0 +1,49 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.Block__improve {
+	max-width: $wrapper-wide;
+	padding: 0;
+
+	background: linear-gradient(139.49deg, rgba(93, 137, 226, 0.41) 7.97%, rgba(219, 107, 215, 0.41) 89.5%);
+	box-shadow: 0 2.75494px 9.18314px rgba(0, 0, 0, 0.14), inset -0.70224px 0.70224px 0.84435px rgba(255, 255, 255, 0.55);
+	backdrop-filter: blur(6.32016px);
+
+	.elementor-widget-text-editor {
+		margin: 0.5em 0 1.5em;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 10em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		h2 {
+			font-size: $font-size-h1;
+		}
+
+		.elementor-container {
+			padding: 4.5em 7.5em;
+			// display: flex;
+			align-items: center;
+			position: relative;
+		}
+
+		.elementor-column {
+
+			&:first-of-type {
+				padding-right: 4.5em;
+			}
+
+			&:last-of-type {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+		}
+	}
+}

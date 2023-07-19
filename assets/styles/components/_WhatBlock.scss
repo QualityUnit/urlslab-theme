@@ -1,0 +1,42 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.WhatBlock {
+	padding: 1.5em;
+	margin: 1.5em auto;
+	background-color: $lightest-gray;
+	border-radius: $border-radius-16;
+
+	&__icon {
+		margin-bottom: 0.5em;
+
+		svg {
+
+			@include square(2.25em);
+		}
+	}
+
+	h3 {
+		font-size: 2rem;
+		line-height: 1.33;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	p {
+		font-size: 1rem;
+		margin-top: 1em;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		margin: 1.5em -2.5em;
+		padding: 2.5em;
+
+		.Documentation & {
+			margin: 1.5em 0;
+		}
+	}
+}
