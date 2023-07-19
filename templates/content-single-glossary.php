@@ -39,6 +39,6 @@ $page_header_args = array(
 
 			</div>
 		</div>
-		<?php echo do_shortcode( '[sidebarBanner]' ) ?>
+		<?php echo do_shortcode( '[sidebarBanner]' ); ?>
 	</div>
 </div>

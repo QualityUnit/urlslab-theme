@@ -89,11 +89,11 @@ function elementor_playBtn( $content ) {
 	$xpath    = new DOMXPath( $dom );
 	$elements = get_nodes( $xpath, 'Module' );
 	foreach ( $elements as $element ) {
-		$titlesParents = $element->getElementsByTagName('div');
-		foreach( $titlesParents as $parent ) {
-			$hasvideo = $parent->getAttribute('data-ytid');
+		$titlesParents = $element->getElementsByTagName( 'div' );
+		foreach ( $titlesParents as $parent ) {
+			$hasvideo = $parent->getAttribute( 'data-ytid' );
 			if ( ! empty( $hasvideo ) ) {
-				$title = $element->getElementsByTagName('h2')[0];
+				$title = $element->getElementsByTagName( 'h2' )[0];
 				$playBtn = $dom->createElement( 'span', htmlspecialchars( __( 'Play video', 'urslab' ) ) );
 				$playBtn->setAttribute( 'class', 'play' );
 				$title->appendChild( $playBtn );
