@@ -8,7 +8,6 @@ const filter = require( 'gulp-filter' );
 const gulp = require( 'gulp' );
 const plumber = require( 'gulp-plumber' );
 const rename = require( 'gulp-rename' );
-const replace = require( 'gulp-replace' );
 const sass = require( 'gulp-sass' )( require( 'sass' ) );
 const stylelint = require( 'gulp-stylelint' );
 const terser = require( 'gulp-terser' );
