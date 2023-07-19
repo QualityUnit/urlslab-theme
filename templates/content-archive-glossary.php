@@ -18,7 +18,7 @@ $page_header_args = array(
 	'text' => $page_header_text,
 );
 
-$posts = get_posts(
+$glossaryposts = get_posts(
 	array(
 		'post_type'   => 'glossary',
 		'post_status' => 'publish',
@@ -28,11 +28,11 @@ $posts = get_posts(
 	)
 );
 
-foreach ( $posts as $post ) {
-	$title = $post->post_title;
-	$firstCharacter = substr( $title, 0, 1 );
-	if ( ! in_array( $firstCharacter, $index ) ) {
-			$index[] = $firstCharacter; 
+foreach ( $glossaryposts as $glossarypost ) {
+	$posttitle = $glossarypost->post_title;
+	$first_character = substr( $posttitle, 0, 1 );
+	if ( ! in_array( $first_character, $index ) ) {
+			$index[] = $first_character; 
 	}
 }
 ?>
@@ -40,10 +40,10 @@ foreach ( $posts as $post ) {
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Index">
 		<div class="wrapper flex flex-align-center">
-			<?= searchField( __( 'Search glossary', 'urlslab' ) ) ?>
+			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?> 
 			<ul class="ml-s Index__top">
-				<?php foreach ( $index as $indexItem ) { ?>
-					<li class="Index__top--item"><a href="#item-<?= esc_attr( $indexItem ); ?>" title="<?= esc_attr( $indexItem ); ?>"><?= esc_html( $indexItem ); ?></a></li>
+				<?php foreach ( $index as $index_item ) { ?>
+					<li class="Index__top--item"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
 				<?php } ?>
 			</ul>
 		</div>
@@ -51,20 +51,20 @@ foreach ( $posts as $post ) {
 
 	<div class="wrapper Index__list">
 		<?php
-		foreach ( $index as $indexItem ) {
+		foreach ( $index as $index_item ) {
 			?>
-		<div id="item-<?= esc_attr( $indexItem ); ?>" data-searchGroup class="Index__list--group">
-			<h3 class="Index__list--groupTitle"><?= esc_html( $indexItem ); ?></h3>
+		<div id="item-<?= esc_attr( $index_item ); ?>" data-searchGroup class="Index__list--group">
+			<h3 class="Index__list--groupTitle"><?= esc_html( $index_item ); ?></h3>
 			<ul>
 			<?php
-			foreach ( $posts as $post ) {
-						$id   = $post->id;
-						$title = $post->post_title;
-						$firstCharacter = substr( $title, 0, 1 );
+			foreach ( $glossaryposts as $glossarypost ) {
+						$postid   = $glossarypost->id;
+						$posttitle = $glossarypost->post_title;
+						$first_character = substr( $title, 0, 1 );
 
-				if ( $firstCharacter === $indexItem ) {
+				if ( $first_character === $index_item ) {
 					?>
-				<li class="Index__list--item" itemscope="" itemtype="https://schema.org/DefinedTerm"><a href="<?= esc_url( get_permalink( $id ) ); ?>" itemprop="url"><span itemprop="name" data-search><?= esc_html( $title ); ?></span></a></li>
+				<li class="Index__list--item" itemscope="" itemtype="https://schema.org/DefinedTerm"><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span itemprop="name" data-search><?= esc_html( $posttitle ); ?></span></a></li>
 					<?php 
 				} 
 			} 

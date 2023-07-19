@@ -1,6 +1,6 @@
 <?php
 
-function sidebarBanner( $atts ) {
+function sidebar_banner( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'bannerTitle' => '',
@@ -14,8 +14,8 @@ function sidebarBanner( $atts ) {
 	?>
    <div class="SidebarBanner">
 	<div class="SidebarBanner__inn">
-	  <h4><?= ! empty( $atts['bannerTitle'] ) ? $atts['bannerTitle'] : __( 'Experience next-level SEO plugin', 'urlslab' ); ?></h4>
-	  <p><?= ! empty( $atts['bannerSubtitle'] ) ? $atts['bannerSubtitle'] : __( 'Get started today and download the URLsLab Wordpress plugin', 'urlslab' ); ?></p>
+	  <h4><?= esc_html( ! empty( $atts['bannerTitle'] ) ? $atts['bannerTitle'] : __( 'Experience next-level SEO plugin', 'urlslab' ) ); ?></h4>
+	  <p><?= esc_html( ! empty( $atts['bannerSubtitle'] ) ? $atts['bannerSubtitle'] : __( 'Get started today and download the URLsLab Wordpress plugin', 'urlslab' ) ); ?></p>
 	  <a class="Button Button--full Button--secondary pt-s pb-s" href="/download"><?php _e( 'Download the plugin', 'urlslab' ); ?></a>
 	</div>
 	<img
@@ -32,4 +32,4 @@ function sidebarBanner( $atts ) {
 	return ob_get_clean();
 }
 
-add_shortcode( 'sidebarBanner', 'sidebarBanner' );
+add_shortcode( 'sidebarBanner', 'sidebar_banner' );

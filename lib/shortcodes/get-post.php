@@ -21,7 +21,7 @@ function getpost( $atts ) {
 	<div class="Guide__header">
 	  <div class="Guide__header--inn">
 		<h2>
-		  <?= $title; ?>
+		  <?= esc_html( $title ); ?>
 		</h2>
 	  </div>
 	</div>
@@ -33,7 +33,7 @@ function getpost( $atts ) {
 						<div class="SidebarTOC__slider slider splide">
 							<div class="splide__track">
 								<ul class="SidebarTOC__content splide__list">
-									<?= sidebar_toc( get_post( $atts['id'], OBJECT, 'display' )->post_content ); ?>
+									<?= sidebar_toc( get_post( $atts['id'], OBJECT, 'display' )->post_content ); // @codingStandardsIgnoreLine ?>
 								</ul>
 							</div>
 						</div>
@@ -41,7 +41,7 @@ function getpost( $atts ) {
 		</div>
 			<?php } ?>
 	  <div class="Content Post__content" itemProp="articleBody">
-		<?= $content; ?>
+		<?= $content; // @codingStandardsIgnoreLine ?> 
 	  </div>
 	  <?php echo do_shortcode( '[sidebarBanner bannerTitle="' . $atts['bannerTitle'] . '" bannerSubtitle="' . $atts['bannerSubtitle'] . '"]' ); ?>
 	</div>

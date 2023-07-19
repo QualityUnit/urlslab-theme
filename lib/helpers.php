@@ -77,7 +77,7 @@ add_filter( 'the_content', 'elementor_learnmore' );
 	* add Play button to Module with data-ytid and data-lightbox=youtube attributes
 	*/
 
-function elementor_playBtn( $content ) {
+function elementor_playbtn( $content ) { 
 	if ( ! $content ) {
 		return $content;
 	}
@@ -89,14 +89,14 @@ function elementor_playBtn( $content ) {
 	$xpath    = new DOMXPath( $dom );
 	$elements = get_nodes( $xpath, 'Module' );
 	foreach ( $elements as $element ) {
-		$titlesParents = $element->getElementsByTagName( 'div' );
-		foreach ( $titlesParents as $parent ) {
+		$titles_parents = $element->getElementsByTagName( 'div' );
+		foreach ( $titles_parents as $parent ) {
 			$hasvideo = $parent->getAttribute( 'data-ytid' );
 			if ( ! empty( $hasvideo ) ) {
 				$title = $element->getElementsByTagName( 'h2' )[0];
-				$playBtn = $dom->createElement( 'span', htmlspecialchars( __( 'Play video', 'urslab' ) ) );
-				$playBtn->setAttribute( 'class', 'play' );
-				$title->appendChild( $playBtn );
+				$play_btn = $dom->createElement( 'span', htmlspecialchars( __( 'Play video', 'urslab' ) ) );
+				$play_btn->setAttribute( 'class', 'play' );
+				$title->appendChild( $play_btn );
 			}
 		}
 	}
@@ -106,7 +106,7 @@ function elementor_playBtn( $content ) {
 	$content = str_replace( '</body></html>', '', $content );
 	return $content;
 }
-add_filter( 'the_content', 'elementor_playBtn' );
+add_filter( 'the_content', 'elementor_playbtn' );
 
 /**
 	* Inserts SVG icons before first child or at the end (icn-after-fragment selector) of the selector (icn-)

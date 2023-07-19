@@ -1,5 +1,5 @@
 <?php 
-function searchField( $placeholder = 'Search...' ) {
+function searchfield( $placeholder = 'Search...' ) {
 	ob_start();
 	?>
 <div class="searchfield inputField has-svg">
