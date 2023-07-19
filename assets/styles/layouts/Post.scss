@@ -11,7 +11,14 @@
 	&__container {
 
 		@media (min-width: $breakpoint-tablet) {
+			display: flex;
 			margin-top: 1em;
+
+			.SidebarBanner {
+				position: sticky;
+				top: 12em;
+				margin-left: auto;
+			}
 		}
 	}
 

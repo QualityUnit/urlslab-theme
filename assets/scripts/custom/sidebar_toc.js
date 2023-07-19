@@ -55,12 +55,12 @@ function loadImg( element ) {
 	}
 
 	if ( element.hasAttribute( 'data-srcset' ) ) {
-		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
+		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ).replace( /&/g, '&amp;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' ) );
 		element.removeAttribute( 'data-srcset' );
 	}
 
 	if ( element.hasAttribute( 'data-src' ) ) {
-		element.setAttribute( 'src', `${ element.getAttribute( 'data-src' ) }` );
+		element.setAttribute( 'src', element.getAttribute( 'data-src' ).replace( /&/g, '&amp;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' ) );
 		element.removeAttribute( 'data-src' );
 	}
 	element.style.opacity = '1';
