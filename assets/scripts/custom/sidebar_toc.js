@@ -60,7 +60,7 @@ function loadImg( element ) {
 	}
 
 	if ( element.hasAttribute( 'data-src' ) ) {
-		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
+		element.setAttribute( 'src', `${ element.getAttribute( 'data-src' ) }` );
 		element.removeAttribute( 'data-src' );
 	}
 	element.style.opacity = '1';
