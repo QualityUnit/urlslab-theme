@@ -14,7 +14,7 @@ add_action(
 			wp_enqueue_style( 'elementor-layout', get_template_directory_uri() . '/assets/dist/Elementor' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 
-		if ( ! is_page( ) ) {
+		if ( ! is_page() ) {
 			wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/app' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 	},
