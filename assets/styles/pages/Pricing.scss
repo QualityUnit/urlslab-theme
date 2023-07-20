@@ -2,6 +2,7 @@
 no-descending-specificity, scss/no-global-function-names */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../components/PricingTable";
 
 .Pricing {
 	padding: 3.2em 0;

@@ -1,0 +1,80 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Pricing__table {
+
+	&--header[class] {
+		margin-top: 3em;
+
+		.elementor-price-list {
+			font-family: $font-secondary;
+			border: 1px solid $light-gray;
+			border-bottom: none;
+			border-radius: $border-radius-16 $border-radius-16 0 0;
+
+			&-description {
+				display: none;
+			}
+
+			&-item {
+				padding: 1.75em 2.625em;
+			}
+
+			&-title,
+			&-price {
+				font-family: $font-primary;
+				font-size: 1.25rem;
+				font-weight: 700;
+			}
+
+			&-price {
+				top: -1.4em;
+				padding-left: 2.1em;
+				height: calc(100% + 2.8em);
+			}
+		}
+	}
+
+	.elementor-price-list {
+		font-family: $font-secondary;
+		border: 1px solid $light-gray;
+		border-radius: 0 0 $border-radius-16 $border-radius-16;
+
+		&-item {
+			margin: 0 !important;
+			padding: 0.75em 2.625em;
+
+			&:nth-of-type(even) {
+				background-color: rgba($primary-lighter, 0.25);
+			}
+		}
+
+		&-text {
+			position: relative;
+		}
+
+		&-title,
+		&-description {
+			width: 66.66%;
+		}
+
+		&-price {
+			position: absolute;
+			top: -0.75em;
+			right: 0;
+			display: flex;
+			align-items: center;
+			padding-left: 2.625em;
+			width: 33.33%;
+			height: calc(100% + 1.5em);
+			border-left: 1px solid $light-gray;
+		}
+
+		&-description {
+			font-size: 0.875rem;
+			color: $level-3;
+		}
+	}
+}
