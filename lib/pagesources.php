@@ -13,7 +13,7 @@ set_source( 'post', 'splide', 'js' );
 set_source( 'post', 'custom_lightbox', 'js' );
 
 // Article (success stories)
-set_source( 'single-ms_success-stories', 'pages/SuccessStoriesArticle', 'css' );
+set_source( 'single-success-stories', 'pages/SuccessStoriesArticle', 'css' );
 
 // Features, Academy, Integrations, Templates
 $category_pages = array( 'features', 'glossary', 'academy', 'integrations', 'reviews', 'templates' );

@@ -21,7 +21,7 @@ add_action(
 			'graphql_single_name' => 'videoCategory',
 			'graphql_plural_name' => 'videoCategories',
 		);
-		register_taxonomy( 'video_categories', array( 'videos' ), $args );
+		register_taxonomy( 'videos_categories', array( 'videos' ), $args );
 	},
 	0
 );
