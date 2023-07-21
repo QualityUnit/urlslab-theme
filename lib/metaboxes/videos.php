@@ -4,7 +4,7 @@ $metabox = array(
 	'id'         => 'mb_videos',
 	'capability' => 'edit_posts',
 	'name'       => 'Videos',
-	'post_type'  => array( 'ms_videos' ),
+	'post_type'  => array( 'videos' ),
 	'priority'   => 'high',
 	'args'       => array(
 		array(
