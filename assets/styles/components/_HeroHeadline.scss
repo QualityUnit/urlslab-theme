@@ -17,9 +17,20 @@
 		position: relative;
 	}
 
-	&__home--subtitle + .elementor-widget-html .Button {
-		margin-top: 1.5em;
+	&__home--subtitle {
+
+		h3 {
+			font-size: 1.625rem;
+			line-height: $line-height-h3;
+			font-weight: 400;
+			margin-bottom: 0.25em;
+		}
+
+		+ .elementor-widget-html .Button {
+			margin-top: 1.5em;
+		}
 	}
+
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 

@@ -1,5 +1,5 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
-
+@use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
@@ -34,6 +34,8 @@ h6,
 	}
 }
 
+$mobile-divider: 1.25;
+
 h1,
 .h1 {
 	font-size: $font-size-h1;
@@ -57,10 +59,14 @@ h2,
 
 h3,
 .h3 {
-	font-size: $font-size-h3;
-	line-height: $line-height-h3;
-	font-weight: 400;
-	margin-bottom: 0.25em;
+	font-size: math.div($font-size-h3, $mobile-divider);
+	line-height: math.div($line-height-h3, $mobile-divider);
+
+	@media (min-width: $breakpoint-tablet) {
+
+		font-size: $font-size-h3;
+		line-height: $line-height-h3;
+	}
 }
 
 h4,
