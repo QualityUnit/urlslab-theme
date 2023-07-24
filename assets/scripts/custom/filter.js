@@ -187,7 +187,10 @@
 				listItems.forEach( ( element ) => {
 					const listItem = element;
 					const title = listItem
-						.querySelector( 'h3' )
+						.querySelector( '[data-title]' )
+						.textContent.toLowerCase();
+					const excerpt = listItem
+						.querySelector( '[data-excerpt]' )
 						.textContent.toLowerCase();
 
 					if (

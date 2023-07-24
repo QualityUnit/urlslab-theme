@@ -49,7 +49,7 @@ $page_header_args = array(
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper">
-			<ul class="Posts__items Archive__columns">
+			<ul class="Posts__items Archive__columns list">
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -102,8 +102,8 @@ $page_header_args = array(
 									<?php } ?>
 							</div>
 							<div class="Posts__item--content">
-								<h4 class="item-title"><?php the_title(); ?></h4>
-								<div class="Posts__item--excerpt item-excerpt">
+								<h4 data-title><?php the_title(); ?></h4>
+								<div class="Posts__item--excerpt" data-excerpt>
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
 								</div>
 								<p class="learn-more icn-arrow-right">

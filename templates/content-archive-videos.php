@@ -78,9 +78,9 @@ $page_header_args = array(
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 							<img src="https://i.ytimg.com/vi/<?php echo esc_attr( get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) ); ?>/hqdefault.jpg" alt="<?php _e( 'Videos', 'urlslab' ); ?>">
 						</a>
-							<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<h3 class="Category__item__title item-title" data-title><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<div class="Category__item__excerpt item-excerpt">
-								<a href="<?php the_permalink(); ?>">
+								<a href="<?php the_permalink(); ?>" data-excerpt>
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 10 ) ); ?>
 								</a>
 							</div>
