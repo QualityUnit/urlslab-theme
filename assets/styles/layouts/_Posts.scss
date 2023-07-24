@@ -71,6 +71,11 @@
 		@extend .Box--shadow;
 		margin-bottom: 0;
 
+		&[class]:hover {
+			background-color: $white;
+			color: $black;
+		}
+
 		&:not(.main) {
 			padding: 1.5em;
 
@@ -101,6 +106,7 @@
 					background-color: $white;
 					border-radius: $border-radius-6;
 					padding: 0.25em 1em;
+					color: $black !important;
 					filter: $box-shadow-small;
 
 					+ li {
