@@ -9,3 +9,6 @@
 
 	//Videos taxonomies
 	require_once get_template_directory() . '/lib/taxonomies/videos-categories.php';
+
+	// About + Contact taxonomies
+	require_once get_template_directory() . '/lib/taxonomies/about-categories.php';

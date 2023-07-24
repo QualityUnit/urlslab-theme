@@ -4,7 +4,7 @@
 
 body.compact-header--active {
 
-	@media (max-width: $breakpoint-tablet - 1) {
+	@media (max-width: ($breakpoint-tablet - 1)) {
 		overflow: hidden;
 
 		.ContactUs {
@@ -78,6 +78,10 @@ body.compact-header--active {
 		border-bottom-right-radius: $border-radius-16;
 		background-color: $white;
 
+		body.about & {
+			display: none;
+		}
+
 		&-img {
 
 			@include square(70%);
@@ -94,7 +98,7 @@ body.compact-header--active {
 		font-size: 2.5em;
 		font-weight: $font-weight-bold;
 
-		@media (max-width: $breakpoint-tablet - 1) {
+		@media (max-width: ($breakpoint-tablet - 1)) {
 			font-size: 1.875em;
 		}
 
@@ -559,7 +563,7 @@ body.compact-header--active {
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet - 1) {
+	@media (max-width: ($breakpoint-tablet - 1)) {
 
 		&__wrapper {
 			flex-direction: column;
