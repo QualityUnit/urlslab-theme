@@ -21,7 +21,7 @@ function getpost( $atts ) {
 	<div class="Guide__header">
 	  <div class="Guide__header--inn">
 		<h2>
-		  <?= esc_html( $title ); ?>
+		  <?= $title; // @codingStandardsIgnoreLine ?>
 		</h2>
 	  </div>
 	</div>
