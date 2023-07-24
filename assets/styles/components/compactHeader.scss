@@ -78,6 +78,10 @@ body.compact-header--active {
 		border-bottom-right-radius: $border-radius-16;
 		background-color: $white;
 
+		body.about & {
+			display: none;
+		}
+
 		&-img {
 
 			@include square(70%);
