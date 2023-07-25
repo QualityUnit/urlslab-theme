@@ -54,7 +54,7 @@
 	@media (min-width: $breakpoint-tablet) {
 
 		display: grid;
-		grid-template-columns: repeat(2, auto);
+		grid-template-columns: repeat(2, 50%);
 		grid-column-gap: 1.875rem;
 		grid-row-gap: 1.875rem;
 
@@ -65,7 +65,7 @@
 
 
 	@media (min-width: $breakpoint-tablet-landscape) {
-		grid-template-columns: repeat(3, auto);
+		grid-template-columns: repeat(3, 33.33%);
 		grid-row-gap: 3.125em;
 
 		.full {

@@ -5,6 +5,8 @@
 @use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "./ArchiveColumns";
+@forward "./Posts";
 
 .Archive {
 

@@ -12,10 +12,10 @@ if ( has_post_thumbnail() ) {
 }
 $page_header_args = array(
 	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_features.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/features-post-header-bg.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'logo' => $page_header_logo,
+	'logo' => ! get_post_meta( get_the_ID(), 'main', true ) ? $page_header_logo : null,
 	'title' => get_the_title(),
 	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc' => true,
@@ -37,40 +37,6 @@ if ( $categories && $categories_url ) {
 		$page_header_args['tags'][] = $new_tags;
 	}
 }
-if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
-	$new_tags = array(
-		'title' => __( 'Available in', 'urlslab' ),
-	);
-	foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
-		if ( 'ticket' === $item ) {
-			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
-				'title' => __( 'Small', 'urlslab' ),
-			);
-		}
-		if ( 'ticket-chat' === $item ) {
-			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
-				'title' => __( 'Medium', 'urlslab' ),
-			);
-		}
-		if ( 'all-inclusive' === $item ) {
-			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
-				'title' => __( 'Large', 'urlslab' ),
-			);
-		}
-		if ( 'self-hosted' === $item ) {
-			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
-				'title' => __( 'Self-Hosted', 'urlslab' ),
-			);
-		}
-	}
-	if ( isset( $new_tags['list'] ) ) {
-		$page_header_args['tags'][] = $new_tags;
-	}
-}
 ?>
 
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
@@ -83,14 +49,6 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 		<div class="Post__content">
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
-
-				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'urlslab' ); ?></div>
-
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

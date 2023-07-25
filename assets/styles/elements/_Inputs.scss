@@ -81,7 +81,8 @@ input[type="search"] {
 		}
 	}
 
-	[type="checkbox"]:checked {
+	[type="checkbox"]:checked,
+	[type="radio"]:checked {
 
 		+ label {
 
