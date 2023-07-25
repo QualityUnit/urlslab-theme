@@ -205,7 +205,6 @@
 
 			listItems.forEach( ( element ) => {
 				const listItem = element;
-				console.log( listItem.querySelector( '[data-title]' ) );
 				const title = listItem
 					.querySelector( '[data-title]' )
 					?.textContent?.toLowerCase();
