@@ -42,6 +42,7 @@ gulp.task( 'browser-sync', () => {
 
 	gulp.watch( './assets/styles/**/*.scss', gulp.series( 'styles' ) );
 	gulp.watch( './assets/scripts/app/**/*.js', gulp.series( 'app-js' ) );
+	gulp.watch( './assets/scripts/custom/**/*.js', gulp.series( 'custom-js' ) );
 	gulp.watch(
 		'./assets/images/icons-common/*.svg',
 		gulp.series( 'iconsSprite' )

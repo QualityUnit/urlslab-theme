@@ -124,6 +124,10 @@
 			right: 0;
 		}
 
+		input {
+			display: none;
+		}
+
 		&.menuInput {
 			min-width: 15em;
 			max-width: 25em;

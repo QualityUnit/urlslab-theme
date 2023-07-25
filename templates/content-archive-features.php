@@ -69,7 +69,7 @@ $page_header_args = array(
 
 					<li class="Posts__item <?php
 					if ( get_post_meta( get_the_ID(), 'main', true ) ) {
-						echo 'main full';
+						echo 'main pillar full';
 					}
 					else {
 						echo 'col-3';

@@ -74,6 +74,10 @@
 		&[class]:hover {
 			background-color: $white;
 			color: $black;
+
+			a {
+				text-decoration: none;
+			}
 		}
 
 		&:not(.main) {

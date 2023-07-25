@@ -208,26 +208,26 @@
 				console.log( listItem.querySelector( '[data-title]' ) );
 				const title = listItem
 					.querySelector( '[data-title]' )
-					.textContent.toLowerCase();
+					?.textContent?.toLowerCase();
 				const excerpt = listItem
 					.querySelector( '[data-excerpt]' )
-					.textContent.toLowerCase();
+					?.textContent?.toLowerCase();
 
 				if (
 					listItem.style.display === 'none' &&
-					! listItem.classList.contains( 'pillar' )
+					! listItem.classList?.contains( 'pillar' )
 				) {
 					listItem.style.display = 'block';
 				}
 
 				if (
 					listItem.style.display === 'none' &&
-					listItem.classList.contains( 'pillar' )
+					listItem.classList?.contains( 'pillar' )
 				) {
 					listItem.style.display = 'flex';
 				}
 
-				if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
+				if ( ! title?.includes( val ) && ! excerpt?.includes( val ) ) {
 					listItem.style.display = 'none';
 				}
 
