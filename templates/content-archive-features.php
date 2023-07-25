@@ -67,11 +67,11 @@ $page_header_args = array(
 					}
 					?>
 
-					<li class="Posts__item <?php
+					<li class="Posts__item 
+					<?php
 					if ( get_post_meta( get_the_ID(), 'main', true ) ) {
 						echo 'main pillar full';
-					}
-					else {
+					} else {
 						echo 'col-3';
 					}
 					?>
@@ -85,16 +85,16 @@ $page_header_args = array(
 									</div>
 
 									<?php 
-										if ( ! get_post_meta( get_the_ID(), 'main', true ) ) {
-									?>
+									if ( ! get_post_meta( get_the_ID(), 'main', true ) ) {
+										?>
 									<ul class="Posts__item--categories">
 										<?php
 										if ( ! empty( $categories ) ) {
 											foreach ( $categories as $category_item ) {
 													$category_name = $category_item->name;
-										?>
+												?>
 										<li class="Posts__item--category category"><?= esc_html( $category_name ); ?></li>
-										<?php
+												<?php
 											}
 										}
 										?>
@@ -107,7 +107,7 @@ $page_header_args = array(
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
 								</div>
 								<p class="learn-more icn-arrow-right">
-									<?php _e('Learn more', 'urlslab'); ?>
+									<?php _e( 'Learn more', 'urlslab' ); ?>
 								</p>
 							</div>
 						</a>
