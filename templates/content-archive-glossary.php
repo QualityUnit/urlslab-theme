@@ -60,7 +60,7 @@ foreach ( $glossaryposts as $glossarypost ) {
 			foreach ( $glossaryposts as $glossarypost ) {
 						$postid   = $glossarypost->id;
 						$posttitle = $glossarypost->post_title;
-						$first_character = substr( $title, 0, 1 );
+						$first_character = substr( $posttitle, 0, 1 );
 
 				if ( $first_character === $index_item ) {
 					?>
