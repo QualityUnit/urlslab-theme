@@ -58,7 +58,7 @@ foreach ( $glossaryposts as $glossarypost ) {
 			<ul>
 			<?php
 			foreach ( $glossaryposts as $glossarypost ) {
-						$postid   = $glossarypost->id;
+						$postid   = $glossarypost->ID;
 						$posttitle = $glossarypost->post_title;
 						$first_character = substr( $posttitle, 0, 1 );
 
