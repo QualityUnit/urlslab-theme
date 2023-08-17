@@ -2,7 +2,7 @@
 
 // * Setup variables
 // */
-define( 'THEME_VERSION', '2.0.13' );
+define( 'THEME_VERSION', '2.0.14' );
 
 /**
 	* Includes
