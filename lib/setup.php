@@ -15,6 +15,12 @@ add_action( 'after_setup_theme', 'enable_old_widget_editor' );
 add_action(
 	'after_setup_theme',
 	function () {
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+
+		// Enqueue editor styles.
+		add_editor_style( 'editor-style.css' );
+
 		// Make theme available for translation
 		load_theme_textdomain( 'urlslab', get_template_directory() . '/lang' );
 

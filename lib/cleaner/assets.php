@@ -111,3 +111,12 @@ function wps_deregister_styles() {
 	wp_dequeue_style( 'global-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
+
+/**
+ * Add Missing Style to Gutenberg
+ */
+
+function add_style_to_gutenberg() {
+	echo '<style>@import "/wp/wp-includes/css/dist/edit-post/classic.min.css";</style>';
+}
+add_action( 'admin_head', 'add_style_to_gutenberg' );
