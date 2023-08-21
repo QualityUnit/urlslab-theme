@@ -22,7 +22,8 @@
 					}
 				}
 
-				&.label-overview {
+				&.label-overview,
+				&.label-learn {
 					color: $primary;
 
 					li[class]::after {
