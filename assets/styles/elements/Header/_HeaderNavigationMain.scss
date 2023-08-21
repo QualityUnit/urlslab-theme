@@ -65,7 +65,7 @@
 							margin-right: 0;
 						}
 
-						&::after {
+						&::before {
 							content: "";
 							position: absolute;
 							left: 0;
@@ -86,10 +86,23 @@
 							color: $black-real;
 						}
 
-						> a::after {
+						> a::before {
 							transform: scaleX(1);
 						}
 					}
+				}
+
+			}
+
+			> li.menu-item-has-children {
+
+				> a::after {
+					content: "\e821";
+					font-family: fontello, sans-serif;
+					font-size: 12px;
+					font-weight: 900;
+					display: inline-block;
+					margin-left: 10px;
 				}
 			}
 		}
