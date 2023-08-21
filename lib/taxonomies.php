@@ -12,3 +12,9 @@
 
 	// About + Contact taxonomies
 	require_once get_template_directory() . '/lib/taxonomies/about-categories.php';
+
+	// Checklists
+	require_once get_template_directory() . '/lib/taxonomies/checklists-categories.php';
+
+	// Directory
+	require_once get_template_directory() . '/lib/taxonomies/directory-categories.php';
