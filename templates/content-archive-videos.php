@@ -2,6 +2,17 @@
 set_custom_source( 'layouts/Archive' );
 set_custom_source( 'pages/Category' );
 set_custom_source( 'filter', 'js' );
+
+function duration_to_time( $youtube_time ) {
+	if ( $youtube_time ) {
+		$start = new DateTime( '@0' ); // Unix epoch
+		$start->add( new DateInterval( $youtube_time ) );
+		$youtube_time = ltrim( ltrim( $start->format( 'H:i:s' ), '0' ), ':' );
+	}
+
+	return $youtube_time;
+}
+
 $categories = array_unique( get_categories( array( 'taxonomy' => 'videos_categories' ) ), SORT_REGULAR );
 if ( is_tax( 'videos_categories' ) ) :
 	$page_header_title = single_cat_title();
@@ -85,6 +96,8 @@ $page_header_args = array(
 									<?= esc_html( wp_trim_words( do_shortcode( '[urlslab-video attribute="description" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ), 20 ) );  ?>
 								</a>
 							</div>
+
+							<div class="Category__item__duration"><?=  esc_html( duration_to_time( do_shortcode( '[urlslab-video attribute="duration" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ) ) ); ?> </div>
 					</li>
 
 					<?php

@@ -138,6 +138,14 @@
 				line-height: 1.25 !important;
 			}
 		}
+
+		&__duration {
+			text-align: right;
+			padding: 0 1.5em 1.5em;
+			font-size: 0.825rem;
+			color: $level-2;
+			margin-left: auto;
+		}
 	}
 }
 
