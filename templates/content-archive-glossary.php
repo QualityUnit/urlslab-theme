@@ -2,8 +2,8 @@
 set_custom_source( 'layouts/Archive' );
 include_once( get_template_directory() . '/lib/components/searchfield.php' );
 $index = array();
-$page_header_title = __( 'URLsLab plugin Glossary', 'urlslab' );
-$page_header_text = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'urlslab' );
+$page_header_title = __( 'SEO Glossary', 'urlslab' );
+$page_header_text = __( 'If you`re new to website optimization or SEO, you may find yourself facing many unfamiliar terms and concepts . We`ve put together a comprehensive glossary to help you understand these key terms more easily.', 'urlslab' );
 if ( is_tax( 'glossary_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text = term_description();
@@ -54,7 +54,7 @@ foreach ( $glossaryposts as $glossarypost ) {
 		foreach ( $index as $index_item ) {
 			?>
 		<div id="item-<?= esc_attr( $index_item ); ?>" data-searchGroup class="Index__list--group">
-			<h3 class="Index__list--groupTitle"><?= esc_html( $index_item ); ?></h3>
+			<h2 class="Index__list--groupTitle"><?= esc_html( $index_item ); ?></h2>
 			<ul>
 			<?php
 			foreach ( $glossaryposts as $glossarypost ) {
