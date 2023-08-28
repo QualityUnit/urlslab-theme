@@ -88,6 +88,20 @@ function improvebanner_block_init() {
 			'qu_improvebanner_editor_style'  => 'qu_improvebanner_block_editor_style',
 			'qu_improvebanner_style'         => 'qu_improvebanner_block_frontend_style',
 			'render_callback'             => 'render_improvebanner',
+			'attributes'                  => array(
+				'title'         => array(
+					'type'    => 'string',
+					'default' => 'Improve your website',
+				),
+				'content'        => array(
+					'type'    => 'string',
+					'default' => 'Get started today and download the URLsLab WordPress plugin',
+				),
+				'button'        => array(
+					'type'    => 'string',
+					'default' => 'Get the WordPress plugin',
+				),
+			),
 		)
 	);
 }

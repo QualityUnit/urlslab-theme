@@ -3,11 +3,11 @@ function banner( $attr ) {
 		return '
 			<div class="ImproveBanner">
 				<div class="ImproveBanner__text">
-					<h4>Improve your website</h4>
-					<p>Get started today and download the URLsLab WordPress plugin</p>
-					<a href="/download" class="Button Button--full pt-s pb-s">Get the WordPress plugin</a>
+					<h4>' . esc_html( $attr['title'] ) . '</h4>
+					<p>' . esc_html( $attr['content'] ) . '</p>
+					<a href="/download" class="Button Button--full pt-s pb-s">' . esc_html( $attr['button'] ) . '</a>
 				</div>
-					<img src="' . get_template_directory_uri() . '/assets/images/modules_stack.png" class="ImproveBanner__image" alt="' . __( 'Improve your website', 'urlslab' ) . '" />
+					<img src="' . get_template_directory_uri() . '/assets/images/modules_stack.png" class="ImproveBanner__image" alt="' . esc_attr( $attr['title'] ) . '" />
 			</div>
 		';
 }

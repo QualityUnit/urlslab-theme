@@ -2,6 +2,7 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../elements/Checklist" as *;
 
 %resources {
 
@@ -150,11 +151,7 @@
 
 			ul:not([class]) {
 
-				// @extend %checklist;
-
-				li::before {
-					background-image: url(../../images/icon-post-check.svg);
-				}
+				@extend %checklist;
 			}
 		}
 
