@@ -1,12 +1,35 @@
 /* global images */
-export default function ImproveBanner( props ) {
+const { TextareaControl } = wp.components;
+
+export default function ImproveBanner( { attributes, setAttributes } ) {
+	const { title, content, button } = attributes;
 	return (
 		<div className="ImproveBanner">
 			<div className="ImproveBanner__text">
-				<h4>Improve your website</h4>
-				<p>Get started today and download the URLsLab WordPress plugin</p>
+				<h4><TextareaControl
+					autoFocus
+					value={ title }
+					rows="1"
+					onFocus={ ( e ) => e.currentTarget.select() }
+					onChange={ ( value ) => setAttributes( { title: value } ) }
+				/></h4>
+				<p>
+					<TextareaControl
+						value={ content }
+						rows="3"
+						onFocus={ ( e ) => e.currentTarget.select() }
+						onChange={ ( value ) => setAttributes( { content: value } ) }
+					/>
+				</p>
 
-				<a href="/download" className="Button Button--full">Get the WordPress plugin</a>
+				<a href="/download" className="Button Button--full">
+					<TextareaControl
+						value={ button }
+						rows="1"
+						onFocus={ ( e ) => e.currentTarget.select() }
+						onChange={ ( value ) => setAttributes( { button: value } ) }
+					/>
+				</a>
 			</div>
 
 			<img
