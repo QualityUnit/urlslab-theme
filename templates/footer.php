@@ -1,4 +1,4 @@
-<footer class="Footer">
+<footer class="Footer urlslab-skip-all">
   <div class="wrapper">
 	<div class="Footer__newsletter">
 	  <div class="Footer__newsletter--text">
@@ -11,7 +11,7 @@
 	  <div class="Footer__main--intro">
 		<div class="Logo">
 		  <a href="<?= esc_url( home_url( '/' ) ); ?>">
-			<img alt="URLsLab" loading="lazy" width="139" height="34" src="<?= esc_url( get_template_directory_uri() . '/assets/images/urlslab-logo.svg' ); ?>" />	
+			<img alt="URLsLab" loading="lazy" width="139" height="34" src="<?= esc_url( get_template_directory_uri() . '/assets/images/urlslab-logo.svg' ); ?>" />
 		  </a>
 		</div>
 		<p class="small Footer__motto">Start improving all important aspects of your website</p>

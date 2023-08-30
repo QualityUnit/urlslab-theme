@@ -1,8 +1,8 @@
-<header class="Header">
+<header class="Header urlslab-skip-all">
 	<div class="wrapper">
 		<div class="Logo">
 			<a href="<?= esc_url( home_url( '/' ) ); ?>">
-				<img alt="URLsLab" loading="lazy" width="139" height="34" src="<?= esc_url( get_template_directory_uri() . '/assets/images/urlslab-logo.svg' ); ?>" />	
+				<img alt="URLsLab" loading="lazy" width="139" height="34" src="<?= esc_url( get_template_directory_uri() . '/assets/images/urlslab-logo.svg' ); ?>" />
 			</a>
 		</div>
 		<div class="Header__items">
@@ -32,7 +32,7 @@
 
 <script>
 	const loginBtn = document.querySelector( '#loginBtn' );
-	const loginForm = document.querySelector( '#loginForm' ); 
+	const loginForm = document.querySelector( '#loginForm' );
 
 	loginBtn.addEventListener( 'click', ( event ) => {
 		const loginShown = loginForm.style.display;
