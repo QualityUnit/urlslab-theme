@@ -26,12 +26,13 @@
 
 		h4 {
 			font-size: 2rem;
-			line-height: 1.33;
+			line-height: 1.15;
 			margin-bottom: 0;
 		}
 
 		p {
 			margin: 0;
+			line-height: 1.33;
 			margin-bottom: 1.5em;
 		}
 	}
@@ -47,7 +48,6 @@
 		align-items: center;
 
 		&__text {
-			padding: 0;
 			padding-left: 2em;
 			flex: 1 0 55.55%;
 		}
@@ -55,7 +55,7 @@
 		&__image {
 			width: 40%;
 			max-width: none;
-			margin-top: 0;
+			margin-top: auto;
 		}
 	}
 }
