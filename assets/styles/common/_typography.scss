@@ -107,7 +107,7 @@ b {
 a {
 
 	&:not(.Button) {
-		color: currentcolor;
+		color: $primary;
 		transition: color 0.2s;
 
 		@media (hover: hover) {
