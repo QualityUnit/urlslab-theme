@@ -1,8 +1,13 @@
 <?php
 the_content();
-wp_link_pages(
-	array(
-		'before' => '<nav><p>' . __( 'Pages:', 'urlslab' ),
-		'after' => '</p></nav>',
-	)
-);
+
+if ( ! is_page( array( 'sitemap' ) ) ) {
+	?>
+	<div class="SimilarSources SimilarSources--blog">
+		<div class="wrapper">
+			<div class="SimilarSources__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
+
+	<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
+		</div>
+	</div>
+	<?php } ?>

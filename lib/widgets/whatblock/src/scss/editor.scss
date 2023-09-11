@@ -17,8 +17,10 @@
 		textarea {
 			font-size: 1rem !important;
 			line-height: 1.33 !important;
+
+			a:not(.Button) {
+				color: #2570ed;
+			}
 		}
 	}
-
-
 }
