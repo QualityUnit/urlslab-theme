@@ -191,3 +191,19 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
+
+
+/**
+ * Include Documentation search template
+ */
+
+function documentation_search( $template ) {
+	global $wp_query;
+	$post_type = get_query_var( 'post_type' );
+	if ( ! empty( $wp_query->is_search ) && 'documentation' === $post_type ) {
+		return locate_template( 'documentation-search.php' );  //  redirect to custom-post-type-search.php
+	}
+
+	return $template;
+}
+add_filter( 'template_include', 'documentation_search' );
