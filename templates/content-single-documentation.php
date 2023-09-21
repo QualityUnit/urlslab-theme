@@ -16,18 +16,21 @@ $page_header_args = array(
 	),
 	'logo'  => array(
 		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
-		'alt' => __( 'Documentation', 'ms' ),
+		'alt' => __( 'Documentation', 'urlslab' ),
 	),
-	'title' => get_the_title(),
-	'menu'  => array(
+	'title'  => __( 'Documentation', 'urlslab' ),
+	'search' => array(
+		'type' => 'documentation',
+	),
+	'menu' => array(
 		//'title' => 'Nejaky nazov',
 	),
 	'toc'   => true,
-);
-$menu_items = array();
-$category_items = array();
-if ( ! empty( $categories ) ) :
-	foreach ( $categories as $category ) :
+	);
+	$menu_items = array();
+	$category_items = array();
+	if ( ! empty( $categories ) ) :
+		foreach ( $categories as $category ) :
 			$query_glossary_posts = new WP_Query(
 				array(
 					'documentation_categories' => $category->slug,
@@ -37,34 +40,34 @@ if ( ! empty( $categories ) ) :
 					'order'               => 'ASC',
 				)
 			);
-		if ( 0 == $category->category_parent ) {
-			$category_items[] = array(
-				'cat_id' => $category->term_id,
-				'href'   => $category->slug,
-				'title'  => $category->name,
-				'active' => false,
-			);
-		}
-		while ( $query_glossary_posts->have_posts() ) :
+			if ( 0 == $category->category_parent ) {
+				$category_items[] = array(
+					'cat_id' => $category->term_id,
+					'href'   => $category->slug,
+					'title'  => $category->name,
+					'active' => false,
+				);
+			}
+			while ( $query_glossary_posts->have_posts() ) :
 				$query_glossary_posts->the_post();
 				$menu_item_active = false;
-			if ( get_the_permalink() == $post_permalink ) :
-				$menu_item_active = true;
-			endif;
+				if ( get_the_permalink() == $post_permalink ) :
+					$menu_item_active = true;
+				endif;
 				$menu_items[] = array(
-					'cat_id' => $category->term_id,
-					'title'  => get_the_title(),
-					'href'   => get_the_permalink(),
-					'active' => $menu_item_active,
+					'cat_id'        => $category->term_id,
+					'title' => get_the_title(),
+					'href'          => get_the_permalink(),
+					'active'        => $menu_item_active,
 				);
 				
-			endwhile;
+				endwhile;
 			wp_reset_postdata();
-	endforeach;
-	wp_reset_postdata();
+		endforeach;
+		wp_reset_postdata();
 endif;
-$page_header_args['menu']['items'] = $category_items;
-?>
+	$page_header_args['menu']['items'] = $category_items;
+	?>
 
 <div class="Post Post--sidebar-right documentation" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
@@ -102,6 +105,7 @@ $page_header_args['menu']['items'] = $category_items;
 		</ul>
 		<div class="Post__content">
 			<div class="Content" itemprop="text" >
+				<h2 itemprop="name"><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			</div>
 		</div>
