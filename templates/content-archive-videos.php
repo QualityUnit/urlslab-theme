@@ -15,20 +15,20 @@ function duration_to_time( $youtube_time ) {
 
 $categories = array_unique( get_categories( array( 'taxonomy' => 'videos_categories' ) ), SORT_REGULAR );
 if ( is_tax( 'videos_categories' ) ) :
-	$page_header_title = single_cat_title();
+	$page_header_title       = single_cat_title();
 	$page_header_description = the_archive_description();
 else :
 	$page_header_title = __( 'Videos', 'urlslab' );
 endif;
 if ( is_tax( 'videos_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
-	$page_header_text = term_description();
+	$page_header_text  = term_description();
 endif;
 $filter_itecategories = array(
 	array(
 		'checked' => true,
-		'value' => '',
-		'title' => __( 'Any', 'urlslab' ),
+		'value'   => '',
+		'title'   => __( 'Any', 'urlslab' ),
 	),
 );
 foreach ( $categories as $category ) :
@@ -37,22 +37,22 @@ foreach ( $categories as $category ) :
 		'title' => $category->name,
 	);
 endforeach;
-$filter_items = array(
+$filter_items     = array(
 	array(
-		'type' => 'radio',
-		'name' => 'category',
+		'type'  => 'radio',
+		'name'  => 'category',
 		'title' => __( 'Category', 'urlslab' ),
 		'items' => $filter_itecategories,
 	),
 );
 $page_header_args = array(
-	'type' => 'lvl-1',
-	'image' => array(
+	'type'   => 'lvl-1',
+	'image'  => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_webinars.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
-	'title' => $page_header_title,
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
+	'title'  => $page_header_title,
+	'text'   => do_shortcode( '[urlslab-generator id="6"]' ),
 	'search' => array(
 		'type' => 'academy',
 	),
@@ -78,8 +78,8 @@ $page_header_args = array(
 						foreach ( $categories as $category_item ) {
 							$category_item = array_shift( $categories );
 							// print_r( $category_item );
-							$category     .= $category_item->slug;
-							$category     .= ' ';
+							$category .= $category_item->slug;
+							$category .= ' ';
 						}
 					}
 

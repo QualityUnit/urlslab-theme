@@ -120,9 +120,17 @@ hr {
 		display: inline-flex;
 	}
 
-	&-align-center {
-		align-items: center;
-		align-content: center;
+	&-align {
+
+		&-center {
+			align-items: center;
+			align-content: center;
+		}
+
+		&-bottom {
+			align-items: flex-end;
+			align-content: flex-end;
+		}
 	}
 
 	&-justify-center {

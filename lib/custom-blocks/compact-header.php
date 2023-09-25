@@ -205,7 +205,7 @@
 				<?php } ?>
 			</div>
 			<?php if ( isset( $filter_search ) || isset( $filter_items ) || isset( $filter_sort ) || isset( $filter_count ) || isset( $menu_header ) || isset( $research_nav ) || isset( $checklist ) ) { ?>
-				<div class="compact-header__bottom">
+				<div class="compact-header__bottom flex flex-align-center">
 					<?php if ( isset( $filter_search ) || isset( $filter_items ) || isset( $filter_sort ) || isset( $filter_count ) ) { ?>
 						<div class="compact-header__filters-toggle">
 							<a class="Button Button--outline js-compact-header__toggle">
@@ -442,97 +442,6 @@
 											</li>
 										<?php } ?>
 									</ul>
-								</div>
-							<?php } ?>
-						</div>
-					<?php } if ( isset( $research_nav ) ) { ?>
-						<div class="compact-header__research">
-							<nav class="Research--navigation">
-								<div class="Research--navigation__title"><?php _e( 'Navigation', 'ms' ); ?></div>
-								<div class="Research--navigation__posts">
-
-									<div class="Research--navigation__selected" data-id="<?php echo get_the_ID(); ?>"> <?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?> </div>
-
-									<div class="Research--navigation__menu hidden">
-										<ul class="Research--navigation__menu__inn">
-											<?php $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_research_categories' ) ), SORT_REGULAR ); ?>
-											<?php
-											$counter = 0;
-											foreach ( $categories as $category ) {
-												$query_research_posts = new WP_Query(
-													array(
-														'ms_research_categories' => $category->slug,
-                                                        // @codingStandardsIgnoreLine
-                                                        'posts_per_page' => 500,
-														'orderby' => 'menu_order',
-														'order'   => 'ASC',
-													)
-												);
-												
-												while ( $query_research_posts->have_posts() ) :
-													$query_research_posts->the_post();
-													++$counter;
-													$color = $counter;
-                                                    if ( $counter % 9 == 0 ) { // @codingStandardsIgnoreLine
-														$color = 9;
-													}
-													if ( $counter % 9 > 0 ) {
-														$color = $counter % 9;
-													}
-													?>
-													<li data-id="<?php echo get_the_ID(); ?>" data-color="<?php echo esc_attr( $color ); ?>" class="Research--navigation__post Research--color-<?php echo esc_html( $color ); ?>">
-														<a class="Research--navigation__post__title" href="<?php the_permalink(); ?>">
-													<span class="Research--navigation__counter">
-													<?php
-													echo esc_html( $counter < 10 ? ( '0' . $counter ) : $counter );
-													?>
-												</span>
-															<?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?>
-														</a>
-													</li>
-												<?php endwhile; ?>
-												<?php wp_reset_postdata(); ?>
-											<?php } ?>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-					<?php } elseif ( isset( $checklist ) ) { ?>
-						<div class="compact-header__checklist">
-							<div class="Checklists__toc__main" data-target="ChecklistTOC">
-								<?php if ( checklists_toc() !== false ) { ?>
-									<div class="Checklists__toc__label"><?php _e( 'Contents', 'ms' ); ?></div>
-									<div class="Checklists__toc__block js-toc">
-										<div class="Checklists__toc__title js-toc__title"><?= esc_html( checklists_toc()->title ); ?></div>
-										<span class="Checklists__toc__activator"></span>
-										<div class="Checklists__toc__wrapper hidden" data-targetId="ChecklistTOC">
-											<div class="Checklists__toc__inn">
-												<ul class="Checklists__toc js-toc__items">
-													<?= wp_kses_post( checklists_toc()->toc ); ?>
-												</ul>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-							</div>
-							<div class="compact-header__checklist-progress CircleProgressBar">
-								<div class="CircleProgressBar__middle" id="circleProgressMiddle"></div>
-								<div class="CircleProgressBar__spinner" id="circleProgressSpinner"></div>
-							</div>
-							<?php if ( checklists_toc() !== false ) { ?>
-								<div class="compact-header__checklist-counter" id="checklistsCounter" data-checked="0" data-total="<?= esc_attr( checklists_toc()->count ); ?>">
-									<?= esc_html( checklists_toc()->count ); ?>
-								</div>
-								<div class="compact-header__checklist-collapse">
-									<span class="qu-Checklist__expander qu-Checklist__expander--collapse" data-action="closeAll">
-										<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Zm9.18-13.18L15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" fill="#050505"/></svg>
-										<span class="desktop--only"><?php _e( 'Collapse All', 'ms' ); ?></span>
-									</span>
-									<span class="qu-Checklist__expander qu-Checklist__expander--expand inactive" data-action="openAll">
-										<svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Z" style="fill:#050505" transform="translate(0 -10)"/><path d="M16.59 5.41 15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" style="fill:#050505" transform="translate(0 10)"/></svg>
-										<span class="desktop--only"><?php _e( 'Expand All', 'ms' ); ?></span>
-									</span>
 								</div>
 							<?php } ?>
 						</div>

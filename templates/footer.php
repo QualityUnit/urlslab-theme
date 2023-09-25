@@ -5,7 +5,7 @@
 		<h4>Join our newsletter</h4>
 		<p class="small no-margin">Get exclusive access to the latest tips, trends and deals for free.</p>
 	  </div>
-	  <?php include_once( get_template_directory() . '/templates/newsletter-form.php' ); ?>
+	  <?php require_once get_template_directory() . '/templates/newsletter-form.php'; ?>
 	</div>
 	<div class="Footer__main">
 	  <div class="Footer__main--intro">
@@ -31,7 +31,7 @@
 			wp_nav_menu(
 				array(
 					'theme_location' => 'footer_navigation',
-					'menu_class' => 'Footer__navigation',
+					'menu_class'     => 'Footer__navigation',
 				)
 			);
 		  endif;
@@ -46,7 +46,7 @@
 			wp_nav_menu(
 				array(
 					'theme_location' => 'footer_bottom_navigation',
-					'menu_class' => 'nav',
+					'menu_class'     => 'nav',
 				)
 			);
 			endif;
