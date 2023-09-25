@@ -20,21 +20,21 @@
 		$header_type = $args['type'];
 	}
 	if ( ! empty( $args['filter'] ) ) {
-		$filer_items = $args['filter'];
+		$filter_items = $args['filter'];
 	}
 	if ( ! empty( $args['sort'] ) ) {
-		$filer_sort = $args['sort'];
+		$filter_sort = $args['sort'];
 	}
 	$search_class = '';
 	if ( ! empty( $args['search'] ) ) {
-		$filer_search = $args['search'];
-		if ( ! empty( $filer_search['type'] ) ) {
-			$search_type = $filer_search['type'];
+		$filter_search = $args['search'];
+		if ( ! empty( $filter_search['type'] ) ) {
+			$search_type = $filter_search['type'];
 			$search_class = ' search--' . $search_type;
 		}
 	}
 	if ( ! empty( $args['count'] ) ) {
-		$filer_count = $args['count'];
+		$filter_count = $args['count'];
 	}
 	if ( ! empty( $args['menu'] ) ) {
 		$menu_header = $args['menu'];
@@ -204,9 +204,9 @@
 					<?php } ?>
 				<?php } ?>
 			</div>
-			<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) || isset( $checklist ) ) { ?>
-				<div class="compact-header__bottom">
-					<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) ) { ?>
+			<?php if ( isset( $filter_search ) || isset( $filter_items ) || isset( $filter_sort ) || isset( $filter_count ) || isset( $menu_header ) || isset( $research_nav ) || isset( $checklist ) ) { ?>
+				<div class="compact-header__bottom flex flex-align-center">
+					<?php if ( isset( $filter_search ) || isset( $filter_items ) || isset( $filter_sort ) || isset( $filter_count ) ) { ?>
 						<div class="compact-header__filters-toggle">
 							<a class="Button Button--outline js-compact-header__toggle">
 								<?= esc_html( __( 'Filters', 'ms' ) ); ?>
@@ -223,36 +223,38 @@
 							</a>
 							<div class=" compact-header__filters-wrap 
 							<?php 
-							if ( isset( $filer_count ) ) {
+							if ( isset( $filter_count ) ) {
 								?>
 								 compact-header__filters-wrap--count<?php } ?>">
 								<span class="compact-header__filters-collapse js-compact-header__close"></span>
 								<div class="compact-header__filters-inn">
-									<?php if ( isset( $filer_search ) ) { ?>
-										<div class="compact-header__search">
+									<?php if ( isset( $filter_search ) ) { ?>
+										<form role="search" action="<?= site_url( '/' ); //@codingStandardsIgnoreLine ?>"
+											method="get" id="searchform" class="compact-header__search">
 											<div class="searchField">
 												<svg class="searchField__icon icon-search">
 													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
 												</svg>
-												<input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
+												<input type="search" name="s" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
+												<input type="hidden" name="post_type" value="<?= esc_attr( $search_type ); ?>" />
 												<span class="search-reset">
 										<svg class="search-reset__icon icon-close">
 											<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
 										</svg>
 									</span>
 											</div>
-										</div>
+										</form>
 									<?php } ?>
-									<?php if ( isset( $filer_sort ) ) { ?>
+									<?php if ( isset( $filter_sort ) ) { ?>
 										<?php
-										if ( ! empty( $filer_sort['items'] ) ) {
-											$sort_items = $filer_sort['items'];
+										if ( ! empty( $filter_sort['items'] ) ) {
+											$sort_items = $filter_sort['items'];
 										}
 										?>
 										<?php if ( isset( $sort_items ) ) { ?>
 											<div class="FilterMenu__wrapper SortingMenu__wrapper flex-tablet flex-align-center">
-											<?php if ( isset( $filer_sort['label'] ) ) { ?>
-												<div class="FilterMenu__desc SortingMenu__desc"><?= esc_html( $filer_sort['label'] ); ?></div>
+											<?php if ( isset( $filter_sort['label'] ) ) { ?>
+												<div class="FilterMenu__desc SortingMenu__desc"><?= esc_html( $filter_sort['label'] ); ?></div>
 											<?php } ?>
 											<div class="FilterMenu SortingMenu" data-sort="relatedReviews">
 												<div class="FilterMenu__title SortingMenu__title flex flex-align-center" data-title>
@@ -282,60 +284,60 @@
 										</div>
 										<?php } ?>
 									<?php } ?>
-									<?php if ( isset( $filer_items ) ) { ?>
-										<?php foreach ( $filer_items as $filer_item ) { ?>
+									<?php if ( isset( $filter_items ) ) { ?>
+										<?php foreach ( $filter_items as $filter_item ) { ?>
 											<?php
-											if ( ! empty( $filer_item['type'] ) ) {
-												$filer_type = $filer_item['type'];
+											if ( ! empty( $filter_item['type'] ) ) {
+												$filter_type = $filter_item['type'];
 											}
-											if ( ! empty( $filer_item['items'] ) ) {
-												$filer_list = $filer_item['items'];
+											if ( ! empty( $filter_item['items'] ) ) {
+												$filter_list = $filter_item['items'];
 											}
-											if ( ! empty( $filer_item['name'] ) ) {
-												$filer_name = $filer_item['name'];
+											if ( ! empty( $filter_item['name'] ) ) {
+												$filter_name = $filter_item['name'];
 											}
 											?>
-											<?php if ( isset( $filer_list ) && isset( $filer_type ) ) { ?>
+											<?php if ( isset( $filter_list ) && isset( $filter_type ) ) { ?>
 												<?php
-												if ( ! empty( $filer_item['active'] ) ) {
-													$filer_active = $filer_item['active'];
+												if ( ! empty( $filter_item['active'] ) ) {
+													$filter_active = $filter_item['active'];
 												} else {
-													$filer_active = $filer_list[0]['title'];
+													$filter_active = $filter_list[0]['title'];
 												}
 												?>
 												<div class="compact-header__filter">
-													<?php if ( ! empty( $filer_item['title'] ) ) { ?>
+													<?php if ( ! empty( $filter_item['title'] ) ) { ?>
 														<div class="compact-header__filter-label">
-															<?= esc_html( $filer_item['title'] ); ?>
+															<?= esc_html( $filter_item['title'] ); ?>
 														</div>
 													<?php } ?>
 													<div class="FilterMenu">
 														<div class="FilterMenu__title">
-															<?= esc_html( $filer_active ); ?>
+															<?= esc_html( $filter_active ); ?>
 														</div>
 														<div class="FilterMenu__items">
 															<div class="FilterMenu__items--inn">
-																<?php if ( 'radio' == $filer_type && isset( $filer_name ) ) { ?>
-																	<?php foreach ( $filer_list as $filer_list_item ) { ?>
+																<?php if ( 'radio' == $filter_type && isset( $filter_name ) ) { ?>
+																	<?php foreach ( $filter_list as $filter_list_item ) { ?>
 																		<?php
 																		$item_checked = false;
 																		$item_value = '';
-																		if ( ! empty( $filer_list_item['checked'] ) ) {
-																			$item_checked = $filer_list_item['checked'];
+																		if ( ! empty( $filter_list_item['checked'] ) ) {
+																			$item_checked = $filter_list_item['checked'];
 																		}
-																		if ( ! empty( $filer_list_item['value'] ) ) {
-																			$item_value = $filer_list_item['value'];
+																		if ( ! empty( $filter_list_item['value'] ) ) {
+																			$item_value = $filter_list_item['value'];
 																		}
-																		if ( ! empty( $filer_list_item['title'] ) ) {
-																			$item_title = $filer_list_item['title'];
+																		if ( ! empty( $filter_list_item['title'] ) ) {
+																			$item_title = $filter_list_item['title'];
 																		}
-																		if ( ! empty( $filer_list_item['onclick'] ) ) {
-																			$item_onclick = $filer_list_item['onclick'];
+																		if ( ! empty( $filter_list_item['onclick'] ) ) {
+																			$item_onclick = $filter_list_item['onclick'];
 																		}
 																		if ( '' == $item_value ) {
-																			$item_id = $filer_name . '-any';
+																			$item_id = $filter_name . '-any';
 																		} else {
-																			$item_id = $filer_name . '-' . $item_value;
+																			$item_id = $filter_name . '-' . $item_value;
 																		}
 																		?>
 																		<div class="checkbox FilterMenu__item">
@@ -344,7 +346,7 @@
 																				type="radio"
 																				id="<?= esc_attr( $item_id ); ?>"
 																				value="<?= esc_attr( $item_value ); ?>"
-																				name="<?= esc_attr( $filer_name ); ?>"
+																				name="<?= esc_attr( $filter_name ); ?>"
 																				<?php if ( isset( $item_title ) ) { ?>
 																					title="<?= esc_attr( $item_title ); ?>"
 																				<?php } ?>
@@ -367,15 +369,15 @@
 																		</div>
 																	<?php } ?>
 																<?php } ?>
-																<?php if ( 'link' == $filer_type && isset( $filer_name ) ) { ?>
-																	<?php foreach ( $filer_list as $filer_list_item ) { ?>
-																		<?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) && isset( $filer_list_item['active'] ) ) { ?>
-																			<a href="<?= esc_url( $filer_list_item['href'] ); ?>" class="checkbox FilterMenu__item
-																			<?php if ( true == $filer_list_item['active'] ) { ?>
+																<?php if ( 'link' == $filter_type && isset( $filter_name ) ) { ?>
+																	<?php foreach ( $filter_list as $filter_list_item ) { ?>
+																		<?php if ( isset( $filter_list_item['href'] ) && isset( $filter_list_item['title'] ) && isset( $filter_list_item['active'] ) ) { ?>
+																			<a href="<?= esc_url( $filter_list_item['href'] ); ?>" class="checkbox FilterMenu__item
+																			<?php if ( true == $filter_list_item['active'] ) { ?>
 																				active
 																			<?php } ?>
 																			" active>
-																				<span class="checkbox-label FilterMenu__item-title"><?= esc_html( $filer_list_item['title'] ); ?></span>
+																				<span class="checkbox-label FilterMenu__item-title"><?= esc_html( $filter_list_item['title'] ); ?></span>
 																			</a>
 																		<?php } ?>
 																	<?php } ?>
@@ -388,15 +390,15 @@
 										<?php } ?>
 									<?php } ?>
 								</div>
-								<?php if ( isset( $filer_count ) ) { ?>
+								<?php if ( isset( $filter_count ) ) { ?>
 									<div class="compact-header__count">
 										<span id="countPosts">
-											<?php if ( isset( $filer_count['value'] ) ) { ?>
-												<?= esc_html( $filer_count['value'] ); ?>
+											<?php if ( isset( $filter_count['value'] ) ) { ?>
+												<?= esc_html( $filter_count['value'] ); ?>
 											<?php } ?>
 										</span>
-										<?php if ( isset( $filer_count['title'] ) ) { ?>
-											<?= esc_html( $filer_count['title'] ); ?>
+										<?php if ( isset( $filter_count['title'] ) ) { ?>
+											<?= esc_html( $filter_count['title'] ); ?>
 										<?php } ?>
 									</div>
 								<?php } ?>
@@ -407,7 +409,7 @@
 								<span><?= esc_html( __( 'Apply', 'ms' ) ); ?></span>
 							</a>
 						</div>
-					<?php } elseif ( isset( $menu_header ) ) { ?>
+					<?php } if ( isset( $menu_header ) ) { ?>
 						<div class="compact-header__menu">
 							<?php if ( isset( $menu_header['title'] ) ) { ?>
 								<div class="compact-header__menu-title"><?= esc_html( $menu_header['title'] ); ?></div>
@@ -440,97 +442,6 @@
 											</li>
 										<?php } ?>
 									</ul>
-								</div>
-							<?php } ?>
-						</div>
-					<?php } elseif ( isset( $research_nav ) ) { ?>
-						<div class="compact-header__research">
-							<nav class="Research--navigation">
-								<div class="Research--navigation__title"><?php _e( 'Navigation', 'ms' ); ?></div>
-								<div class="Research--navigation__posts">
-
-									<div class="Research--navigation__selected" data-id="<?php echo get_the_ID(); ?>"> <?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?> </div>
-
-									<div class="Research--navigation__menu hidden">
-										<ul class="Research--navigation__menu__inn">
-											<?php $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_research_categories' ) ), SORT_REGULAR ); ?>
-											<?php
-											$counter = 0;
-											foreach ( $categories as $category ) {
-												$query_research_posts = new WP_Query(
-													array(
-														'ms_research_categories' => $category->slug,
-                                                        // @codingStandardsIgnoreLine
-                                                        'posts_per_page' => 500,
-														'orderby' => 'menu_order',
-														'order'   => 'ASC',
-													)
-												);
-												
-												while ( $query_research_posts->have_posts() ) :
-													$query_research_posts->the_post();
-													++$counter;
-													$color = $counter;
-                                                    if ( $counter % 9 == 0 ) { // @codingStandardsIgnoreLine
-														$color = 9;
-													}
-													if ( $counter % 9 > 0 ) {
-														$color = $counter % 9;
-													}
-													?>
-													<li data-id="<?php echo get_the_ID(); ?>" data-color="<?php echo esc_attr( $color ); ?>" class="Research--navigation__post Research--color-<?php echo esc_html( $color ); ?>">
-														<a class="Research--navigation__post__title" href="<?php the_permalink(); ?>">
-													<span class="Research--navigation__counter">
-													<?php
-													echo esc_html( $counter < 10 ? ( '0' . $counter ) : $counter );
-													?>
-												</span>
-															<?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?>
-														</a>
-													</li>
-												<?php endwhile; ?>
-												<?php wp_reset_postdata(); ?>
-											<?php } ?>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-					<?php } elseif ( isset( $checklist ) ) { ?>
-						<div class="compact-header__checklist">
-							<div class="Checklists__toc__main" data-target="ChecklistTOC">
-								<?php if ( checklists_toc() !== false ) { ?>
-									<div class="Checklists__toc__label"><?php _e( 'Contents', 'ms' ); ?></div>
-									<div class="Checklists__toc__block js-toc">
-										<div class="Checklists__toc__title js-toc__title"><?= esc_html( checklists_toc()->title ); ?></div>
-										<span class="Checklists__toc__activator"></span>
-										<div class="Checklists__toc__wrapper hidden" data-targetId="ChecklistTOC">
-											<div class="Checklists__toc__inn">
-												<ul class="Checklists__toc js-toc__items">
-													<?= wp_kses_post( checklists_toc()->toc ); ?>
-												</ul>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-							</div>
-							<div class="compact-header__checklist-progress CircleProgressBar">
-								<div class="CircleProgressBar__middle" id="circleProgressMiddle"></div>
-								<div class="CircleProgressBar__spinner" id="circleProgressSpinner"></div>
-							</div>
-							<?php if ( checklists_toc() !== false ) { ?>
-								<div class="compact-header__checklist-counter" id="checklistsCounter" data-checked="0" data-total="<?= esc_attr( checklists_toc()->count ); ?>">
-									<?= esc_html( checklists_toc()->count ); ?>
-								</div>
-								<div class="compact-header__checklist-collapse">
-									<span class="qu-Checklist__expander qu-Checklist__expander--collapse" data-action="closeAll">
-										<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Zm9.18-13.18L15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" fill="#050505"/></svg>
-										<span class="desktop--only"><?php _e( 'Collapse All', 'ms' ); ?></span>
-									</span>
-									<span class="qu-Checklist__expander qu-Checklist__expander--expand inactive" data-action="openAll">
-										<svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Z" style="fill:#050505" transform="translate(0 -10)"/><path d="M16.59 5.41 15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" style="fill:#050505" transform="translate(0 10)"/></svg>
-										<span class="desktop--only"><?php _e( 'Expand All', 'ms' ); ?></span>
-									</span>
 								</div>
 							<?php } ?>
 						</div>

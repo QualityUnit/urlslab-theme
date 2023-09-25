@@ -2,7 +2,7 @@
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'features', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );
-$la_pricing_url = __( '/pricing/', 'urlslab' );
+$la_pricing_url   = __( '/pricing/', 'urlslab' );
 $page_header_logo = array(
 	'src' => get_template_directory_uri() . '/assets/images/icon-custom-post_type.svg' . THEME_VERSION,
 	'alt' => __( 'Integration', 'urlslab' ),
@@ -15,21 +15,21 @@ $page_header_args = array(
 		'src' => get_template_directory_uri() . '/assets/images/features-post-header-bg.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'logo' => ! get_post_meta( get_the_ID(), 'main', true ) ? $page_header_logo : null,
+	'logo'  => ! get_post_meta( get_the_ID(), 'main', true ) ? $page_header_logo : null,
 	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc' => true,
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'toc'   => true,
 );
-$current_id = apply_filters( 'wpml_object_id', $post->ID, 'features' );
-$categories = get_the_terms( $current_id, 'features_categories' );
-$categories_url = get_post_type_archive_link( 'features' );
+$current_id       = apply_filters( 'wpml_object_id', $post->ID, 'features' );
+$categories       = get_the_terms( $current_id, 'features_categories' );
+$categories_url   = get_post_type_archive_link( 'features' );
 if ( $categories && $categories_url ) {
 	$new_tags = array(
 		'title' => __( 'Categories', 'urlslab' ),
 	);
 	foreach ( $categories as $category ) {
 		$new_tags['list'][] = array(
-			'href' => $categories_url . '#' . $category->slug,
+			'href'  => $categories_url . '#' . $category->slug,
 			'title' => $category->name,
 		);
 	}

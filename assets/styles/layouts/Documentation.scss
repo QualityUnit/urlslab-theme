@@ -1,0 +1,22 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../components/DocumentationSidebar";
+
+.Documentation {
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__content {
+			padding: 0 2.25em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__Sidebar {
+			width: 21%;
+			max-width: 15em;
+			margin-right: 2em;
+		}
+	}
+}

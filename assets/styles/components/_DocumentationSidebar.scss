@@ -9,7 +9,6 @@
 
 		.active {
 			color: $primary;
-			pointer-events: none;
 
 			svg {
 				fill: currentcolor;
@@ -37,8 +36,9 @@
 				padding: 0.25em 0.75em;
 			}
 
-			&--document .active {
+			&--document.active {
 				background-color: $primary-lighter;
+				border-radius: 0.75em;
 			}
 
 			&--icon {
