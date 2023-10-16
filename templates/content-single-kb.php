@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'documentation', 'layouts/Documentation', 'css' );
-	$header_category = get_the_terms( $post->ID, 'documentation_categories' );
+	set_source( 'kb', 'layouts/Documentation', 'css' );
+	$header_category = get_the_terms( $post->ID, 'kb_categories' );
 if ( ! empty( $header_category ) ) {
 	$header_category = array_shift( $header_category );
 	$header_category = $header_category->slug;
@@ -40,13 +40,13 @@ function file_icon() {
 	return $icon;
 }
 
-$post_categories  = get_the_terms( get_the_ID(), 'documentation_categories' );
+$post_categories  = get_the_terms( get_the_ID(), 'kb_categories' );
 $post_permalink   = get_the_permalink();
-$categories       = get_categories( array( 'taxonomy' => 'documentation_categories' ) );
+$categories       = get_categories( array( 'taxonomy' => 'kb_categories' ) );
 $page_header_args = array(
-	'title' => __( 'Documentation', 'urlslab' ),
+	'title' => __( 'Knowledge Base', 'urlslab' ),
 	// 'search' => array(
-	// 	'type' => 'documentation',
+	// 	'type' => 'kb',
 	// ),
 	'menu'  => array(
 		//'title' => 'Nejaky nazov',
@@ -62,7 +62,7 @@ if ( ! empty( $categories ) ) :
 	foreach ( $categories as $category ) :
 		$query_posts = new WP_Query(
 			array(
-				'documentation_categories' => $category->slug,
+				'kb_categories' => $category->slug,
 				// @codingStandardsIgnoreLine
 				'posts_per_page' => 500,
 				'orderby'                  => 'date',
@@ -73,10 +73,10 @@ if ( ! empty( $categories ) ) :
 			$main_cat_post = '';
 
 			$query_category_posts = array(
-				'documentation_categories' => $category->slug,
+				'kb_categories' => $category->slug,
 			// @codingStandardsIgnoreLine
 				// 'posts_per_page' => 1,
-				'post_type'                => 'documentation',
+				'post_type'                => 'kb',
 				'orderby'                  => 'date',
 				'order'                    => 'ASC',
 			);
@@ -100,7 +100,7 @@ if ( ! empty( $categories ) ) :
 					$exclude_posts[] = get_the_ID();
 
 					// Checking if post category has parent, if not, get top article url as top category url
-					$post_cat = get_the_terms( get_the_ID(), 'documentation_categories' )[0]->parent;
+					$post_cat = get_the_terms( get_the_ID(), 'kb_categories' )[0]->parent;
 					if ( 0 == $post_cat ) {
 						$main_cat_post = get_the_permalink();
 					}
@@ -112,7 +112,7 @@ if ( ! empty( $categories ) ) :
 				'cat_id' => $category->term_id,
 				'href'   => $main_cat_post,
 				'title'  => $category->name,
-				'active' => ( $post_categories[0]->parent == $category->term_id ) || ( ( get_the_permalink() === $main_cat_post ) ), 
+				'active' => ( $post_categories[0]->parent == $category->term_id ) || ( ( get_the_permalink() === $main_cat_post ) ),
 			);
 		}
 		while ( $query_posts->have_posts() ) :
@@ -138,9 +138,9 @@ endif;
 <div class="Post Post--sidebar-right documentation" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Quality Unit"></span>
-	
+
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 		<aside class="Documentation__Sidebar">
 			<ul class="Navigation">
@@ -172,9 +172,9 @@ endif;
 					?>
 				</ul>
 			</li>
-						<?php 
+						<?php
 				}
-			} 
+			}
 			?>
 			</ul>
 		</aside>

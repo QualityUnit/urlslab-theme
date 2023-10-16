@@ -4,19 +4,19 @@ add_action(
 	'init',
 	function () {
 		$labels  = array(
-			'name'           => _x( 'Documentation', 'Post Type General Name', 'urlslab' ),
-			'singular_name'  => _x( 'Doc', 'Post Type Singular Name', 'urlslab' ),
-			'menu_name'      => __( 'Documentation', 'urlslab' ),
-			'name_admin_bar' => __( 'Doc', 'urlslab' ),
+			'name'           => _x( 'Knowledge Base', 'Post Type General Name', 'urlslab' ),
+			'singular_name'  => _x( 'Knowledge Base', 'Post Type Singular Name', 'urlslab' ),
+			'menu_name'      => __( 'Knowledge Base', 'urlslab' ),
+			'name_admin_bar' => __( 'Knowledge Base', 'urlslab' ),
 		);
 		$rewrite = array(
-			'slug'       => 'documentation',
+			'slug'       => 'kb',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
 		);
 		$args    = array(
-			'label'               => __( 'Doc', 'urlslab' ),
+			'label'               => __( 'Knowledge Base', 'urlslab' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => true,
@@ -35,10 +35,10 @@ add_action(
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
 			'show_in_graphql'     => true,
-			'graphql_single_name' => 'document',
-			'graphql_plural_name' => 'documentation',
+			'graphql_single_name' => 'kb',
+			'graphql_plural_name' => 'kbs',
 		);
-		register_post_type( 'documentation', $args );
+		register_post_type( 'kb', $args );
 	},
 	0
 );

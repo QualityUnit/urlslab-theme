@@ -4,8 +4,8 @@ add_action(
 	'init',
 	function () {
 		$labels = array(
-			'name'          => _x( 'Documentation Categories', 'Taxonomy General Name', 'urlslab' ),
-			'singular_name' => _x( 'Doc Category', 'Taxonomy Singular Name', 'urlslab' ),
+			'name'          => _x( 'Knowledge Base Categories', 'Taxonomy General Name', 'urlslab' ),
+			'singular_name' => _x( 'Knowledge Base Category', 'Taxonomy Singular Name', 'urlslab' ),
 			'menu_name'     => __( 'Categories', 'urlslab' ),
 		);
 		$args   = array(
@@ -18,10 +18,10 @@ add_action(
 			'show_tagcloud'     => false,
 			'show_in_rest'      => true,
 			'show_in_graphql'     => true,
-			'graphql_single_name' => 'documentationCategory',
-			'graphql_plural_name' => 'documentationCategories',
+			'graphql_single_name' => 'kbCategory',
+			'graphql_plural_name' => 'kbCategories',
 		);
-		register_taxonomy( 'documentation_categories', array( 'documentation' ), $args );
+		register_taxonomy( 'kb_categories', array( 'kb' ), $args );
 	},
 	0
 );
