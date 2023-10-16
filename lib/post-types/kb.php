@@ -18,7 +18,7 @@ add_action(
 		$args    = array(
 			'label'               => __( 'Knowledge Base', 'urlslab' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
+			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,
@@ -32,7 +32,7 @@ add_action(
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
-			'capability_type'     => 'post',
+			'capability_type'     => 'page',
 			'show_in_rest'        => true,
 			'show_in_graphql'     => true,
 			'graphql_single_name' => 'kb',

@@ -21,7 +21,7 @@ add_action(
 			'graphql_single_name' => 'kbCategory',
 			'graphql_plural_name' => 'kbCategories',
 		);
-		register_taxonomy( 'kb_categories', array( 'kb' ), $args );
+		register_taxonomy( 'kb-category', array( 'kb' ), $args );
 	},
 	0
 );
