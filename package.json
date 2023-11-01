@@ -42,7 +42,7 @@
 		"gulp-uglifycss": "^1.1",
 		"husky": "^8.0.3",
 		"minimist": "^1.2",
-		"stylelint": "^15.10"
+		"stylelint": "^15.11"
 	},
 	"dependencies": {
 		"gulp-replace": "^1.1.4",
