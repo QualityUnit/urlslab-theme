@@ -22,7 +22,7 @@ export default function ImproveBanner( { attributes, setAttributes } ) {
 					/>
 				</p>
 
-				<a href="/download" className="Button Button--full">
+				<a href="https://wordpress.org/plugins/urlslab/" target="_blank" className="Button Button--full" rel="noreferrer">
 					<TextareaControl
 						value={ button }
 						rows="1"

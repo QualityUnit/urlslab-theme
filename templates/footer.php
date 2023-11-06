@@ -15,7 +15,7 @@
 		  </a>
 		</div>
 		<p class="small Footer__motto">Start improving all important aspects of your website</p>
-		<a class="Button Button--full noIcon" href=/download"><span>Get the WordPress plugin</span></a>
+		<a class="Button Button--full noIcon" href=https://wordpress.org/plugins/urlslab/" target="_blank"><span>Get the WordPress plugin</span></a>
 		<!-- <div class="Footer__social">
 		  <a href="" class="Footer__social--item">
 			<FacebookIcon />
