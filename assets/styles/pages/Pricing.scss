@@ -28,7 +28,7 @@ no-descending-specificity, scss/no-global-function-names */
 	}
 
 	&__subtitle {
-		max-width: 70ch;
+		max-width: 80ch;
 		margin: 0 auto;
 		text-align: center;
 
@@ -46,7 +46,7 @@ no-descending-specificity, scss/no-global-function-names */
 			justify-content: center;
 
 			li {
-				background-color: $primary-lighter;
+				background-color: $light-gray;
 				margin: 0 1em 1em 0;
 				padding: 0.5em 1em !important;
 				border-radius: 1em;
@@ -70,7 +70,7 @@ no-descending-specificity, scss/no-global-function-names */
 			@media (min-width: $breakpoint-tablet) {
 				display: grid;
 				grid-template-columns: repeat(2, auto);
-				grid-gap: 1.375em;
+				grid-gap: 2em;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
@@ -83,15 +83,19 @@ no-descending-specificity, scss/no-global-function-names */
 		position: relative;
 		background-color: $white;
 		border-radius: $border-radius-16;
-		overflow: hidden;
 		padding: 3em 1.5em;
-		outline: 1px solid $lightest-gray;
+		outline: 1px solid $light-gray;
 
 		@media (min-width: $breakpoint-tablet) {
 			width: 100% !important;
 		}
 
-		&:nth-child(3) {
+		> .elementor-widget-wrap {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&:nth-child(2) {
 			border: 2px solid $primary;
 			z-index: 2;
 
@@ -99,6 +103,35 @@ no-descending-specificity, scss/no-global-function-names */
 				color: $white;
 				background-color: $primary;
 				border-color: $primary;
+			}
+		}
+
+		.premiumSupport {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			background-color: $light-grayBg;
+			border-radius: 1em 0.5em 0.5em 1em;
+			padding: 0.25em 1em;
+			margin-left: auto;
+			right: -1.75em;
+
+			svg {
+
+				@include square(1em);
+				fill: url(#star-gradient);
+				margin-left: 0.5em;
+				margin-right: 0.5em;
+			}
+
+			p {
+				font-weight: 600;
+				letter-spacing: 0.05em;
+				background: linear-gradient(117deg, $primary 0%, rgba(#db6bd7, 0.75)  100%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				backdrop-filter: blur(6px);
 			}
 		}
 
@@ -111,21 +144,40 @@ no-descending-specificity, scss/no-global-function-names */
 		}
 
 		.popular {
-			top: 4em;
-			right: 2em;
 			position: absolute;
-			font-size: 0.875rem;
-			font-weight: 700;
-			padding: 0.35em 0.75em;
+			top: -1em;
+			left: 0.5em;
+			font-size: 0.75rem;
+			font-weight: 500;
+			padding: 1.5em 0.75em;
 			text-align: center;
-			background-color: $saturated-orange;
 			border-radius: 1.25em;
-			width: auto;
+			transform: translate(-25%, 25%) rotate(-45deg);
+
+			div {
+				position: relative;
+				z-index: 1;
+			}
+
+			&::before {
+
+				@include posZero;
+				top: -0.25em;
+				position: absolute;
+				content: "";
+				background-color: $saturated-orange;
+				transform: perspective(100px) rotateX(65deg);
+				border-radius: 0.75em 0.75em 0 0;
+			}
+		}
+
+		.elementor-widget-heading + .elementor-widget-text-editor {
+			padding-right: 30%;
 		}
 
 		.elementor-heading-title {
 			font-size: 1.875rem;
-			margin: 0.75em 0 0.35em;
+			margin: 0 0 0.35em;
 		}
 
 		.elementor-button-link {
@@ -138,10 +190,17 @@ no-descending-specificity, scss/no-global-function-names */
 			font-size: 0.875rem;
 			font-weight: 600;
 			line-height: 1;
+			color: $black;
 		}
 
-		.price,
-		.credits {
+		.price {
+			font-family: $font-secondary;
+			line-height: 1.25;
+			color: $red;
+
+			&__old {
+				color: $black;
+			}
 
 			sup {
 				position: relative;
@@ -151,28 +210,19 @@ no-descending-specificity, scss/no-global-function-names */
 			}
 
 			strong {
+				font-family: $font-primary;
 				font-size: $font-size-h2;
 			}
 		}
 
-		.price {
-			font-family: $font-secondary;
-			line-height: 1.25;
+		.credits {
 
 			strong {
-				font-family: $font-primary;
+				display: inline-block;
+				background-color: $light-gray;
+				border-radius: 1em;
+				padding: 0 0.5em;
 			}
-
-			+ .elementor-widget-text-editor {
-				padding-bottom: 0.75em;
-				margin-bottom: 0.75em;
-				border-bottom: 2px solid $lightest-gray;
-			}
-		}
-
-		.credits {
-			font-size: 1.25rem;
-			border-top: 2px solid $lightest-gray;
 		}
 	}
 }
