@@ -1,4 +1,5 @@
 /* stylelint-disable */
+@use "sass:map";
 @use "sass:math";
 @use "variables" as *;
 
@@ -8,16 +9,18 @@
 	padding-bottom: $ratio * $width;
 }
 
-// Function to convert Px to Ems, for example: width: em(24px);
+//Function to convert Px to Ems, for example: width: em(24px);
 
-@function em($target, $context: $base-font-size) {
+@function em($target, $context: $font-size-default, $unit: 'em') {
 
-	@if $target == 0 {
+	@if $target ==0 {
 
 		@return 0;
 	}
 
-	@return $target / $context + 0;
+	$result: math.div(strip-unit($target), strip-unit($context));
+
+	@return decimal-round($result, 3)+unquote($unit);
 }
 
 @mixin appearance($appearance: none) {
@@ -196,6 +199,34 @@
 	right: $right;
 	bottom: $bottom;
 	left: $left;
+}
+
+// learn more link with arrow
+
+@mixin learn-more () {
+	display: inline-block !important;
+	font-family: $font-secondary;
+	font-size: em($target: $font-size-smaller, $unit: "rem");
+	font-weight: $font-weight-semi;
+	text-decoration: none;
+
+	svg {
+		@include square(1.25em);
+		position: relative;
+		display: inline-block !important;
+		margin-left: 0.5em;
+		transform: translate(0, 0);
+		transition: transform 0.5s ease-in-out !important
+	}
+
+	@include hover {
+		cursor: pointer;
+		text-decoration: none !important;
+
+		svg {
+			transform: translate(30%, 0);
+		}
+	}
 }
 
 @mixin scrollbar($width:6px) {
