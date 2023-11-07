@@ -83,7 +83,7 @@ no-descending-specificity, scss/no-global-function-names */
 		position: relative;
 		background-color: $white;
 		border-radius: $border-radius-16;
-		padding: 3em 1.5em;
+		padding: 1.5em;
 		outline: 1px solid $light-gray;
 
 		@media (min-width: $breakpoint-tablet) {
@@ -93,6 +93,13 @@ no-descending-specificity, scss/no-global-function-names */
 		> .elementor-widget-wrap {
 			display: flex;
 			flex-direction: column;
+		}
+
+		&:nth-child(1) {
+
+			.price {
+				color: $black;
+			}
 		}
 
 		&:nth-child(2) {
@@ -199,7 +206,12 @@ no-descending-specificity, scss/no-global-function-names */
 			color: $red;
 
 			&__old {
+				display: inline-block;
 				color: $black;
+				font-family: $font-primary;
+				font-size: 1.85rem;
+				text-decoration: line-through;
+				margin-right: 0.5em;
 			}
 
 			sup {
@@ -216,6 +228,7 @@ no-descending-specificity, scss/no-global-function-names */
 		}
 
 		.credits {
+			margin-top: 0.75em;
 
 			strong {
 				display: inline-block;
