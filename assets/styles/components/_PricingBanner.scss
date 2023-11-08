@@ -1,0 +1,59 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Pricing__banner {
+	position: relative;
+	align-items: center;
+	background: linear-gradient(139deg, rgba($primary, 0.2) 7.97%, rgba(219, 107, 215, 0.2) 89.5%);
+	border-radius: 1rem;
+	box-shadow: 0 4px 10px 0 rgba($black-real, 0.14);
+	backdrop-filter: blur(7px);
+	padding: 1.5em;
+	margin-top: 2em;
+
+	&-free {
+
+		@include square(7em);
+		position: absolute;
+		top: -0.25em;
+		left: -0.25em;
+	}
+
+	.urlslab-logo {
+		width: 2rem;
+	}
+
+	.elementor-heading-title {
+		font-size: 1.875rem;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		.elementor-column {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			&:first-child {
+				margin-left: auto;
+				margin-right: 1em;
+				flex: 0;
+				width: auto;
+			}
+
+			&:nth-of-type(2) {
+				width: 50%;
+			}
+
+			&:nth-of-type(3) {
+				width: 30%;
+
+				.elementor-widget-wrap {
+					display: flex;
+				}
+			}
+		}
+	}
+}
