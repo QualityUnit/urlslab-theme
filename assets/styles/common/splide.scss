@@ -1,3 +1,7 @@
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable selector-class-pattern, value-keyword-case */
+/* stylelint-disable no-descending-specificity */
+
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -12,8 +16,6 @@
 	}
 }
 
-/* stylelint-disable selector-class-pattern, value-keyword-case */
-/* stylelint-disable no-descending-specificity */
 
 .splide__container {
 	position: relative;
@@ -266,7 +268,6 @@
 }
 
 .splide__arrow--prev {
-	/* stylelint-disable-line no-duplicate-selectors */
 	left: 0;
 
 	&::before {
@@ -275,7 +276,6 @@
 }
 
 .splide__arrow--next {
-	/* stylelint-disable-line no-duplicate-selectors */
 	right: 0;
 
 	&::before {
@@ -284,7 +284,6 @@
 }
 
 .splide__pagination {
-	/* stylelint-disable-line no-duplicate-selectors */
 	position: absolute;
 	z-index: 1;
 	bottom: 0.5em;
@@ -359,7 +358,6 @@
 }
 
 .splide--ttb > .splide__pagination {
-	/* stylelint-disable-line no-duplicate-selectors */
 	display: flex;
 	flex-direction: column;
 	bottom: 50%;
