@@ -18,7 +18,7 @@
 		&-heading-title {
 			display: flex;
 			align-items: center;
-			line-height: 1.5;
+			line-height: 1.15;
 
 			.icon {
 
@@ -51,6 +51,19 @@
 
 				&:last-of-type {
 					padding-left: 2em;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		.elementor {
+
+			&-column {
+
+				&:last-of-type {
+					margin-top: 2em;
 				}
 			}
 		}

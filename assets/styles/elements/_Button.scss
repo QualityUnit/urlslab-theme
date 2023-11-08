@@ -7,7 +7,8 @@ input[type="submit"],
 input[type="button"],
 button,
 .button,
-.Button {
+.Button,
+%button {
 	position: relative;
 	display: inline-flex;
 	align-items: center;
@@ -52,7 +53,8 @@ button,
 	}
 }
 
-.Button--full {
+.Button--full,
+%buttonFull {
 
 	color: $white !important;
 	overflow: hidden;

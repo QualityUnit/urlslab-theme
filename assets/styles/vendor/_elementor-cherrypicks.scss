@@ -51,10 +51,6 @@
 
 		@media (min-width: $breakpoint-tablet) {
 			width: calc(33.333% - 1.725em);
-
-			&:not(:nth-of-type(3n+1)) {
-				margin-left: 2.5875em;
-			}
 		}
 	}
 

@@ -1,0 +1,55 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Block__CaseStudy {
+	background-color: $lightest-gray;
+	max-width: $wrapper-wide;
+	box-shadow: 0 15px 66px -15px rgba($black-real, 0.12);
+	border-radius: 10px;
+	border: 1px solid $light-gray;
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		&.Block__image.elementor-section .elementor-container {
+			display: block !important;
+		}
+
+		.elementor-column {
+			width: 100% !important;
+		}
+	}
+
+	&.wrapper[class] {
+		padding: 2em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 4em 10em 3em 7.5em;
+		}
+	}
+
+	&.Block__image {
+		max-width: $wrapper-wide;
+	}
+
+	h3 {
+		margin: 0.5em 0;
+		font-size: 1.25rem;
+	}
+
+	ul {
+
+		li {
+			margin-bottom: 0.5em;
+
+			&::before {
+
+				@include square(1.75em);
+				top: 0.25em;
+				content: "";
+				background: url(../images/icon-check-blue.svg) center top no-repeat;
+			}
+		}
+	}
+}

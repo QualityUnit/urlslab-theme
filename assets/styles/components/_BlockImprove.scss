@@ -16,6 +16,24 @@
 		margin: 0.5em 0 1.5em;
 	}
 
+	@media (max-width: $breakpoint-tablet-landscape) {
+		padding: 2em 2em 0;
+
+		.elementor-container {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.elementor-column {
+			text-align: center;
+
+			&:last-child {
+				width: 75%;
+				margin: 2em auto 0;
+			}
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 		margin-top: 10em;
 	}
