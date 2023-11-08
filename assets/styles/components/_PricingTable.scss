@@ -30,12 +30,25 @@ no-descending-specificity, scss/no-global-function-names */
 			}
 
 			&-price {
-				top: -1.4em;
-				padding-left: 2.1em;
+				padding-left: 1.5em;
 				height: calc(100% + 2.8em);
 
 				&::before {
 					display: none;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&-price {
+					top: -1.4em;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				&-price {
+					padding-left: 2.1em;
 				}
 			}
 		}
@@ -52,11 +65,18 @@ no-descending-specificity, scss/no-global-function-names */
 			padding: 0;
 
 			&-item {
-				padding: 0.25em 2.625em;
+				padding: 0.25em 1.5em;
 			}
 
 			&-price::before {
 				display: none;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				&-item {
+					padding: 0.25em 2.625em;
+				}
 			}
 		}
 	}
@@ -66,6 +86,7 @@ no-descending-specificity, scss/no-global-function-names */
 		&.has-note .elementor-price-list-price {
 
 			&::after {
+				display: block;
 				content: "(for $3 you get 20 requests)";
 				color: $level-2;
 				margin-top: 0.5em;
@@ -90,7 +111,7 @@ no-descending-specificity, scss/no-global-function-names */
 
 		&-item {
 			margin: 0 !important;
-			padding: 0.75em 2.625em;
+			padding: 0.75em 1.5em;
 
 			&:nth-of-type(even) {
 				background-color: rgba($primary-lighter, 0.25);
@@ -108,11 +129,8 @@ no-descending-specificity, scss/no-global-function-names */
 
 		&-price {
 			position: absolute;
-			top: -0.75em;
 			right: 0;
-			display: flex;
-			align-items: center;
-			padding-left: 2.625em;
+			padding-left: 1.5em;
 			width: 33.33%;
 			height: calc(100% + 1.5em);
 			border-left: 1px solid $light-gray;
@@ -128,6 +146,26 @@ no-descending-specificity, scss/no-global-function-names */
 		&-description {
 			font-size: 0.875rem;
 			color: $level-3;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&-price {
+				display: flex;
+				align-items: center;
+				top: -0.75em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&-item {
+				padding: 0.75em 2.625em;
+			}
+
+			&-price {
+				padding-left: 2.625em;
+			}
 		}
 	}
 }

@@ -10,10 +10,22 @@
 	border-radius: 10px;
 	border: 1px solid $light-gray;
 
-	&.wrapper[class] {
+	@media (max-width: $breakpoint-tablet-landscape) {
 
-		@media (min-width: $breakpoint-tablet) {
-			padding: 1.5em 7.5em;
+		&.Block__image.elementor-section .elementor-container {
+			display: block !important;
+		}
+
+		.elementor-column {
+			width: 100% !important;
+		}
+	}
+
+	&.wrapper[class] {
+		padding: 2em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 4em 10em 3em 7.5em;
 		}
 	}
 
@@ -29,6 +41,7 @@
 	ul {
 
 		li {
+			margin-bottom: 0.5em;
 
 			&::before {
 

@@ -2,6 +2,7 @@
 no-descending-specificity, scss/no-global-function-names */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../elements/Button" as *;
 
 .Pricing__banner {
 	position: relative;
@@ -10,8 +11,10 @@ no-descending-specificity, scss/no-global-function-names */
 	border-radius: 1rem;
 	box-shadow: 0 4px 10px 0 rgba($black-real, 0.14);
 	backdrop-filter: blur(7px);
-	padding: 1.5em;
-	margin-top: 2em;
+	padding: 1.75em;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	text-align: center;
 
 	&-free {
 
@@ -23,13 +26,60 @@ no-descending-specificity, scss/no-global-function-names */
 
 	.urlslab-logo {
 		width: 2rem;
+		margin: 0 auto 1.5em;
 	}
 
 	.elementor-heading-title {
 		font-size: 1.875rem;
+		font-family: $font-primary;
 	}
 
+	.elementor-widget-button {
+		width: calc(100% - 4em);
+	}
+
+	.elementor-button-link {
+
+		@extend %button;
+		@extend %buttonFull;
+		display: flex;
+	}
+
+	.elementor-column {
+
+		&:nth-of-type(3) {
+
+			.elementor-widget-wrap {
+				display: flex;
+				align-items: center;
+			}
+
+			.elementor-widget-text-editor {
+				font-weight: 600;
+				font-size: 2.5rem;
+				margin-right: 0.5em;
+
+				sup {
+					font-size: 1rem;
+					font-weight: 400;
+					margin-right: 0.25em;
+				}
+			}
+		}
+	}
+
+
 	@media (min-width: $breakpoint-tablet) {
+		text-align: left;
+
+		&.elementor-section .elementor-container {
+			display: flex;
+		}
+
+		.urlslab-logo {
+			margin: 0;
+		}
+
 
 		.elementor-column {
 			display: flex;
@@ -37,22 +87,28 @@ no-descending-specificity, scss/no-global-function-names */
 			justify-content: center;
 
 			&:first-child {
-				margin-left: auto;
-				margin-right: 1em;
+				margin-left: 5em;
+				margin-right: 1.5em;
 				flex: 0;
 				width: auto;
 			}
 
 			&:nth-of-type(2) {
-				width: 50%;
+				width: 45%;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.elementor-column {
+
+			&:nth-of-type(2) {
+				width: 65%;
 			}
 
 			&:nth-of-type(3) {
-				width: 30%;
-
-				.elementor-widget-wrap {
-					display: flex;
-				}
+				width: 25%;
 			}
 		}
 	}

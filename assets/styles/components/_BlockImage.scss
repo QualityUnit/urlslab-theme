@@ -56,6 +56,19 @@
 		}
 	}
 
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		.elementor {
+
+			&-column {
+
+				&:last-of-type {
+					margin-top: 2em;
+				}
+			}
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.elementor {
