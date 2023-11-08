@@ -1,15 +1,12 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
-
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "../elements/Checklist" as *;
+@forward "../elements/Checklist";
 
 %resources {
 
-	border-top-color: $lightest-gray;
-	border-top-style: solid;
-	margin-top: 1em;
-	margin-bottom: 0.5em;
+	border-top: 1px solid $lightest-gray;
+	margin-top: 25px;
 }
 
 /* stylelint-disable-next-line no-duplicate-selectors */
@@ -31,6 +28,42 @@
 		}
 	}
 
+	&__sidebar {
+
+		&__categories,
+		&__available,
+		&__related,
+		&__resources,
+		&__partner {
+
+			@extend %resources;
+			border: none;
+			margin-top: 0;
+
+			ul {
+				font-size: $font-size-smaller;
+				line-height: $line-height-smaller;
+			}
+
+			a {
+
+				color: $primary;
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		&__related,
+		&__resources {
+
+			@extend %resources__text;
+		}
+	}
+
 	&__content {
 
 		&__title {
@@ -41,20 +74,10 @@
 		h1 {
 			font-size: 3rem;
 			line-height: 1.26;
-		}
 
-		h2 {
-			font-size: 1.75rem;
-			line-height: 1.375;
-			margin-top: 1em;
-			margin-bottom: 0.57em;
-		}
-
-		h3 {
-			font-size: $font-size-h4;
-			font-weight: 600;
-			margin-top: 1.66em;
-			margin-bottom: 0.25em;
+			@media (max-width: $breakpoint-mobile) {
+				font-size: 2.5rem;
+			}
 		}
 
 		table {
@@ -63,25 +86,15 @@
 			margin-bottom: 2em;
 		}
 
-		.wp-block-image {
-			margin: 1.875em auto;
-			overflow: hidden;
-
-			img {
-				border: 1px solid $light-gray;
-				border-radius: 12px;
-			}
-		}
-
 		&__breadcrumbs {
 
 			ul {
 
+				color: $level-2;
 				display: flex;
 				flex-flow: wrap row;
 				font-size: 0.75rem;
 				line-height: 1.26;
-				color: $level-2;
 
 				span {
 					font-weight: $font-weight-bold;
@@ -122,11 +135,45 @@
 			a {
 
 				color: $level-2;
+				text-decoration: none;
 
 				&:active,
 				&:focus,
 				&:hover {
 					text-decoration: underline;
+				}
+			}
+		}
+
+		.wp-block-columns {
+
+			.wp-block-column:first-of-type {
+
+				ul:not([class]) li::before {
+					background-color: $desaturated-green;
+					background-image: url(../../images/icon-post-pros.svg);
+				}
+
+				.wp-block-group:not(.bullet-list__first) {
+
+					ul:not([class]) li::before {
+						background-color: $desaturated-green;
+						background-image: url(../../images/icon-post-pros.svg);
+					}
+				}
+			}
+
+			.wp-block-column:nth-of-type(2):last-of-type {
+
+				ul:not([class]) li::before {
+					background-image: url(../../images/icon-post-cons.svg);
+				}
+
+				.wp-block-group:not(.bullet-list__first) {
+
+					ul:not([class]) li::before {
+						background-image: url(../../images/icon-post-cons.svg);
+					}
 				}
 			}
 		}
@@ -153,6 +200,10 @@
 			ul:not([class]) {
 
 				@extend %checklist;
+
+				li::before {
+					background-image: url(../../images/icon-post-check.svg);
+				}
 			}
 		}
 

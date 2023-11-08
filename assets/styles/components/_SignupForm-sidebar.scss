@@ -147,7 +147,7 @@
 // 		&__domain {
 
 // 			@include color(background-color, secondary-background);
-// 			@include color(color, font-color-normal);
+// 			color: $level-2;
 // 			position: absolute;
 // 			display: flex;
 // 			align-items: center;
@@ -223,7 +223,7 @@
 
 // 				span {
 
-// 					@include color(color, font-color-dark);
+// 					color: $black;
 // 					font-size: 0.8125rem;
 // 					margin-left: 0.5em;
 // 				}

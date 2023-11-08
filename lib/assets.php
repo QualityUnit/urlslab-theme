@@ -10,6 +10,10 @@ add_action(
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'elementor-custom' );
 
+		if ( is_singular( 'post' ) ) {
+			wp_enqueue_style( 'blog-layout', get_template_directory_uri() . '/assets/dist/pages/blog' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+
 		if ( is_page() || is_page_template( 'front-page.php' ) || is_page_template( 'page.php' ) ) {
 			wp_enqueue_style( 'elementor-layout', get_template_directory_uri() . '/assets/dist/Elementor' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
