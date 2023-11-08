@@ -89,8 +89,7 @@
 			&__item a,
 			&__trial .Button {
 
-				@include color(background-color, main-background);
-				@include color(color, border-color-gray);
+				color: $light-gray;
 				border-color: currentColor;
 				background: transparent;
 

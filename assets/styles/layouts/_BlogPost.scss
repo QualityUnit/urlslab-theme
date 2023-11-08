@@ -266,14 +266,6 @@ no-descending-specificity, value-keyword-case */
 
 		.Content {
 
-			> p:first-of-type::first-letter {
-				font-size: 100px;
-				line-height: 75px;
-				font-weight: $font-weight-bold;
-				float: left;
-				margin-right: 10px;
-			}
-
 			.BlogPost__articles {
 				margin: 0 auto 40px;
 				padding-top: 40px;

@@ -161,7 +161,6 @@ ol {
 	color: $level-2;
 	margin-bottom: $default-element-margin;
 	font-family: $font-primary;
-	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
 }
 
@@ -171,35 +170,8 @@ ol {
 	list-style: none;
 	padding-left: 0.5em;
 	text-align: left;
-	font-family: $font-secondary;
-	font-size: $font-size-smaller;
 	line-height: 1.8;
 	margin-top: 0.5em;
-	counter-reset: counter;
-
-	li {
-		counter-increment: counter;
-		position: relative;
-		padding-left: 1.5em;
-		margin-bottom: 1em;
-
-		&::before {
-
-			@include circle(1.7em);
-			color: $primary;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			content: counter(counter);
-			position: absolute;
-			top: 0.25em;
-			left: -0.5em;
-			background-color: $primary-checklist;
-			font-size: 0.75em;
-			font-weight: 700;
-			margin: 0;
-		}
-	}
 }
 
 .text-center {
