@@ -25,7 +25,7 @@
 			a {
 
 				@include square(1.875em);
-				@include color(color, font-color-light, !important);
+				color: $white !important;
 				display: block;
 				background-color: #000;
 				border-radius: 50%;
@@ -38,7 +38,7 @@
 				&:focus,
 				&:hover {
 
-					@include color(background-color, primary-color);
+					background-color: $primary;
 				}
 			}
 		}

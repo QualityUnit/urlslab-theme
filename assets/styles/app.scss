@@ -15,6 +15,7 @@
 @forward "elements/CategoryTag";
 @forward "elements/Checklist";
 @forward "elements/Inputs";
+@forward "elements/PostTag";
 
 /* Boxes */
 @forward "elements/Box";
@@ -27,6 +28,8 @@
 @forward "layouts/Fullscreen";
 
 /* Components */
+@forward "components/BlogShare";
+@forward "components/BlogShareSidebar";
 @forward "components/ImproveBanner";
 @forward "components/FAQ";
 @forward "components/Footer";

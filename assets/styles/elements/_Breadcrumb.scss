@@ -18,6 +18,10 @@
 		li {
 			display: inline-block;
 
+			&::before {
+				all: unset;
+			}
+
 			+ li {
 				margin-left: 1em;
 
