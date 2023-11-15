@@ -11,7 +11,12 @@
 
 			li {
 
+				&[class^="icn-"]::after {
+					background-color: $primary-light;
+				}
+
 				&[class^="label"] {
+					border-radius: 8px;
 
 					> a {
 						color: currentcolor;
@@ -36,6 +41,42 @@
 
 					li[class]::after {
 						background-color: $secondary-light;
+					}
+				}
+
+				&.label-seo, {
+
+					li[class]::after {
+						background-color: $saturated-blueish-menu;
+						opacity: 16%;
+					}
+				}
+
+				&.label-performance, {
+
+					li[class]::after {
+						background-color: $desaturated-red-menu;
+					}
+				}
+
+				&.label-ai, {
+
+					li[class]::after {
+						background-color: $desaturated-magenta-menu;
+					}
+				}
+
+				&.label-images, {
+
+					li[class]::after {
+						background-color: $desaturated-green-menu;
+					}
+				}
+
+				&.label-tools, {
+
+					li[class]::after {
+						background-color: $desaturated-orange-menu;
 					}
 				}
 			}

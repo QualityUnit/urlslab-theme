@@ -6,6 +6,12 @@
 			</a>
 		</div>
 		<div class="Header__items">
+			<div class="hamburger" id="hamburger-button">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</div>
+
 			<nav class="Header__navigation">
 				<?php
 				if ( has_nav_menu( 'header_navigation' ) ) :
@@ -27,6 +33,7 @@
 				</div>
 			</nav>
 		</div>
+		<div class="Header__mobile__menu__overlay"></div>
 	</div>
 </header>
 
