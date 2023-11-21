@@ -3,39 +3,81 @@
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
 
+
 .Header {
 
-	&__items {
-		display: flex;
-		align-items: center;
-		margin-left: auto;
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			width: 100%;
-			margin-left: 0;
-		}
-	}
-
 	&__navigation {
-		display: none;
 
-		&.active {
+		flex-direction: column;
+		position: absolute;
+		width: 20em;
+		height: 100vh;
+		padding-bottom: 10em;
+		top: $header-height;
+		left: 0;
+		z-index: 9999999;
+		background-color: $white;
+		overflow: auto;
+		transform: translateX(-100%);
 
-			display: block;
-			position: absolute;
-			border-top-width: 1px;
-			border-top-style: solid;
-			border-bottom-width: 1px;
-			border-bottom-style: solid;
-			width: 100%;
-			top: 75px;
-			left: 0;
-			z-index: 9999999;
-			max-height: calc(85vh - 90px);
-			overflow: auto;
-			text-align: center;
-			padding-bottom: 1.5em;
-			background-color: $white;
+		&--mobile {
+			animation: slideFromLeftToRight 0.5s ease forwards;
+			display: flex;
+
+			ul.nav {
+				display: grid;
+				grid-template-columns: 1fr;
+				border-bottom: 1px solid $primary-light;
+
+				li {
+					padding: 0.6em 0;
+
+					a {
+
+						&::after {
+							transform: rotate(-90deg) translate(2px, 0);
+							transition: transform 0.3s ease;
+						}
+
+						&::before {
+							content: none;
+						}
+					}
+
+
+					&.active {
+
+						a::after {
+							transform: rotate(0deg);
+							transition: transform 0.3s ease;
+						}
+					}
+				}
+
+			}
+
+			.Button {
+				width: fit-content;
+				padding: 1em 2.1em;
+
+				&.Button--secondary {
+					margin-top: 2.1em;
+				}
+			}
+
+			.Button--login {
+				display: flex;
+				color: $black;
+				border: 1px solid $black;
+				margin-top: 1em;
+				margin-left: 1.5em !important;
+				height: 3.15em;
+
+				span {
+					font-size: 0.875rem;
+				}
+			}
+
 		}
 
 		ul.nav {
@@ -50,48 +92,6 @@
 					color: $black-real;
 					text-decoration: none;
 				}
-
-				&.menu-item:not([class^="label"]):not([class^="icn"]) {
-
-					> a {
-						position: relative;
-						display: block;
-
-						.icon-chevron-down {
-
-							@include square(1em);
-							margin-top: -0.05em;
-							margin-left: 0.35em;
-							margin-right: 0;
-						}
-
-						&::before {
-							content: "";
-							position: absolute;
-							left: 0;
-							bottom: -0.25em;
-							width: 100%;
-							height: 3px;
-							background-color: $secondary;
-							transform: scaleX(0);
-							transform-origin: center;
-							transition: all 0.2s;
-						}
-					}
-
-
-					&:hover {
-
-						a:not([class^="label"] > a) {
-							color: $black-real;
-						}
-
-						> a::before {
-							transform: scaleX(1);
-						}
-					}
-				}
-
 			}
 
 			> li.menu-item-has-children {
@@ -107,11 +107,23 @@
 			}
 		}
 
+		@media (min-width: $breakpoint-tablet) {
+			width: 40%;
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
+			position: relative;
+			top: 0;
 			display: flex;
 			align-items: center;
 			width: auto;
 			margin-left: auto;
+			transform: unset;
+			animation: unset;
+			flex-direction: row;
+			height: auto;
+			padding-bottom: 0;
+			overflow: visible;
 
 			ul.nav {
 				display: flex;
@@ -120,12 +132,31 @@
 				margin-left: auto;
 				padding: 0;
 
-				li {
+				> li {
 
 					&.menu-item:not([class^="label"]):not([class^="icn"]) {
 						display: flex;
-						align-items: center;
-						padding: 1em;
+						flex-direction: column;
+						align-items: flex-start;
+						padding: 32px 1em;
+					}
+
+					> a {
+						position: relative;
+						display: block;
+
+						&::before {
+							content: "";
+							position: absolute;
+							left: 0;
+							bottom: -0.25em;
+							width: 100%;
+							height: 3px;
+							background-color: $secondary;
+							transform: scaleX(0);
+							transform-origin: center;
+							transition: all 0.2s;
+						}
 					}
 				}
 			}
@@ -136,19 +167,5 @@
 			height: 3.15em;
 			z-index: 2;
 		}
-	}
-}
-
-.Header__mobileNavigation {
-	display: block;
-	cursor: pointer;
-
-	.icon {
-
-		@include square(1.5em);
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-		display: none;
 	}
 }

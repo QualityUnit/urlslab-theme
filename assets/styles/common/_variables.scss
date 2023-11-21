@@ -154,12 +154,17 @@ $saturated-orange: #fec200;
 $desaturated-orange: #fff5df;
 
 
-$saturated-blueish-menu: #728afd;
-$desaturated-blueish-menu: #eaeeff;
-$saturated-green-menu: #03be9c;
-$desaturated-green-menu: #d9f5f0;
-$saturated-magenta-menu: #ee668c;
-$desaturated-magenta-menu: #fde8ee;
+$saturated-blueish-menu: #2570ed;
+$desaturated-blueish-menu: rgba(37, 112, 237, 16%);
+$saturated-red-menu: #fe4938;
+$desaturated-red-menu: rgba(254, 73, 56, 0.16);
+$saturated-green-menu: #58d1d1;
+$desaturated-green-menu: rgba(88, 209, 209, 0.16);
+$saturated-magenta-menu: #db6bd7;
+$desaturated-magenta-menu: rgba(219, 107, 215, 0.16);
+$saturated-orange-menu: #ff9133;
+$desaturated-orange-menu: rgba(255, 145, 51, 0.16);
+
 
 $box-shadow-small: drop-shadow(0 1px 6px rgba($black-real, 0.16));
 $box-shadow: drop-shadow(0 0 16px rgba($black-real, 0.08));
