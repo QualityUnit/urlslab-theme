@@ -49,7 +49,7 @@
 									font-size: 0.75em;
 									margin-top: 1em;
 									padding: 1em 0 0.5em 0;
-									border-top: 1px solid $primary-light;
+									border-top: 0.0625em solid $primary-light;
 								}
 
 							}
@@ -63,7 +63,7 @@
 					> .sub-menu {
 
 						&.active {
-							max-height: 1500px;
+							max-height: 93.75em;
 							transition: max-height 0.5s ease-in-out;
 						}
 					}
@@ -133,8 +133,8 @@
 
 							> li {
 								display: flex;
-								padding: 0.5em 0;
-								border-radius: 8px;
+								padding: 0.8em 0;
+								border-radius: 0.5em;
 								cursor: pointer;
 							}
 						}
@@ -152,9 +152,9 @@
 						>	li {
 							font-size: 0.875rem;
 							font-weight: 400;
+							padding: 0.8em 0;
 
 							&[class^="icn-"] {
-								min-width: 260px;
 								border-radius: 0.5em;
 
 								a {
@@ -184,7 +184,7 @@
 		margin-top: -0.15em;
 		margin-right: 0.75em;
 		z-index: 1;
-		transform: translateZ(1px);
+		transform: translateZ(0.0625em);
 	}
 
 	.menu-item-description {
@@ -196,7 +196,8 @@
 
 	}
 
-	@media (min-width: $breakpoint-desktop) {
+
+	@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
 
 		ul.nav {
 
@@ -205,13 +206,18 @@
 				&.multi-menu {
 
 					> .sub-menu {
-						width: $wrapper-width;
+
+						.sub-menu {
+
+							> li {
+								max-width: 11.5625em;
+							}
+						}
 					}
 				}
 
 			}
 		}
-
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
@@ -233,6 +239,7 @@
 						padding: 3em 1.25em 1.5em 1.25em;
 						text-align: inherit;
 						z-index: 2;
+						column-gap: 1.75em;
 
 						&.active {
 							flex-direction: row;
@@ -246,7 +253,7 @@
 							left: 50%;
 							top: 0;
 							background-color: $white;
-							box-shadow: 0 8px 6px -6px rgb($black-real, 0.08);
+							box-shadow: 0 0.5em 0.375em -0.375em rgb($black-real, 0.08);
 							z-index: -1;
 							transform: translateX(-50%);
 						}
@@ -254,11 +261,20 @@
 						li {
 
 							.sub-menu {
+								display: flex;
+								flex-wrap: wrap;
+								gap: 0.3125em;
+								flex-direction: column;
+								max-height: 16.875em;
+
+								li {
+									flex: 0 0 auto;
+								}
 
 								a {
 									z-index: 2;
 									font-weight: 400;
-									font-size: 14px;
+									font-size: 0.875rem;
 								}
 							}
 						}
@@ -286,12 +302,14 @@
 
 								> li {
 									overflow: hidden;
-									padding: 0.5em 0.5em 1.5em 0.5em;
+									padding: 0.5em 0.5em 0.5em 0.5em;
+									height: 5em;
+									//max-width: 12.5em;
 
 									&::after {
 
 										@include posCustom(0);
-
+										left: -0.0625em;
 										content: "";
 										position: absolute;
 										width: 100%;
@@ -300,7 +318,7 @@
 										z-index: 0;
 										transform-origin: left center;
 										transition: all 0.5s ease;
-										border-radius: 8px;
+										border-radius: 0.5em;
 									}
 
 									@media (hover: hover) {
@@ -329,17 +347,20 @@
 						padding: 1em;
 						background-color: $white;
 						border-radius: 1em;
-						box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.08);
+						box-shadow: 0 0.5em 0.75em 0 rgba(0, 0, 0, 0.08);
+						row-gap: 0.5em;
 
 						&::after {
 							content: none;
 						}
 
 						> li {
-							min-width: 260px;
+							min-width: 13.125em;
 							overflow: hidden;
-							padding: 0.5em 0.5em 1.5em 0.5em;
+							padding: 0.5em 0.5em 0.5em 0.5em;
 							display: flex;
+							row-gap: 0.5em;
+							height: 5em;
 
 							&::after {
 
@@ -353,7 +374,7 @@
 								z-index: -1;
 								transform-origin: left center;
 								transition: all 0.5s ease;
-								border-radius: 8px;
+								border-radius: 0.5em;
 							}
 
 							@media (hover: hover) {
@@ -388,8 +409,10 @@
 				&:hover {
 
 					.sub-menu:not(.sub-menu .sub-menu) {
-						display: grid;
-						grid-template-columns: repeat(5, 1fr);
+						display: flex;
+						column-gap: 1.75em;
+						flex-wrap: wrap;
+
 					}
 				}
 			}
@@ -407,4 +430,28 @@
 		}
 	}
 
+	@media (min-width: $breakpoint-desktop) {
+
+		ul.nav {
+
+			> li {
+
+				&.multi-menu {
+
+					> .sub-menu {
+						width: $wrapper-width;
+
+						.sub-menu {
+
+							> li {
+								max-width: 12.5em;
+							}
+						}
+					}
+				}
+
+			}
+		}
+
+	}
 }

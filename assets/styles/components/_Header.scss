@@ -7,7 +7,6 @@
 @forward "../elements/Header/HeaderNavigationSubMenu";
 @forward "../elements/Header/HeaderNavigationSubItemsColors";
 @forward "../components/Login";
-@forward "../components/LanguageSwitcher";
 
 
 // Overlay for mobile menu
@@ -23,7 +22,7 @@ html.mobile-menu-opened {
 			left: 0;
 			opacity: 0.3;
 			position: fixed;
-			top: 75px;
+			top: $header-height;
 			transition: all 0.25s linear;
 			visibility: visible;
 			width: 100%;
@@ -54,7 +53,8 @@ html.mobile-menu-opened {
 	.wrapper {
 		display: flex;
 		align-items: center;
-		padding: 0 $wrapper-padding;
+		padding-right: 1.25em;
+		padding-left: 0.625em;
 		height: 100%;
 		border-radius: 0;
 		background-color: $white;
@@ -68,11 +68,11 @@ html.mobile-menu-opened {
 		.hamburger {
 
 			.line {
-				width: 28px;
-				height: 3px;
+				width: 1.75em;
+				height: 0.1875em;
 				background-color: $black;
 				display: block;
-				margin: 4px auto;
+				margin: 0.25em auto;
 				-webkit-transition: all 0.3s ease-in-out;
 				-o-transition: all 0.3s ease-in-out;
 				transition: all 0.3s ease-in-out;
