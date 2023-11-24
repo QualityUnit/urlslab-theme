@@ -129,6 +129,14 @@
 
 					> li {
 
+						&.label-sub {
+
+							> a {
+								color: transparent;
+								cursor: default;
+							}
+						}
+
 						.sub-menu {
 
 							> li {
@@ -265,7 +273,6 @@
 								flex-wrap: wrap;
 								gap: 0.3125em;
 								flex-direction: column;
-								max-height: 16.875em;
 
 								li {
 									flex: 0 0 auto;
@@ -303,8 +310,20 @@
 								> li {
 									overflow: hidden;
 									padding: 0.5em 0.5em 0.5em 0.5em;
-									height: 5em;
-									//max-width: 12.5em;
+									min-height: 5em;
+
+									> a {
+
+										.menu-item-description {
+											display: -webkit-box;
+											height: 3em;
+											line-height: 1.5;
+											-webkit-line-clamp: 2;
+											-webkit-box-orient: vertical;
+											overflow: hidden;
+											font-size: 12px;
+										}
+									}
 
 									&::after {
 
@@ -360,7 +379,20 @@
 							padding: 0.5em 0.5em 0.5em 0.5em;
 							display: flex;
 							row-gap: 0.5em;
-							height: 5em;
+							min-height: 5em;
+
+							> a {
+
+								.menu-item-description {
+									display: -webkit-box;
+									height: 3em;
+									line-height: 1.5;
+									-webkit-line-clamp: 2;
+									-webkit-box-orient: vertical;
+									overflow: hidden;
+									font-size: 12px;
+								}
+							}
 
 							&::after {
 
@@ -409,9 +441,8 @@
 				&:hover {
 
 					.sub-menu:not(.sub-menu .sub-menu) {
-						display: flex;
-						column-gap: 1.75em;
-						flex-wrap: wrap;
+						display: grid;
+						grid-template-columns: repeat(5, 1fr);
 
 					}
 				}

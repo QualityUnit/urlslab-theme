@@ -55,21 +55,7 @@
 				&.label-performance, {
 
 					li[class]::after {
-						background-color: $desaturated-red-menu;
-					}
-				}
-
-				&.label-ai, {
-
-					li[class]::after {
 						background-color: $desaturated-magenta-menu;
-					}
-				}
-
-				&.label-images, {
-
-					li[class]::after {
-						background-color: $desaturated-green-menu;
 					}
 				}
 
