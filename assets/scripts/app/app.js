@@ -315,7 +315,7 @@
 	}
 
 	/* Open an External Links in a New Tab */
-	const excludes = [ 'liveagent', 'live-agent' ];
+	const excludes = [ 'urlslab' ];
 
 	queryAll( 'a[href^=http]' ).forEach( ( element ) => {
 		if (
