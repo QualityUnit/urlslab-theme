@@ -21,7 +21,7 @@ $page_header_args = array(
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="URLsLab"></span>
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 
 		<div class="Post__content">
@@ -30,9 +30,9 @@ $page_header_args = array(
 				<?php the_content(); ?>
 
 				<div class="Post__buttons">
-					<a href="<?php _e( '/glossary/', 'urlslab' ); ?>" class="Button Button--outline Button--back" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Back to Glossary'])"><span><?php _e( 'Back to Glossary', 'urlslab' ); ?></span></a>
+					<a href="<?php _e( '/glossary/', 'urlslab' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Glossary', 'urlslab' ); ?></span></a>
 
-					<a href="<?php _e( '/trial/', 'urlslab' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
+					<a href="<?php _e( '/trial/', 'urlslab' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Create account for FREE', 'urlslab' ); ?></span>
 					</a>
 				</div>
