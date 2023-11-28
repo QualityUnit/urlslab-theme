@@ -107,7 +107,7 @@ b {
 a {
 
 	&:not(.Button) {
-		color: $primary;
+		color: $black;
 		transition: color 0.2s;
 
 		@media (hover: hover) {
@@ -259,4 +259,34 @@ p {
 		margin-left: 0.5em;
 		transition: all 0.2s;
 	}
+}
+
+.play-video {
+	position: relative;
+	display: flex;
+	align-items: center;
+	font-size: 0.875rem;
+	font-weight: 600;
+	margin-top: 1.5em;
+
+
+	.icn-play {
+		display: flex;
+
+		&::after {
+			content: "";
+
+			@include posZero;
+			position: absolute;
+			z-index: 2;
+		}
+
+		.icon-play {
+
+			@include square(1.5em);
+			margin-right: 0.5em;
+			transition: all 0.2s;
+		}
+	}
+
 }
