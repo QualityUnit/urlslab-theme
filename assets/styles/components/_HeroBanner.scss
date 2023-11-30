@@ -3,7 +3,7 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.heroHeadline {
+.hero__banner {
 
 	&__title {
 
@@ -17,7 +17,7 @@
 		position: relative;
 	}
 
-	&__home--subtitle {
+	&__subtitle {
 
 		h3 {
 			font-size: 1.625rem;
@@ -28,16 +28,6 @@
 
 		+ .elementor-widget-html .Button {
 			margin-top: 1.5em;
-		}
-	}
-
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		&__animation[class] {
-			position: absolute;
-			width: 45%;
-			z-index: 1;
 		}
 	}
 }

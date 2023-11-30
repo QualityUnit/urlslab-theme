@@ -9,6 +9,12 @@
 	margin-left: auto;
 	margin-right: auto;
 
+	&.elementor-section .elementor-container {
+		display: flex;
+		flex-direction: column;
+		row-gap: 2em;
+	}
+
 	.elementor {
 
 		&-widget-heading {
@@ -29,61 +35,88 @@
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet) {
+	&--with-play-button {
+		position: relative;
 
-		&.wrapper {
-			padding: 0;
+		.elementor {
+
+			&-column {
+
+				&:first-of-type {
+
+					.play__button {
+
+						img {
+							position: absolute;
+							width: 35%;
+							z-index: 2;
+							bottom: 0;
+							left: 0;
+						}
+					}
+
+				}
+			}
+
 		}
 
+		.elementor-element-populated {
+			padding-bottom: 0;
+		}
+
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&--right {
+
+			.elementor-column {
+
+				&:first-of-type {
+					order: 2;
+				}
+
+				&:last-of-type {
+					order: 1;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+
 		&.elementor-section .elementor-container {
-			display: flex;
+			flex-direction: row;
 			align-items: center;
+			column-gap: 10%;
+		}
+
+		&--with-play-button {
+
+			.elementor {
+
+				&-column {
+
+					&:first-of-type {
+
+						.elementor-widget-image {
+
+							&:first-of-type {
+								padding-bottom: 3.5em;
+							}
+						}
+					}
+				}
+			}
 		}
 
 		.elementor {
 
 			&-column {
 				width: 50%;
-
-				&:first-of-type {
-					padding-right: 2em;
-				}
-
-				&:last-of-type {
-					padding-left: 2em;
-				}
 			}
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape) {
-
-		.elementor {
-
-			&-column {
-
-				&:last-of-type {
-					margin-top: 2em;
-				}
-			}
-		}
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		.elementor {
-
-			&-column {
-
-				&:first-of-type {
-					padding-right: 4.5em;
-				}
-
-				&:last-of-type {
-					padding-left: 4.5em;
-				}
-			}
-
-		}
-	}
 }
