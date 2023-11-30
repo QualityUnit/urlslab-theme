@@ -1,7 +1,7 @@
 <?php
 the_content();
 
-if ( function_exists( 'is_page' ) && ! is_page( array( 'sitemap' ) ) && function_exists( 'is_front_page' ) && ! is_front_page() ) {
+if ( ! is_page( 'sitemap' ) && ! is_front_page() ) {
 	?>
 	<div class="SimilarSources SimilarSources--blog">
 		<div class="wrapper">
