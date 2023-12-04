@@ -19,6 +19,7 @@
 
 							>	li {
 								display: flex;
+
 								&:first-child {
 									margin-top: 1em;
 								}
@@ -43,11 +44,14 @@
 
 							> li {
 								padding: 0;
+
 								&.label-sub {
+
 									> a {
 										display: none;
 									}
 								}
+
 								> a {
 									display: block;
 									font-size: 0.75em;
