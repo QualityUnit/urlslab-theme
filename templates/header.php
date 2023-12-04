@@ -23,13 +23,15 @@
 					);
 				endif;
 				?>
-				<a class="Button Button--secondary" href="https://wordpress.org/plugins/urlslab/" target="_blank"><span><?php _e( 'Get plugin', 'urlslab' ); ?></span></a>
-				<div class="pos-relative flex flex-align-center">
-					<button type="button" id="loginBtn" class="Button Button--login"><span><?php _e( 'Login', 'urlslab' ); ?></span></button>
-						<div class="Form Form__socialIcons__wrap pos-absolute fadeInto" id="loginForm" style="display: none; top: 100%; right: 0; min-width: auto">
-							<div class="mb-s fs-m"><strong><?php _e( 'Login to URLsLab', 'urlslab' ); ?></strong></div>
-							<?php echo do_shortcode( '[signup-buttons class="fullsize"]' ); ?>
-						</div>
+				<div class="Header__buttons">
+					<a class="Button Button--secondary" href="https://wordpress.org/plugins/urlslab/" target="_blank"><span><?php _e( 'Get plugin', 'urlslab' ); ?></span></a>
+					<div class="pos-relative flex flex-align-center">
+						<button type="button" id="loginBtn" class="Button Button--login"><span><?php _e( 'Login', 'urlslab' ); ?></span></button>
+							<div class="Form Form__socialIcons__wrap pos-absolute fadeInto" id="loginForm" style="display: none; top: 100%; right: 0; min-width: auto">
+								<div class="mb-s fs-m"><strong><?php _e( 'Login to URLsLab', 'urlslab' ); ?></strong></div>
+								<?php echo do_shortcode( '[signup-buttons class="fullsize"]' ); ?>
+							</div>
+					</div>
 				</div>
 			</nav>
 		</div>

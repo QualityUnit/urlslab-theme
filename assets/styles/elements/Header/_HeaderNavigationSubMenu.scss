@@ -18,7 +18,7 @@
 						&:not(.sub-menu .sub-menu) {
 
 							>	li {
-
+								display: flex;
 								&:first-child {
 									margin-top: 1em;
 								}
@@ -43,13 +43,21 @@
 
 							> li {
 								padding: 0;
-
+								&.label-sub {
+									> a {
+										display: none;
+									}
+								}
 								> a {
 									display: block;
 									font-size: 0.75em;
 									margin-top: 1em;
 									padding: 1em 0 0.5em 0;
 									border-top: 0.0625em solid $primary-light;
+
+									.menu-item-description {
+										display: none;
+									}
 								}
 
 							}
@@ -196,12 +204,10 @@
 	}
 
 	.menu-item-description {
-		display: none;
 		font-size: 0.75rem;
 		font-weight: 400;
 		line-height: 1.5;
 		color: $level-3;
-
 	}
 
 
