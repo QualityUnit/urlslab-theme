@@ -32,6 +32,7 @@
 								<?php echo do_shortcode( '[signup-buttons class="fullsize"]' ); ?>
 							</div>
 					</div>
+					<a class="Button Button--login" href="<?= esc_url( '/login/' ) ?>"><span><?php _e( 'Login', 'urlslab' ); ?></span></a>
 				</div>
 			</nav>
 		</div>
