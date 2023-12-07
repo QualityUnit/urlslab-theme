@@ -3,6 +3,7 @@
 function components_imports( $content ) {
 	$blocks = array(
 		'FormIcons' => 'components/FormIcons',
+		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
 	);
 
 	if ( ! $content ) {
