@@ -83,11 +83,9 @@ no-descending-specificity, scss/no-global-function-names */
 
 	.elementor-widget-price-list {
 
-		&.has-note .elementor-price-list-price {
+		.elementor-price-list-price {
 
-			&::after {
-				display: block;
-				content: "(for $3 you get 20 requests)";
+			span.has-note {
 				color: $level-2;
 				margin-top: 0.5em;
 				margin-left: 0.5em;
