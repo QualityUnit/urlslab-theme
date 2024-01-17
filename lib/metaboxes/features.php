@@ -22,11 +22,11 @@ function features_metaboxes( $metaboxes ) {
 
 add_action(
 	'graphql_register_types',
-	function() {
+	function () {
 		$checkbox_config  = array(
 			'type'        => 'Boolean',
 			'description' => 'Is Main article',
-			'resolve'     => function( $post ) {
+			'resolve'     => function ( $post ) {
 				$checkbox = get_post_meta( $post->ID, 'main', true );
 				return ! empty( $checkbox ) ? $checkbox : '';
 			},

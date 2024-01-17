@@ -61,4 +61,3 @@ function add_lightbox_rel( $content ) {
 }
 
 add_filter( 'the_content', 'add_lightbox_rel' );
-
