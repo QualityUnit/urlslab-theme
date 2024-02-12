@@ -1,0 +1,31 @@
+/* selector-class-pattern */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+figure.wp-block-table {
+	overflow-x: auto;
+
+	table {
+
+		thead {
+
+			th {
+				background-color: $lightest-gray;
+				font-weight: 700;
+				text-align: left;
+				border: 1px solid $light-gray;
+				white-space: nowrap;
+			}
+		}
+
+		tr {
+
+			td,
+			th {
+				padding: 1em;
+				border: 1px solid $light-gray;
+			}
+		}
+
+	}
+}
