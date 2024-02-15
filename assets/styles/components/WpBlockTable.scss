@@ -2,30 +2,92 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+$border : 1px solid $light-gray;
+$cell-bg : $lightest-gray;
+
 figure.wp-block-table {
-	overflow-x: auto;
 
 	table {
+		width: 100%;
 
 		thead {
+			display: none;
 
 			th {
-				background-color: $lightest-gray;
 				font-weight: 700;
 				text-align: left;
-				border: 1px solid $light-gray;
-				white-space: nowrap;
+				white-space: pre-wrap;
+				padding: 0.5em;
+				background-color: $cell-bg;
+				border: $border;
+
+				&:first-child {
+					background-color: $cell-bg;
+				}
 			}
 		}
 
 		tr {
+			display: flex;
+			flex-direction: column;
+			border: $border;
+			margin-bottom: 1em;
 
-			td,
-			th {
-				padding: 1em;
-				border: 1px solid $light-gray;
+			td {
+				display: grid;
+				grid-template-columns: 0.5fr 1fr;
+				gap: 0.5em;
+				padding: 0.5em;
+				border: $border;
+				text-align: left;
+				white-space: pre-wrap;
+
+				&:first-child {
+					background-color: $cell-bg;
+				}
+
+				span {
+
+					&.mobile-header {
+						display: block;
+						font-weight: $font-weight-semi;
+					}
+				}
+			}
+		}
+
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 1em;
+	}
+
+	@media (min-width: 1024px) {
+
+		table {
+
+			thead {
+				display: table-header-group;
+
+			}
+
+			tr {
+				display: table-row;
+
+				td {
+					display: table-cell;
+					grid: unset;
+
+					span {
+
+						&.mobile-header {
+							display: none;
+						}
+					}
+				}
 			}
 		}
 
 	}
 }
+
