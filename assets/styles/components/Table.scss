@@ -1,0 +1,135 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+table {
+	$thFontSize: 1.25;
+	table-layout: auto;
+	width: 100%;
+	text-align: left;
+	border: 1px solid $light-gray;
+	margin: 3em auto;
+
+	thead {
+		position: sticky;
+		top: 90px;
+		font-size: #{$thFontSize}rem;
+		background-color: $tablebg;
+		z-index: 1;
+		border-bottom: 1px solid $light-gray;
+
+		tr {
+			border-radius: 1rem;
+		}
+
+
+		th {
+			padding: 1em 1.5em;
+			line-height: 1.1;
+			border-radius: 1rem;
+		}
+	}
+
+	th,
+	td {
+
+		+th,
+		+td {
+
+			border-left: 1px solid $light-gray;
+		}
+	}
+
+	tbody {
+
+		tr {
+
+			+ tr {
+				border-top: 1px solid $light-gray;
+			}
+
+			&:nth-of-type(even) {
+				background-color: $tablebg;
+			}
+		}
+
+		td {
+			padding: calc(0.75em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+
+			&:not([colspan]) {
+				max-width: 20em;
+			}
+
+			&[colspan] {
+				padding: calc(0.25em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+				color: $primary;
+			}
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		font-size: 0.875em;
+		text-align: left;
+
+		thead {
+			display: none;
+		}
+
+
+		tbody {
+
+			tr {
+				display: block;
+			}
+
+			td,
+			td[colspan],
+			td:not([colspan]) {
+				display: flex;
+				align-items: center;
+				padding: 0.5em 1em;
+				max-width: none;
+
+				+ td {
+					border-left: none;
+					border-top: 1px solid $light-gray;
+				}
+			}
+
+			.MobileHeader {
+
+				&__top {
+					color: $primary;
+					font-weight: 600;
+				}
+
+				font-weight: 600;
+				word-break: normal;
+				width: 40%;
+				flex-basis: auto;
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	svg {
+
+		@include square(1em);
+		fill: $level-2 !important;
+
+		&.icon {
+
+			&-check {
+
+				@include square(1em);
+			}
+
+			&-close {
+
+				@include square(0.875em);
+			}
+		}
+	}
+}

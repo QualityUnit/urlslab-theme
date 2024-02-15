@@ -34,7 +34,7 @@ gulp.task( 'browser-sync', () => {
 		{
 			proxy: 'http://urlslab.local',
 			port: 3000,
-			open: true,
+			open: false,
 			notify: false,
 			injectChanges: true,
 		}

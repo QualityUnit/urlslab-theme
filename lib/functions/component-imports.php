@@ -6,6 +6,7 @@ function components_imports( $content ) {
 		'Block__meet'                   => 'components/BlockMeet',
 		'Block__improve'                => 'components/BlockImprove',
 		'Block__illustration'           => 'components/BlockIllustration',
+		'table'                         => 'components/Table',
 		'Modules'                       => 'components/BlockModules',
 		'FormIcons'                     => 'components/FormIcons',
 		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',

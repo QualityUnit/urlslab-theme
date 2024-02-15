@@ -3,21 +3,29 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.hero__banner {
+.hero__banner,
+.heroHeadline,
+.heroHeadline__home {
 
-	&__title {
+	&__title,
+	&--title {
 
 		h1.elementor-heading-title {
 			line-height: 1.15;
 		}
 	}
 
-	&__image.elementor-column[class]:last-of-type {
-		padding-left: 0;
-		position: relative;
+	&__image,
+	&--image {
+
+		&.elementor-column[class]:last-of-type {
+			padding-left: 0;
+			position: relative;
+		}
 	}
 
-	&__subtitle {
+	&__subtitle,
+	&--subtitle {
 
 		h3 {
 			font-size: 1.625rem;
