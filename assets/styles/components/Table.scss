@@ -11,24 +11,22 @@ table {
 	text-align: left;
 	border: 1px solid $light-gray;
 	margin: 3em auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 1rem;
+	overflow: hidden;
 
 	thead {
 		position: sticky;
 		top: 90px;
 		font-size: #{$thFontSize}rem;
-		background-color: $tablebg;
 		z-index: 1;
-		border-bottom: 1px solid $light-gray;
-
-		tr {
-			border-radius: 1rem;
-		}
-
+		background-color: $tablebg;
 
 		th {
 			padding: 1em 1.5em;
 			line-height: 1.1;
-			border-radius: 1rem;
+			border-bottom: 1px solid $light-gray;
 		}
 	}
 
@@ -47,7 +45,10 @@ table {
 		tr {
 
 			+ tr {
-				border-top: 1px solid $light-gray;
+
+				td {
+					border-top: 1px solid $light-gray;
+				}
 			}
 
 			&:nth-of-type(even) {
@@ -65,6 +66,13 @@ table {
 			&[colspan] {
 				padding: calc(0.25em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
 				color: $primary;
+			}
+		}
+
+		.MobileHeader {
+
+			&__top {
+				font-weight: 600;
 			}
 		}
 	}
@@ -102,7 +110,6 @@ table {
 
 				&__top {
 					color: $primary;
-					font-weight: 600;
 				}
 
 				font-weight: 600;
