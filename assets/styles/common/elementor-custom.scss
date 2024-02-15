@@ -2,3 +2,7 @@
 
 @use "variables" as *;
 @use "mixins" as *;
+
+.elementor-widget-wrap.elementor-element-populated {
+	padding: 0;
+}

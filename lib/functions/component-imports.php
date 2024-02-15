@@ -2,7 +2,12 @@
 
 function components_imports( $content ) {
 	$blocks = array(
-		'FormIcons' => 'components/FormIcons',
+		'Block__red'                    => 'components/BlockRed',
+		'Block__meet'                   => 'components/BlockMeet',
+		'Block__improve'                => 'components/BlockImprove',
+		'Block__illustration'           => 'components/BlockIllustration',
+		'Modules'                       => 'components/BlockModules',
+		'FormIcons'                     => 'components/FormIcons',
 		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
 	);
 
@@ -14,10 +19,10 @@ function components_imports( $content ) {
 	libxml_use_internal_errors( true );
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
-	$xpath       = new DOMXPath( $dom );
+	$xpath = new DOMXPath( $dom );
 	
 	foreach ( $blocks as $class => $csspath ) {
-		$id = strtolower( $class );
+		$id           = strtolower( $class );
 		$found_blocks = $xpath->query( './/*[contains(@class, "' . $class . '")]' );
 	
 		if ( isset( $found_blocks[0] ) || is_user_logged_in() ) {
