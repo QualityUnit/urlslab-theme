@@ -136,14 +136,14 @@
 			.Header__buttons {
 				display: flex;
 				gap: 1em;
-				margin-left: 1.5em;
+				margin-left: 0.75em;
 
 				.Button {
 					height: 3.15em;
-				}
 
-				a.Button--login {
-					display: none;
+					+ .Button {
+						margin-left: 0 !important;
+					}
 				}
 			}
 
