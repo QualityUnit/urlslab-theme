@@ -5,6 +5,11 @@ if ( tables.length ) {
 
 	tables.forEach( ( table ) => {
 		const tr = table.querySelectorAll( 'tr' );
+		const colspanRows = table.querySelectorAll( 'tbody tr td[colspan]:first-child' );
+
+		if ( colspanRows?.length ) {
+			table.classList.add( 'hasColspanGroups' );
+		}
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 0; i <= tr.length; i++ ) {
@@ -54,6 +59,15 @@ if ( tables.length ) {
 						val.classList.add( 'MobileHeader__top' );
 					}
 				} );
+			}
+		}
+
+		// Adds Class to odd tr with td[colspan] + tr for background
+		for ( let i = 0; i <= colspanRows.length; i++ ) {
+			if ( i % 2 === 1 ) {
+				const isOddGroup = colspanRows[ i ]?.closest( 'tr' );
+				isOddGroup.classList.add( 'oddGroup' );
+				isOddGroup.nextElementSibling.classList.add( 'oddGroup' );
 			}
 		}
 	} );

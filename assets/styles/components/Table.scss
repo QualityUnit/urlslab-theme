@@ -17,11 +17,9 @@ table {
 	overflow: hidden;
 
 	thead {
-		position: sticky;
-		top: 90px;
 		font-size: #{$thFontSize}rem;
+		background-color: rgb(232, 241, 254);
 		z-index: 1;
-		background-color: $tablebg;
 
 		th {
 			padding: 1em 1.5em;
@@ -51,7 +49,7 @@ table {
 				}
 			}
 
-			&:nth-of-type(even) {
+			&:nth-child(odd) {
 				background-color: $tablebg;
 			}
 		}

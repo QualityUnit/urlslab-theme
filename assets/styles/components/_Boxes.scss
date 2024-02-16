@@ -11,6 +11,44 @@
 	margin-left: auto;
 	margin-right: auto;
 
+	&__group {
+		margin-top: 3em;
+
+		.elementor-col-33 {
+			width: 100%;
+
+			+ .elementor-column {
+				margin-top: 1.5em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-container {
+				display: grid;
+				grid-template-columns: repeat(2, 2fr);
+				grid-column-gap: 1.5em;
+			}
+
+			.elementor-col-33 {
+				margin-top: 0;
+
+				+ .elementor-column {
+					margin-top: 0;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.elementor-container {
+				display: grid;
+				grid-template-columns: repeat(3, 3fr);
+				grid-column-gap: 2em;
+			}
+		}
+	}
+
 	&--primary {
 
 		&.elementor-inner-section .elementor-row {
