@@ -11,11 +11,12 @@
 
 	> .elementor-container {
 		justify-content: center;
+
+		.elementor-heading-title {
+			margin-bottom: 0.5em;
+		}
 	}
 
-	.elementor-heading-title {
-		margin-bottom: 0.5em;
-	}
 
 	.wrapper__wide {
 		justify-content: center;
@@ -31,7 +32,7 @@
 	}
 
 	@media (min-width: $breakpoint-tablet) {
-		margin-bottom: 6em;
+		margin-bottom: 4.5em;
 
 		p {
 			padding: 0 12%;

@@ -21,7 +21,8 @@
 		max-width: none;
 	}
 
-	img {
+	img,
+	picture {
 		width: auto;
 	}
 
@@ -80,7 +81,8 @@
 					}
 				}
 
-				img {
+				img,
+				picture {
 					display: block;
 				}
 			}

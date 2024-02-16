@@ -1,0 +1,12 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Block__boxes {
+	margin: 6em auto;
+
+	&--top {
+		padding: 0 12%;
+	}
+}

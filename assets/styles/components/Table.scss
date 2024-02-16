@@ -1,0 +1,140 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+table {
+	$thFontSize: 1.25;
+	table-layout: auto;
+	width: 100%;
+	text-align: left;
+	border: 1px solid $light-gray;
+	margin: 3em auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 1rem;
+	overflow: hidden;
+
+	thead {
+		font-size: #{$thFontSize}rem;
+		background-color: rgb(232, 241, 254);
+		z-index: 1;
+
+		th {
+			padding: 1em 1.5em;
+			line-height: 1.1;
+			border-bottom: 1px solid $light-gray;
+		}
+	}
+
+	th,
+	td {
+
+		+th,
+		+td {
+
+			border-left: 1px solid $light-gray;
+		}
+	}
+
+	tbody {
+
+		tr {
+
+			+ tr {
+
+				td {
+					border-top: 1px solid $light-gray;
+				}
+			}
+
+			&:nth-child(odd) {
+				background-color: $tablebg;
+			}
+		}
+
+		td {
+			padding: calc(0.75em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+
+			&:not([colspan]) {
+				max-width: 20em;
+			}
+
+			&[colspan] {
+				padding: calc(0.25em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+				color: $primary;
+			}
+		}
+
+		.MobileHeader {
+
+			&__top {
+				font-weight: 600;
+			}
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		font-size: 0.875em;
+		text-align: left;
+
+		thead {
+			display: none;
+		}
+
+
+		tbody {
+
+			tr {
+				display: block;
+			}
+
+			td,
+			td[colspan],
+			td:not([colspan]) {
+				display: flex;
+				align-items: center;
+				padding: 0.5em 1em;
+				max-width: none;
+
+				+ td {
+					border-left: none;
+					border-top: 1px solid $light-gray;
+				}
+			}
+
+			.MobileHeader {
+
+				&__top {
+					color: $primary;
+				}
+
+				font-weight: 600;
+				word-break: normal;
+				width: 40%;
+				flex-basis: auto;
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	svg {
+
+		@include square(1em);
+		fill: $level-2 !important;
+
+		&.icon {
+
+			&-check {
+
+				@include square(1em);
+			}
+
+			&-close {
+
+				@include square(0.875em);
+			}
+		}
+	}
+}

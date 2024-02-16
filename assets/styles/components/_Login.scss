@@ -5,10 +5,9 @@
 
 .Button--login {
 
-	@include appearance;
+	padding: 0 1.5em;
+
 	background-color: transparent;
-	padding: 0;
-	transition: opacity 0.3s;
 
 	&:active,
 	&:focus,
@@ -29,10 +28,7 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
-	}
-
-	span {
-		display: none;
+		margin-right: 0.5em;
 	}
 
 	.tooltip {

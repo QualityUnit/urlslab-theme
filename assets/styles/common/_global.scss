@@ -192,6 +192,27 @@ hr {
 	}
 }
 
+.mobile--only {
+
+	@media (min-width: $breakpoint-tablet) {
+		display: none;
+	}
+}
+
+.tablet--only {
+
+	@media (min-width: $breakpoint-tablet-landscape ) {
+		display: none;
+	}
+}
+
+.desktop--only {
+
+	@media (max-width: ($breakpoint-desktop-box - 1px)) {
+		display: none;
+	}
+}
+
 .hidden {
 	display: none !important;
 

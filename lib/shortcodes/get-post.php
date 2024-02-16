@@ -3,8 +3,8 @@
 function getpost( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'id' => '',
-			'bannerTitle' => '',
+			'id'             => '',
+			'bannerTitle'    => '',
 			'bannerSubtitle' => '',
 		),
 		$atts,
@@ -12,8 +12,8 @@ function getpost( $atts ) {
 	);
 
 	ob_start();
-	$title = preg_replace( '/\^(.+?)\^/i', '<span class="highlight">$1</span>', get_the_title( $atts['id'] ) );
-	$url = get_permalink( $atts['id'] );
+	$title   = preg_replace( '/\^(.+?)\^/i', '<span class="highlight">$1</span>', get_the_title( $atts['id'] ) );
+	$url     = get_permalink( $atts['id'] );
 	$content = apply_filters( 'the_content', get_post( $atts['id'], OBJECT, 'display' )->post_content );
 	?>
   <div class="Post Guide" itemScope itemType="http://schema.org/TechArticle">
@@ -26,7 +26,7 @@ function getpost( $atts ) {
 	  </div>
 	</div>
 	<div class="wrapper__wide Post__container Guide__container">
-	  <?php if ( sidebar_toc() !== false ) { ?>
+	  <?php if ( sidebar_toc( get_post( $atts['id'], OBJECT, 'display' )->post_content ) !== false ) { ?>
 		<div class="SidebarTOC Post__SidebarTOC">
 			<div class="SidebarTOC-wrapper">
 						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>

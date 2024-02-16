@@ -9,6 +9,8 @@ button,
 .button,
 .Button,
 %button {
+
+	@include appearance;
 	position: relative;
 	display: inline-flex;
 	align-items: center;
