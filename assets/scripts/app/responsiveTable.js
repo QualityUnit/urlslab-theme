@@ -13,7 +13,10 @@ if ( tables.length ) {
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 0; i <= tr.length; i++ ) {
-			const headers = tr[ 0 ].querySelectorAll( 'th' );
+			let headers = tr[ 0 ].querySelectorAll( 'th' );
+			if ( ! headers?.length ) {
+				headers = tr[ 0 ].querySelectorAll( 'td' );
+			}
 			const vals = tr[ i ] && tr[ i ].querySelectorAll( 'td' );
 			const allCells = tr[ i ] && tr[ i ].querySelectorAll( 'td, th' );
 
