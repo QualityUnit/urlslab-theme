@@ -1,3 +1,7 @@
+<?php
+	wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+?>
+
 <footer class="Footer urlslab-skip-all">
   <div class="wrapper">
 	<div class="Footer__newsletter">
@@ -39,7 +43,7 @@
 	  </div>
 	</div>
 	<div class="Footer__bottom">
-	  <p class="Footer__bottom--copyright"><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ) ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
+	  <p class="Footer__bottom--copyright"><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ); ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
 	  <ul class="Footer__bottom--menu">
 		<?php
 		if ( has_nav_menu( 'footer_bottom_navigation' ) ) :
