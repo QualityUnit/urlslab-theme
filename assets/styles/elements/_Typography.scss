@@ -5,29 +5,29 @@
 @use "../common/mixins" as *;
 @forward "../elements/Checklist";
 
-$font-size-default: 16px !important;
-$line-height-default: 1.5 !important;
-$font-size-smaller: 14px !important;
-$line-height-smaller: 1.714 !important;
-$font-size-small: 12px !important;
-$font-size-bigger: 18px !important;
-$line-height-bigger: 1.44 !important;
-$font-size-h1: 3rem !important;
-$line-height-h1: 1.33 !important;
-$font-size-h2: 1.75rem !important;
-$line-height-h2: 1.357 !important;
-$font-size-h2-s: 1.875rem !important;
-$font-size-h2-xs: 1.5rem !important;
-$font-size-h2-l: 2.25rem !important;
-$font-size-h2-xl: 2.75rem !important;
-$font-size-h3: 1.125rem !important;
-$line-height-h3: 1.33 !important;
-$font-size-h4: 1.125rem !important;
-$line-height-h4: 1.33 !important;
-$font-size-h5: 1rem !important;
-$line-height-h5: 1.5 !important;
-$font-size-h6: 1rem !important;
-$line-height-h6: 1.5 !important;
+$font-size-default: 16px;
+$line-height-default: 1.5;
+$font-size-smaller: 14px;
+$line-height-smaller: 1.714;
+$font-size-small: 12px;
+$font-size-bigger: 18px;
+$line-height-bigger: 1.44;
+$font-size-h1: 3rem;
+$line-height-h1: 1.33;
+$font-size-h2: 1.75rem;
+$line-height-h2: 1.357;
+$font-size-h2-s: 1.875rem;
+$font-size-h2-xs: 1.5rem;
+$font-size-h2-l: 2.25rem;
+$font-size-h2-xl: 2.75rem;
+$font-size-h3: 1.125rem;
+$line-height-h3: 1.33;
+$font-size-h4: 1.125rem;
+$line-height-h4: 1.33;
+$font-size-h5: 1rem;
+$line-height-h5: 1.5;
+$font-size-h6: 1rem;
+$line-height-h6: 1.5;
 
 h1,
 .h1,

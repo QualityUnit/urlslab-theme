@@ -333,7 +333,7 @@ no-descending-specificity, scss/no-global-function-names */
 					.Faq,
 					.wide,
 					.wp-block-embed,
-					.youtube__loader {
+					[class*="youtube"] {
 						margin-left: -2em;
 						margin-right: -2em;
 					}
