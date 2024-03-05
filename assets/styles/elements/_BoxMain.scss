@@ -83,7 +83,7 @@
 
 		color: $white;
 		background-color: $primary;
-		box-shadow: 0 0 5em -0.625em rgba(0, 0, 0, 0);
+		filter: drop-shadow(0 0 4.3em rgba($black-real, 0));
 
 		* {
 			color: currentColor;
