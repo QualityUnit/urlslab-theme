@@ -293,6 +293,14 @@
 
 						> li {
 
+							> a {
+								display: none;
+
+								.menu-item-description {
+									display: none;
+								}
+							}
+
 							.sub-menu {
 
 								> li {
