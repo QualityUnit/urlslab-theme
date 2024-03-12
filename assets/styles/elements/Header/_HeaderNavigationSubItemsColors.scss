@@ -11,24 +11,19 @@
 
 			li {
 
-				&[class^="icn-"]::after {
+				&[class*="icn-"]::after {
 					background-color: $primary-light;
 				}
 
-				&[class^="label"] {
+				&[class*="label"] {
 					border-radius: 8px;
-
-					> a {
-						color: currentcolor;
-					}
 
 					.icon {
 						fill: currentcolor;
 					}
 				}
 
-				&.label-overview,
-				&.label-learn {
+				&.label-blue {
 					color: $primary;
 
 					li[class]::after {
@@ -36,30 +31,17 @@
 					}
 				}
 
-				&.label-product {
-					color: $secondary;
+				&.label-magenta, {
+					color: $saturated-magenta-menu;
 
 					li[class]::after {
-						background-color: $secondary-light;
-					}
-				}
-
-				&.label-seo, {
-
-					li[class]::after {
-						background-color: $saturated-blueish-menu;
+						background-color: $saturated-magenta-menu;
 						opacity: 16%;
 					}
 				}
 
-				&.label-performance, {
-
-					li[class]::after {
-						background-color: $desaturated-magenta-menu;
-					}
-				}
-
-				&.label-tools, {
+				&.label-orange, {
+					color: $saturated-orange-menu;
 
 					li[class]::after {
 						background-color: $desaturated-orange-menu;
