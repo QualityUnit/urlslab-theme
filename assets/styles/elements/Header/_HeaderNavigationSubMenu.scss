@@ -45,19 +45,8 @@
 							> li {
 								padding: 0;
 
-								&.label-sub {
-
-									> a {
-										display: none;
-									}
-								}
-
 								> a {
-									display: block;
-									font-size: 0.75em;
-									margin-top: 1em;
-									padding: 1em 0 0.5em 0;
-									border-top: 0.0625em solid $primary-light;
+									display: none;
 
 									.menu-item-description {
 										display: none;
@@ -140,14 +129,6 @@
 				.sub-menu {
 
 					> li {
-
-						&.label-sub {
-
-							> a {
-								color: transparent;
-								cursor: default;
-							}
-						}
 
 						.sub-menu {
 
@@ -249,12 +230,12 @@
 				&.single-menu {
 
 					> .sub-menu {
-						position: fixed;
+						position: absolute;
 						top: 3.95em;
 						left: 0;
 						right: 0;
 						margin: auto;
-						padding: 3em 1.25em 1.5em 1.25em;
+						padding: 3em 1.25em 1.5em 0.5em;
 						text-align: inherit;
 						z-index: 2;
 						column-gap: 1.75em;
@@ -268,15 +249,22 @@
 							position: absolute;
 							width: 100vw;
 							height: 100%;
-							left: 50%;
-							top: 0;
+							left: -50%;
+							top: 6px;
 							background-color: $white;
 							box-shadow: 0 0.5em 0.375em -0.375em rgb($black-real, 0.08);
 							z-index: -1;
-							transform: translateX(-50%);
 						}
 
 						li {
+							$cols: 2,3;
+
+							@each $col in $cols {
+								&.grid-col-#{$col} .sub-menu {
+									display: block;
+									columns: $col;
+								}
+							}
 
 							.sub-menu {
 								display: flex;
@@ -306,9 +294,7 @@
 						> li {
 
 							> a {
-								display: block;
-								margin-left: 0.5em;
-								margin-bottom: 1.875em;
+								display: none;
 
 								.menu-item-description {
 									display: none;
@@ -453,7 +439,6 @@
 					.sub-menu:not(.sub-menu .sub-menu) {
 						display: grid;
 						grid-template-columns: repeat(5, 1fr);
-
 					}
 				}
 			}
@@ -490,9 +475,7 @@
 						}
 					}
 				}
-
 			}
 		}
-
 	}
 }

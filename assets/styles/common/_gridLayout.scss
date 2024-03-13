@@ -1,0 +1,74 @@
+@use "sass:math";
+@use "variables" as *;
+@use "mixins" as *;
+
+$grids: 2,3,4,5,6,7,8;
+
+.grid {
+
+	&-col {
+
+		@each $col in $grids {
+			&-#{$col} {
+				grid-column: span $col;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&-tablet {
+
+				@each $col in $grids {
+					&-#{$col} {
+						grid-column: span $col;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&-desktop {
+
+				@each $col in $grids {
+					&-#{$col} {
+						grid-column: span $col;
+					}
+				}
+			}
+		}
+	}
+
+	&-row {
+
+		@each $row in $grids {
+			&-#{$row} {
+				grid-row: span $row;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&-tablet {
+
+				@each $row in $grids {
+					&-#{$row} {
+						grid-row: span $row;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&-desktop {
+
+				@each $row in $grids {
+					&-#{$row} {
+						grid-row: span $row;
+					}
+				}
+			}
+		}
+	}
+}

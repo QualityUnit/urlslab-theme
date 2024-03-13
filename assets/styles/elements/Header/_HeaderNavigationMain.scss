@@ -181,6 +181,13 @@
 							transition: all 0.2s;
 						}
 					}
+
+					@media (hover: hover) {
+
+						&:hover > a::before {
+							transform: scaleX(1);
+						}
+					}
 				}
 			}
 		}
