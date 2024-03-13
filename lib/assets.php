@@ -21,6 +21,10 @@ add_action(
 		if ( ! is_page() ) {
 			wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/app' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
+
+		if ( ! empty( preg_grep( '/^(demo)$/', get_body_class() ) ) ) {
+			wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/pages/Demo' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
 	},
 	100
 );

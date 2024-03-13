@@ -1,6 +1,8 @@
 <?php
 	wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-?>
+
+if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/', get_body_class() ) ) ) {
+	?>
 
 <footer class="Footer urlslab-skip-all">
   <div class="wrapper">
@@ -38,7 +40,7 @@
 					'menu_class'     => 'Footer__navigation',
 				)
 			);
-		  endif;
+	endif;
 		?>
 	  </div>
 	</div>
@@ -59,3 +61,5 @@
 	</div>
   </div>
 </footer>
+
+<?php } ?>

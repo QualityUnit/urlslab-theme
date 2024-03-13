@@ -1,0 +1,55 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+body.demo {
+
+	#app > .elementor {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: calc(100vh - $headerHeight);
+	}
+
+	section:first-of-type:last-of-type > .elementor-container {
+		position: relative;
+
+		.Form {
+			position: relative;
+			z-index: 2;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			iframe {
+				min-height: 420px !important;
+			}
+
+			&::before,
+			&::after {
+				position: absolute;
+				content: "";
+				z-index: 1;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				width: 50%;
+				padding-bottom: 50%;
+			}
+
+			&::before {
+				background-image: url(../../images/demo_left.png?ver#{$version});
+				left: 6.5%;
+				bottom: 0;
+			}
+
+			&::after {
+				background-image: url(../../images/demo_right.png?ver#{$version});
+				top: 0;
+				right: 5%;
+			}
+		}
+	}
+}

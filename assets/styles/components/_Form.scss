@@ -7,6 +7,7 @@
 	display: block;
 	background-color: $white;
 	border-radius: $border-radius-16;
+	padding: 1.5em;
 	filter: $box-shadow-big;
 
 	iframe {
@@ -15,6 +16,13 @@
 
 	&__title {
 		font-size: 2rem;
+		text-align: center;
+
+		margin-bottom: 1em;
+
+		.elementor-heading-title {
+			font-size: inherit;
+		}
 	}
 
 	p {
@@ -34,6 +42,8 @@
 
 		&__narrow {
 			padding: 2em 3em 4.5em;
+			min-width: 0 !important;
+			max-width: 30em;
 		}
 
 		&.centered {
@@ -45,8 +55,7 @@
 		min-width: 42em;
 
 		&__narrow {
-			min-width: 0;
-			max-width: 30em;
+			padding: 4em 5em;
 		}
 
 		hr {
