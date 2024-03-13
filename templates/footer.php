@@ -33,7 +33,7 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 	  </div>
 	  <div class="Footer__main--links">
 		<?php
-	if ( has_nav_menu( 'footer_navigation' ) ) :
+		if ( has_nav_menu( 'footer_navigation' ) ) :
 			wp_nav_menu(
 				array(
 					'theme_location' => 'footer_navigation',
@@ -41,7 +41,7 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 				)
 			);
 	endif;
-	?>
+		?>
 	  </div>
 	</div>
 	<div class="Footer__bottom">
