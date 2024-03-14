@@ -231,6 +231,11 @@ hr {
 	}
 }
 
+.invisible[class] {
+	visibility: hidden !important;
+	opacity: 0 !important;
+}
+
 
 .br {
 

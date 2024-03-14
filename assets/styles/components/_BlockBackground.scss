@@ -1,5 +1,5 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
-
+@use "sass:map";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
@@ -26,6 +26,66 @@
 			background-color: transparent;
 			color: $black;
 			padding: 0;
+		}
+	}
+
+	&--gray {
+		background: $lightest-gray;
+		max-width: $wrapper-width;
+
+		&.wrapper[class] {
+			padding: 1.25em;
+
+			@media (min-width: $breakpoint-desktop) {
+				padding: 4.5em 7.5em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			> .elementor-container {
+				justify-content: space-between;
+			}
+
+			.elementor-col-50 {
+				width: calc(50% - 1em);
+			}
+		}
+
+		.elementor-widget-text-editor:not(.tag) {
+			margin-top: 1em;
+
+			p {
+
+				br {
+					display: none;
+				}
+
+				+ p {
+					margin-top: 0.5em;
+				}
+			}
+		}
+
+		$elementPos: (
+			"top-left": "left top",
+			"top-right": "right top",
+			"bottom-left": "left bottom",
+			"bottom-right": "right bottom"
+		);
+
+		&.element-bottom-right {
+
+			&::before {
+
+				@include posZero;
+				display: block;
+				content: "";
+				position: absolute;
+
+				background: url(../../images/bg_element_bottom-right.png?ver=#{$version}) right bottom no-repeat;
+				background-size: contain;
+			}
 		}
 	}
 }

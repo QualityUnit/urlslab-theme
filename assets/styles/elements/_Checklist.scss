@@ -14,7 +14,7 @@
 		position: relative;
 		font-size: 1rem;
 		padding-left: 1.5em;
-		margin-bottom: 0.75em;
+		margin-bottom: 0.5em;
 
 		&::before {
 
@@ -58,12 +58,12 @@
 		width: auto;
 		margin-top: 1.5em;
 
-		strong {
+		p strong {
 			display: block;
 			font-family: $font-primary;
 			font-weight: 600;
 			font-size: 1.125em;
-			margin-bottom: 1em;
+			margin-bottom: 0.5em;
 		}
 
 		ul:not([class]) {
