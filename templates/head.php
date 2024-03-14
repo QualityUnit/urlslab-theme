@@ -25,7 +25,7 @@
 		}
 	};
 
-	// add_inline_styles();
+	add_inline_styles();
 	wp_head(); 
 	?>
 	<?php wp_head(); ?>
