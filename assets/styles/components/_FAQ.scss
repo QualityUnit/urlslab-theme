@@ -45,7 +45,7 @@
 		h3 {
 			margin: 0;
 			margin-bottom: 1em;
-			font-size: 1rem;
+			font-size: 1.125rem;
 			font-weight: 600;
 			line-height: $line-height-smaller;
 			padding-left: 1.5em;
@@ -90,7 +90,6 @@
 				margin: 0;
 				font-size: $font-size-default;
 				padding: 0 1.5em;
-				color: $level-2;
 				text-align: left;
 
 				&:empty {

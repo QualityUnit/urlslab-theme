@@ -2,6 +2,7 @@
 
 function components_imports( $content ) {
 	$blocks = array(
+		'ImproveBanner'                 => 'components/ImproveBanner',
 		'Block__red'                    => 'components/BlockRed',
 		'Block__meet'                   => 'components/BlockMeet',
 		'Block__improve'                => 'components/BlockImprove',

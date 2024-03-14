@@ -52,10 +52,10 @@
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop) {
+	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.Post & {
-			margin: 1.5em -2.5em;
+			width: 125%;
 		}
 
 		&__text {
