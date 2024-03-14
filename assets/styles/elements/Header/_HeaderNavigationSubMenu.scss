@@ -459,8 +459,8 @@
 				&:hover {
 
 					.sub-menu:not(.sub-menu .sub-menu) {
-						display: grid;
-						grid-template-columns: repeat(5, 1fr);
+						display: flex;
+						// grid-template-columns: repeat(5, 1fr);
 					}
 				}
 			}

@@ -3,6 +3,24 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+@mixin elementor-col-50() {
+	width: auto !important;
+
+	&:first-of-type {
+		flex-basis: 43%;
+	}
+
+	&:last-of-type {
+		flex-basis: 57%;
+
+		picture,
+		img {
+			max-width: none;
+			width: 100%;
+		}
+	}
+}
+
 .hero__banner,
 .heroHeadline,
 .heroHeadline__home {
@@ -46,15 +64,19 @@
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.elementor-col-50 {
-			width: auto !important;
 
-			&:first-of-type {
-				flex-basis: 43%;
-			}
+			@include elementor-col-50;
+		}
+	}
+}
 
-			&:last-of-type {
-				flex-basis: 57%;
-			}
+.elementor > section.Block__image {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.elementor-col-50 {
+
+			@include elementor-col-50;
 		}
 	}
 }

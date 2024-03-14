@@ -34,22 +34,6 @@
 		color: $black;
 	}
 
-
-	&-input[type="search"][class] {
-		font-weight: $font-weight-normal;
-		line-height: 1;
-		padding: 0.35em 0.5em 0.35em 3.5em;
-		border-radius: $border-radius-10;
-		border: 1px solid $gray-fields;
-		background-color: $light-gray;
-
-		@include input-placeholder {
-			color: $level-3;
-			font-size: 0.875rem;
-			transition: all 0.2s;
-			opacity: 1;
-		}
-	}
 }
 
 .SearchField {
