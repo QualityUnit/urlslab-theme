@@ -148,7 +148,7 @@
 								&-#{$width} {
 
 									.sub-menu {
-										width: percentage(math.div($width, 100));
+										width: math.percentage(math.div($width, 100));
 									}
 								}
 							}
