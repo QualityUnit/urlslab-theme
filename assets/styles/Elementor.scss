@@ -27,7 +27,6 @@
 @forward "vendor/elementor-typography";
 @forward "components/HeroBanner";
 @forward "components/BlockBasic";
-@forward "components/BlockBackground";
 @forward "components/BlockBoxes";
 @forward "components/BlockCaseStudy";
 @forward "components/BlockImage";
@@ -37,4 +36,5 @@
 @forward "components/SimilarSources";
 
 /* Layouts */
+@forward "layouts/Header";
 @forward "layouts/Fullscreen";

@@ -34,8 +34,14 @@
 	@media (min-width: $breakpoint-tablet) {
 		margin-bottom: 4.5em;
 
-		p {
-			padding: 0 12%;
+		.elementor-widget-text-editor {
+			max-width: 42em;
+			margin: 0 auto 2em;
+
+			~ .elementor-widget-text-editor {
+				margin: 2em auto;
+				max-width: 50em;
+			}
 		}
 	}
 

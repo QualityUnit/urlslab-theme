@@ -13,14 +13,19 @@
 	margin: 1.5em auto;
 	overflow: hidden;
 
-	&__text {
+	&__text[class] {
 		padding: 1.5em;
 
 		h4 {
+			margin-top: 0.5em;
 			font-size: 2rem;
 		}
 
 		p {
+			margin: 1.5em 0;
+		}
+
+		.Button {
 			margin-bottom: 1.5em;
 		}
 	}
@@ -43,18 +48,14 @@
 
 		&__image {
 			max-width: none;
-			margin-top: 0;
-		}
-
-		.Button {
-			font-size: 1rem;
+			margin-top: auto;
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop) {
+	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.Post & {
-			margin: 1.5em -2.5em;
+			width: 125%;
 		}
 
 		&__text {

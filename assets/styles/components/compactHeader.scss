@@ -27,7 +27,7 @@ body.compact-header--active {
 	}
 
 	&:not(:last-child) {
-		margin-bottom: 2.2em;
+		margin-bottom: 3.125em;
 	}
 
 	&__wrapper {
@@ -320,9 +320,9 @@ body.compact-header--active {
 			height: 2.857em;
 			padding-left: 3.5em;
 			border-radius: 0.714em;
-			border: none;
 			font-size: 0.875rem;
 			background-color: $light-grayBg;
+			border: 1px solid $gray-fields;
 			box-shadow: none;
 			transition: all 0.2s, background-color 0.2s;
 
@@ -374,7 +374,7 @@ body.compact-header--active {
 
 		&__icon {
 
-			@include square(1em);
+			@include square(1.25em);
 			position: absolute;
 			top: 50%;
 			left: 1.1em;

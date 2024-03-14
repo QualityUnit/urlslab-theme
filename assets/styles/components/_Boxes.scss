@@ -16,11 +16,25 @@
 
 		.elementor-col-33 {
 			width: 100%;
+			padding-bottom: 0;
 
 			+ .elementor-column {
 				margin-top: 1.5em;
 			}
+
+			.elementor-widget-image {
+				margin-bottom: 2em;
+			}
+
+			.elementor-widget-heading {
+				margin-bottom: 1.5em;
+			}
+
+			.elementor-widget-text-editor p {
+				font-size: 0.875rem;
+			}
 		}
+
 
 		@media (min-width: $breakpoint-tablet) {
 

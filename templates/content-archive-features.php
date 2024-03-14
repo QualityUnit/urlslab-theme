@@ -104,11 +104,15 @@ $page_header_args = array(
 							<div class="Posts__item--content">
 								<h4 data-title><?php the_title(); ?></h4>
 								<div class="Posts__item--excerpt" data-excerpt>
-									<?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
+									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 								</div>
+								<?php
+								if ( get_post_meta( get_the_ID(), 'main', true ) ) {
+									?>
 								<p class="learn-more icn-arrow-right">
 									<?php _e( 'Learn more', 'urlslab' ); ?>
 								</p>
+								<?php } ?>
 							</div>
 						</a>
 					</li>
