@@ -6,6 +6,10 @@
 @mixin elementor-col-50() {
 	width: auto !important;
 
+	.Button {
+		font-size: 0.875rem;
+	}
+
 	&:first-of-type {
 		flex-basis: 43%;
 	}
