@@ -252,12 +252,12 @@
 				&.single-menu {
 
 					> .sub-menu {
-						position: absolute;
+						position: fixed;
 						top: 3.95em;
 						left: 0;
 						right: 0;
 						margin: auto;
-						padding: 3em 1.25em 1.5em 0.5em;
+						padding: 3em 1.25em 1.5em 0;
 						text-align: inherit;
 						z-index: 2;
 						column-gap: 1.75em;
@@ -271,11 +271,12 @@
 							position: absolute;
 							width: 100vw;
 							height: 100%;
-							left: -50%;
-							top: 6px;
+							left: 50%;
+							top: 0;
 							background-color: $white;
 							box-shadow: 0 0.5em 0.375em -0.375em rgb($black-real, 0.08);
 							z-index: -1;
+							transform: translateX(-50%);
 						}
 
 						li {
@@ -292,7 +293,7 @@
 								display: flex;
 								flex-wrap: wrap;
 								gap: 0.3125em;
-								flex-direction: column;
+								// flex-direction: column;
 
 								li {
 									flex: 0 0 auto;
