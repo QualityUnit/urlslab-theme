@@ -3,6 +3,12 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+figure.wp-block-table {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		width: 125%;
+	}
+}
 
 figure.wp-block-table,
 .AlternativeTable,
@@ -66,7 +72,7 @@ figure.wp-block-table,
 				}
 
 				&[colspan] {
-					padding: calc(0.25em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+					padding: calc(0.5em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
 					color: $primary;
 				}
 			}
@@ -143,3 +149,4 @@ figure.wp-block-table,
 		}
 	}
 }
+

@@ -8,6 +8,7 @@
 	&.inputField {
 		position: relative;
 		border-radius: $border-radius-10;
+		border: 1px solid $gray-fields;
 		margin-bottom: 0;
 		max-width: 15.625em;
 
@@ -39,6 +40,7 @@
 		line-height: 1;
 		padding: 0.35em 0.5em 0.35em 3.5em;
 		border-radius: $border-radius-10;
+		border: 1px solid $gray-fields;
 		background-color: $light-gray;
 
 		@include input-placeholder {

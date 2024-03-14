@@ -6,6 +6,8 @@ function components_imports( $content ) {
 		'Block__meet'                   => 'components/BlockMeet',
 		'Block__improve'                => 'components/BlockImprove',
 		'Block__illustration'           => 'components/BlockIllustration',
+		'Block__background'             => 'components/BlockBackground',
+		'BlockSimple'                   => 'components/BlockSimple',
 		'table'                         => 'components/Table',
 		'Modules'                       => 'components/BlockModules',
 		'FormIcons'                     => 'components/FormIcons',
@@ -14,14 +16,14 @@ function components_imports( $content ) {
 
 	// Array value in form of array, first is script name, second is dependency id
 	$scripts = array(
-		'/\<div.+class="FilterMenu.+/'     => array( 'filterMenu' ),
-		'[data-lightbox="gallery"]'        => array( 'splide' ),
-		'[data-lightbox="youtube"]'        => array( 'splide' ),
-		'/data-lightbox="gallery/'         => array( 'custom_lightbox', 'splide' ),
+		'/\<div.+class="FilterMenu.+/' => array( 'filterMenu' ),
+		'[data-lightbox="gallery"]'    => array( 'splide' ),
+		'[data-lightbox="youtube"]'    => array( 'splide' ),
+		'/data-lightbox="gallery/'     => array( 'custom_lightbox', 'splide' ),
 		// '/data-lightbox="youtube/'         => array( 'custom_lightbox_youtube', 'splide' ),
 		// '/class=.+Block--video/'           => array( 'custom_lightbox_youtube', 'splide' ),
 		// '/class=.+GutenbergVideo/'         => array( 'custom_lightbox_youtube', 'splide' ),
-		'/\<table.+/'                      => array( 'responsiveTable' ),
+		'/\<table.+/'                  => array( 'responsiveTable' ),
 	);
 
 	if ( ! $content ) {

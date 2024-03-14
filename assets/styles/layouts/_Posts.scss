@@ -71,10 +71,13 @@ no-descending-specificity */
 		@extend .Box--main;
 		@extend .Box--shadow;
 		margin-bottom: 0;
+		box-shadow: 0 0 0 3px rgba($primary, 0);
 
 		&[class]:hover {
 			background-color: $white;
 			color: $black;
+			box-shadow: 0 0 0 3px rgba($primary, 1);
+			filter: $box-shadow-big;
 
 			a {
 				text-decoration: none;

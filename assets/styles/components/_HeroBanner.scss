@@ -7,6 +7,10 @@
 .heroHeadline,
 .heroHeadline__home {
 
+	.Button {
+		font-size: 0.875rem;
+	}
+
 	&__title,
 	&--title {
 
@@ -28,7 +32,7 @@
 	&--subtitle {
 
 		h3 {
-			font-size: 1.625rem;
+			font-size: 1.125rem;
 			line-height: $line-height-h3;
 			font-weight: 400;
 			margin-bottom: 0.25em;
@@ -36,6 +40,21 @@
 
 		+ .elementor-widget-html .Button {
 			margin-top: 1.5em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.elementor-col-50 {
+			width: auto !important;
+
+			&:first-of-type {
+				flex-basis: 43%;
+			}
+
+			&:last-of-type {
+				flex-basis: 57%;
+			}
 		}
 	}
 }

@@ -112,6 +112,10 @@ html.mobile-menu-opened {
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 
+			.wrapper {
+				padding: 0 !important;
+			}
+
 			.signup &.noMenu {
 				background-color: transparent;
 			}

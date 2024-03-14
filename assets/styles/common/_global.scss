@@ -236,6 +236,27 @@ hr {
 	opacity: 0 !important;
 }
 
+.no-max {
+
+	&-width[class] {
+		max-width: none !important;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&-width-tablet[class] {
+			max-width: none !important;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&-width-desktop[class] {
+			max-width: none !important;
+		}
+	}
+}
+
 
 .br {
 

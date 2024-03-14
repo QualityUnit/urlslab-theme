@@ -36,7 +36,7 @@ if ( tables.length ) {
 
 			if ( vals?.length > 1 ) {
 				vals.forEach( ( val, index ) => {
-					if ( val.textContent === 'y' || val.textContent === 'Yes' ) {
+					if ( val.textContent.toLowerCase() === 'y' || val.textContent.toLowerCase() === 'yes' || val.outerText.toLowerCase() === 'y' || val.outerText.toLowerCase() === 'yes' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-check' );
 						val.insertAdjacentHTML( 'afterbegin', `
@@ -45,7 +45,7 @@ if ( tables.length ) {
 							</svg>`
 						);
 					}
-					if ( val.textContent === 'n' || val.textContent === 'No' ) {
+					if ( val.textContent.toLowerCase() === 'n' || val.textContent.toLowerCase() === 'no' || val.outerText.toLowerCase() === 'n' || val.outerText.toLowerCase() === 'no' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-close' );
 						val.insertAdjacentHTML( 'afterbegin', `

@@ -1,5 +1,6 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
+@use "sass:math";
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
 
@@ -64,8 +65,8 @@
 					> .sub-menu {
 
 						&.active {
-							max-height: 93.75em;
-							transition: max-height 0.5s ease-in-out;
+							height: 93.75em;
+							transition: height 0.5s ease-in-out;
 						}
 					}
 				}
@@ -75,9 +76,9 @@
 					&:not(.sub-menu .sub-menu) {
 
 						display: block;
-						max-height: 0;
+						height: 0;
 						overflow: hidden;
-						transition: max-height 0.5s ease-in-out;
+						transition: height 0.5s ease-in-out;
 
 						> li {
 
@@ -140,6 +141,27 @@
 							}
 						}
 
+						&.width {
+							$widths: 110, 120, 125, 135, 150;
+
+							@each $width in $widths {
+								&-#{$width} {
+
+									.sub-menu {
+										width: percentage(math.div($width, 100));
+									}
+								}
+							}
+						}
+
+						&.no-max-width {
+
+							.sub-menu > li {
+								max-width: none;
+								width: auto;
+							}
+						}
+
 					}
 				}
 			}
@@ -196,7 +218,7 @@
 	}
 
 
-	@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+	@media (min-width: $breakpoint-tablet-landscape) and (width: $breakpoint-desktop) {
 
 		ul.nav {
 
@@ -209,7 +231,7 @@
 						.sub-menu {
 
 							> li {
-								max-width: 11.5625em;
+								width: 11.5625em;
 							}
 						}
 					}
@@ -370,10 +392,10 @@
 						}
 
 						> li {
+							display: flex;
 							min-width: 13.125em;
 							overflow: hidden;
 							padding: 0.5em 0.5em 0.5em 0.5em;
-							display: flex;
 							row-gap: 0.5em;
 							min-height: 5em;
 
@@ -470,7 +492,7 @@
 						.sub-menu {
 
 							> li {
-								max-width: 12.5em;
+								width: 12.5em;
 							}
 						}
 					}

@@ -45,6 +45,40 @@
 		}
 	}
 
+	[class*="Modules"] {
+
+		.elementor-column {
+			position: relative;
+			transition: transform 0.2s;
+
+			*[class] {
+				position: static;
+			}
+
+			a {
+				position: static;
+				text-decoration: none;
+				color: initial;
+
+				&::before {
+
+					@include posZero;
+					content: "";
+					position: absolute;
+					cursor: pointer;
+					z-index: 10;
+				}
+			}
+
+			@media (hover: hover) {
+
+				&:hover {
+					transform: translateY(-5%);
+				}
+			}
+		}
+	}
+
 	.Modules {
 
 		&__imageOnly {

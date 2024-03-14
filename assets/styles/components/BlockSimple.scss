@@ -1,0 +1,21 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.BlockSimple {
+	background-color: $lightest-gray;
+
+	.elementor-col-50 {
+
+		.elementor-heading-title {
+			margin-bottom: 0.5em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&:last-of-type {
+				margin-left: 4.5em;
+			}
+		}
+	}
+}
