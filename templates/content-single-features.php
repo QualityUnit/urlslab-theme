@@ -17,7 +17,7 @@ $page_header_args = array(
 	),
 	'logo'  => ! get_post_meta( get_the_ID(), 'main', true ) ? $page_header_logo : null,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'  => get_the_excerpt(),
 	'toc'   => true,
 );
 $current_id       = apply_filters( 'wpml_object_id', $post->ID, 'features' );
@@ -42,9 +42,9 @@ if ( $categories && $categories_url ) {
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
-	
+
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 		<div class="Post__content">
 			<div class="Content" itemprop="articleBody">
