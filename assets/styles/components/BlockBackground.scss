@@ -19,6 +19,22 @@
 		max-width: $wrapper-wide;
 	}
 
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.elementor {
+
+			&-column {
+				width: 50%;
+				max-width: 31.25em;
+
+				&:has(picture, img) {
+					width: 50%;
+					max-width: 33.125em;
+				}
+			}
+		}
+	}
+
 	.tag {
 
 		p {
@@ -26,6 +42,7 @@
 			background-color: transparent;
 			color: $black;
 			padding: 0;
+			margin: 0;
 		}
 	}
 

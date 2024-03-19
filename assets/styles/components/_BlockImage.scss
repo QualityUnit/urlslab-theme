@@ -22,8 +22,6 @@
 		}
 
 		&-heading-title {
-			display: flex;
-			align-items: center;
 			line-height: 1.15;
 
 			.icon {
@@ -89,7 +87,7 @@
 		&.elementor-section .elementor-container {
 			flex-direction: row;
 			align-items: center;
-			column-gap: 10%;
+			justify-content: space-between;
 		}
 
 		&--with-play-button {
@@ -122,6 +120,12 @@
 
 			&-column {
 				width: 50%;
+				max-width: 31.25em;
+
+				&:has(picture, img) {
+					width: 58%;
+					max-width: 36.25em;
+				}
 			}
 		}
 	}

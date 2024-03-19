@@ -4,7 +4,7 @@
 @use "../common/mixins" as *;
 
 .Block__meet {
-	max-width: 1340px;
+	max-width: $breakpoint-desktop-box;
 	margin: 3em auto;
 	text-align: center;
 
