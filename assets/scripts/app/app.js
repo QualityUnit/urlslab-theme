@@ -139,7 +139,16 @@
 	// Custom tabs and accordion, replacing Elementor one
 	if ( queryAll( '.elementor-tab-title' ).length > 0 ) {
 		const tabItems = queryAll( '.elementor-tab-title' );
-		const firstItemRef = tabItems.item( 0 ).getAttribute( 'aria-controls' );
+		let firstItemRef = tabItems.item( 0 ).getAttribute( 'aria-controls' );
+
+		tabItems.forEach( ( tabItem ) => {
+			const tabText = tabItem.innerText;
+			if ( tabText.includes( 'ACTIVE' ) ) {
+				tabItem.innerText = tabText.replace( 'ACTIVE', '' );
+				firstItemRef = tabItem.getAttribute( 'aria-controls' );
+			}
+		} );
+
 		const parent = tabItems
 			.item( 0 )
 			.closest( '.elementor-widget-container' );
