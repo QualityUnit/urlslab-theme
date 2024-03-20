@@ -37,6 +37,8 @@
 	&--title {
 
 		h1.elementor-heading-title {
+			font-size: $font-size-h1;
+			font-family: $font-primary;
 			line-height: 1.15;
 		}
 	}
@@ -74,7 +76,7 @@
 	}
 }
 
-.elementor > section.Block__image {
+.elementor > section.Block__image:first-of-type {
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 

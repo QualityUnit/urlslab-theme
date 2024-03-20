@@ -5,6 +5,10 @@
 
 .Box {
 
+	.elementor-widget-heading + .elementor-widget-text-editor p {
+		margin-bottom: 1.5em;
+	}
+
 	&__padded {
 
 		&.col-5 {

@@ -6,6 +6,8 @@ no-descending-specificity, scss/no-global-function-names */
 
 body.demo {
 
+	background-color: $lightest-gray;
+
 	#app > .elementor {
 		display: flex;
 		align-items: center;

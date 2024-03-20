@@ -322,7 +322,7 @@ no-descending-specificity, scss/no-global-function-names */
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			max-width: 40em;
+			max-width: 30em;
 
 			.Content {
 
@@ -361,6 +361,10 @@ no-descending-specificity, scss/no-global-function-names */
 					overflow: hidden;
 				}
 			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			max-width: 40.625em;
 		}
 	}
 }
