@@ -27,7 +27,7 @@
 				width: 50%;
 				max-width: 31.25em;
 
-				&:has(picture, img) {
+				&:has(picture, img):not(:has(.elementor-heading-title)) {
 					width: 50%;
 					max-width: 33.125em;
 				}
@@ -43,6 +43,14 @@
 			color: $black;
 			padding: 0;
 			margin: 0;
+		}
+	}
+
+	.elementor-widget-text-editor:not(.tag) {
+		margin-top: 1em;
+
+		p {
+			margin-bottom: 1.5em;
 		}
 	}
 
@@ -73,13 +81,10 @@
 			margin-top: 1em;
 
 			p {
+				margin-bottom: 1.5em;
 
 				br {
 					display: none;
-				}
-
-				+ p {
-					margin-top: 0.5em;
 				}
 			}
 		}
