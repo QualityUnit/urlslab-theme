@@ -2,6 +2,7 @@
 no-descending-specificity, scss/no-global-function-names */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../elements/Button" as *;
 
 .Pricing {
 
@@ -13,11 +14,13 @@ no-descending-specificity, scss/no-global-function-names */
 			@media (min-width: $breakpoint-tablet) {
 				display: grid;
 				grid-template-columns: repeat(2, auto);
-				grid-gap: 2em;
+				grid-gap: 0;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				grid-template-columns: repeat(3, auto);
+				position: relative;
+				grid-template-columns: repeat(4, auto);
+				left: 0.75em;
 			}
 		}
 	}
@@ -25,14 +28,36 @@ no-descending-specificity, scss/no-global-function-names */
 	&__program {
 		position: relative;
 		background-color: $white;
-		border-radius: $border-radius-16;
 		padding: 1.5em;
 		margin-top: 1.5em;
 		border: 2px solid $light-gray;
+		border-radius: $border-radius-16;
 
 		@media (min-width: $breakpoint-tablet) {
 			width: 100% !important;
 			margin-top: 0;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&:first-of-type {
+				position: relative;
+				left: -1.5em;
+			}
+
+			+.Pricing__program {
+
+				&:not(:nth-of-type(2)) {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
+
+				&:not(:last-of-type) {
+					border-right: 0;
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+			}
 		}
 
 		>.elementor-widget-wrap {
@@ -40,92 +65,50 @@ no-descending-specificity, scss/no-global-function-names */
 			flex-direction: column;
 		}
 
-		&:nth-child(1) {
-
-			.price {
-				color: $black;
-			}
-		}
-
-		&:nth-child(2) {
-			border-color: $primary;
-			z-index: 2;
-
-			.elementor-button-link {
-				color: $white;
-				background-color: $primary;
-				border-color: $primary;
-			}
-		}
-
-		.premiumSupport {
-			position: relative;
+		.badge {
+			position: absolute;
 			display: inline-flex;
 			align-items: center;
 			background-color: $light-grayBg;
 			border-radius: 1em 0.5em 0.5em 1em;
 			padding: 0.25em 1em;
+			font-size: 0.875rem;
 			margin-left: auto;
-			right: -1.75em;
+			margin-top: 0.5em;
+			right: -0.25em;
 
-			svg {
-
-				@include square(1em);
-				fill: url(#star-gradient);
-				margin-left: 0.5em;
-				margin-right: 0.5em;
+			&.most__popular {
+				font-weight: 600;
+				background-color: $tag;
 			}
 
-			p {
-				font-weight: 600;
-				letter-spacing: 0.05em;
-				background: linear-gradient(117deg, $primary 0%, rgba(#db6bd7, 0.75) 100%);
-				background-clip: text;
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				backdrop-filter: blur(6px);
+			&.premiumSupport {
+
+				svg {
+
+					@include square(1em);
+					fill: url(#star-gradient);
+					margin-left: 0.5em;
+					margin-right: 0.5em;
+				}
+
+				p {
+					font-weight: 600;
+					background: linear-gradient(117deg, $primary 0%, rgba(#db6bd7, 0.75) 100%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					backdrop-filter: blur(6px);
+				}
 			}
 		}
 
 		.elementor-widget-image {
 
 			img {
-				width: auto;
-				height: 3.5em;
-				margin: 1.5em 0;
+				width: 3.75em;
+				margin-bottom: 1.5em;
 			}
-		}
-
-		.popular {
-			position: absolute;
-			top: -1em;
-			left: 0.5em;
-			font-size: 0.75rem;
-			font-weight: 500;
-			padding: 1.5em 0.75em;
-			text-align: center;
-			border-radius: 1.25em;
-			transform: translate(-25%, 25%) rotate(-45deg);
-
-			div {
-				position: relative;
-				z-index: 1;
-			}
-
-			&::before {
-
-				@include posZero;
-				top: -0.25em;
-				position: absolute;
-				content: "";
-				background-color: $saturated-orange;
-				transform: perspective(100px) rotateX(65deg);
-				border-radius: 0.75em 0.75em 0 0;
-			}
-		}
-
-		.elementor-widget-heading + .elementor-widget-text-editor {
-			padding-right: 30%;
 		}
 
 		.elementor-heading-title {
@@ -139,38 +122,19 @@ no-descending-specificity, scss/no-global-function-names */
 			padding: 1em 1.5em;
 			margin: 2em 0 1.5em;
 			border-radius: $border-radius-6;
-			border: 1px solid $black;
+			border: 1px solid currentcolor;
 			font-size: 0.875rem;
 			font-weight: 600;
 			line-height: 1;
 			color: $black;
+
+			* {
+				line-height: inherit !important;
+			}
 		}
 
-		.price {
-			font-family: $font-secondary;
-			line-height: 1.25;
-			color: $red;
-
-			&__old {
-				display: inline-block;
-				color: $black;
-				font-family: $font-primary;
-				font-size: 1.85rem;
-				text-decoration: line-through;
-				margin-right: 0.5em;
-			}
-
-			sup {
-				position: relative;
-				font-size: 1rem;
-				vertical-align: top;
-				top: 0.5em;
-			}
-
-			strong {
-				font-family: $font-primary;
-				font-size: $font-size-h2;
-			}
+		.Button--full {
+			all: unset;
 		}
 
 		.credits {
@@ -182,6 +146,52 @@ no-descending-specificity, scss/no-global-function-names */
 				border-radius: 1em;
 				padding: 0 0.5em;
 			}
+		}
+	}
+
+	&__price {
+		font-family: $font-primary;
+		font-size: 2.5rem;
+		font-weight: 600;
+		color: $secondary;
+
+		p {
+			font-family: inherit;
+			font-weight: inherit;
+		}
+
+		sup {
+			position: relative;
+			font-size: 1rem;
+			font-weight: 400;
+			top: -0.15em;
+		}
+	}
+
+	&__checklist {
+
+		p {
+
+			&:has(~ul) {
+				display: flex;
+				align-items: center;
+				color: $level-2;
+				margin-bottom: 0.5em;
+				font-size: 0.875rem;
+			}
+
+			b,
+			strong {
+				color: $black;
+			}
+		}
+
+		ul + p a {
+			text-decoration: underline;
+		}
+
+		&--logo {
+			margin-right: 0.5em;
 		}
 	}
 }

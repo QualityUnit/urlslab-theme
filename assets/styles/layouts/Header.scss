@@ -22,7 +22,7 @@ html.mobile-menu-opened {
 			left: 0;
 			opacity: 0.3;
 			position: fixed;
-			top: $header-height;
+			top: $headerHeight;
 			transition: all 0.25s linear;
 			visibility: visible;
 			width: 100%;
@@ -34,14 +34,14 @@ html.mobile-menu-opened {
 }
 
 #app {
-	padding-top: $header-height;
+	padding-top: $headerHeight;
 
 	.Header {
 		position: fixed;
 		top: 0;
 		z-index: 99991;
 		width: 100%;
-		height: $header-height;
+		height: $headerHeight;
 		background-color: $white;
 
 		&.noMenu {

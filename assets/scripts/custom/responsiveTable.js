@@ -1,4 +1,24 @@
 const tables = document.querySelectorAll( 'figure.wp-block-table table' );
+const pricingTableHeaderTitle = document.querySelector( '.Pricing__table--title' );
+const pricingTableHeader = document.querySelector( '.Pricing__table--header' );
+
+// Setting tables header class when sticky to hide icons
+if ( pricingTableHeader ) {
+	const headerObserver = new IntersectionObserver(
+		( [ entry ] ) => {
+			if ( entry.isIntersecting ) {
+				pricingTableHeader.classList.remove( 'is-sticky' );
+				return;
+			}
+			if ( entry.boundingClientRect.top < 0 ) {
+				pricingTableHeader.classList.add( 'is-sticky' );
+			}
+		},
+		{ rootMargin: '-92px 0px 0px 0px' }
+	);
+
+	headerObserver.observe( pricingTableHeaderTitle );
+}
 
 if ( tables.length ) {
 	const hasTooltip = new RegExp( /(.+?)<i>(.+?)<\/i>/gi );
@@ -54,11 +74,11 @@ if ( tables.length ) {
 							</svg>`
 						);
 					}
-					if ( headers[ index ].innerHTML ) {
+					if ( headers[ index ]?.innerHTML && ! table.classList.contains( 'no-header' ) ) {
 						val.insertAdjacentHTML( 'afterbegin', `<div class="tablet--only MobileHeader">${ headers[ index ].innerHTML }</div>` );
 					}
 
-					if ( ! headers[ index ].innerHTML ) {
+					if ( ! headers[ index ]?.innerHTML && ! table.classList.contains( 'no-header' ) ) {
 						val.classList.add( 'MobileHeader__top' );
 					}
 				} );
@@ -69,8 +89,8 @@ if ( tables.length ) {
 		for ( let i = 0; i <= colspanRows.length; i++ ) {
 			if ( i % 2 === 1 ) {
 				const isOddGroup = colspanRows[ i ]?.closest( 'tr' );
-				isOddGroup.classList.add( 'oddGroup' );
-				isOddGroup.nextElementSibling.classList.add( 'oddGroup' );
+				isOddGroup?.classList.add( 'oddGroup' );
+				isOddGroup?.nextElementSibling.classList.add( 'oddGroup' );
 			}
 		}
 	} );

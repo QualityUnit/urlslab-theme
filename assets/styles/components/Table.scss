@@ -35,6 +35,10 @@ figure.wp-block-table,
 				padding: 1em 1.5em;
 				line-height: 1.1;
 				border-bottom: 1px solid $light-gray;
+
+				&:empty {
+					display: none;
+				}
 			}
 		}
 
@@ -73,7 +77,13 @@ figure.wp-block-table,
 
 				&[colspan] {
 					padding: calc(0.5em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+					background-color: #dfeafd;
+					font-weight: 600;
 					color: $primary;
+				}
+
+				a {
+					text-decoration: underline;
 				}
 			}
 
@@ -92,7 +102,6 @@ figure.wp-block-table,
 			thead {
 				display: none;
 			}
-
 
 			tbody {
 
@@ -125,6 +134,31 @@ figure.wp-block-table,
 					width: 40%;
 					flex-basis: auto;
 					flex-shrink: 0;
+				}
+			}
+
+			&.no-header {
+
+				tbody {
+
+					tr {
+						display: flex;
+						flex-wrap: wrap;
+					}
+
+					td {
+						flex: 1 1 auto;
+						max-width: 25%;
+
+						&:not(:first-of-type) {
+							border-left: 1px solid $light-gray;
+						}
+
+						&:first-of-type {
+							width: 100%;
+							max-width: none;
+						}
+					}
 				}
 			}
 		}

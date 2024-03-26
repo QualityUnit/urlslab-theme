@@ -17,7 +17,7 @@
 
 	&-wrapper {
 		position: sticky;
-		top: 15px + $header-height;
+		top: 15px + $headerHeight;
 		z-index: 2;
 
 		&:first-of-type .SidebarTOC {
