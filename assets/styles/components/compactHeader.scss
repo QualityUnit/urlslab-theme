@@ -54,6 +54,7 @@ body.compact-header--active {
 			overflow: hidden;
 			padding-bottom: 60%;
 			border-radius: $border-radius-16;
+			border: 1px solid $light-gray;
 			.#{$class-name}__img {
 
 				@include square(100%);
