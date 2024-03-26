@@ -64,6 +64,14 @@ button,
 	background-color: $primary;
 	transition: all 0.2s;
 
+	&:has(.elementor-button-link) {
+
+		.elementor-button-link {
+
+			@extend %buttonFull;
+		}
+	}
+
 	span,
 	strong {
 		position: relative;

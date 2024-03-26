@@ -2,18 +2,30 @@
 no-descending-specificity, scss/no-global-function-names */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@forward "../components/PricingBanner";
 @forward "../components/PricingPrograms";
 @forward "../components/PricingTable";
 
 .Pricing {
+	position: relative;
 	padding: 3.2em 0;
 	margin: 1.5em auto 4em;
 	max-width: $breakpoint-desktop-box;
-	background-color: $lightest-gray;
-	border-radius: $border-radius-16;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0;
+		background-color: $lightest-gray;
+		border-radius: $border-radius-16;
+		padding-bottom: 30%;
+	}
 
 	.wrapper {
+		position: relative;
+		z-index: 2;
 
 		@media (min-width: $breakpoint-desktop) {
 			padding: 0;

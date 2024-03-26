@@ -4,9 +4,158 @@ no-descending-specificity, scss/no-global-function-names */
 @use "../common/mixins" as *;
 
 .Pricing__table {
+	margin-top: 2em;
+
+	>.elementor-container {
+		display: block;
+
+		>.elementor-column {
+			width: 100%;
+		}
+	}
+
+	&--title {
+		margin-bottom: 0;
+	}
+
+	&--header {
+		position: sticky;
+		top: $headerHeight;
+		background-color: $white;
+		z-index: 20;
+
+		> .elementor-container {
+			display: flex;
+		}
+
+		&.is-sticky {
+
+			&::after {
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				content: "";
+				width: 100vw;
+				box-shadow: 0 3px 3px rgba($black, 0.12);
+				height: 1px;
+				transform: translateX(-50%);
+			}
+
+			.Pricing__table--program[class] {
+
+				.elementor-widget-image {
+					max-height: 0;
+					opacity: 0;
+				}
+			}
+		}
+
+		.Pricing__table--program[class] {
+			padding: 1em 1em 1.5em 1em;
+			margin-bottom: 0;
+
+			.elementor-widget-text-editor {
+				font-size: 0.875rem;
+				line-height: 1.15;
+				margin-bottom: 1em;
+			}
+
+			&:not(.fake) {
+				border: 1px solid $light-gray;
+				border-bottom: none;
+				border-radius: 0;
+			}
+
+			&.first {
+				border-top-left-radius: $border-radius-16;
+			}
+
+			&.last {
+				border-top-right-radius: $border-radius-16;
+			}
+
+			+.Pricing__table--program[class]:not(.first) {
+				border-left: none;
+			}
+
+			.elementor-widget-image {
+				opacity: 1;
+				height: 2.5rem;
+				max-height: 2.5rem;
+				transition: 0.5s all ease-out;
+				overflow: hidden;
+
+				* {
+					height: 100%;
+				}
+
+				img,
+				picture {
+					width: auto;
+					height: 2.5rem;
+				}
+			}
+
+			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+				width: 25%;
+
+				.Button {
+					display: none;
+				}
+
+				&.fake {
+					display: none;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				&:first-of-type {
+					width: 30%;
+				}
+
+				&:not(:first-of-type) {
+					width: 17.5%;
+				}
+			}
+		}
+	}
+
+
+	table {
+		margin-top: 0 !important;
+		border-top-right-radius: 0 !important;
+
+		td {
+			padding: 0.75em !important;
+
+			&:not(:first-of-type) {
+				text-align: center;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			td {
+
+				&:first-of-type:not([colspan]) {
+					width: 30%;
+				}
+
+				&:not(:first-of-type):not([colspan]) {
+					width: 17.5%;
+				}
+			}
+		}
+	}
+
+	.icon-check {
+		fill: $secondary !important;
+	}
+
 
 	&--header[class] {
-		margin-top: 3em;
 
 		.elementor-price-list {
 			font-family: $font-secondary;
