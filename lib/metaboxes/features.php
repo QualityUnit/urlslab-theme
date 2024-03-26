@@ -14,6 +14,12 @@ function features_metaboxes( $metaboxes ) {
 				'type'              => 'checkbox',
 				'short_description' => 'Yes',
 			),
+			array(
+				'id'                => 'chatbot',
+				'label'             => 'ChatBot article',
+				'type'              => 'checkbox',
+				'short_description' => 'Yes',
+			),
 		),
 	);
  
@@ -23,7 +29,7 @@ function features_metaboxes( $metaboxes ) {
 add_action(
 	'graphql_register_types',
 	function () {
-		$checkbox_config  = array(
+		$checkbox_config = array(
 			'type'        => 'Boolean',
 			'description' => 'Is Main article',
 			'resolve'     => function ( $post ) {

@@ -3,8 +3,9 @@
 function sidebar_banner( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'bannerTitle' => '',
+			'bannerTitle'    => '',
 			'bannerSubtitle' => '',
+			'chatbotType'    => '',
 		),
 		$atts,
 		'sidebarBanner'
@@ -14,13 +15,29 @@ function sidebar_banner( $atts ) {
 	?>
    <div class="SidebarBanner">
 	<div class="SidebarBanner__inn">
-	  <h4><?= esc_html( ! empty( $atts['bannerTitle'] ) ? $atts['bannerTitle'] : __( 'Experience next-level SEO plugin', 'urlslab' ) ); ?></h4>
-	  <p><?= esc_html( ! empty( $atts['bannerSubtitle'] ) ? $atts['bannerSubtitle'] : __( 'Get started today and download the URLsLab Wordpress plugin', 'urlslab' ) ); ?></p>
-	  <a class="Button Button--full Button--secondary pt-s pb-s" href="https://wordpress.org/plugins/urlslab/" target="_blank"><?php _e( 'Download the plugin', 'urlslab' ); ?></a>
+	  <h4>
+			<?php
+			if ( isset( $atts['chatbotType'] ) ) {
+				echo esc_html( ! empty( $atts['bannerTitle'] ) ? $atts['bannerTitle'] : __( 'Craft an AI Chatbot in minutes', 'urlslab' ) );
+			} else {
+				echo esc_html( ! empty( $atts['bannerTitle'] ) ? $atts['bannerTitle'] : __( 'Unleash the power of AI for your website', 'urlslab' ) );
+			}
+			?>
+		</h4>
+	  <p>
+			<?php
+			if ( isset( $atts['chatbotType'] ) ) {
+				echo esc_html( ! empty( $atts['bannerSubtitle'] ) ? $atts['bannerSubtitle'] : __( 'URLsLab chatbot provides instant answers from multiple sources, and collects data automatically', 'urlslab' ) );
+			} else {
+				echo esc_html( ! empty( $atts['bannerSubtitle'] ) ? $atts['bannerSubtitle'] : __( 'Get started today and download the URLsLab WordPress plugin', 'urlslab' ) );
+			}
+			?>
+		</p>
+	  <a class="Button Button--full pt-s pb-s" href="<?= esc_url( isset( $atts['chatbotType'] ) ? 'https://api.urlslab.com/v1/auth/signin/google' : 'https://wordpress.org/plugins/urlslab/' ); ?>" target="_blank"><?= esc_html( isset( $atts['chatbotType'] ) ? __( 'Download plugin', 'urlslab' ) : __( 'Configure chatbot', 'urlslab' ) ); ?></a>
 	</div>
 	<img
 	  class="SidebarBanner__image"
-	  src="<?= esc_url( get_template_directory_uri() . '/assets/images/urlslab-modules.png' ); ?>"
+	  src="<?= esc_url( get_template_directory_uri() . ( isset( $atts['chatbotType'] ) ? '/assets/images/urlslab-chatbot.png' : '/assets/images/urlslab-modules.png' ) ); ?>"
 	  alt="Experience next-level SEO plugin"
 	/>
   </div>

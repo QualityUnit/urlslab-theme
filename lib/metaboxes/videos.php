@@ -21,6 +21,12 @@ $metabox = array(
 			'type'        => 'text',
 			'editor_args' => array(),
 		),
+		array(
+			'id'                => 'chatbot',
+			'label'             => 'ChatBot article',
+			'type'              => 'checkbox',
+			'short_description' => 'Yes',
+		),
 	),
 );
 
