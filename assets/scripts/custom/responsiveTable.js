@@ -89,8 +89,10 @@ if ( tables.length ) {
 		for ( let i = 0; i <= colspanRows.length; i++ ) {
 			if ( i % 2 === 1 ) {
 				const isOddGroup = colspanRows[ i ]?.closest( 'tr' );
-				isOddGroup?.classList.add( 'oddGroup' );
-				isOddGroup?.nextElementSibling.classList.add( 'oddGroup' );
+				if ( isOddGroup ) {
+					isOddGroup.classList.add( 'oddGroup' );
+					isOddGroup.nextElementSibling.classList.add( 'oddGroup' );
+				}
 			}
 		}
 	} );
