@@ -7,6 +7,10 @@
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 		width: 125%;
+
+		.Post__content--page & {
+			width: 100%;
+		}
 	}
 }
 
@@ -70,6 +74,14 @@ figure.wp-block-table,
 
 			td {
 				padding: calc(0.75em * #{$thFontSize}) calc(1.5em * #{$thFontSize});
+
+				&.hasTooltip {
+
+					> [class*="tooltip"],
+					> [class*="Tooltip"] {
+						margin-left: 0.5em;
+					}
+				}
 
 				&:not([colspan]) {
 					max-width: 20em;
