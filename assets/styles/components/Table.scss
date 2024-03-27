@@ -7,6 +7,10 @@
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 		width: 125%;
+
+		.Post__content--page & {
+			width: 100%;
+		}
 	}
 }
 
