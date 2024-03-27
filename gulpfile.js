@@ -105,6 +105,21 @@ gulp.task( 'styles', () =>
 		.pipe( browserSync.reload( { stream: true } ) )
 );
 
+gulp.task( 'popper-js', () =>
+	gulp
+		.src( [ './assets/scripts/vendor/popper.js' ] )
+		.pipe( gulp.dest( './assets/dist' ) )
+		.pipe(
+			rename( {
+				basename: 'popper',
+				suffix: '.min',
+			} )
+		)
+		.pipe( terser() )
+		.pipe( gulp.dest( './assets/dist/' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
 gulp.task( 'app-js', () =>
 	gulp
 		.src( './assets/scripts/app/**/*.js' )
@@ -178,6 +193,7 @@ gulp.task(
 		'clean-dist',
 		'iconsSprite',
 		'styles',
+		'popper-js',
 		'app-js',
 		'custom-js',
 		'splide-js'
@@ -190,6 +206,7 @@ gulp.task(
 		'clean-dist',
 		'iconsSprite',
 		'styles',
+		'popper-js',
 		'app-js',
 		'custom-js',
 		'splide-js',

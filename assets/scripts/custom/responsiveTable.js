@@ -42,7 +42,7 @@ if ( tables.length ) {
 
 			if ( allCells?.length ) {
 				allCells.forEach( ( cell ) => {
-					const text = cell.textContent;
+					const text = cell.innerHTML;
 
 					if ( hasTooltip.test( text ) ) {
 						const infoIcon = `<svg class="icon icon-info-circle">
