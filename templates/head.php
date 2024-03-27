@@ -13,7 +13,7 @@
 	<meta name="msapplication-TileColor" content="#da532c" />
 	<meta name="theme-color" content="#ffffff" />
 
-	<?php 
+	<?php
 	function add_inline_styles() {
 		ob_start();
 		$css = file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
@@ -26,9 +26,8 @@
 	};
 
 	add_inline_styles();
-	wp_head(); 
+	wp_head();
 	?>
-	<?php wp_head(); ?>
 
 	<?php get_template_part( 'lib/pagesources' ); ?>
 </head>
