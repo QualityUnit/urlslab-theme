@@ -7,7 +7,6 @@ global $post;
 $page_header_args = array(
 	'title' => get_the_title(),
 	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
-	'date'  => true,
 	'toc'   => true,
 );
 while ( have_posts() ) :
