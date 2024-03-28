@@ -96,6 +96,13 @@ no-descending-specificity, scss/no-global-function-names */
 				}
 			}
 
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+
+				.elementor-widget-text-editor {
+					display: none;
+				}
+			}
+
 			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 				width: 25%;
@@ -179,8 +186,12 @@ no-descending-specificity, scss/no-global-function-names */
 			}
 
 			&-price {
+				display: flex;
+				align-items: center;
 				padding-left: 1.5em;
 				height: calc(100% + 2.8em);
+				width: 31.25%;
+				top: -1.4em;
 
 				&::before {
 					display: none;
@@ -190,7 +201,8 @@ no-descending-specificity, scss/no-global-function-names */
 			@media (min-width: $breakpoint-tablet) {
 
 				&-price {
-					top: -1.4em;
+
+					width: 32.5%;
 				}
 			}
 
@@ -198,6 +210,7 @@ no-descending-specificity, scss/no-global-function-names */
 
 				&-price {
 					padding-left: 2.1em;
+					width: 33.33%;
 				}
 			}
 		}
