@@ -14,12 +14,13 @@ no-descending-specificity, scss/no-global-function-names */
 			@media (min-width: $breakpoint-tablet) {
 				display: grid;
 				grid-template-columns: repeat(2, auto);
-				grid-gap: 0;
+				grid-gap: 1em;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
 				position: relative;
 				grid-template-columns: repeat(4, auto);
+				grid-gap: 0;
 				left: 0.75em;
 			}
 		}
@@ -70,8 +71,8 @@ no-descending-specificity, scss/no-global-function-names */
 			display: inline-flex;
 			align-items: center;
 			background-color: $light-grayBg;
-			border-radius: 1em 0.5em 0.5em 1em;
-			padding: 0.25em 1em;
+			border-radius: 1.5em 0.5em 0.5em 1.5em;
+			padding: 0.75em 1em;
 			font-size: 0.875rem;
 			margin-left: auto;
 			margin-top: 0.5em;
@@ -183,6 +184,7 @@ no-descending-specificity, scss/no-global-function-names */
 			b,
 			strong {
 				color: $black;
+				margin-bottom: 0 !important;
 			}
 		}
 

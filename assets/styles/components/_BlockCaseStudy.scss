@@ -12,7 +12,8 @@
 	@media (max-width: $breakpoint-tablet-landscape) {
 
 		&.Block__image.elementor-section .elementor-container {
-			display: block !important;
+			display: flex !important;
+			flex-direction: column;
 		}
 
 		.elementor-column {

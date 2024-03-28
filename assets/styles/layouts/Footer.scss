@@ -159,6 +159,23 @@
 				margin-left: auto;
 			}
 		}
+
+		&__bottom {
+			display: flex;
+
+			&--menu {
+				margin-left: auto;
+
+				.nav {
+					display: flex;
+
+					li {
+						padding: 0 0.5em;
+					}
+				}
+			}
+		}
+
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
@@ -168,8 +185,6 @@
 			flex-wrap: nowrap;
 		}
 
-		&__bottom {
-			display: flex;
-		}
+
 	}
 }
