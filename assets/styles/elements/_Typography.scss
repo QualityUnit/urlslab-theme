@@ -1035,26 +1035,31 @@ picture.Screenshot,
 	align-items: center;
 	background-color: $tag;
 	border-radius: 1em;
-	min-height: 30px;
-	padding: 0.25em 1.25em;
+	padding: 0.5em 1.25em;
 	width: max-content;
 	font-size: $font-size-smaller;
-	line-height: 1.2;
+	line-height: 1;
 
-	&__icon {
-		$icon-size: 1.05em;
+	p {
+		all: unset;
+	}
+
+	&__grey {
+		background-color: $light-gray;
+	}
+
+	&__icon,
+	svg {
+		$icon-size: 1.25em;
 
 		@include square($icon-size);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-right: 0.5em;
 
-		&::before {
+		&:first-child {
+			margin-right: 0.5em;
+		}
 
-			@include square(1em);
-			display: block;
-			font-size: $icon-size;
+		&:last-child {
+			margin-left: 0.5em;
 		}
 	}
 
