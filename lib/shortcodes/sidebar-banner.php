@@ -33,7 +33,7 @@ function sidebar_banner( $atts ) {
 			}
 			?>
 		</p>
-	  <a class="Button Button--full pt-s pb-s" href="<?= esc_url( isset( $atts['chatbotType'] ) ? 'https://api.urlslab.com/v1/auth/signin/google' : 'https://wordpress.org/plugins/urlslab/' ); ?>" target="_blank"><?= esc_html( isset( $atts['chatbotType'] ) ? __( 'Configure chatbot', 'urlslab' ) : __( 'Download plugin', 'urlslab' ) ); ?></a>
+	  <a class="Button Button--full pt-s pb-s" href="<?= esc_url( isset( $atts['chatbotType'] ) ? 'https://api.urlslab.com/v1/auth/signin/google' : '/demo' ); ?>" target="_blank"><?= esc_html( isset( $atts['chatbotType'] ) ? __( 'Try Chatbot now', 'urlslab' ) : __( 'Schedule a demo', 'urlslab' ) ); ?></a>
 	</div>
 	<img
 	  class="SidebarBanner__image"
