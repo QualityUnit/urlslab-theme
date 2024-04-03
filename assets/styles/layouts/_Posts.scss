@@ -170,6 +170,7 @@ no-descending-specificity */
 					position: relative;
 					margin-top: auto;
 
+					picture,
 					img {
 
 						@include square(100%);
@@ -183,17 +184,25 @@ no-descending-specificity */
 				}
 
 				&--content {
-					padding: 4.25em 3em 4.25em 2em;
+					padding: 1.5em;
 
 					h4 {
 						font-size: 1.75rem;
 					}
 
 					@media (min-width: $breakpoint-tablet) {
-						// margin: -2.5em 0;
+						padding: 4.25em 3em 4.25em 2em;
 						flex: 1 1 calc(100% - 31em);
 					}
 				}
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+
+			&[class] {
+
+				margin-bottom: 1.5em;
 			}
 		}
 	}

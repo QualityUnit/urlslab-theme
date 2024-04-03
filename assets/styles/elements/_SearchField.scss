@@ -10,7 +10,7 @@
 		border-radius: $border-radius-10;
 		border: 1px solid $gray-fields;
 		margin-bottom: 0;
-		max-width: 15.625em;
+
 
 		svg {
 
@@ -21,6 +21,10 @@
 			left: 0.85em;
 			top: 50%;
 			transform: translateY(-50%);
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			max-width: 15.625em;
 		}
 	}
 

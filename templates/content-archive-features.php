@@ -76,7 +76,7 @@ $page_header_args = array(
 					}
 					?>
 					<?= esc_attr( $category ); ?> " data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
-						<a href="<?php the_permalink(); ?>" class="Posts__item--inn flex flex-align-center">
+						<a href="<?php the_permalink(); ?>" class="Posts__item--inn flex-tablet-landscape flex-align-center">
 							<div class="Posts__item--header">
 									<div class="Posts__item--image">
 										<?php

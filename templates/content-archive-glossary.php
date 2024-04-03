@@ -8,6 +8,7 @@ if ( is_tax( 'glossary_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
 endif;
+
 $page_header_args = array(
 	'type'  => 'lvl-1',
 	'image' => array(
@@ -39,9 +40,9 @@ foreach ( $glossaryposts as $glossarypost ) {
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Index">
-		<div class="wrapper flex flex-align-center">
+		<div class="wrapper flex-tablet flex-align-center">
 			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?> 
-			<ul class="ml-s Index__top">
+			<ul class="Index__top">
 				<?php foreach ( $index as $index_item ) { ?>
 					<li class="Index__top--item"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
 				<?php } ?>

@@ -8,7 +8,7 @@
 	&-wrapper {
 
 		display: flex !important;
-		flex-flow: column;
+		flex-flow: wrap row;
 		justify-content: center;
 		align-items: center;
 		border-radius: $border-radius-16;
@@ -17,8 +17,6 @@
 
 			background-color: $lightest-gray;
 			margin: 0 auto 3.5em;
-			flex-flow: wrap row;
-
 		}
 
 		@media (min-width: $breakpoint-desktop) {

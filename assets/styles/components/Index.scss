@@ -7,7 +7,7 @@
 	background-color: $lightest-gray;
 
 	.wrapper {
-		padding: 0.5em 0;
+		padding: 0.5em;
 	}
 
 	&__top {
@@ -23,6 +23,10 @@
 				color: $level-2;
 				text-decoration: none;
 			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-left: 0.5em;
 		}
 	}
 

@@ -1,6 +1,11 @@
 <?php
 
 function ms_signup_sidebar( $atts ) {
+	// include resources
+	if ( ! is_mobile() ) {
+		set_source( false, 'components/SignupSidebar', 'css' );
+	}
+	
 	$atts = shortcode_atts(
 		array(
 			'title'    => __( 'Try it for', 'ms' ),

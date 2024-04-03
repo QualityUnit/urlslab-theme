@@ -20,7 +20,11 @@ no-descending-specificity, scss/no-global-function-names */
 		height: 0;
 		background-color: $lightest-gray;
 		border-radius: $border-radius-16;
-		padding-bottom: 30%;
+		padding-bottom: 100%;
+
+		@media (min-width: $breakpoint-desktop) {
+			padding-bottom: 30%;
+		}
 	}
 
 	.wrapper {
@@ -73,6 +77,5 @@ no-descending-specificity, scss/no-global-function-names */
 				}
 			}
 		}
-
 	}
 }
