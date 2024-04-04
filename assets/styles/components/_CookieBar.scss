@@ -1,0 +1,147 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../common/animations" as *;
+
+
+.Medovnicky { // Naming as Slovak “gingerbread“ due to adblocks
+
+	@include shakeX(2em);
+	position: fixed;
+	left: 25px;
+	z-index: 9999999;
+	bottom: -225px;
+	flex-flow: wrap row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 400px;
+	max-width: 100%;
+	height: auto;
+	overflow: hidden;
+	background-color: $black;
+	border-radius: $border-radius-16;
+	color: $white;
+	transition: bottom 0.5s;
+
+	&.shakeX {
+		animation: shakeX 0.75s;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 25px;
+	}
+
+	p {
+
+		color: inherit;
+		font-size: 0.875;
+		line-height: 1.857;
+		margin-bottom: 0;
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				color: $primary;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&__buttons[class] {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-end;
+		margin-top: 1.5em;
+		width: 100%;
+
+		.Button--full[class] {
+
+			color: $black !important;
+			background-color: $white;
+			transition: all 0.75s;
+
+			&::before,
+			&::after {
+				opacity: 0;
+			}
+
+			&:hover {
+
+				color: $white !important;
+				background: transparent;
+
+				&::before,
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__button {
+
+		&--more[class] {
+
+			color: $white !important;
+			border-color: transparent !important;
+			padding: 0;
+			font-weight: $font-weight-normal;
+			text-decoration: underline;
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				color: $primary;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&.show {
+		bottom: 25px;
+	}
+
+	&.hide {
+		bottom: -235px;
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		left: 0;
+		width: 100%;
+		z-index: 10000000;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+
+		p {
+			font-size: $font-size-smaller;
+			line-height: $line-height-smaller;
+		}
+
+		.wrapper {
+			padding: 1.875em;
+		}
+
+		&__buttons[class] {
+			justify-content: center;
+		}
+
+		&.show {
+			bottom: 0;
+		}
+
+		&.hide {
+			bottom: -225px;
+		}
+	}
+}

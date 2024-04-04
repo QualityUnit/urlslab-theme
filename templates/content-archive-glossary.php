@@ -1,5 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 set_custom_source( 'layouts/Archive' );
+set_custom_source( 'components/Index' );
 require_once get_template_directory() . '/lib/components/searchfield.php';
 $index             = array();
 $page_header_title = __( 'SEO Glossary', 'urlslab' );

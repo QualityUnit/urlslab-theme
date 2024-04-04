@@ -63,3 +63,18 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 </footer>
 
 <?php } ?>
+
+<div class="Medovnicky urlslab-skip-all">
+	<div class="wrapper">
+		<p><?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'urlslab' ); ?> <a href="<?php _e( '/privacy-policy/', 'urlslab' ); ?>"><?php _e( 'privacy and cookies policy', 'ms' ); ?></a><?php _e( '.', 'urlslab' ); ?></p>
+
+		<div class="Medovnicky__buttons">
+			<a href="#" class="Medovnicky__button Medovnicky__button--no Medovnicky__button--more Button Button--outline">
+				<span><?php _e( 'Decline', 'urlslab' ); ?></span>
+			</a>
+			<a href="#" class="Medovnicky__button Medovnicky__button--yes Button Button--full">
+				<span><?php _e( 'Accept', 'urlslab' ); ?></span>
+			</a>
+		</div>
+	</div>
+</div>

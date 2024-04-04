@@ -18,7 +18,7 @@ function inline_compact_header() {
 };
 inline_compact_header();
 ?>
-<?php set_custom_source( 'components/Index' ); ?>
+
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'sortingMenu', 'js' ); ?>
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
