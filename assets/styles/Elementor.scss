@@ -23,9 +23,11 @@
 @forward "elements/Box";
 @forward "elements/BoxShadow";
 
-/* Header */
+/* Components */
 @forward "vendor/elementor-cherrypicks";
 @forward "vendor/elementor-typography";
+@forward "components/CookieBar";
+@forward "components/ContactUs";
 @forward "components/HeroBanner";
 @forward "components/BlockBasic";
 @forward "components/BlockBoxes";
