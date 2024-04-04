@@ -16,7 +16,7 @@
 		margin: 0.5em 0 1.5em;
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 		padding: 2em 2em 0;
 
 		.elementor-container {
@@ -24,21 +24,24 @@
 			flex-direction: column;
 		}
 
+
 		.elementor-column {
 			text-align: center;
 
-			&:last-child {
-				width: 75%;
-				margin: 2em auto 0;
+			&:has(picture, img):not(:has(.elementor-heading-title)) {
+				width: 65%;
+				margin: 0 auto;
+				order: -1;
+			}
+
+			&:has(.elementor-heading-title) {
+				margin: 2em auto;
 			}
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet) {
-		margin-top: 14em;
-	}
-
 	@media (min-width: $breakpoint-tablet-landscape) {
+		margin-top: 14em;
 
 		h2 {
 			font-size: $font-size-h1;

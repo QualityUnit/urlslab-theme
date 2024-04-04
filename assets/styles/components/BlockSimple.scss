@@ -11,6 +11,13 @@
 			margin-bottom: 0.5em;
 		}
 
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+			&:has(picture, img):not(:has(.elementor-heading-title)) {
+				margin-bottom: 1.5em;
+			}
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
 
 			width: 45%;

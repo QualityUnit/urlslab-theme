@@ -8,8 +8,21 @@ no-descending-specificity, scss/no-global-function-names */
 
 	&__programs {
 		margin: 2em 0 1.5em;
+		font-size: 0.875em;
 
 		.elementor-container {
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+
+				.checklist.elementor-widget-text-editor ul:not([class]) li {
+					font-size: 1em;
+					line-height: 1.1;
+
+					&::before {
+						top: 0;
+					}
+				}
+			}
 
 			@media (min-width: $breakpoint-tablet) {
 				display: grid;
@@ -131,6 +144,10 @@ no-descending-specificity, scss/no-global-function-names */
 
 			* {
 				line-height: inherit !important;
+			}
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				margin: 0.5em 0;
 			}
 		}
 

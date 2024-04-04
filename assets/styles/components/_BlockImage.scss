@@ -64,7 +64,21 @@
 
 	}
 
-	@media (max-width: $breakpoint-tablet) {
+	@media (max-width: ($breakpoint-tablet - 1px )) {
+
+		.elementor-container {
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		.elementor-column {
+			text-align: center;
+
+			&:has(picture, img):not(:has(.elementor-heading-title)) {
+				order: -1;
+			}
+		}
 
 		&--right {
 

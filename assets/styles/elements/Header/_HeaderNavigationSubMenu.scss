@@ -64,7 +64,7 @@
 
 					> .sub-menu {
 
-						&.active {
+						&.active:not(.sub-menu .sub-menu) {
 							height: 93.75em;
 							transition: height 0.5s ease-in-out;
 						}

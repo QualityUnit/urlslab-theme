@@ -134,9 +134,11 @@
 			overflow: visible;
 
 			.Header__buttons {
+				position: relative;
 				display: flex;
 				gap: 1em;
 				margin-left: 0.75em;
+				z-index: 2;
 
 				.Button {
 					height: 3.15em;

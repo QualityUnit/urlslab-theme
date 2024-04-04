@@ -1,7 +1,6 @@
 <?php
 set_source( false, 'pages/post', 'css' );
 set_source( false, 'components/SidebarTOC', 'css' );
-set_source( false, 'components/SignupSidebar', 'css' );
 set_source( false, 'splide', 'js' );
 global $post;
 $page_header_args = array(

@@ -1,4 +1,6 @@
 <?php
+	require_once get_template_directory() . '/lib/functions/detectmobilebrowser.php';
+	require_once get_template_directory() . '/lib/functions/compact-header-toc.php';
 	require_once get_template_directory() . '/lib/functions/compact-header-toc.php';
 	require_once get_template_directory() . '/lib/functions/content-filters-functions.php';
 	require_once get_template_directory() . '/lib/functions/content-filters.php';

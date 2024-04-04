@@ -36,10 +36,13 @@
 	&__title,
 	&--title {
 
-		h1.elementor-heading-title {
-			font-size: $font-size-h1;
-			font-family: $font-primary;
-			line-height: 1.15;
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			h1.elementor-heading-title {
+				font-size: $font-size-h1;
+				font-family: $font-primary;
+				line-height: 1.15;
+			}
 		}
 	}
 
@@ -49,6 +52,10 @@
 		&.elementor-column[class]:last-of-type {
 			padding-left: 0;
 			position: relative;
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				display: none !important;
+			}
 		}
 	}
 
@@ -67,6 +74,14 @@
 		}
 	}
 
+	@media (max-width: ($breakpoint-tablet - 1px)) {
+
+		&__subtitle,
+		&--subtitle {
+			padding: 0 1em;
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.elementor-col-50 {
@@ -77,6 +92,16 @@
 }
 
 .elementor > section.Block__image:first-of-type {
+
+	@media (max-width: ($breakpoint-tablet - 1px)) {
+
+		.elementor-col-50[class] {
+
+			&:last-of-type {
+				display: none !important;
+			}
+		}
+	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 
