@@ -165,7 +165,6 @@ no-descending-specificity, scss/no-global-function-names */
 	&--header[class] {
 
 		.elementor-price-list {
-			font-family: $font-secondary;
 			border: 1px solid $light-gray;
 			border-bottom: none;
 			border-radius: $border-radius-16 $border-radius-16 0 0;
@@ -180,7 +179,6 @@ no-descending-specificity, scss/no-global-function-names */
 
 			&-title,
 			&-price {
-				font-family: $font-primary;
 				font-size: 1.25rem;
 				font-weight: 700;
 			}
@@ -266,7 +264,6 @@ no-descending-specificity, scss/no-global-function-names */
 
 
 	.elementor-price-list {
-		font-family: $font-secondary;
 		border: 1px solid $light-gray;
 
 		&-item {
