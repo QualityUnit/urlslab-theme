@@ -39,7 +39,6 @@ no-descending-specificity, value-keyword-case */
 			text-align: center;
 			font-size: 1.5rem;
 			line-height: 1.5;
-			font-family: $font-secondary;
 			font-weight: $font-weight-semi;
 			margin-bottom: 1em;
 
@@ -130,7 +129,6 @@ no-descending-specificity, value-keyword-case */
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
-			font-family: $font-secondary;
 			font-size: 0.75rem;
 			margin-bottom: 2.5em;
 
@@ -144,7 +142,6 @@ no-descending-specificity, value-keyword-case */
 					color: $black;
 					display: inline-block;
 					font-size: 0.75rem;
-					font-family: $font-secondary;
 					font-weight: $font-weight-semi;
 					border-radius: 1.5em;
 					padding: 0.25em 1.16em;
@@ -185,7 +182,6 @@ no-descending-specificity, value-keyword-case */
 			.learn-more {
 				display: flex;
 				align-items: center;
-				font-family: $font-secondary;
 				margin-top: 1.5em;
 
 				svg {

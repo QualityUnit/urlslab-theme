@@ -23,7 +23,6 @@ h5,
 h6,
 .h6[class] {
 
-	font-family: $font-primary;
 	font-weight: $font-weight-bold;
 	position: relative;
 	z-index: 1;
@@ -96,7 +95,6 @@ b {
 	display: flex;
 	align-items: center;
 	font-size: $font-size-small;
-	font-family: $font-secondary;
 
 	li {
 		display: inline-block;
@@ -145,11 +143,6 @@ a {
 }
 
 p {
-	font-family: $font-secondary;
-
-	.elementor-widget-text-editor & {
-		font-family: $font-secondary;
-	}
 
 	small {
 		color: $level-2;
