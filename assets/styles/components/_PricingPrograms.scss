@@ -91,6 +91,10 @@ no-descending-specificity, scss/no-global-function-names */
 			margin-top: 0.5em;
 			right: -0.25em;
 
+			p {
+				margin-bottom: 0;
+			}
+
 			&.most__popular {
 				font-weight: 600;
 				background-color: $tag;
@@ -141,6 +145,7 @@ no-descending-specificity, scss/no-global-function-names */
 			font-weight: 600;
 			line-height: 1;
 			color: $black;
+			text-decoration: none;
 
 			* {
 				line-height: inherit !important;
