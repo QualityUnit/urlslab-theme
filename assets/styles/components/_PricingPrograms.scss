@@ -194,6 +194,12 @@ no-descending-specificity, scss/no-global-function-names */
 
 	&__checklist {
 
+		&--logo {
+
+			@include square(1.5rem);
+			margin-right: 0.5em;
+		}
+
 		p {
 
 			&:has(~ul) {
@@ -215,8 +221,6 @@ no-descending-specificity, scss/no-global-function-names */
 			text-decoration: underline;
 		}
 
-		&--logo {
-			margin-right: 0.5em;
-		}
+
 	}
 }

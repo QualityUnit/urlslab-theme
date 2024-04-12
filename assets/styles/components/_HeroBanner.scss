@@ -16,6 +16,7 @@
 
 	&:last-of-type {
 		flex-basis: 57%;
+		min-height: 34em;
 
 		picture,
 		img {
@@ -81,9 +82,20 @@
 		}
 	}
 
+	@media (min-width: $breakpoint-tablet) {
+
+		.elementor-col-50:first-of-type {
+			padding-left: 1.5em;
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.elementor-col-50 {
+
+			&:first-of-type {
+				padding-left: 0;
+			}
 
 			@include elementor-col-50;
 		}
@@ -102,9 +114,20 @@
 		}
 	}
 
+	@media (min-width: $breakpoint-tablet) {
+
+		.elementor-col-50:first-of-type {
+			padding-left: 1.5em;
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.elementor-col-50 {
+
+			&:first-of-type {
+				padding-left: 0;
+			}
 
 			@include elementor-col-50;
 		}
