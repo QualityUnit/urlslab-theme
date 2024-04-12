@@ -45,7 +45,7 @@ foreach ( $glossaryposts as $glossarypost ) {
 			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?> 
 			<ul class="Index__top">
 				<?php foreach ( $index as $index_item ) { ?>
-					<li class="Index__top--item"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
+					<li class="Index__top--item"  style="display: inline-block"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
 				<?php } ?>
 			</ul>
 		</div>
@@ -66,7 +66,7 @@ foreach ( $glossaryposts as $glossarypost ) {
 
 				if ( $first_character === $index_item ) {
 					?>
-				<li class="Index__list--item" itemscope="" itemtype="https://schema.org/DefinedTerm"><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span itemprop="name" data-search><?= esc_html( $posttitle ); ?></span></a></li>
+				<li class="Index__list--item" style="display: inline-block" itemscope="" itemtype="https://schema.org/DefinedTerm"><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span itemprop="name" data-search><?= esc_html( $posttitle ); ?></span></a></li>
 					<?php 
 				} 
 			} 

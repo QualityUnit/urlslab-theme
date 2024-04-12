@@ -112,6 +112,34 @@ hr {
 	display: none !important;
 }
 
+.display {
+	$display: "none", "block", "inline-block", "inline-flex";
+
+	@each $displayas in $display {
+		&-#{$displayas} {
+			display: $displayas;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		@each $displayas in $display {
+			&-tablet-#{$displayas} {
+				display: $displayas;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		@each $displayas in $display {
+			&-tablet-landscape-#{$displayas} {
+				display: $displayas;
+			}
+		}
+	}
+}
+
 .flex {
 	display: flex;
 

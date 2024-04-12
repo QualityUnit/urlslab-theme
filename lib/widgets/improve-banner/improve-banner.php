@@ -21,7 +21,7 @@ function improvebanner_block_init() {
 			'url' => $path_uri . 'images',
 		);
 
-		$version  = THEME_VERSION;
+		$version = THEME_VERSION;
 
 		wp_enqueue_script(
 			'qu_improvebanner_block_editor_script',
@@ -87,17 +87,17 @@ function improvebanner_block_init() {
 			'qu_improvebanner_editor_script' => 'qu_improvebanner_block_editor_script',
 			'qu_improvebanner_editor_style'  => 'qu_improvebanner_block_editor_style',
 			'qu_improvebanner_style'         => 'qu_improvebanner_block_frontend_style',
-			'render_callback'             => 'render_improvebanner',
-			'attributes'                  => array(
-				'title'         => array(
+			'render_callback'                => 'render_improvebanner',
+			'attributes'                     => array(
+				'title'   => array(
 					'type'    => 'string',
 					'default' => 'Improve your website',
 				),
-				'content'        => array(
+				'content' => array(
 					'type'    => 'string',
 					'default' => 'Get started today and download the URLsLab WordPress plugin',
 				),
-				'button'        => array(
+				'button'  => array(
 					'type'    => 'string',
 					'default' => 'Get the WordPress plugin',
 				),

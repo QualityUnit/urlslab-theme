@@ -166,6 +166,14 @@ no-descending-specificity */
 					position: relative;
 					margin-top: auto;
 
+					@media (min-width: $breakpoint-tablet) {
+						flex: 1 0 31em;
+					}
+				}
+
+				&--image {
+					display: none;
+
 					picture,
 					img {
 
@@ -175,7 +183,7 @@ no-descending-specificity */
 					}
 
 					@media (min-width: $breakpoint-tablet) {
-						flex: 1 0 31em;
+						display: block;
 					}
 				}
 

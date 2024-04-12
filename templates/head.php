@@ -14,6 +14,7 @@
 	<meta name="theme-color" content="#ffffff" />
 
 	<?php
+	global $css;
 	function add_inline_styles() {
 		ob_start();
 		$css = file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
