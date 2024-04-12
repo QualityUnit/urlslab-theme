@@ -60,6 +60,10 @@ no-descending-specificity, scss/no-global-function-names */
 				margin-bottom: 1em;
 			}
 
+			.elementor-button-link {
+				text-decoration: none;
+			}
+
 			&:not(.fake) {
 				border: 1px solid $light-gray;
 				border-bottom: none;
@@ -223,6 +227,7 @@ no-descending-specificity, scss/no-global-function-names */
 			border-bottom: none;
 			border-radius: 0;
 			padding: 0;
+			margin-bottom: 0;
 
 			&-item {
 				padding: 0.25em 1.5em;
@@ -244,6 +249,7 @@ no-descending-specificity, scss/no-global-function-names */
 	.elementor-widget-price-list {
 
 		.elementor-price-list-price {
+			margin-bottom: 0;
 
 			span.has-note {
 				color: $level-2;
@@ -264,6 +270,7 @@ no-descending-specificity, scss/no-global-function-names */
 
 
 	.elementor-price-list {
+		margin-bottom: 0;
 		border: 1px solid $light-gray;
 
 		&-item {
@@ -289,7 +296,7 @@ no-descending-specificity, scss/no-global-function-names */
 			right: 0;
 			padding-left: 1.5em;
 			width: 33.33%;
-			height: calc(100% + 1.5em);
+			height: calc(100% + 2.5em);
 			border-left: 1px solid $light-gray;
 
 			&::before {
