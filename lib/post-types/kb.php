@@ -18,7 +18,7 @@ add_action(
 		$args    = array(
 			'label'               => __( 'Knowledge Base', 'urlslab' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes' ),
+			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes', 'author' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,

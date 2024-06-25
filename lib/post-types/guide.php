@@ -18,7 +18,7 @@ add_action(
 		$args    = array(
 			'label'               => __( 'Guide', 'urlslab' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'revisions' ),
+			'supports'            => array( 'title', 'editor', 'revisions', 'author' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,
