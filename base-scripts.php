@@ -31,7 +31,6 @@
 			}, 5000 );
 		}
 
-		gtmWithCookie();
 		postAffiliate();
 	});
 
@@ -75,17 +74,13 @@
 </script>
 
 <!-- Google Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9YVRYTEN5H"></script>
 <script>
-	function gtmWithCookie() {
-		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-T2XN5C2');
-	}
-	if ( getCookieFrontend( "cookieLaw" ) ) {
-		gtmWithCookie()
-	}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9YVRYTEN5H');
 </script>
 <!-- End Google Tag Manager -->
 
@@ -94,7 +89,7 @@
 	function loadChatBot( { chatbotId, chatbotUserId, btnTarget } ) {
 		const chatBotButton = document.querySelector( btnTarget );
 		chatBotButton.classList.remove('hidden');
-			
+
 		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
 		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
 		function(e){
