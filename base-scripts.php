@@ -31,8 +31,23 @@
 			}, 5000 );
 		}
 
+		consentGranted();
+		grafana();
 		postAffiliate();
 	});
+
+	if ( trialButton !== null ) {
+		trialButton.addEventListener( "click", () => {
+			if ( ! getCookieFrontend( "cookieLaw" ) ) {
+				setCookie( 'cookieLaw', 'yes', 14 );
+				document.querySelector( '.Medovnicky' ).classList.add( 'hide' );
+
+				consentGranted();
+				grafana();
+				postAffiliate();
+			}
+		});
+	}
 
 </script>
 
@@ -73,35 +88,110 @@
 	}
 </script>
 
+<!-- Grafana -->
+<script>
+	function grafana(cookie = true) {
+		var _paq = window._paq || [];
+		window._paq = _paq;
+
+		if (cookie === false) {
+			_paq.push(["disableCookies"]);
+		}
+
+		// _paq.push(['enableLinkTracking']);
+		_paq.push(['trackPageView']);
+		_paq.push(['enableCrossDomainLinking']);
+		(function() {
+			_paq.push(['setSiteId', 'URLsLab-web']);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src='//analytics.qualityunit.com/i.js'; s.parentNode.insertBefore(g,s);
+		})();
+	}
+
+	if ( ! mobile.matches ) {
+		if ( getCookieFrontend( "cookieLaw" ) ) {
+			grafana()
+		} else {
+			grafana(false)
+		}
+	}
+
+	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		grafana()
+	}
+</script>
+
 <!-- Google Tag Manager -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9YVRYTEN5H"></script>
+<script>
+	function loadGoogle() {
+		const body  = document.body;
+		const gtag1 = document.createElement('script');
+		gtag1.async = true;
+		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=G-9YVRYTEN5H";
+
+		body.insertAdjacentElement('beforeend', gtag1);
+	}
+
+	if ( ! mobile.matches ) {
+		loadGoogle()
+	}
+
+	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		loadGoogle()
+	}
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-9YVRYTEN5H');
+	gtag('consent', 'default', {
+		'ad_user_data': 'granted',
+		'analytics_storage': 'granted'
+	})
+
+	gtag('consent', 'default', {
+		'ad_user_data': 'denied',
+		'analytics_storage': 'denied',
+		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
+	})
+
+  gtag('config', 'G-9YVRYTEN5H'{
+		'allow_enhanced_conversions': true,
+		'linker': {
+			'domains': [
+				'urlslab.com',
+				'support.liveagent.com',
+				'ladesk.com'
+			]
+		}
+	});
+
+	function consentGranted() {
+		gtag('consent', 'update', {
+			'ad_user_data': 'granted',
+			'analytics_storage': 'granted'
+		})
+	}
 </script>
 <!-- End Google Tag Manager -->
 
 <!-- Chat Button Loader -->
 <script>
-	function loadChatBot( { chatbotId, chatbotUserId, btnTarget } ) {
+	function loadChatBot( { chatbotId, workspaceId, btnTarget } ) {
 		const chatBotButton = document.querySelector( btnTarget );
 		chatBotButton.classList.remove('hidden');
 
-		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
+		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://app.flowhunt.io/fh-chat-widget.js?v=1.0.20',
 		function(e){
-			const chatbotManager = UrlslabChatbot.initChatbot({
+			const chatbotManager = FHChatbot.initChatbot({
 				showChatButton: false, // important to not show chat button on page load
 				chatbotId: chatbotId,
-				chatbotUserId: chatbotUserId,
+				workspaceId: workspaceId,
 				welcomeMessage: 'Hi, I\'m URLsLab Bot. How can I help you?',
 				inputPlaceholder: 'Ask me any question...',
-				suggestedUserMessages: [],
-				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-				maxWindowWidth: '500px',
+				urlSuffix: '#utm_source=flowhunt',
+				maxWindowWidth: '700px',
 			});
 			chatBotButton.addEventListener('click', () => {
 				chatbotManager.openChat();
@@ -120,8 +210,8 @@ if (
 		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
 	</button>
 
-	<script type="text/javascript" id="urlslab-chatbot-script">
-	const chatBtnOptions = {btnTarget: '#chatBotOnly', chatbotId: '3ebb1d2f-a75c-4df5-9a51-83cc1551557d', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMTEzNzg1MDQzOTkwMjg3MjAwMTVAQEAzZWJiMWQyZi1hNzVjLTRkZjUtOWE1MS04M2NjMTU1MTU1N2Q='};
+	<script type="text/javascript" id="fh-chatbot-script">
+	const chatBtnOptions = {btnTarget: '#chatBotOnly', chatbotId: 'd47cb0c6-0e5c-4908-9060-f52a02de130b', workspaceId: '4c00539b-075e-48d7-b4e0-3c4450e146a4'};
 		acceptButton.addEventListener( "click", () => {
 			loadChatBot(chatBtnOptions);
 		});
