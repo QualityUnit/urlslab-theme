@@ -23,10 +23,6 @@
 					);
 				endif;
 				?>
-				<div class="Header__buttons">
-					<a class="Button Button--secondary" href="/demo" target="_blank"><span><?php _e( 'Demo', 'urlslab' ); ?></span></a>
-					<a href="https://api.urlslab.com/v1/auth/signin/google" id="loginBtn" class="Button Button--login Button--outline"><span><?php _e( 'Login', 'urlslab' ); ?></span></a>
-				</div>
 			</nav>
 		</div>
 		<div class="Header__mobile__menu__overlay"></div>

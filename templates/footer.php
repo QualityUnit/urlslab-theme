@@ -6,13 +6,6 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 
 <footer class="Footer urlslab-skip-all">
   <div class="wrapper">
-	<div class="Footer__newsletter">
-	  <div class="Footer__newsletter--text">
-		<h4>Join our newsletter</h4>
-		<p class="small no-margin">Get exclusive access to the latest tips, trends and deals for free.</p>
-	  </div>
-	  <?php require_once get_template_directory() . '/templates/newsletter-form.php'; ?>
-	</div>
 	<div class="Footer__main">
 	  <div class="Footer__main--intro">
 		<div class="Logo">
@@ -21,7 +14,6 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 		  </a>
 		</div>
 		<p class="small Footer__motto">Start improving all important aspects of your website</p>
-		<a class="Button Button--full noIcon" href="https://wordpress.org/plugins/urlslab/" target="_blank"><span>Get the WordPress plugin</span></a>
 		<!-- <div class="Footer__social">
 		  <a href="" class="Footer__social--item">
 			<FacebookIcon />

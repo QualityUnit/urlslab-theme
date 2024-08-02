@@ -21,15 +21,6 @@ export default function ImproveBanner( { attributes, setAttributes } ) {
 						onChange={ ( value ) => setAttributes( { content: value } ) }
 					/>
 				</p>
-
-				<a href="https://wordpress.org/plugins/urlslab/" target="_blank" className="Button Button--full" rel="noreferrer">
-					<TextareaControl
-						value={ button }
-						rows="1"
-						onFocus={ ( e ) => e.currentTarget.select() }
-						onChange={ ( value ) => setAttributes( { button: value } ) }
-					/>
-				</a>
 			</div>
 
 			<img
