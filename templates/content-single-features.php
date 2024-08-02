@@ -59,6 +59,6 @@ if ( $categories && $categories_url ) {
 				</div>
 			</div>
 		</div>
-		<?php echo do_shortcode( '[sidebarBanner chatbotType="' . get_post_meta( get_the_ID(), 'chatbot', true ) . '"]' ); ?>
+		<?php // echo do_shortcode( '[sidebarBanner chatbotType="' . get_post_meta( get_the_ID(), 'chatbot', true ) . '"]' ); ?>
 	</div>
 </div>

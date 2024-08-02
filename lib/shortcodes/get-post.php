@@ -41,9 +41,9 @@ function getpost( $atts ) {
 		</div>
 			<?php } ?>
 	  <div class="Content Post__content" itemProp="articleBody">
-		<?= $content; // @codingStandardsIgnoreLine ?> 
+		<?= $content; // @codingStandardsIgnoreLine ?>
 	  </div>
-	  <?php echo do_shortcode( '[sidebarBanner bannerTitle="' . $atts['bannerTitle'] . '" bannerSubtitle="' . $atts['bannerSubtitle'] . '"]' ); ?>
+	  <?php // echo do_shortcode( '[sidebarBanner bannerTitle="' . $atts['bannerTitle'] . '" bannerSubtitle="' . $atts['bannerSubtitle'] . '"]' ); ?>
 	</div>
   </div>
 
