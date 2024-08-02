@@ -70,10 +70,6 @@ if ( $categories && $categories_url ) {
 
 				<div class="Post__buttons" style="margin-top: 2em;">
 					<a href="<?php _e( '/videos/', 'urlslab' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Videos', 'urlslab' ); ?></span></a>
-
-					<a href="<?php _e( '/trial/', 'urlslab' ); ?>" class="Button Button--full">
-						<span><?php _e( 'Create account for FREE', 'urlslab' ); ?></span>
-					</a>
 				</div>
 
 				<div class="Post__content__resources">

@@ -31,10 +31,6 @@ $page_header_args = array(
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/glossary/', 'urlslab' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Glossary', 'urlslab' ); ?></span></a>
-
-					<a href="<?php _e( '/trial/', 'urlslab' ); ?>" class="Button Button--full">
-						<span><?php _e( 'Create account for FREE', 'urlslab' ); ?></span>
-					</a>
 				</div>
 
 				<div class="Post__content__resources">
