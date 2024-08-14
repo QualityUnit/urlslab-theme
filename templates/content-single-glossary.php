@@ -33,13 +33,7 @@ $page_header_args = array(
 					<a href="<?php _e( '/glossary/', 'urlslab' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Glossary', 'urlslab' ); ?></span></a>
 				</div>
 
-				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-					</div>
-				</div>
+				<?php urlslab_display_related_resources(); ?>
 
 			</div>
 		</div>
