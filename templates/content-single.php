@@ -124,13 +124,7 @@ if ( isset( $categories ) ) {
 					<?php wp_reset_postdata(); ?>
 				</div>
 
-
-				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-					</div>
-				</div>
+				<?php urlslab_display_related_resources(); ?>
 			</div>
 		</div>
 	</div>
