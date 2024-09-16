@@ -25,7 +25,7 @@
 		"@wordpress/eslint-plugin": "^19",
 		"@wordpress/stylelint-config": "^22",
 		"browser-sync": "^3.0",
-		"concurrently": "^8",
+		"concurrently": "^9",
 		"del": "^6",
 		"eslint": "^8.56",
 		"gulp": "^5",
