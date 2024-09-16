@@ -128,7 +128,7 @@ function buffer_end() {
 
 function remove_default_jquery( $html ) {  // @codingStandardsIgnoreLine
 		wp_dequeue_script( 'jquery' );
-		wp_deregister_script( 'jquery' );   
+		wp_deregister_script( 'jquery' );
 		wp_dequeue_script( 'jquery-ui-core' );
 		wp_deregister_script( 'jquery-ui-core' );
 }
@@ -188,3 +188,16 @@ function defer_parsing_of_js( $url ) {
 	return str_replace( ' src', ' defer src', $url );
 }
 add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+
+
+/**
+	* Deregister polyfills
+	*/
+
+function deregister_polyfill() {
+	if ( ! is_user_logged_in() ) {
+		wp_deregister_script( 'wp-polyfill' );
+		wp_deregister_script( 'regenerator-runtime' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'deregister_polyfill' );
