@@ -233,22 +233,20 @@ inline_compact_header();
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 								</svg>
 							</a>
-							<div class=" compact-header__filters-wrap 
-							<?php 
+							<div class=" compact-header__filters-wrap
+							<?php
 							if ( isset( $filter_count ) ) {
 								?>
 								 compact-header__filters-wrap--count<?php } ?>">
 								<span class="compact-header__filters-collapse js-compact-header__close"></span>
 								<div class="compact-header__filters-inn">
 									<?php if ( isset( $filter_search ) ) { ?>
-										<form role="search" action="<?= site_url( '/' ); //@codingStandardsIgnoreLine ?>"
-											method="get" id="searchform" class="compact-header__search">
+										<form role="search" method="get" id="searchform" class="compact-header__search">
 											<div class="searchField">
 												<svg class="searchField__icon icon-search">
 													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ); ?>"></use>
 												</svg>
 												<input type="search" name="s" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
-												<input type="hidden" name="post_type" value="<?= esc_attr( $search_type ); ?>" />
 												<span class="search-reset">
 										<svg class="search-reset__icon icon-close">
 											<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
