@@ -40,6 +40,7 @@
 		const searchReset = query( "input[type='search']+.search-reset" );
 		const searchResetActive = 'search-reset--active';
 		const { hash } = window.location;
+		let nohash = null;
 		const activeFilter = {
 			collections: '',
 			plan: '',
@@ -85,13 +86,16 @@
 				if ( filterItem.matches( ':checked' ) ) {
 					const val = filterItem.value;
 					const name = filterItem.getAttribute( 'name' );
+					const noHistory = filterItem.dataset.nohistory;
 
-					if ( name === 'category' ) {
+					if ( name === 'category' && ! noHistory ) {
 						window.history.pushState( {}, '', `#${ val }` );
-						if ( val.length === 0 ) {
+						if ( val.length === 0 || val === 'all' ) {
 							window.history.pushState( {}, '', ' ' );
 						}
 					}
+
+					nohash = val;
 
 					activeFilter[ name ] = val;
 				}
@@ -148,7 +152,7 @@
 						listItem.style.display === 'none' &&
 						listItem.classList.contains( 'pillar' )
 					) {
-						listItem.style.display = 'flex';
+						listItem.style.display = 'block';
 					}
 
 					if (
@@ -173,8 +177,8 @@
 		} );
 
 		// URL filter
-		if ( hash.length ) {
-			const filteredHash = hash.replace( '#', '' );
+		if ( hash.length || nohash ) {
+			const filteredHash = nohash || hash.replace( '#', '' );
 
 			listItems.forEach( ( element ) => {
 				const listItem = element;
@@ -200,45 +204,77 @@
 		}
 
 		// Search
-		search.addEventListener( 'keyup', () => {
-			const val = search.value.toLowerCase();
+		if ( search ) {
+			search.addEventListener( 'keyup', () => {
+				const val = search.value.toLowerCase();
 
-			listItems.forEach( ( element ) => {
-				const listItem = element;
-				const title = listItem
-					.querySelector( '[data-title]' )
-					?.textContent?.toLowerCase();
-				const excerpt = listItem
-					.querySelector( '[data-excerpt]' )
-					?.textContent?.toLowerCase();
+				listItems.forEach( ( element ) => {
+					const listItem = element;
+					const title = listItem
+						.querySelector( '[data-title]' )
+						?.textContent?.toLowerCase();
+					const excerpt = listItem
+						.querySelector( '[data-excerpt]' )
+						?.textContent?.toLowerCase();
 
-				if (
-					listItem.style.display === 'none' &&
-					! listItem.classList?.contains( 'pillar' )
-				) {
-					listItem.style.display = 'block';
-				}
+					if (
+						listItem.style.display === 'none' &&
+						! listItem.classList?.contains( 'pillar' )
+					) {
+						listItem.style.display = 'block';
+					}
 
-				if (
-					listItem.style.display === 'none' &&
-					listItem.classList?.contains( 'pillar' )
-				) {
-					listItem.style.display = 'flex';
-				}
+					if (
+						listItem.style.display === 'none' &&
+						listItem.classList?.contains( 'pillar' )
+					) {
+						listItem.style.display = 'block';
+					}
 
-				if ( ! title?.includes( val ) && ! excerpt?.includes( val ) ) {
-					listItem.style.display = 'none';
-				}
+					if ( ! title?.includes( val ) && ! excerpt?.includes( val ) ) {
+						listItem.style.display = 'none';
+					}
 
-				recountVisible();
+					recountVisible();
+				} );
 			} );
-		} );
 
-		searchReset.addEventListener( 'click', () => {
-			search.value = '';
-			resultsReset();
-			recountVisible();
-		} );
+			// Keydown to prevent form submission on Enter key
+			search.addEventListener( 'keydown', ( event ) => {
+				if ( event.key === 'Enter' ) {
+					event.preventDefault(); // Prevent form submission
+				}
+			} );
+
+			if ( searchReset ) {
+				searchReset.addEventListener( 'click', () => {
+					search.value = '';
+					resultsReset();
+					recountVisible();
+				} );
+			}
+
+			search.addEventListener( 'keyup', () => {
+				if (
+					list.querySelectorAll( "li[style*='display: none']" ).length ===
+					countItems
+				) {
+					list.classList.add( 'empty' );
+				} else {
+					list.classList.remove( 'empty' );
+				}
+			} );
+			search.addEventListener( 'input', () => {
+				if ( search.value === '' ) {
+					resultsReset();
+				} else {
+					if ( searchReset ) {
+						searchReset.classList.add( searchResetActive );
+					}
+					recountVisible();
+				}
+			} );
+		}
 
 		// Empty
 		filterItems.forEach( ( element ) => {
@@ -254,25 +290,6 @@
 					list.classList.remove( 'empty' );
 				}
 			} );
-		} );
-
-		search.addEventListener( 'keyup', () => {
-			if (
-				list.querySelectorAll( "li[style*='display: none']" ).length ===
-				countItems
-			) {
-				list.classList.add( 'empty' );
-			} else {
-				list.classList.remove( 'empty' );
-			}
-		} );
-		search.addEventListener( 'input', () => {
-			if ( search.value === '' ) {
-				resultsReset();
-			} else {
-				searchReset.classList.add( searchResetActive );
-				recountVisible();
-			}
 		} );
 	}
 } )();

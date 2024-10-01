@@ -62,6 +62,20 @@ no-descending-specificity */
 		}
 	}
 
+	&__items {
+
+		&.empty,
+		&:empty {
+
+			&::before {
+				content: "No results found... 😢";
+				display: block;
+				text-align: center;
+				grid-column: 1/4;
+			}
+		}
+	}
+
 	&__item {
 
 		@extend .Box--main;
